@@ -1,0 +1,54 @@
+{
+    "editor.rulers": [
+    80,
+    ],
+    "editor.fontFamily": "hasklig, Source Code Pro, 'Courier New', monospace",
+    "editor.find.cursorMoveOnType": false,
+    "editor.defaultFormatter": null,
+    "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "python.pythonPath": "c:\\Python39\\python.exe",
+    "python.linting.pylintEnabled": true,
+    "python.linting.flake8Enabled": false,
+    "python.linting.enabled": true,
+    "terminal.integrated.profiles.windows": {
+        "Command Prompt": {
+            "path": "C:\\WINDOWS\\System32\\cmd.exe",
+            "args": []
+        }
+    },
+    "sync.gist": "",
+    "sync.autoDownload": false,
+    "editor.renderWhitespace": "all",
+    "editor.minimap.enabled": false,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "security.workspace.trust.untrustedFiles": "open",
+    "liveServer.settings.donotShowInfoMsg": true,
+    "liveServer.settings.donotVerifyTags": true,
+    "editor.fontLigatures": true,
+    "editor.tabSize": 2,
+    "python.defaultInterpreterPath": "python3",
+    "editor.mouseWheelZoom": true,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "terminal.integrated.tabs.enabled": false,
+    "files.autoSave": "afterDelay",
+    "sync.autoUpload": false,
+    "terminal.integrated.copyOnSelection": true,
+    "terminal.integrated.fontSize": 12,
+    "workbench.activityBar.visible": false,
+    "livePreview.autoRefreshPreview": "On Changes to Saved Files",
+    "workbench.colorTheme": "Gruvbox Dark Hard",
+    "workbench.editor.labelFormat": "short",
+    "explorer.confirmDragAndDrop": false,
+    "vim.hlsearch": true,
+    "editor.lineNumbers": "relative",
+    "vim.vimrc.enable": true,
+    "git.path": "/usr/bin/git",
+    "window.zoomLevel": 1,
+    "gitlens.hovers.currentLine.over": "line"
+}

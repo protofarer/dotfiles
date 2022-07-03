@@ -1,0 +1,8 @@
+/usr/bin/setxkbmap -option 'caps:ctrl_modifier'
+/usr/bin/xcape -e 'Caps_Lock=Escape' -t 100
+
+if [ -x /usr/bin/fortune ] ; then
+   echo
+   /usr/bin/fortune
+   echo
+fi

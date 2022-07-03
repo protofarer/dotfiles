@@ -1,0 +1,8 @@
+// Place your key bindings in this file to override the defaults
+[
+  { "key": "ctrl+`", "command": "workbench.action.terminal.focus"},
+  { "key": "ctrl+`", "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus"}
+]
+
+// Find a shortcut to enable keyboard only switch focus among terminals
+// { "key": "ctrl+shift+`", "command": "workbench.action.terminal.focusNextPane"},
