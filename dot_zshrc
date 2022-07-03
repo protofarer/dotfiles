@@ -86,7 +86,11 @@ plugins=(
   zsh-syntax-highlighting
   dotenv
   emoji
-
+  gh
+  gitignore
+  hitchhiker
+  npm
+  nvm
 )
 
 source $ZSH/oh-my-zsh.sh
