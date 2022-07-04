@@ -1,6 +1,7 @@
 " DEL testing chezmoi on new git repo
 set timeoutlen=1000 ttimeoutlen=0
 set expandtab
+set ignorecase
 
 let mapleader=" "	" map leader to space
 
