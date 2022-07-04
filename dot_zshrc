@@ -83,7 +83,6 @@ plugins=(
   docker 
   docker-compose 
   fzf 
-  zsh-syntax-highlighting
   dotenv
   emoji
   gh
@@ -91,6 +90,7 @@ plugins=(
   hitchhiker
   npm
   nvm
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
