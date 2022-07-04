@@ -14,6 +14,7 @@ if [ ! "$(command -v chezmoi)" ]; then
     exit 1
   fi
 else
+  echo "setting chez to chez, fail"
   chezmoi=chezmoi
 fi
 
