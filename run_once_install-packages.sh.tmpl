@@ -1,9 +1,14 @@
-{{- if (and (eq .chezmoi.os "linux") (not .codespaces)) -}}
+{{- if (and (eq .chezmoi.osRelease.id "linux") (not .codespaces)) -}}
 
 #! /bin/sh
+
+{{ if eq .chezmoi.osRelease.idLike "debian" }}
 
 sudo apt update
 sudo apt install -y zsh vim-gui-common vim-runtime ripgrep
 
+{{ end }}
+
 chsh -s $(which zsh)
 
+{{- end -}}

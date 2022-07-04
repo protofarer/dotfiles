@@ -30,6 +30,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'morhetz/gruvbox'
 Plug 'pangloss/vim-javascript'
 Plug 'sheerun/vim-polyglot'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 call plug#end()
 
 " Enable emmet for html/css only
