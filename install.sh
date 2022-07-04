@@ -3,7 +3,7 @@
 set -e  # -e: exit on error
 
 if [ ! "$command -v chezmoi)" ]; then
-  bin_dir="$HOME/.local/bin"
+  bin_dir="$HOME/bin"
   chezmoi="$bin_dir/chezmoi"
   if [ "$(command -v curl)" ]; then
     sh -c "$(curl -fsLS https://chezmoi.io/get)" -- -b "$bin_dir"
