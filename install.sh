@@ -1,8 +1,8 @@
-#! /bin/sh
+#!/bin/sh
 
 set -e  # -e: exit on error
 
-if [ ! "$command -v chezmoi)" ]; then
+if [ ! "$(command -v chezmoi)" ]; then
   bin_dir="$HOME/bin"
   chezmoi="$bin_dir/chezmoi"
   if [ "$(command -v curl)" ]; then
