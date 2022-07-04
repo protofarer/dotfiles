@@ -50,5 +50,8 @@
     "vim.vimrc.enable": true,
     "git.path": "/usr/bin/git",
     "window.zoomLevel": 1,
-    "gitlens.hovers.currentLine.over": "line"
+    "gitlens.hovers.currentLine.over": "line",
+    "remote.containers.dotfiles.repository": "https://github.com/protofarer/dotfilez",
+    "remote.containers.dotfiles.targetPath": "~/dotfiles",
+    "remote.containers.dotfiles.installCommand": "~/dotfiles/install.sh"
 }
