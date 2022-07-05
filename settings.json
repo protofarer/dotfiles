@@ -54,5 +54,6 @@
     "remote.containers.dotfiles.repository": "https://github.com/protofarer/dotfilez",
     "remote.containers.dotfiles.targetPath": "~/.local/share/chezmoi/",
     "remote.containers.dotfiles.installCommand": "~/.local/share/chezmoi/install.sh",
-    "dotfiles.targetPath": ""
+    "dotfiles.targetPath": "",
+    "terminal.integrated.defaultProfile.linux": "zsh"
 }
