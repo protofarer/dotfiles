@@ -45,7 +45,6 @@
     "workbench.colorTheme": "Gruvbox Dark Hard",
     "workbench.editor.labelFormat": "short",
     "explorer.confirmDragAndDrop": false,
-    "vim.hlsearch": true,
     "editor.lineNumbers": "relative",
     "vim.vimrc.enable": true,
     "git.path": "/usr/bin/git",
@@ -55,5 +54,7 @@
     "remote.containers.dotfiles.targetPath": "~/.local/share/chezmoi/",
     "remote.containers.dotfiles.installCommand": "~/.local/share/chezmoi/install.sh",
     "dotfiles.targetPath": "",
-    "terminal.integrated.defaultProfile.linux": "zsh"
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "vim.leader": "<space>",
+    "vim.sneak": true
 }

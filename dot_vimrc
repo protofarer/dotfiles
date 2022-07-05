@@ -67,7 +67,25 @@ endif
 " vim-javascript enable JSDoc syntax highlighting
 " let g:javascript_plugin_jsdoc = 1
 
+" **********************************
+
 " NERDcommenter plugin
 
 " Add space after comment delimiter
 let g:NERDSpaceDelims=1
+
+" **********************************
+
+" Use z/Z instead of s/S for vim-sneak
+
+" 2-character Sneak (default)
+nmap ? <Plug>Sneak_s
+nmap ? <Plug>Sneak_S
+" visual-mode
+xmap ? <Plug>Sneak_s
+xmap ? <Plug>Sneak_S
+" operator-pending-mode
+omap ? <Plug>Sneak_s
+omap ? <Plug>Sneak_S
+
+" **********************************
