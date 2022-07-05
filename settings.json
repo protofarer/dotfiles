@@ -52,6 +52,7 @@
     "window.zoomLevel": 1,
     "gitlens.hovers.currentLine.over": "line",
     "remote.containers.dotfiles.repository": "https://github.com/protofarer/dotfilez",
-    "remote.containers.dotfiles.targetPath": "~/dotfiles",
-    "remote.containers.dotfiles.installCommand": "~/dotfiles/install.sh"
+    "remote.containers.dotfiles.targetPath": "~/.local/share/chezmoi/",
+    "remote.containers.dotfiles.installCommand": "~/.local/share/chezmoi/install.sh",
+    "dotfiles.targetPath": ""
 }
