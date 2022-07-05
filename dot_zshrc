@@ -172,11 +172,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# address type env variables
-export SVRA6="2604:a880:400:d0::717:b001"
-export SVRA="192.34.57.44"
-export SVRB="ec2-18-234-133-153.compute-1.amazonaws.com"
-
 # setopt auto_cd
 export CDPATH=:~/drive-sync/2-areas/
 export CDPATH=:~/projects/:$CDPATH
