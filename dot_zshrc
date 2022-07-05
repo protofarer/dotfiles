@@ -103,6 +103,9 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
+export EDITOR=vim
+export VISUAL=code
+
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -125,9 +128,6 @@ bindkey '^H' backward-kill-word
 HISTFILE=~/.zhistory
 HISTSIZE=10000
 SAVEHIST=10000
-
-export EDITOR=/usr/bin/vim
-export VISUAL=/usr/bin/code
 
 ## Aliases
 # Example aliases
