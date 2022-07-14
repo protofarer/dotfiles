@@ -40,15 +40,27 @@
     "sync.autoUpload": false,
     "terminal.integrated.copyOnSelection": true,
     "terminal.integrated.fontSize": 12,
-    "workbench.activityBar.visible": false,
     "livePreview.autoRefreshPreview": "On Changes to Saved Files",
     "workbench.colorTheme": "Gruvbox Dark Hard",
+    "workbench.colorCustomizations": {
+        "[Gruvbox Dark Hard]" : {
+            "editor.background": "#000",
+            "editor.lineHighlightBackground": "#333",
+            "terminal.background": "#000",
+            "sideBar.background": "#000",
+            "minimap.background": "#000",
+            // "panel.background": "#222",
+            "statusBar.background": "#000",
+            "tab.activeBackground": "#000",
+            "tab.activeBorder": "#76e045",
+            // "notifications.background": "#ff0000"
+        }
+    },
     "workbench.editor.labelFormat": "short",
     "explorer.confirmDragAndDrop": false,
     "editor.lineNumbers": "relative",
     "vim.vimrc.enable": true,
     "git.path": "/usr/bin/git",
-    "window.zoomLevel": 1,
     "gitlens.hovers.currentLine.over": "line",
     "remote.containers.dotfiles.repository": "https://github.com/protofarer/dotfilez",
     "remote.containers.dotfiles.targetPath": "~/.local/share/chezmoi/",
@@ -56,5 +68,20 @@
     "dotfiles.targetPath": "",
     "terminal.integrated.defaultProfile.linux": "zsh",
     "vim.leader": "<space>",
-    "vim.sneak": true
+    "vim.sneak": true,
+    "vim.visualModeKeyBindings": [
+        {
+        "before": ["J"],
+        "commands": ["editor.action.moveLinesDownAction"]
+        },
+        {
+        "before": ["K"],
+        "commands": ["editor.action.moveLinesUpAction"]
+        }
+    ],
+    "emmet.includeLanguages": {
+        "typescript": "typescriptreact",
+        "javascript": "javascriptreact"
+    },
+    "workbench.activityBar.visible": false
 }

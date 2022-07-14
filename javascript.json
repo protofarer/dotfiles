@@ -37,12 +37,20 @@
 		"description": "browser stderr"
 	},
 	"Start Code Block Header": {
-		"prefix": "chblock",
+		"prefix": "cblkstart",
 		"body": [
 			"$0// **********************************************************************",
 			"$0// * ${1:codeBlockHeader}",
 			"$0// **********************************************************************",
 		],
-		"description": "Add a prominent comment header for a significant block of code"
+		"description": "Add a prominent comment for a significant block of code"
+	},
+	"End Code Block Header": {
+		"prefix": "cblkend",
+		"body": [
+			"$0// **********************************************************************",
+			"$0// **********************************************************************",
+		],
+		"description": "End a prominent comment"
 	}
 }
