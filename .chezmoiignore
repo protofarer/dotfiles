@@ -1,5 +1,5 @@
 settings.json
 javascript.json
 keybindings.json
-joplin-settings.json
 install.sh
+.p10k.zsh
