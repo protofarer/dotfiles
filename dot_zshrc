@@ -138,8 +138,8 @@ alias cp='cp -i'                                                # Confirm before
 alias df='df -h'                                                # Human-readable sizes
 alias free='free -m'                                            # Show sizes in MB
 alias rm='rm -iv'
-alias gs='git status'
-alias gp='git push'
+alias gitst='git status'
+alias gitpu='git push'
 
 
 # My alias'
