@@ -83,5 +83,6 @@
         "typescript": "typescriptreact",
         "javascript": "javascriptreact"
     },
-    "workbench.activityBar.visible": false
+    "workbench.activityBar.visible": false,
+    "window.zoomLevel": 1
 }
