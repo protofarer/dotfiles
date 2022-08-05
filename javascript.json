@@ -15,7 +15,7 @@
 	"Print to orange console.log": {
 		"prefix": "cclog",
 		"body": [
-			"console.log('%c$1', 'color: orange')",
+			"console.log(`%c$1`, 'color: orange', $2)",
 			"$0"
 		],
 		"description": "browser stdout (color: orange)"
@@ -23,7 +23,7 @@
 	"Print to colored console.log": {
 		"prefix": "dcclog",
 		"body": [
-			"console.log('%c$1', 'color: $2', $3)",
+			"console.log(`%c$1`, 'color: $2', $3)",
 			"$0"
 		],
 		"description": "browser stdout (color: <color>)"
@@ -35,6 +35,30 @@
 			"$0"
 		],
 		"description": "browser stderr"
+	},
+	"Print tag = 1": {
+		"prefix": "cl1",
+		"body": [
+			"console.log(`%c1`, 'color: orange', $1)",
+			"$0"
+		],
+		"description": "stdout colored tag 1"
+	},
+	"Print tag = 2": {
+		"prefix": "cl2",
+		"body": [
+			"console.log(`%c2`, 'color: orange', $1)",
+			"$0"
+		],
+		"description": "stdout colored tag 2"
+	},
+	"Print tag = 3": {
+		"prefix": "cl3",
+		"body": [
+			"console.log(`%c3`, 'color: orange', $1)",
+			"$0"
+		],
+		"description": "stdout colored tag 3"
 	},
 	"Start Code Block Header": {
 		"prefix": "cblkstart",
