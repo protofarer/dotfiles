@@ -190,6 +190,8 @@ export PATH="$HOME/chezmoi:$PATH"
 /usr/bin/setxkbmap -option 'caps:ctrl_modifier'
 /usr/bin/xcape -e 'Caps_Lock=Escape' -t 100
 
+# deny dotnet telemetry
+
 function mkdirgo() {
   mkdir -p "$@" && cd "$@"
 }

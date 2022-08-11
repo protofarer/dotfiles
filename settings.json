@@ -84,5 +84,6 @@
         "javascript": "javascriptreact"
     },
     "workbench.activityBar.visible": false,
-    "window.zoomLevel": 1
+    "window.zoomLevel": 1,
+    "workbench.panel.defaultLocation": "right"
 }
