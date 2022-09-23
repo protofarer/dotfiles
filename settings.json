@@ -85,5 +85,8 @@
     },
     "workbench.activityBar.visible": false,
     "window.zoomLevel": 1,
-    "workbench.panel.defaultLocation": "right"
+    "workbench.panel.defaultLocation": "right",
+    "pixelbyte.love2d.path": "~/.local/bin/love",
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "editor.stickyScroll.enabled": true
 }

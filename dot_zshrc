@@ -145,7 +145,7 @@ alias gitpu='git push'
 alias gitlog='git log --graph --oneline'
 
 # My alias'
-alias szrzd='sudo zypper ref && sudo zypper dup'
+alias zrd='sudo zypper ref && sudo zypper dup'
 alias gcam='git commit -am'
 alias modzshrc='vi ~/.zshrc && source ~/.zshrc'
 
