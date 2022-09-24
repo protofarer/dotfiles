@@ -44,7 +44,7 @@
     "workbench.colorTheme": "Gruvbox Dark Hard",
     "workbench.colorCustomizations": {
         "[Gruvbox Dark Hard]" : {
-            "editor.background": "#000",
+            "editor.background": "#121212",
             "editor.lineHighlightBackground": "#333",
             "terminal.background": "#000",
             "sideBar.background": "#000",
@@ -88,5 +88,8 @@
     "workbench.panel.defaultLocation": "right",
     "pixelbyte.love2d.path": "~/.local/bin/love",
     "typescript.updateImportsOnFileMove.enabled": "always",
-    "editor.stickyScroll.enabled": true
+    "editor.stickyScroll.enabled": true,
+    "editor.tokenColorCustomizations": {
+    
+    }
 }
