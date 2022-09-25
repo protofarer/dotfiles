@@ -43,15 +43,16 @@
     "livePreview.autoRefreshPreview": "On Changes to Saved Files",
     "workbench.colorTheme": "Gruvbox Dark Hard",
     "workbench.colorCustomizations": {
+
         "[Gruvbox Dark Hard]" : {
             "editor.background": "#121212",
             "editor.lineHighlightBackground": "#333",
-            "terminal.background": "#000",
-            "sideBar.background": "#000",
-            "minimap.background": "#000",
+            "terminal.background": "#0b0b0b",
+            "sideBar.background": "#0b0b0b",
+            "minimap.background": "#0b0b0b",
             // "panel.background": "#222",
-            "statusBar.background": "#000",
-            "tab.activeBackground": "#000",
+            "statusBar.background": "#0b0b0b",
+            "tab.activeBackground": "#0b0b0b",
             "tab.activeBorder": "#76e045",
             // "notifications.background": "#ff0000"
         }
