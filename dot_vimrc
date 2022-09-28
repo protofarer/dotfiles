@@ -8,6 +8,9 @@ let mapleader=" "	" map leader to space
 " toggle search pattern match highlighting
 map <leader>h :noh<CR>
 
+" remaps
+xnoremap("<leader>p", "\"_dP")
+
 autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path "%"
 
 " Install vim-plug if not found

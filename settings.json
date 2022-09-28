@@ -92,5 +92,11 @@
     "editor.stickyScroll.enabled": true,
     "editor.tokenColorCustomizations": {
     
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
 }
