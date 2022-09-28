@@ -9,7 +9,7 @@ let mapleader=" "	" map leader to space
 map <leader>h :noh<CR>
 
 " remaps
-xnoremap("<leader>p", "\"_dP")
+xnoremap <leader>p "\"_dP"
 
 autocmd BufWritePost ~/.local/share/chezmoi/* ! chezmoi apply --source-path "%"
 
