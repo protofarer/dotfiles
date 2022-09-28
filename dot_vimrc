@@ -7,6 +7,7 @@ set ignorecase
 let mapleader=" "
 
 " toggle search pattern match highlighting
+" doesn't work... neovim only? https://www.youtube.com/watch?v=qZO9A5F6BZs&list=PL7mC0SL6kCY-i1qOHPJTSqCGUZ08lWJCk&index=1
 map <leader>h :noh<CR>
 
 " Remaps
