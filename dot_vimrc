@@ -96,3 +96,7 @@ omap ? <Plug>Sneak_s
 omap ? <Plug>Sneak_S
 
 " **********************************
+"
+" My Sets
+set relativenumber
+set nu
