@@ -1,10 +1,5 @@
 export FZF_BASE=~/bin/fzf
-
-
-# If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
@@ -132,10 +127,6 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 ## Aliases
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 alias cp='cp -i'                                                # Confirm before overwriting something
 alias df='df -h'                                                # Human-readable sizes
 alias free='free -m'                                            # Show sizes in MB
@@ -143,8 +134,6 @@ alias rm='rm -iv'
 alias gitst='git status'
 alias gitpu='git push'
 alias gitlog='git log --graph --oneline'
-
-# My alias'
 alias zrd='sudo zypper ref && sudo zypper dup'
 alias gcam='git commit -am'
 alias modzshrc='vi ~/.zshrc && source ~/.zshrc'
@@ -192,7 +181,7 @@ export CDPATH=:~/projects/:$CDPATH
 export PATH="$HOME/.fly/bin:$PATH"	# fly.io cli
 export PATH="$HOME/chezmoi:$PATH"
 
-# vim bindings
+# keyboard re-bindings
 /usr/bin/setxkbmap -option 'caps:ctrl_modifier'
 /usr/bin/xcape -e 'Caps_Lock=Escape' -t 100
 
