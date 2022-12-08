@@ -98,5 +98,6 @@
     },
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+    },
+    "javascript.preferences.importModuleSpecifierEnding": "js"
 }

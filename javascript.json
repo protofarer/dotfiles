@@ -76,5 +76,14 @@
 			"$0// **********************************************************************",
 		],
 		"description": "End a prominent comment"
+	},
+	"Arrow Function Initialization": {
+		"prefix": "confun",
+		"body": [
+			"const $1 = ($2) => {",
+			"$0",
+			"}",
+		],
+		"description": "assign arrow function to a variable"
 	}
 }
