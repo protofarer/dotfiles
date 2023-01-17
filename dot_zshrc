@@ -77,7 +77,6 @@ plugins=(
   emoji
   gh
   gitignore
-  hitchhiker
   npm
   nvm
   zsh-syntax-highlighting
