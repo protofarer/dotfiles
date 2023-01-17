@@ -179,7 +179,6 @@ export CDPATH=:~/projects/:$CDPATH
 
 # binaries and scripts
 export PATH="$HOME/.fly/bin:$PATH"	# fly.io cli
-export PATH="$HOME/chezmoi:$PATH"
 
 # keyboard re-bindings
 /usr/bin/setxkbmap -option 'caps:ctrl_modifier'
