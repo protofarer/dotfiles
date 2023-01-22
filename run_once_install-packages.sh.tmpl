@@ -1,14 +1,11 @@
 {{- if (and (eq .chezmoi.osRelease.id "linux") (not .codespaces)) -}}
 
 #! /bin/sh
-
-{{ if eq .chezmoi.osRelease.id "debian" }}
-
+{{ if eq .chezmoi.osRelease.id "debian" -}}
 sudo apt-get update && export DEBIAN_FRONTEND=noninteractive \
   && sudo apt-get -y install --no-install-recommends \ 
   zsh vim-gui-common vim-runtime ripgrep curl fzf xcape
-
-{{ end }}
+{{ end -}}
 
 # the empty quotes and "--unattended" results in script not changing default shell nor run "zsh" when install done
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
