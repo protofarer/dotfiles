@@ -1,4 +1,4 @@
-{{- if (and (eq .chezmoi.osRelease.id "linux") (not .codespaces)) -}}
+{{ if (and (eq .chezmoi.osRelease.id "linux") (not .codespaces)) -}}
 #!/bin/sh
 {{ if eq .chezmoi.osRelease.id "debian" -}}
 sudo apt-get update && export DEBIAN_FRONTEND=noninteractive \
