@@ -1,5 +1,5 @@
 {{- if (and (eq .chezmoi.osRelease.id "linux") (not .codespaces)) -}}
-#! /bin/sh
+#!/bin/sh
 {{ if eq .chezmoi.osRelease.id "debian" -}}
 sudo apt-get update && export DEBIAN_FRONTEND=noninteractive \
   && sudo apt-get -y install --no-install-recommends \ 
