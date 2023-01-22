@@ -32,5 +32,3 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply protofarer/dotfilez.git
 
 # Alternate for debugging
 # exec /dotfilez/chezmoi init --apply "--source=$script_dir"
-
-chsh -s $(which zsh)
