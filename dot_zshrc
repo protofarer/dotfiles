@@ -186,6 +186,12 @@ export PATH="$HOME/.fly/bin:$PATH"	# fly.io cli
 # deny dotnet telemetry
 DOTNET_CLI_TELEMETRY_OPTOUT="1"
 
+if [[ -x /usr/bin/fortune ]]; then
+  echo
+  /usr/bin/fortune
+  echo
+fi
+
 function mkdirgo() {
   mkdir -p "$@" && cd "$@"
 }
