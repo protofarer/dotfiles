@@ -116,6 +116,5 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PATH=$PATH:$HOME/bin
 export FZF_BASE=~/bin/fzf
 export PATH=$HOME/bin:/usr/local/bin:$PATH
