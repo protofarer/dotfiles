@@ -84,7 +84,6 @@
         "typescript": "typescriptreact",
         "javascript": "javascriptreact"
     },
-    "workbench.activityBar.visible": false,
     "window.zoomLevel": 1,
     "workbench.panel.defaultLocation": "right",
     "pixelbyte.love2d.path": "~/.local/bin/love",
@@ -99,5 +98,17 @@
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "javascript.preferences.importModuleSpecifierEnding": "js"
+    "javascript.preferences.importModuleSpecifierEnding": "js",
+    "editor.formatOnSave": true,
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    },
+    "editor.tabCompletion": "onlySnippets",
+    "[python]": {
+        "editor.formatOnType": true,
+        "editor.tabSize": 4,
+    },
+    "editor.inlineSuggest.enabled": true,
+    "workbench.activityBar.visible": false,
+    "editor.indentSize": "tabSize"
 }
