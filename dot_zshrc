@@ -177,9 +177,13 @@ export NVM_DIR="$HOME/.nvm"
 export CDPATH=:~/drive-sync/2-areas/
 export CDPATH=:~/projects/:$CDPATH
 
-# binaries and scripts
+############### binaries and scripts ##########################
+
 export PATH="$HOME/.fly/bin:$PATH"	# fly.io cli
+
+# crafting interpreters book: lox interpreters
 export PATH="$HOME/.local/bin/dart-sdk/bin:$PATH"
+export PATH="$HOME/.local/bin/craftinginterpreters:$PATH"
 
 # keyboard re-bindings
 /usr/bin/setxkbmap -option 'caps:ctrl_modifier'
