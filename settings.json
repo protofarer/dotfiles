@@ -1,114 +1,121 @@
 {
-    "editor.rulers": [
-    80,
-    ],
-    "editor.fontFamily": "hasklig, Source Code Pro, 'Courier New', monospace",
-    "editor.find.cursorMoveOnType": false,
-    "editor.defaultFormatter": null,
-    "[markdown]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.rulers": [80],
+  "editor.fontFamily": "hasklig, Source Code Pro, 'Courier New', monospace",
+  "editor.find.cursorMoveOnType": false,
+  "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "python.pythonPath": "c:\\Python39\\python.exe",
+  "python.linting.pylintEnabled": true,
+  "python.linting.flake8Enabled": false,
+  "python.linting.enabled": true,
+  "terminal.integrated.profiles.windows": {
+    "Command Prompt": {
+      "path": "C:\\WINDOWS\\System32\\cmd.exe",
+      "args": []
+    }
+  },
+  "sync.gist": "",
+  "sync.autoDownload": false,
+  "editor.renderWhitespace": "all",
+  "editor.minimap.enabled": false,
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter.notebook.ipynb"
+  },
+  "security.workspace.trust.untrustedFiles": "open",
+  "liveServer.settings.donotShowInfoMsg": true,
+  "liveServer.settings.donotVerifyTags": true,
+  "editor.fontLigatures": true,
+  "editor.tabSize": 2,
+  "python.defaultInterpreterPath": "python3",
+  "editor.mouseWheelZoom": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "terminal.integrated.tabs.enabled": false,
+  "sync.autoUpload": false,
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.fontSize": 12,
+  "livePreview.autoRefreshPreview": "On Changes to Saved Files",
+  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "workbench.colorCustomizations": {
+    "[Gruvbox Dark Hard]": {
+      "editor.background": "#121212",
+      "editor.lineHighlightBackground": "#333",
+      "terminal.background": "#0b0b0b",
+      "sideBar.background": "#0b0b0b",
+      "minimap.background": "#0b0b0b",
+      // "panel.background": "#222",
+      "statusBar.background": "#0b0b0b",
+      "tab.activeBackground": "#0b0b0b",
+      "tab.activeBorder": "#76e045"
+      // "notifications.background": "#ff0000"
+    }
+  },
+  "workbench.editor.labelFormat": "short",
+  "explorer.confirmDragAndDrop": false,
+  "editor.lineNumbers": "relative",
+  "vim.vimrc.enable": true,
+  "git.path": "/usr/bin/git",
+  "gitlens.hovers.currentLine.over": "line",
+  "remote.containers.dotfiles.repository": "https://github.com/protofarer/dotfilez",
+  "remote.containers.dotfiles.targetPath": "~/.local/share/chezmoi/",
+  "remote.containers.dotfiles.installCommand": "~/.local/share/chezmoi/install.sh",
+  "dotfiles.targetPath": "",
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "vim.leader": "<space>",
+  "vim.sneak": true,
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["J"],
+      "commands": ["editor.action.moveLinesDownAction"]
     },
-    "python.pythonPath": "c:\\Python39\\python.exe",
-    "python.linting.pylintEnabled": true,
-    "python.linting.flake8Enabled": false,
-    "python.linting.enabled": true,
-    "terminal.integrated.profiles.windows": {
-        "Command Prompt": {
-            "path": "C:\\WINDOWS\\System32\\cmd.exe",
-            "args": []
-        }
-    },
-    "sync.gist": "",
-    "sync.autoDownload": false,
-    "editor.renderWhitespace": "all",
-    "editor.minimap.enabled": false,
-    "workbench.editorAssociations": {
-        "*.ipynb": "jupyter.notebook.ipynb"
-    },
-    "security.workspace.trust.untrustedFiles": "open",
-    "liveServer.settings.donotShowInfoMsg": true,
-    "liveServer.settings.donotVerifyTags": true,
-    "editor.fontLigatures": true,
-    "editor.tabSize": 2,
-    "python.defaultInterpreterPath": "python3",
-    "editor.mouseWheelZoom": true,
-    "editor.bracketPairColorization.enabled": true,
-    "editor.guides.bracketPairs": true,
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "terminal.integrated.tabs.enabled": false,
-    "files.autoSave": "afterDelay",
-    "sync.autoUpload": false,
-    "terminal.integrated.copyOnSelection": true,
-    "terminal.integrated.fontSize": 12,
-    "livePreview.autoRefreshPreview": "On Changes to Saved Files",
-    "workbench.colorTheme": "Gruvbox Dark Hard",
-    "workbench.colorCustomizations": {
-
-        "[Gruvbox Dark Hard]" : {
-            "editor.background": "#121212",
-            "editor.lineHighlightBackground": "#333",
-            "terminal.background": "#0b0b0b",
-            "sideBar.background": "#0b0b0b",
-            "minimap.background": "#0b0b0b",
-            // "panel.background": "#222",
-            "statusBar.background": "#0b0b0b",
-            "tab.activeBackground": "#0b0b0b",
-            "tab.activeBorder": "#76e045",
-            // "notifications.background": "#ff0000"
-        }
-    },
-    "workbench.editor.labelFormat": "short",
-    "explorer.confirmDragAndDrop": false,
-    "editor.lineNumbers": "relative",
-    "vim.vimrc.enable": true,
-    "git.path": "/usr/bin/git",
-    "gitlens.hovers.currentLine.over": "line",
-    "remote.containers.dotfiles.repository": "https://github.com/protofarer/dotfilez",
-    "remote.containers.dotfiles.targetPath": "~/.local/share/chezmoi/",
-    "remote.containers.dotfiles.installCommand": "~/.local/share/chezmoi/install.sh",
-    "dotfiles.targetPath": "",
-    "terminal.integrated.defaultProfile.linux": "zsh",
-    "vim.leader": "<space>",
-    "vim.sneak": true,
-    "vim.visualModeKeyBindings": [
-        {
-        "before": ["J"],
-        "commands": ["editor.action.moveLinesDownAction"]
-        },
-        {
-        "before": ["K"],
-        "commands": ["editor.action.moveLinesUpAction"]
-        }
-    ],
-    "emmet.includeLanguages": {
-        "typescript": "typescriptreact",
-        "javascript": "javascriptreact"
-    },
-    "window.zoomLevel": 1,
-    "workbench.panel.defaultLocation": "right",
-    "pixelbyte.love2d.path": "~/.local/bin/love",
-    "typescript.updateImportsOnFileMove.enabled": "always",
-    "editor.stickyScroll.enabled": true,
-    "editor.tokenColorCustomizations": {
-    
-    },
-    "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "javascript.preferences.importModuleSpecifierEnding": "js",
-    "editor.formatOnSave": true,
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
-    },
-    "editor.tabCompletion": "onlySnippets",
-    "[python]": {
-        "editor.formatOnType": true,
-        "editor.tabSize": 4,
-    },
-    "editor.inlineSuggest.enabled": true,
-    "workbench.activityBar.visible": false,
-    "editor.indentSize": "tabSize"
+    {
+      "before": ["K"],
+      "commands": ["editor.action.moveLinesUpAction"]
+    }
+  ],
+  "emmet.includeLanguages": {
+    "typescript": "typescriptreact",
+    "javascript": "javascriptreact"
+  },
+  "window.zoomLevel": 1,
+  "workbench.panel.defaultLocation": "right",
+  "pixelbyte.love2d.path": "~/.local/bin/love",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "editor.stickyScroll.enabled": true,
+  "editor.tokenColorCustomizations": {},
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "javascript.preferences.importModuleSpecifierEnding": "js",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "editor.tabCompletion": "onlySnippets",
+  "[python]": {
+    "editor.formatOnType": true,
+    "editor.tabSize": 4
+  },
+  "editor.inlineSuggest.enabled": true,
+  "editor.indentSize": "tabSize",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "eslint.codeActionsOnSave.rules": [
+    "source.fixAll.eslint"
+   ],
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "file",
+  "files.autoSave": "onFocusChange",
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
+  "vs-code-prettier-eslint.prettierLast": false
 }
