@@ -185,8 +185,6 @@ export PATH="$HOME/.fly/bin:$PATH"	# fly.io cli
 export PATH="$HOME/.local/bin/dart-sdk/bin:$PATH"
 export PATH="$HOME/.local/bin/craftinginterpreters:$PATH"
 
-export PATH="$HOME/bin/b-angband:$PATH"
-
 # keyboard re-bindings
 /usr/bin/setxkbmap -option 'caps:ctrl_modifier'
 /usr/bin/xcape -e 'Caps_Lock=Escape' -t 100
