@@ -94,7 +94,7 @@ plugins=(
   zsh-vi-mode
 )
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
