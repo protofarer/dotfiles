@@ -193,7 +193,16 @@ export PATH="$HOME/.local/bin/craftinginterpreters:$PATH"
 DOTNET_CLI_TELEMETRY_OPTOUT="1"
 
 # measure kitty + zsh startup time
-source ~/bin/kitty_zsh_startup_time.sh
+if [ -z "$STARTUP_TIME" ]; then
+  export STARTUP_TIME=$(date +%s%N)
+fi
+
+if [ -n "$STARTUP_TIME" ]; then
+  echo -n 'startup time: '
+  echo $(expr $(date +%s%N) - $STARTUP_TIME) 'ns'
+  unset STARTUP_TIME
+fi
+  
 
 function mkdirgo() {
   mkdir -p "$@" && cd "$@"
