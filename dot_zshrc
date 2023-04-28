@@ -4,7 +4,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 # measure kitty + zsh startup time
 if [ -z "$STARTUP_TIME" ]; then
-  export STARTUP_TIME=$(date +%s%N)
+  export STARTUP_TIME=$(date +%s%3N)
 fi
 
 # Set name of the theme to load --- if set to "random", it will
@@ -199,7 +199,7 @@ DOTNET_CLI_TELEMETRY_OPTOUT="1"
 
 if [ -n "$STARTUP_TIME" ]; then
   echo -n 'startup time: '
-  echo $(expr $(date +%s%N) - $STARTUP_TIME) 'ns'
+  echo $(expr $(date +%s%3N) - $STARTUP_TIME) 'ms'
   unset STARTUP_TIME
 fi
 
