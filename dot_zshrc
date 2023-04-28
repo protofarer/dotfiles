@@ -80,18 +80,18 @@ zstyle 'omz:plugins:nvm' lazy yes
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git 
-  docker 
-  docker-compose 
-  fzf 
+  # git 
+  # docker 
+  # docker-compose 
+  # fzf 
   # dotenv
   emoji
-  gh
-  gitignore
+  # gh
+  # gitignore
   # npm
   nvm
-  zsh-syntax-highlighting
-  zsh-vi-mode
+  # zsh-syntax-highlighting
+  # zsh-vi-mode
 )
 
 source $ZSH/oh-my-zsh.sh
