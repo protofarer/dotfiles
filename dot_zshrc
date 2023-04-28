@@ -79,10 +79,10 @@ plugins=(
   docker-compose 
   fzf 
   dotenv
-  # emoji
-  # gh
-  # gitignore
-  # npm
+  emoji
+  gh
+  gitignore
+  npm
   # nvm
   # zsh-syntax-highlighting
   # zsh-vi-mode
