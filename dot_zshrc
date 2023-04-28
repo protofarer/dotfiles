@@ -71,10 +71,10 @@ zstyle ':omz:update' frequency 7
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # nvm lazy startup since it slows down shell start terribly
-zstyle 'omz:plugins:nvm' lazy yes
+/* zstyle 'omz:plugins:nvm' lazy yes */
 
 # commands that will trigger nvm lazy load
-zstyle ':omz:plugins:nvm' lazy-cmd eslint prettier typescript
+/* zstyle ':omz:plugins:nvm' lazy-cmd eslint prettier typescript */
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -83,15 +83,15 @@ zstyle ':omz:plugins:nvm' lazy-cmd eslint prettier typescript
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   git 
+  gitignore
+  npm
+  # nvm
   docker 
   docker-compose 
   fzf 
   dotenv
   emoji
   gh
-  gitignore
-  npm
-  # nvm
   zsh-syntax-highlighting
   zsh-vi-mode
 )
