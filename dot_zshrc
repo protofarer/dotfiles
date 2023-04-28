@@ -84,8 +84,8 @@ plugins=(
   gitignore
   npm
   # nvm
-  # zsh-syntax-highlighting
-  # zsh-vi-mode
+  zsh-syntax-highlighting
+  zsh-vi-mode
 )
 # nvm lazy startup since it slows down shell start terribly
 zstyle 'omz:plugins:nvm' lazy yes
