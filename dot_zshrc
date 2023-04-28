@@ -83,7 +83,7 @@ plugins=(
   # gh
   # gitignore
   # npm
-  nvm
+  # nvm
   # zsh-syntax-highlighting
   # zsh-vi-mode
 )
