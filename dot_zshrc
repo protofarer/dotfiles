@@ -84,7 +84,7 @@ plugins=(
   docker 
   docker-compose 
   fzf 
-  dotenv
+  # dotenv
   emoji
   gh
   gitignore
