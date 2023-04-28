@@ -186,7 +186,7 @@ export ZYPP_MEDIANETWORK=1
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# ####### lazy load nvm/node/npm
+# ####### lazy load nvm/node/npm, respective programs loaded on first invocation instead of at shell startup
 nvm() {
   unset -f nvm
   export NVM_DIR=~/.nvm
