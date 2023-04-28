@@ -80,21 +80,21 @@ zstyle 'omz:plugins:nvm' lazy yes
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git 
-  docker 
-  docker-compose 
-  fzf 
-  dotenv
-  emoji
-  gh
-  gitignore
-  npm
-  nvm
-  zsh-syntax-highlighting
-  zsh-vi-mode
+  # git 
+  # docker 
+  # docker-compose 
+  # fzf 
+  # dotenv
+  # emoji
+  # gh
+  # gitignore
+  # npm
+  # nvm
+  # zsh-syntax-highlighting
+  # zsh-vi-mode
 )
 
-# source $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh
 
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
