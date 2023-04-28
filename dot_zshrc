@@ -88,7 +88,7 @@ plugins=(
   emoji
   gh
   gitignore
-  npm
+  # npm
   nvm
   zsh-syntax-highlighting
   zsh-vi-mode
