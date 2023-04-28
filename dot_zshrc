@@ -192,6 +192,9 @@ export PATH="$HOME/.local/bin/craftinginterpreters:$PATH"
 # deny dotnet telemetry
 DOTNET_CLI_TELEMETRY_OPTOUT="1"
 
+# measure kitty + zsh startup time
+source ~/bin/kitty_zsh_startup_time.sh
+
 function mkdirgo() {
   mkdir -p "$@" && cd "$@"
 }
