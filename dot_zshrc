@@ -71,7 +71,7 @@ zstyle ':omz:update' frequency 7
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
 # nvm lazy startup since it slows down shell start terribly
-/* zstyle 'omz:plugins:nvm' lazy yes */
+zstyle 'omz:plugins:nvm' lazy yes
 
 # commands that will trigger nvm lazy load
 /* zstyle ':omz:plugins:nvm' lazy-cmd eslint prettier typescript */
