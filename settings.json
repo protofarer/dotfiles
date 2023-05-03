@@ -97,7 +97,12 @@
     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
   "editor.tabCompletion": "onlySnippets",
-  "[python]": {
+  "[python][shellscript]": {
+    "editor.formatOnType": true,
+    "editor.tabSize": 4
+  },
+  "[shellscript][sh][bash]": {
+    "editor.defaultFormatter":"foxundermoon.shell-format",
     "editor.formatOnType": true,
     "editor.tabSize": 4
   },
@@ -117,5 +122,24 @@
   "files.autoSave": "onFocusChange",
   "editor.formatOnPaste": false,
   "editor.formatOnType": false,
-  "vs-code-prettier-eslint.prettierLast": false
+  "vs-code-prettier-eslint.prettierLast": false,
+  "settingsSync.ignoredSettings": [
+    
+
+
+  ],
+  "shellformat.useEditorConfig": true,
+  "shellformat.effectLanguages": [
+    "shellscript",
+    "dockerfile",
+    "dotenv",
+    "hosts",
+    "jvmoptions",
+    "ignore",
+    "gitignore",
+    "properties",
+    "spring-boot-properties",
+    "azcli",
+    "bats"
+  ]
 }

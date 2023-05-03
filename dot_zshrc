@@ -1,7 +1,7 @@
 zmodload zsh/zprof
 
 export FZF_BASE=~/bin/fzf
-export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$HOME/bin/scripts:$PATH
 export ZSH="$HOME/.oh-my-zsh"
 
 # measure kitty + zsh startup time
