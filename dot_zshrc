@@ -162,7 +162,7 @@ alias exa='exa -lg'
 ## File and Dir colors for ls and other outputs
 export LS_OPTIONS='--color=auto'
 eval "$(dircolors -b)"
-alias ls='ls -lhg --time-style+="" $LS_OPTIONS'
+alias ls='ls -lhg --time-style=+"" $LS_OPTIONS'
 
 
 ## Theming section
