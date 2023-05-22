@@ -1,37 +1,37 @@
 {
   "editor.rulers": [80],
+  "editor.lineNumbers": "relative",
+  "editor.indentSize": "tabSize",
+  "editor.tabSize": 2,
   "editor.fontFamily": "hasklig, Source Code Pro, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "editor.minimap.enabled": false,
   "editor.find.cursorMoveOnType": false,
-  "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
-  "[markdown]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "python.pythonPath": "c:\\Python39\\python.exe",
-  "python.linting.pylintEnabled": true,
-  "python.linting.flake8Enabled": false,
-  "python.linting.enabled": true,
+  "editor.renderWhitespace": "all",
+  "editor.mouseWheelZoom": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": true,
+  "editor.stickyScroll.enabled": true,
+  "editor.tokenColorCustomizations": {},
+  "editor.tabCompletion": "onlySnippets",
+  "editor.inlineSuggest.enabled": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "file",
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
+  "zenMode.hideLineNumbers": false,
   "terminal.integrated.profiles.windows": {
     "Command Prompt": {
       "path": "C:\\WINDOWS\\System32\\cmd.exe",
       "args": []
     }
   },
-  "sync.gist": "",
-  "sync.autoDownload": false,
-  "editor.renderWhitespace": "all",
-  "editor.minimap.enabled": false,
   "workbench.editorAssociations": {
-    "*.ipynb": "jupyter.notebook.ipynb"
+    "*.ipynb": "jupyter-notebook"
   },
   "security.workspace.trust.untrustedFiles": "open",
   "liveServer.settings.donotShowInfoMsg": true,
   "liveServer.settings.donotVerifyTags": true,
-  "editor.fontLigatures": true,
-  "editor.tabSize": 2,
-  "python.defaultInterpreterPath": "python3",
-  "editor.mouseWheelZoom": true,
-  "editor.bracketPairColorization.enabled": true,
-  "editor.guides.bracketPairs": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "terminal.integrated.tabs.enabled": false,
   "sync.autoUpload": false,
@@ -55,14 +55,12 @@
   },
   "workbench.editor.labelFormat": "short",
   "explorer.confirmDragAndDrop": false,
-  "editor.lineNumbers": "relative",
   "vim.vimrc.enable": true,
   "git.path": "/usr/bin/git",
   "gitlens.hovers.currentLine.over": "line",
-  "remote.containers.dotfiles.repository": "https://github.com/protofarer/dotfilez",
-  "remote.containers.dotfiles.targetPath": "~/.local/share/chezmoi/",
-  "remote.containers.dotfiles.installCommand": "~/.local/share/chezmoi/install.sh",
-  "dotfiles.targetPath": "",
+  "dotfiles.repository": "https://github.com/protofarer/dotfilez",
+  "dotfiles.targetPath": "~/.local/share/chezmoi/",
+  "dotfiles.installCommand": "~/.local/share/chezmoi/install.sh",
   "terminal.integrated.defaultProfile.linux": "zsh",
   "vim.leader": "<space>",
   "vim.sneak": true,
@@ -80,14 +78,11 @@
     "typescript": "typescriptreact",
     "javascript": "javascriptreact"
   },
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 2,
   "workbench.panel.defaultLocation": "right",
-  "pixelbyte.love2d.path": "~/.local/bin/love",
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "editor.stickyScroll.enabled": true,
-  "editor.tokenColorCustomizations": {},
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
   "[typescript]": {
     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
@@ -96,18 +91,30 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
-  "editor.tabCompletion": "onlySnippets",
-  "[python][shellscript]": {
-    "editor.formatOnType": true,
-    "editor.tabSize": 4
+  "[markdown]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
+  "[python]": {
+    "editor.formatOnType": true,
+    "editor.tabSize": 4,
+  },
+  "python.defaultInterpreterPath": "python3",
+  "python.linting.pylintEnabled": true,
+  "python.linting.flake8Enabled": false,
+  "python.linting.enabled": true,
   "[shellscript][sh][bash]": {
     "editor.defaultFormatter":"foxundermoon.shell-format",
     "editor.formatOnType": true,
     "editor.tabSize": 4
   },
-  "editor.inlineSuggest.enabled": true,
-  "editor.indentSize": "tabSize",
+  "rust-analyzer.checkOnSave": true,
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    "editor.tabSize": 4,
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.inlayHints.enabled": "offUnlessPressed",
+  },
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -117,16 +124,9 @@
   "eslint.codeActionsOnSave.rules": [
     "source.fixAll.eslint"
    ],
-  "editor.formatOnSave": true,
-  "editor.formatOnSaveMode": "file",
-  "files.autoSave": "onFocusChange",
-  "editor.formatOnPaste": false,
-  "editor.formatOnType": false,
+   "files.autoSave": "onFocusChange",
   "vs-code-prettier-eslint.prettierLast": false,
   "settingsSync.ignoredSettings": [
-    
-
-
   ],
   "shellformat.useEditorConfig": true,
   "shellformat.effectLanguages": [
@@ -141,5 +141,13 @@
     "spring-boot-properties",
     "azcli",
     "bats"
-  ]
+  ],
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false,
+    "rust": false
+  },
+  "workbench.startupEditor": "none",
 }

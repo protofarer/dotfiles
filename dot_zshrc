@@ -157,11 +157,13 @@ alias hist='history -50 | less'
 alias histo='history -100 | less'
 alias sshk='kitty +kitten ssh'
 # alias H='history | grep -f "\!"'
+alias exa='exa -lg
 
 ## File and Dir colors for ls and other outputs
 export LS_OPTIONS='--color=auto'
 eval "$(dircolors -b)"
-alias ls='ls -Fhl $LS_OPTIONS'
+/* alias ls='ls -Fhl $LS_OPTIONS' */
+
 
 ## Theming section
 autoload -U compinit colors zcalc

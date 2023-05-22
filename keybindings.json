@@ -1,7 +1,8 @@
 // Place your key bindings in this file to override the defaults
 [
   { "key": "ctrl+`", "command": "workbench.action.terminal.focus"},
-  { "key": "ctrl+`", "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus"}
+  { "key": "ctrl+`", "command": "workbench.action.focusActiveEditorGroup", "when": "terminalFocus"},
+  { "key": "F12", "command": "workbench.action.toggleZenMode"}
 ]
 
 // Find a shortcut to enable keyboard only switch focus among terminals
