@@ -158,6 +158,7 @@ alias histo='history -100 | less'
 alias sshk='kitty +kitten ssh'
 # alias H='history | grep -f "\!"'
 alias exa='exa -lg'
+alias rr='evcxr'
 
 ## File and Dir colors for ls and other outputs
 export LS_OPTIONS='--color=auto'
