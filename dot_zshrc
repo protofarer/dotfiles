@@ -160,6 +160,7 @@ alias sshk='kitty +kitten ssh'
 alias exa='exa -lg'
 alias exatr='exa -lg --tree --level 2'
 alias rr='evcxr'
+alias crq='RUSTFLAGS="-A warnings" cargo run'
 
 ## File and Dir colors for ls and other outputs
 export LS_OPTIONS='--color=auto'
