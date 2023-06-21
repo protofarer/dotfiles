@@ -1,5 +1,7 @@
 {
-  "editor.rulers": [80],
+  "editor.rulers": [
+    80
+  ],
   "editor.lineNumbers": "relative",
   "editor.indentSize": "tabSize",
   "editor.tabSize": 2,
@@ -66,12 +68,20 @@
   "vim.sneak": true,
   "vim.visualModeKeyBindings": [
     {
-      "before": ["J"],
-      "commands": ["editor.action.moveLinesDownAction"]
+      "before": [
+        "J"
+      ],
+      "commands": [
+        "editor.action.moveLinesDownAction"
+      ]
     },
     {
-      "before": ["K"],
-      "commands": ["editor.action.moveLinesUpAction"]
+      "before": [
+        "K"
+      ],
+      "commands": [
+        "editor.action.moveLinesUpAction"
+      ]
     }
   ],
   "emmet.includeLanguages": {
@@ -103,7 +113,7 @@
   "python.linting.flake8Enabled": false,
   "python.linting.enabled": true,
   "[shellscript][sh][bash]": {
-    "editor.defaultFormatter":"foxundermoon.shell-format",
+    "editor.defaultFormatter": "foxundermoon.shell-format",
     "editor.formatOnType": true,
     "editor.tabSize": 4
   },
@@ -123,11 +133,10 @@
   ],
   "eslint.codeActionsOnSave.rules": [
     "source.fixAll.eslint"
-   ],
-   "files.autoSave": "onFocusChange",
-  "vs-code-prettier-eslint.prettierLast": false,
-  "settingsSync.ignoredSettings": [
   ],
+  "files.autoSave": "onFocusChange",
+  "vs-code-prettier-eslint.prettierLast": false,
+  "settingsSync.ignoredSettings": [],
   "shellformat.useEditorConfig": true,
   "shellformat.effectLanguages": [
     "shellscript",
