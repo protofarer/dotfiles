@@ -230,10 +230,8 @@ export PATH="$HOME/.local/bin/dart-sdk/bin:$PATH"
 export PATH="$HOME/.local/bin/craftinginterpreters:$PATH"
 
 # keyboard re-bindings
-/usr/bin/setxkbmap -option 'caps:ctrl_modifier'
-/usr/bin/xcape -e 'Caps_Lock=Escape' -t 100
-
-# deny dotnet telemetry
+# /usr/bin/setxkbmap -option 'caps:ctrl_modifier'
+# /usr/bin/xcape -e 'Caps_Lock=Escape' -t 100 deny dotnet telemetry
 DOTNET_CLI_TELEMETRY_OPTOUT="1"
 
 if [ -n "$STARTUP_TIME" ]; then
