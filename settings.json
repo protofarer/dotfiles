@@ -40,7 +40,6 @@
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.fontSize": 12,
   "livePreview.autoRefreshPreview": "On Changes to Saved Files",
-  "workbench.colorTheme": "Gruvbox Dark Hard",
   "workbench.colorCustomizations": {
     "[Gruvbox Dark Hard]": {
       "editor.background": "#121212",
@@ -136,7 +135,9 @@
   ],
   "files.autoSave": "onFocusChange",
   "vs-code-prettier-eslint.prettierLast": false,
-  "settingsSync.ignoredSettings": [],
+  "settingsSync.ignoredSettings": [
+  
+  ],
   "shellformat.useEditorConfig": true,
   "shellformat.effectLanguages": [
     "shellscript",
@@ -159,4 +160,9 @@
     "rust": false
   },
   "workbench.startupEditor": "none",
+  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "gruvboxMaterial.darkWorkbench": "high-contrast",
+  "gruvboxMaterial.highContrast": true,
+  "gruvboxMaterial.darkPalette": "original",
+  "gruvboxMaterial.darkContrast": "hard",
 }

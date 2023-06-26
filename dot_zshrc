@@ -85,7 +85,7 @@ plugins=(
   git 
   gitignore
   npm
-  nvm
+  # nvm
   docker 
   docker-compose 
   fzf 
