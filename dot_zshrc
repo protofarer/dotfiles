@@ -167,6 +167,7 @@ alias ct1='cargo test -- --test-threads=1'
 export LS_OPTIONS='--color=auto'
 eval "$(dircolors -b)"
 alias ls='ls -lhg --time-style=+"" $LS_OPTIONS'
+alias lsf='ls -lahp | grep -v / | grep "\s\..*"' # list files only
 
 
 ## Theming section
