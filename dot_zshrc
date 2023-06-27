@@ -140,9 +140,9 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 ## Aliases
-alias cp='cp -i'                                                # Confirm before overwriting something
-alias df='df -h'                                                # Human-readable sizes
-alias free='free -m'                                            # Show sizes in MB
+alias cp='cp -i'        # Confirm before overwriting something
+alias df='df -h'        # Human-readable sizes
+alias free='free -m'    # Show sizes in MB
 alias rm='rm -iv'
 alias gitst='git status'
 alias gitpu='git push'
@@ -160,15 +160,14 @@ alias sshk='kitty +kitten ssh'
 alias exa='exa -lg'
 alias exatr='exa -lg --tree --level 2'
 alias rr='evcxr'
-alias crq='RUSTFLAGS="-A warnings" cargo run'  ## unfortunately rebuilds packages
+alias crq='RUSTFLAGS="-A warnings" cargo run'  # unfortunately rebuilds packages
 alias ct1='cargo test -- --test-threads=1'
+alias ls='ls -lhg --time-style=+"" $LS_OPTIONS'
+alias lsf='ls -lahp | grep -v / | grep "\s\..*"' # list files only
 
 ## File and Dir colors for ls and other outputs
 export LS_OPTIONS='--color=auto'
 eval "$(dircolors -b)"
-alias ls='ls -lhg --time-style=+"" $LS_OPTIONS'
-alias lsf='ls -lahp | grep -v / | grep "\s\..*"' # list files only
-
 
 ## Theming section
 autoload -U compinit colors zcalc
