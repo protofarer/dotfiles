@@ -36,7 +36,6 @@
   "liveServer.settings.donotVerifyTags": true,
   "javascript.updateImportsOnFileMove.enabled": "always",
   "terminal.integrated.tabs.enabled": false,
-  "sync.autoUpload": false,
   "terminal.integrated.copyOnSelection": true,
   "terminal.integrated.fontSize": 12,
   "livePreview.autoRefreshPreview": "On Changes to Saved Files",
@@ -51,6 +50,18 @@
       "statusBar.background": "#0b0b0b",
       "tab.activeBackground": "#0b0b0b",
       "tab.activeBorder": "#76e045"
+      // "notifications.background": "#ff0000"
+    },
+    "[Gruvbox Material Dark]": {
+      "editor.background": "#232323",
+      "editor.lineHighlightBackground": "#333",
+      "terminal.background": "#0b0b0b",
+      "sideBar.background": "#0b0b0b",
+      "minimap.background": "#0b0b0b",
+      "panel.background": "#222",
+      "statusBar.background": "#0b0b0b",
+      "tab.activeBackground": "#0b0b0b",
+      "tab.activeBorder": "#76e045",
       // "notifications.background": "#ff0000"
     }
   },
@@ -136,6 +147,7 @@
   "files.autoSave": "onFocusChange",
   "vs-code-prettier-eslint.prettierLast": false,
   "settingsSync.ignoredSettings": [
+
   
   ],
   "shellformat.useEditorConfig": true,
@@ -160,7 +172,7 @@
     "rust": false
   },
   "workbench.startupEditor": "none",
-  "workbench.colorTheme": "Gruvbox Dark Hard",
+  "workbench.colorTheme": "Gruvbox Material Dark",
   "gruvboxMaterial.darkWorkbench": "high-contrast",
   "gruvboxMaterial.highContrast": true,
   "gruvboxMaterial.darkPalette": "original",

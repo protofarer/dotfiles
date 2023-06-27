@@ -191,9 +191,9 @@ export LESS=-R
 export ZYPP_MEDIANETWORK=1
 
 # default nvm load
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # ####### lazy load nvm/node/npm, respective programs loaded on first invocation instead of at shell startup
 nvm() {
@@ -219,7 +219,6 @@ npm() {
 }
 
 # setopt auto_cd
-export CDPATH=:~/drive-sync/2-areas/
 export CDPATH=:~/projects/:$CDPATH
 
 ############### binaries and scripts ##########################
@@ -233,6 +232,7 @@ export PATH="$HOME/.local/bin/craftinginterpreters:$PATH"
 # keyboard re-bindings
 # /usr/bin/setxkbmap -option 'caps:ctrl_modifier'
 # /usr/bin/xcape -e 'Caps_Lock=Escape' -t 100 deny dotnet telemetry
+
 DOTNET_CLI_TELEMETRY_OPTOUT="1"
 
 if [ -n "$STARTUP_TIME" ]; then
