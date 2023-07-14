@@ -222,6 +222,9 @@ export CDPATH=:~/projects/:$CDPATH
 
 ############### binaries and scripts ##########################
 
+# riscv toolchain
+export PATH="/opt/riscv-unknown-elf-gcc/bin:$PATH"
+
 export PATH="$HOME/.fly/bin:$PATH"	# fly.io cli
 
 # crafting interpreters book: lox interpreters
