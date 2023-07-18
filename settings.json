@@ -135,6 +135,9 @@
     "editor.formatOnType": true,
     "editor.inlayHints.enabled": "offUnlessPressed",
   },
+  "[makefile]": {
+    "editor.insertSpaces": false
+  },
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -147,6 +150,7 @@
   "files.autoSave": "onFocusChange",
   "vs-code-prettier-eslint.prettierLast": false,
   "settingsSync.ignoredSettings": [
+
 
   
   ],
@@ -177,4 +181,8 @@
   "gruvboxMaterial.highContrast": true,
   "gruvboxMaterial.darkPalette": "original",
   "gruvboxMaterial.darkContrast": "hard",
+  "editor.insertSpaces": false,
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
 }
