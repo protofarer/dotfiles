@@ -90,7 +90,7 @@ plugins=(
   docker-compose 
   fzf 
   dotenv
-  emoji
+  # emoji
   gh
   zsh-syntax-highlighting
   zsh-vi-mode
