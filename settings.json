@@ -2,14 +2,16 @@
   "editor.rulers": [
     80
   ],
+  // "editor.detectIndentation": true,
   "editor.lineNumbers": "relative",
   "editor.indentSize": "tabSize",
   "editor.tabSize": 2,
+  "editor.insertSpaces": false,
+  "editor.renderWhitespace": "none",
   "editor.fontFamily": "hasklig, Source Code Pro, 'Courier New', monospace",
   "editor.fontLigatures": true,
   "editor.minimap.enabled": false,
   "editor.find.cursorMoveOnType": false,
-  "editor.renderWhitespace": "all",
   "editor.mouseWheelZoom": true,
   "editor.bracketPairColorization.enabled": true,
   "editor.guides.bracketPairs": true,
@@ -21,24 +23,29 @@
   "editor.formatOnSaveMode": "file",
   "editor.formatOnPaste": false,
   "editor.formatOnType": false,
-  "zenMode.hideLineNumbers": false,
   "terminal.integrated.profiles.windows": {
     "Command Prompt": {
       "path": "C:\\WINDOWS\\System32\\cmd.exe",
       "args": []
     }
   },
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook"
-  },
+  "terminal.integrated.copyOnSelection": true,
+  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.tabs.enabled": false,
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "files.autoSave": "onFocusChange",
+  "settingsSync.ignoredSettings": [],
+  "zenMode.hideLineNumbers": false,
   "security.workspace.trust.untrustedFiles": "open",
   "liveServer.settings.donotShowInfoMsg": true,
   "liveServer.settings.donotVerifyTags": true,
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "terminal.integrated.tabs.enabled": false,
-  "terminal.integrated.copyOnSelection": true,
-  "terminal.integrated.fontSize": 12,
   "livePreview.autoRefreshPreview": "On Changes to Saved Files",
+  "workbench.startupEditor": "none",
+  "workbench.colorTheme": "Gruvbox Material Dark",
+  "workbench.editorAssociations": {
+    "*.ipynb": "jupyter-notebook"
+  },
+  "workbench.panel.defaultLocation": "right",
   "workbench.colorCustomizations": {
     "[Gruvbox Dark Hard]": {
       "editor.background": "#121212",
@@ -67,13 +74,14 @@
   },
   "workbench.editor.labelFormat": "short",
   "explorer.confirmDragAndDrop": false,
-  "vim.vimrc.enable": true,
   "git.path": "/usr/bin/git",
   "gitlens.hovers.currentLine.over": "line",
+  "gitlens.codeLens.recentChange.enabled": false,
+  "gitlens.codeLens.authors.enabled": false,
   "dotfiles.repository": "https://github.com/protofarer/dotfilez",
   "dotfiles.targetPath": "~/.local/share/chezmoi/",
   "dotfiles.installCommand": "~/.local/share/chezmoi/install.sh",
-  "terminal.integrated.defaultProfile.linux": "zsh",
+  "vim.vimrc.enable": true,
   "vim.leader": "<space>",
   "vim.sneak": true,
   "vim.visualModeKeyBindings": [
@@ -94,20 +102,51 @@
       ]
     }
   ],
-  "emmet.includeLanguages": {
-    "typescript": "typescriptreact",
-    "javascript": "javascriptreact"
-  },
+  "vim.handleKeys": { "<C-p>": false, "<C-t>": false },
   "window.zoomLevel": 2,
-  "workbench.panel.defaultLocation": "right",
-  "typescript.updateImportsOnFileMove.enabled": "always",
+  "[c]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools",
+    "editor.tabSize": 3,
+    "editor.indentSize": "tabSize",
+    "editor.insertSpaces": false,
+    "editor.formatOnSave": false
+  },
+  "clang-format.fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0}",
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools",
+    "editor.tabSize": 3,
+    "editor.indentSize": "tabSize",
+    "editor.insertSpaces": false,
+    "editor.formatOnSave": false,
+  },
+  "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4, ColumnLimit: 0}",
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.formatOnSave": true,
+    // "editor.formatOnType": true,
+    "editor.inlayHints.enabled": "offUnlessPressed",
+  },
+  "[lua]": {
+    "editor.tabSize": 3,
+    "editor.indentSize": "tabSize",
+    "editor.insertSpaces": false,
+    "editor.formatOnSave": false,
+  },
+  "rust-analyzer.checkOnSave": true,
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
   "[javascript]": {
     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "javascript.preferences.importModuleSpecifierEnding": "js",
   "[typescript]": {
     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
-  "javascript.preferences.importModuleSpecifierEnding": "js",
+  "typescript.updateImportsOnFileMove.enabled": "always",
   "[typescriptreact]": {
     "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
@@ -124,19 +163,14 @@
   "python.linting.enabled": true,
   "[shellscript][sh][bash]": {
     "editor.defaultFormatter": "foxundermoon.shell-format",
-    "editor.formatOnType": true,
     "editor.tabSize": 4
-  },
-  "rust-analyzer.checkOnSave": true,
-  "[rust]": {
-    "editor.defaultFormatter": "rust-lang.rust-analyzer",
-    "editor.tabSize": 4,
-    "editor.formatOnSave": true,
-    "editor.formatOnType": true,
-    "editor.inlayHints.enabled": "offUnlessPressed",
   },
   "[makefile]": {
     "editor.insertSpaces": false
+  },
+  "emmet.includeLanguages": {
+    "typescript": "typescriptreact",
+    "javascript": "javascriptreact"
   },
   "eslint.validate": [
     "javascript",
@@ -147,13 +181,7 @@
   "eslint.codeActionsOnSave.rules": [
     "source.fixAll.eslint"
   ],
-  "files.autoSave": "onFocusChange",
   "vs-code-prettier-eslint.prettierLast": false,
-  "settingsSync.ignoredSettings": [
-
-
-  
-  ],
   "shellformat.useEditorConfig": true,
   "shellformat.effectLanguages": [
     "shellscript",
@@ -169,20 +197,18 @@
     "bats"
   ],
   "github.copilot.enable": {
-    "*": true,
+    "*": false,
     "plaintext": false,
     "markdown": false,
     "scminput": false,
-    "rust": false
+    "rust": false,
+    "java": false,
+    "cpp": false,
+    "c": false,
+    "lua": false
   },
-  "workbench.startupEditor": "none",
-  "workbench.colorTheme": "Gruvbox Material Dark",
   "gruvboxMaterial.darkWorkbench": "high-contrast",
   "gruvboxMaterial.highContrast": true,
   "gruvboxMaterial.darkPalette": "original",
   "gruvboxMaterial.darkContrast": "hard",
-  "editor.insertSpaces": false,
-  "[cpp]": {
-    "editor.defaultFormatter": "ms-vscode.cpptools"
-  },
 }
