@@ -140,32 +140,39 @@ HISTSIZE=10000
 SAVEHIST=10000
 
 ## Aliases
+
+### Universal Aliases
 alias ls='ls -lhg --time-style=+"" $LS_OPTIONS'
 alias cp='cp -i'        # Confirm before overwriting something
 alias df='df -h'        # Human-readable sizes
 alias free='free -m'    # Show sizes in MB
 alias rm='rm -iv'
 alias g='git'
-alias gc='git checkout
+alias gc='git checkout'
 alias gcm='git commit -m'
 alias gcam='git commit -am'
 alias gitst='git status -s'
 alias gitl='git log --all --decorate --graph --oneline'
-alias zrd='sudo zypper ref && sudo zypper dup'
-alias zr='sudo zypper ref'
 alias h='history -5'
 alias hi='history -10'
 alias his='history -20'
 alias hist='history -50 | less'
 alias histo='history -100 | less'
 alias hgrep='history | grep'
+
+### Distro/OS specific Aliases
+alias zrd='sudo zypper ref && sudo zypper dup'
+alias zr='sudo zypper ref'
+
+### Tool Aliases
 alias sshk='kitty +kitten ssh'
-alias H='history | grep "!"'
+alias ard='arduino-cli'
+
+### Rust Aliases
+alias c='cargo'
 alias rr='evcxr'
 alias crq='RUSTFLAGS="-A warnings" cargo run'  # unfortunately rebuilds packages
 alias ct1='cargo test -- --test-threads=1'
-alias ard='arduino-cli'
-alias c='cargo'
 
 ## File and Dir colors for ls and other outputs
 export LS_OPTIONS='--color=auto'
