@@ -142,7 +142,7 @@ SAVEHIST=10000
 ## Aliases
 
 ### Universal Aliases
-alias ls='ls -lhg --time-style=+"" $LS_OPTIONS'
+alias ls='ls -lh --time-style=+"" $LS_OPTIONS'
 alias cp='cp -i'        # Confirm before overwriting something
 alias df='df -h'        # Human-readable sizes
 alias free='free -m'    # Show sizes in MB
