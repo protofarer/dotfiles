@@ -254,3 +254,5 @@ function mkdirgo() {
   mkdir -p "$@" && cd "$@"
 }
 
+# set default for any new shell
+nvm alias default lts/iron
