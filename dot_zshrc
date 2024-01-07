@@ -225,7 +225,7 @@ export NVM_DIR="$HOME/.nvm"
 # }
 
 # setopt auto_cd
-export CDPATH=:~/spaces/projects/:~/spaces/education/:$CDPATH
+export CDPATH=:~/spaces/projects/:~/spaces/education/:~/spaces/projects/work/:$CDPATH
 
 ############### binaries and scripts ##########################
 
