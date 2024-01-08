@@ -255,4 +255,4 @@ function mkdirgo() {
 }
 
 # set default for any new shell
-nvm alias default lts/iron
+nvm use lts/iron
