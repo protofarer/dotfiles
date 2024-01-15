@@ -103,6 +103,8 @@ HISTFILE=~/.zhistory
 HISTSIZE=10000
 SAVEHIST=10000
 
+export LS_OPTIONS='--color=auto'
+
 ## Aliases
 
 ### Universal Aliases
