@@ -1,9 +1,5 @@
 zmodload zsh/zprof
 
-export FZF_BASE=~/bin/fzf
-export PATH=$HOME/bin:/usr/local/bin:$HOME/bin/scripts:$PATH
-export ZSH="$HOME/.oh-my-zsh"
-
 # measure kitty + zsh startup time
 if [ -z "$STARTUP_TIME" ]; then
   export STARTUP_TIME=$(date +%s%3N)
@@ -86,8 +82,8 @@ plugins=(
   gitignore
   npm
   # nvm
-  # docker 
-  # docker-compose 
+  docker 
+  docker-compose 
   # fzf 
   dotenv
   # emoji
@@ -97,40 +93,6 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-
-
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-export LANG=en_US.UTF-8
-
-export EDITOR=vim
-export VISUAL=code
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
 
 ## Keybinds
 bindkey '^H' backward-kill-word
@@ -173,7 +135,6 @@ alias crq='RUSTFLAGS="-A warnings" cargo run'  # unfortunately rebuilds packages
 alias ct1='cargo test -- --test-threads=1'
 
 ## File and Dir colors for ls and other outputs
-export LS_OPTIONS='--color=auto'
 eval "$(dircolors -b)"
 
 ## Theming section
@@ -227,23 +188,6 @@ export NVM_DIR="$HOME/.nvm"
 # setopt auto_cd
 export CDPATH=:~/spaces/projects/:~/spaces/education/:~/spaces/projects/work/:$CDPATH
 
-############### binaries and scripts ##########################
-
-# riscv toolchain
-export PATH="/opt/riscv-unknown-elf-gcc/bin:$PATH"
-
-export PATH="$HOME/.fly/bin:$PATH"	# fly.io cli
-
-# crafting interpreters book: lox interpreters
-export PATH="$HOME/.local/bin/dart-sdk/bin:$PATH"
-export PATH="$HOME/.local/bin/craftinginterpreters:$PATH"
-
-# keyboard re-bindings
-# /usr/bin/setxkbmap -option 'caps:ctrl_modifier'
-# /usr/bin/xcape -e 'Caps_Lock=Escape' -t 100 deny dotnet telemetry
-
-DOTNET_CLI_TELEMETRY_OPTOUT="1"
-
 if [ -n "$STARTUP_TIME" ]; then
   echo -n 'startup time: '
   echo $(expr $(date +%s%3N) - $STARTUP_TIME) 'ms'
@@ -253,6 +197,3 @@ fi
 function mkdirgo() {
   mkdir -p "$@" && cd "$@"
 }
-
-# set default for any new shell
-# nvm use lts/iron
