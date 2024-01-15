@@ -1,8 +1,20 @@
+export PATH=$HOME/bin:/usr/local/bin:$HOME/bin/scripts:$PATH
+export PATH="/opt/riscv-unknown-elf-gcc/bin:$PATH"
+export PATH="$HOME/.fly/bin:$PATH"
+export PATH="$HOME/.local/bin/dart-sdk/bin:$PATH"
+export PATH="$HOME/.local/bin/craftinginterpreters:$PATH"
+
+export LANG=en_US.UTF-8
+
+export EDITOR=vim
+export VISUAL=code
+
+export LS_OPTIONS='--color=auto'
+
+export FZF_BASE=~/bin/fzf
+export NVM_DIR="$HOME/.nvm"
+export ZYPP_MEDIANETWORK=1
+DOTNET_CLI_TELEMETRY_OPTOUT="1"
+
 /usr/bin/setxkbmap -option 'caps:ctrl_modifier'
 /usr/bin/xcape -e 'Caps_Lock=Escape' -t 100
-
-if [ -x /usr/bin/fortune ] ; then
-   echo
-   /usr/bin/fortune
-   echo
-fi
