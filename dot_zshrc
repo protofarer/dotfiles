@@ -190,7 +190,7 @@ export NVM_DIR="$HOME/.nvm"
 # }
 
 # setopt auto_cd
-export CDPATH=:~/spaces/projects/:~/spaces/education/:~/spaces/projects/work/:$CDPATH
+export CDPATH=:~/spaces/projects/:~/spaces/education/:~/spaces/projects/work/:~/spaces/code-exercises/:$CDPATH
 
 if [ -n "$STARTUP_TIME" ]; then
   echo -n 'startup time: '
