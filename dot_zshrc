@@ -138,6 +138,11 @@ alias rr='evcxr'
 alias crq='RUSTFLAGS="-A warnings" cargo run'  # unfortunately rebuilds packages
 alias ct1='cargo test -- --test-threads=1'
 
+### tmp
+#### pastorstays speeeed and config
+# - pastorstays just
+alias psj='just -f /home/kenny/spaces/work/workspaces-pastorstays/justfile'
+
 ## File and Dir colors for ls and other outputs
 eval "$(dircolors -b)"
 
