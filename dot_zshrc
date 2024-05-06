@@ -141,7 +141,7 @@ alias ct1='cargo test -- --test-threads=1'
 ### tmp
 #### pastorstays speeeed and config
 # - pastorstays gust
-alias psj='just -f /home/kenny/spaces/work/workspace-pastorstays/justfile'
+alias jps='just -f /home/kenny/spaces/work/workspace-pastorstays/justfile'
 
 ## File and Dir colors for ls and other outputs
 eval "$(dircolors -b)"
@@ -167,9 +167,9 @@ export LESS=-R
 export ZYPP_MEDIANETWORK=1
 
 # default nvm load
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # ####### lazy load nvm/node/npm, respective programs loaded on first invocation instead of at shell startup
 # nvm() {
