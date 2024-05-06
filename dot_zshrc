@@ -206,5 +206,3 @@ fi
 function mkdirgo() {
   mkdir -p "$@" && cd "$@"
 }
-
-export PATH=~/spaces/repos/clones/Odin/odin:$PATH
