@@ -82,8 +82,8 @@ plugins=(
   git 
   zsh-vi-mode
   gitignore
-  docker 
-  docker-compose 
+  # docker 
+  # docker-compose 
   gh
   # npm
   # nvm
