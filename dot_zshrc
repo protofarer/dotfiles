@@ -160,10 +160,9 @@ function gcob() {
     return 1
   fi
 
-  gh pr create --base master --head "kennybaron/$current_branch" --title "$1"
   git checkout -b kbaron/"$1"
 }
-alias ghprcr=gcob
+alias gcob=gcob
 
 
 ### Tool Aliases
