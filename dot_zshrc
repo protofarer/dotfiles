@@ -178,7 +178,7 @@ alias ct1='cargo test -- --test-threads=1'
 ### tmp
 #### pastorstays speeeed and config
 # - pastorstays gust
-alias jps='just -f /home/kenny/spaces/work/workspace-pastorstays/justfile'
+alias jps='just -f /home/kenny/spaces/work/pastorstays-workspace/justfile'
 
 ## File and Dir colors for ls and other outputs
 eval "$(dircolors -b)"
