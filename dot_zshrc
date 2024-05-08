@@ -114,9 +114,7 @@ alias df='df -h'        # Human-readable sizes
 alias free='free -m'    # Show sizes in MB
 alias rm='rm -iv'
 alias gcam='git commit -am'
-alias gitst='git status -s'
-alias gitl='git log --all --decorate --graph --oneline'
-alias gds='git diff --staged'
+
 alias h='history -5'
 alias hi='history -10'
 alias his='history -20'
@@ -127,6 +125,14 @@ alias hgrep='history | grep'
 ### Distro/OS specific Aliases
 alias zrd='sudo zypper ref && sudo zypper dup'
 alias zr='sudo zypper ref'
+#
+### git
+alias gitst='git status -s'
+alias gitl='git log --all --decorate --graph --oneline'
+alias gds='git diff --staged'
+alias gpf='git push --force-with-lease'
+alias grih='git rebase -i HEAD~'
+alias ghprcr='gh pr create --base master --head kennybaron/'
 
 ### Tool Aliases
 alias sshk='kitty +kitten ssh'
