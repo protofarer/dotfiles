@@ -131,8 +131,30 @@ alias gitst='git status -s'
 alias gitl='git log --all --decorate --graph --oneline'
 alias gds='git diff --staged'
 alias gpf='git push --force-with-lease'
-alias grih='git rebase -i HEAD~'
-alias ghprcr='gh pr create --base master --head kennybaron/'
+
+function grih() {
+  if [ -z "$1" ]; then
+    echo "Please provide the number of commits to interactively rebase."
+    return 1
+  fi
+
+  git rebase -i HEAD~$1
+}
+alias grih=grih
+
+function ghprcr() {
+  if [ -z "$1" ]; then
+    echo "Please provide a title for the pull request."
+    return 1
+  fi
+
+  current_branch=$(git rev-parse --abbrev-ref HEAD)
+  gh pr create --base master --head "kennybaron/$current_branch" --title "$1"
+}
+alias ghprcr=ghprcr
+
+
+
 
 ### Tool Aliases
 alias sshk='kitty +kitten ssh'
