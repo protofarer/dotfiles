@@ -154,6 +154,16 @@ function ghprcr() {
 alias ghprcr=ghprcr
 
 
+function gcob() {
+  if [ -z "$1" ]; then
+    echo "Please provide a name for the branch."
+    return 1
+  fi
+
+  gh pr create --base master --head "kennybaron/$current_branch" --title "$1"
+  git checkout -b kbaron/"$1"
+}
+alias ghprcr=gcob
 
 
 ### Tool Aliases
