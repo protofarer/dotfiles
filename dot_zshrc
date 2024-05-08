@@ -132,7 +132,7 @@ alias gitl='git log --all --decorate --graph --oneline'
 alias gds='git diff --staged'
 alias gpf='git push --force-with-lease'
 
-function grih() {
+function grbi() {
   if [ -z "$1" ]; then
     echo "Please provide the number of commits to interactively rebase."
     return 1
@@ -140,7 +140,7 @@ function grih() {
 
   git rebase -i HEAD~$1
 }
-alias grih=grih
+alias grbi=grbi
 
 function ghprcr() {
   if [ -z "$1" ]; then
