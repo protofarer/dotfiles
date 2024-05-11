@@ -86,7 +86,7 @@ plugins=(
   # docker-compose 
   gh
   # npm
-  # nvm
+  nvm
   # fzf 
   # dotenv
   # emoji
