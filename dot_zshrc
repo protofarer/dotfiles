@@ -220,12 +220,12 @@ node() {
   node "$@"
 }
 
-# npm() {
-  # unset -f npm
-  # export NVM_DIR=~/.nvm
-  # [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-  # npm "$@"
-# }
+npm() {
+  unset -f npm
+  export NVM_DIR=~/.nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+  npm "$@"
+}
 
 # setopt auto_cd
 export CDPATH=:~/spaces/projects/:~/spaces/education/:~/spaces/projects/work/:~/spaces/code-exercises/:$CDPATH
