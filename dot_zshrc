@@ -1,6 +1,6 @@
 zmodload zsh/zprof
 
-# measure kitty + zsh startup time
+# being measure kitty + zsh startup time
 if [ -z "$STARTUP_TIME" ]; then
   export STARTUP_TIME=$(date +%s%3N)
 fi
@@ -122,11 +122,11 @@ alias hist='history -50 | less'
 alias histo='history -100 | less'
 alias hgrep='history | grep'
 
-### Distro/OS specific Aliases
+### Distro-specific Aliases
 alias zrd='sudo zypper ref && sudo zypper dup'
 alias zr='sudo zypper ref'
-#
-### git
+
+### Git Aliases
 alias gitst='git status -s'
 alias gitl='git log --all --decorate --graph --oneline'
 alias gds='git diff --staged'
@@ -153,7 +153,6 @@ function ghprcr() {
 }
 alias ghprcr=ghprcr
 
-
 function gcob() {
   if [ -z "$1" ]; then
     echo "Please provide a name for the branch."
@@ -164,20 +163,17 @@ function gcob() {
 }
 alias gcob=gcob
 
-
-### Tool Aliases
-alias sshk='kitty +kitten ssh'
-alias ard='arduino-cli'
-
 ### Rust Aliases
 alias c='cargo'
 alias rr='evcxr'
 alias crq='RUSTFLAGS="-A warnings" cargo run'  # unfortunately rebuilds packages
 alias ct1='cargo test -- --test-threads=1'
 
+### Misc Tool-related Aliases
+alias sshk='kitty +kitten ssh'
+alias ard='arduino-cli'
+
 ### tmp
-#### pastorstays speeeed and config
-# - pastorstays gust
 alias jps='just -f /home/kenny/spaces/work/pastorstays-workspace/justfile'
 
 ## File and Dir colors for ls and other outputs
@@ -234,12 +230,12 @@ node() {
 # setopt auto_cd
 export CDPATH=:~/spaces/projects/:~/spaces/education/:~/spaces/projects/work/:~/spaces/code-exercises/:$CDPATH
 
+function mkdirgo() {
+  mkdir -p "$@" && cd "$@"
+}
+
 if [ -n "$STARTUP_TIME" ]; then
   echo -n 'startup time: '
   echo $(expr $(date +%s%3N) - $STARTUP_TIME) 'ms'
   unset STARTUP_TIME
 fi
-
-function mkdirgo() {
-  mkdir -p "$@" && cd "$@"
-}
