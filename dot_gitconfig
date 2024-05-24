@@ -2,7 +2,8 @@
 	name = Kenny Baron
 	email = kennybaron@fastmail.com
 [core]
-	editor = vim
+	editor = code --wait
+	autocrlf = input
 [init]
 	defaultBranch = main
 [credential]
@@ -14,3 +15,13 @@
        helper = 
        helper = !/usr/bin/gh auth git-credential
 
+[diff]
+	tool = vscode
+[difftool "vscode"]
+	cmd = "code --wait --diff $LOCAL $REMOTE"
+[push]
+	autoSetupRemote = true
+[safe]
+	directory = /home/kenny/spaces/work/pastor-stays
+[http]
+	postBuffer = 120000000
