@@ -107,31 +107,31 @@ export LS_OPTIONS='--color=auto'
 
 ## ,Aliases
 
-### Universal Aliases
+### Coreutils
 alias ls='ls -lh --time-style=+"" $LS_OPTIONS'
 alias cat='bat'
 alias cp='cp -i'        # Confirm before overwriting something
 alias df='df -h'        # Human-readable sizes
 alias free='free -m'    # Show sizes in MB
 alias rm='rm -iv'
-alias gcam='git commit -am'
 
 alias h='history -5'
 alias hi='history -10'
 alias his='history -20'
 alias hist='history -50 | less'
 alias histo='history -100 | less'
-alias hgrep='history | grep'
+alias hrg='history | rg'
 
-### Distro-specific Aliases
+### Distro-specific
 alias zrd='sudo zypper ref && sudo zypper dup'
 alias zr='sudo zypper ref'
 
-### Git Aliases
+### Git
+alias gcam='git commit -am'
 alias gitst='git status -s'
-alias gitl='git log --all --decorate --graph --oneline'
-alias gds='git diff --staged'
-alias gpf='git push --force-with-lease'
+alias gitlg='git log --all --decorate --graph --oneline'
+alias gitds='git diff --staged'
+alias gitpf='git push --force-with-lease'
 
 function grbi() {
   if [ -z "$1" ]; then
@@ -164,16 +164,18 @@ function gcob() {
 }
 alias gcob=gcob
 
-### Rust Aliases
-alias c='cargo'
-alias rr='evcxr'
-alias crq='RUSTFLAGS="-A warnings" cargo run'  # unfortunately rebuilds packages
-alias ct1='cargo test -- --test-threads=1'
+### Rust
+alias rrepl='evcxr'
+alias car='cargo'
+alias carrq='RUSTFLAGS="-A warnings" cargo run'  # unfortunately rebuilds packages
+alias cart1='cargo test -- --test-threads=1'
 
-### Misc Tool-related Aliases
+### Misc / One-off tool-related
 alias sshk='kitty +kitten ssh'
 alias ard='arduino-cli'
-alias cez='chezmoi edit ~/.zshrc'
+alias cz='chezmoi'
+alias czez='chezmoi edit ~/.zshrc'
+alias czen='chezmoi edit ~/.config/nvim/init.lua'
 
 ### tmp
 alias jps='just -f /home/kenny/spaces/work/pastorstays-workspace/justfile'
