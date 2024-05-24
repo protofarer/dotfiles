@@ -114,6 +114,7 @@ alias cp='cp -i'        # Confirm before overwriting something
 alias df='df -h'        # Human-readable sizes
 alias free='free -m'    # Show sizes in MB
 alias rm='rm -iv'
+alias lrg='ls -lah | rg'
 
 alias h='history -5'
 alias hi='history -10'
