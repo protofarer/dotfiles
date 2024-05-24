@@ -21,3 +21,4 @@ DOTNET_CLI_TELEMETRY_OPTOUT="1"
 
 # emscripten for compiling odin/c to wasm
 source "/home/kenny/spaces/src/emsdk/emsdk_env.sh"
+. ~/.cargo/env
