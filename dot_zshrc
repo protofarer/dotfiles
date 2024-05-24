@@ -105,10 +105,11 @@ SAVEHIST=10000
 
 export LS_OPTIONS='--color=auto'
 
-## Aliases
+## ,Aliases
 
 ### Universal Aliases
 alias ls='ls -lh --time-style=+"" $LS_OPTIONS'
+alias cat='bat'
 alias cp='cp -i'        # Confirm before overwriting something
 alias df='df -h'        # Human-readable sizes
 alias free='free -m'    # Show sizes in MB
@@ -172,6 +173,7 @@ alias ct1='cargo test -- --test-threads=1'
 ### Misc Tool-related Aliases
 alias sshk='kitty +kitten ssh'
 alias ard='arduino-cli'
+alias cez='chezmoi edit ~/.zshrc'
 
 ### tmp
 alias jps='just -f /home/kenny/spaces/work/pastorstays-workspace/justfile'
