@@ -22,6 +22,7 @@
 	cmd = "code --wait --diff $LOCAL $REMOTE"
 [push]
 	autoSetupRemote = true
+	default = current
 [safe]
 	directory = /home/kenny/spaces/work/pastor-stays
 [http]
