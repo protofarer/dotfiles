@@ -5,6 +5,13 @@ if [ -z "$STARTUP_TIME" ]; then
   export STARTUP_TIME=$(date +%s%3N)
 fi
 
+# regenerate compinit cache only once a day
+autoload -Uz compinit
+for dump in ~/.zcompdump(N.mh+24); do
+  compinit
+done
+compinit -C`
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
