@@ -181,17 +181,6 @@ if not vim.loop.fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
--- [[ Configure and install plugins ]]
---
---  To check the current status of your plugins, run
---    :Lazy
---
---  You can press `?` in this menu for help. Use `:q` to close the window
---
---  To update plugins you can run
---    :Lazy update
---
--- NOTE: Here is where you install your plugins.
 require("lazy").setup({
 	-- Extras
 	spec = {
@@ -835,6 +824,13 @@ require("lazy").setup({
 			-- - sr)'  - [S]urround [R]eplace [)] [']
 			require("mini.surround").setup()
 
+			require("mini.animate").setup({
+				event = "VeryLazy",
+				opts = function(_, opts)
+					opts.scroll = { enable = false }
+				end,
+			})
+
 			-- Simple and easy statusline.
 			--  You could remove this setup call if you don't like it,
 			--  and try some other statusline plugin
@@ -849,13 +845,6 @@ require("lazy").setup({
 			statusline.section_location = function()
 				return "%2l:%-2v"
 			end
-
-			require("mini.animate").setup({
-				event = "VeryLazy",
-				opts = function(_, opts)
-					opts.scroll = { enable = false }
-				end,
-			})
 
 			-- ... and there is more!
 			--  Check out: https://github.com/echasnovski/mini.nvim
