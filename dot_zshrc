@@ -30,7 +30,7 @@ zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
-zstyle ':omz:update' frequency 7
+zstyle ':omz:update' frequency 3
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -128,9 +128,12 @@ alias zrd='sudo zypper ref && sudo zypper dup'
 alias zr='sudo zypper ref'
 
 ### Git
+alias g='git'
+# put these in gitconfig
 alias gcam='git commit -am'
 alias gitst='git status -s'
-alias gitlg='git log --all --decorate --graph --oneline'
+alias gitstat='git status'
+alias gitl='git log --all --decorate --graph --oneline'
 alias gitds='git diff --staged'
 alias gitpf='git push --force-with-lease'
 
