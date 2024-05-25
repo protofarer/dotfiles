@@ -242,14 +242,6 @@ function mkdirgo() {
   mkdir -p "$@" && cd "$@"
 }
 
-# regenerate compinit cache only once a day
-autoload -Uz compinit 
-if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
-	compinit;
-else
-	compinit -C;
-fi;
-
 if [ -n "$STARTUP_TIME" ]; then
   echo $(expr $(date +%s%3N) - $STARTUP_TIME)'ms'
   unset STARTUP_TIME
