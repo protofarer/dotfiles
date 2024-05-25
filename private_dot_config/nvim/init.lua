@@ -82,10 +82,6 @@ vim.opt.shiftwidth = 4
 
 -- vim.opt.background = 'dark'
 
---
--- END OPTS
---
-
 -- [[ Basic Keymaps ]] ,keymaps
 --  See `:help vim.keymap.set()`
 
@@ -94,8 +90,8 @@ vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Diagnostic keymaps
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
+vim.keymap.set("n", "<C-k>", vim.diagnostic.goto_prev, { desc = "Go to previous [D]iagnostic message" })
+vim.keymap.set("n", "<C-j>", vim.diagnostic.goto_next, { desc = "Go to next [D]iagnostic message" })
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
@@ -115,12 +111,24 @@ vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" }
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
---
 --  See `:help wincmd` for a list of all window commands
-vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
-vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right window" })
-vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
-vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+vim.keymap.set("n", "sh", "<C-w><C-h>", { desc = "Move focus to the left window" })
+vim.keymap.set("n", "sl", "<C-w><C-l>", { desc = "Move focus to the right window" })
+vim.keymap.set("n", "sj", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+vim.keymap.set("n", "sk", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+
+vim.keymap.set("n", "ss", ":split<Return>", { noremap = true, silent = true })
+vim.keymap.set("n", "sv", ":vsplit<Return>", { noremap = true, silent = true })
+
+-- select all
+vim.keymap.set("n", "<C-a>", "gg<S-v>G", { noremap = true, silent = true })
+
+-- increment/decrement
+vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true })
+vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
+
+-- intriguing keymap used by Takuya
+-- vim.keymap.set('n', 'dw', 'vb_d', { noremap = true, silent = true })
 
 -- [[ Basic Autocommands ]] ,autocmd
 --  See `:help lua-guide-autocommands`
@@ -185,6 +193,11 @@ vim.opt.rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require("lazy").setup({
+	-- Extras
+	spec = {
+		{ "LazyVim/LazyVim", import = "lazyvim.plugins" },
+		{ import = "lazyvim.plugins.extras.coding.copilot" },
+	},
 	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 
@@ -626,6 +639,7 @@ require("lazy").setup({
 				--
 				-- You can use a sub-list to tell conform to run *until* a formatter
 				-- is found.
+				odin = { "ols" }, -- does this work?
 				javascript = { { "prettierd" } },
 				-- prettier?
 			},
@@ -835,6 +849,13 @@ require("lazy").setup({
 			statusline.section_location = function()
 				return "%2l:%-2v"
 			end
+
+			require("mini.animate").setup({
+				event = "VeryLazy",
+				opts = function(_, opts)
+					opts.scroll = { enable = false }
+				end,
+			})
 
 			-- ... and there is more!
 			--  Check out: https://github.com/echasnovski/mini.nvim
