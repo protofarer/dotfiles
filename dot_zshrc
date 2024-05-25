@@ -248,7 +248,6 @@ timezsh() {
 }
 
 if [ -n "$STARTUP_TIME" ]; then
-  echo -n 'term start in '
-  echo $(expr $(date +%s%3N) - $STARTUP_TIME) 'ms'
+  echo $(expr $(date +%s%3N) - $STARTUP_TIME)'ms'
   unset STARTUP_TIME
 fi
