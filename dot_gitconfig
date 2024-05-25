@@ -35,5 +35,6 @@
 	ds = diff --staged
 	pf = push --force-with-lease
 	rbi = rebase -i
+	co = checkout
 	cob = checkout -b
 	a = add
