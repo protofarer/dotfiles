@@ -145,13 +145,14 @@ alias zr='sudo zypper ref'
 ### Git
 alias g='git'
 # put these in gitconfig
-alias gcam='git commit -am'
-alias gcm='git commit -m'
-alias gitst='git status -s'
-alias gitstat='git status'
-alias gitl='git log --all --decorate --graph --oneline'
-alias gitds='git diff --staged'
-alias gitpf='git push --force-with-lease'
+# alias gcam='git commit -am'
+# alias gcm='git commit -m'
+# alias gitst='git status -s'
+# alias gitstat='git status'
+# alias gitl='git log --all --decorate --graph --oneline'
+# alias gitds='git diff --staged'
+# alias gitpf='git push --force-with-lease'
+# alias gita='git add'
 
 function grbi() {
   if [ -z "$1" ]; then
@@ -194,16 +195,24 @@ alias cz='chezmoi'
 alias czez='chezmoi edit ~/.zshrc'
 alias czen='chezmoi edit ~/.config/nvim/init.lua'
 
-### tmp
+# paste clipboard to
+alias pct='xclip -selection primary -o >'
+
+### workspace parallels
 alias jps='just -f /home/kenny/spaces/work/pastorstays-workspace/justfile'
+
 
 ## File and Dir colors for ls and other outputs
 eval "$(dircolors -b)"
 
 ## Theming section
-autoload -U compinit colors zcalc
-compinit -d
-colors
+## compinit: zsh completions
+## colors: colored shell output
+## zcalc: cmd line calc
+#Handled by OMZ?!
+# autoload -U compinit colors zcalc
+# compinit -d
+# colors
 
 ### Color man pages
 export LESS_TERMCAP_mb=$'\E[01;32m'
