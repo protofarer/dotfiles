@@ -78,7 +78,7 @@ zstyle ':omz:update' frequency 3
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-#  zsh-syntax-highlighting
+  zsh-syntax-highlighting
   zsh-vi-mode
   git 
   gitignore
