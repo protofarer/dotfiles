@@ -25,3 +25,15 @@
 	directory = /home/kenny/spaces/work/pastor-stays
 [http]
 	postBuffer = 120000000
+
+[alias]
+	cm = commit -m
+	cam = commit -am
+	st = status -s
+	stat = status
+	l = log --all --decorate --graph --oneline
+	ds = diff --staged
+	pf = push --force-with-lease
+	rbi = rebase -i
+	cob = checkout -b
+	a = add
