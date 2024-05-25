@@ -209,10 +209,12 @@ eval "$(dircolors -b)"
 ## compinit: zsh completions
 ## colors: colored shell output
 ## zcalc: cmd line calc
-#Handled by OMZ?!
+#Handled by OMZ
 # autoload -U compinit colors zcalc
 # compinit -d
 # colors
+
+autoload -U zcalc
 
 ### Color man pages
 export LESS_TERMCAP_mb=$'\E[01;32m'
