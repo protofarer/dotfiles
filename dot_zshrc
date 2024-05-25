@@ -192,7 +192,9 @@ alias cart1='cargo test -- --test-threads=1'
 alias sshk='kitty +kitten ssh'
 alias ard='arduino-cli'
 alias cz='chezmoi'
+alias cza='chezmoi apply'
 alias czez='chezmoi edit ~/.zshrc'
+alias czeg='chezmoi edit ~/.gitconfig'
 alias czen='chezmoi edit ~/.config/nvim/init.lua'
 
 # paste clipboard to
