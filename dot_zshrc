@@ -215,7 +215,6 @@ eval "$(dircolors -b)"
 # colors
 
 autoload -U zcalc
-zcalc
 
 ### Color man pages
 export LESS_TERMCAP_mb=$'\E[01;32m'
