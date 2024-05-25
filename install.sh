@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -e  # -e: exit on error
+set -e # -e: exit on error
 
 if [ ! "$(command -v chezmoi)" ]; then
   bin_dir="$HOME/bin"
@@ -22,13 +22,13 @@ fi
 #
 # improvement to above per same page
 # -P for: resolve the resulting directory path to its ultimate target in case the directory and/or its components are symlinks
-script_dir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd -P)
+script_dir=$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd -P)
 
 # exec: replace current process with chezmoi init
 exec "$chezmoi" init --apply "--source=$script_dir"
 
 # alternatively, bootstrap with only git and following command (chezmoi init+apply for specified dotfiles repo)
-sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply protofarer/dotfilez.git
+# sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply protofarer/dotfilez.git
 
 # Alternate for debugging
 # exec /dotfilez/chezmoi init --apply "--source=$script_dir"
