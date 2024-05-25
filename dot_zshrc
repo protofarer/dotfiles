@@ -79,8 +79,8 @@ zstyle ':omz:update' frequency 3
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
   zsh-syntax-highlighting
-  git 
   zsh-vi-mode
+  git 
   gitignore
   # docker 
   # docker-compose 
