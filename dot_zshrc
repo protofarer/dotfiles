@@ -129,14 +129,13 @@ alias cp='cp -i'        # Confirm before overwriting something
 alias df='df -h'        # Human-readable sizes
 alias free='free -m'    # Show sizes in MB
 alias rm='rm -iv'
-alias lsrg='ls -lah | rg'
+alias lsg='ls -lah | rg'
 
-alias h='history -5'
-alias hi='history -10'
-alias his='history -20'
-alias hist='history -50 | less'
-alias histo='history -100 | less'
-alias hrg='history | rg'
+alias h='history -10'
+alias hi='history -25'
+alias his='history -50'
+alias hist='history -100 | less'
+alias hg='history | rg'
 
 ### Distro-specific
 alias zrd='sudo zypper ref && sudo zypper dup'
