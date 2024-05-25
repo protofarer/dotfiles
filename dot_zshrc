@@ -5,10 +5,10 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# profile zsh startup, run cmd `zprof`
-zmodload zsh/zprof
+# profile zsh startup, run cmd `zprof > out.txt` in cmdline
+# zmodload zsh/zprof
 
-# being measure kitty + zsh startup time
+# measure shell startup time
 if [ -z "$STARTUP_TIME" ]; then
   export STARTUP_TIME=$(date +%s%3N)
 fi
