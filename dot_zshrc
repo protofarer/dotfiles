@@ -10,7 +10,7 @@ autoload -Uz compinit
 for dump in ~/.zcompdump(N.mh+24); do
   compinit
 done
-compinit -C`
+compinit -C
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
