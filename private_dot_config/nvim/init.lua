@@ -116,14 +116,14 @@ vim.keymap.set("n", "<C-a>", "gg<S-v>G", { noremap = true, silent = true })
 vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true })
 vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
 
-vim.api.nvim_create_autocmd("NoNewlineComment", {
-	desc = "Disable auto-commenting insert newline from a current line comment",
-	group = vim.api.nvim_create_augroup("no-newline-comment", { clear = true }),
-	callback = function()
+-- vim.api.nvim_create_autocmd("NoNewlineComment", {
+	-- desc = "Disable auto-commenting insert newline from a current line comment",
+	-- group = vim.api.nvim_create_augroup("no-newline-comment", { clear = true }),
+	-- callback = function()
         --	vim.cmd("autocmd BufEnter * set formatoptions-=cro")
         -- vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
-	end,
-})
+	-- end,
+-- })
 
 -- intriguing keymap used by Takuya
 -- vim.keymap.set('n', 'dw', 'vb_d', { noremap = true, silent = true })
