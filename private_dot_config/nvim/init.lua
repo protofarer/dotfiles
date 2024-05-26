@@ -120,6 +120,7 @@ vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
 -- vim-fugitive
 
 vim.keymap.set("n", "<leader>gc", ":G commit<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>gv", ":G commit -v<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>gs", ":G status<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>gp", ":G push<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>gl", ":G log<CR>", { noremap = true })
