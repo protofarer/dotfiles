@@ -59,7 +59,7 @@ vim.opt.splitbelow = true
 --  `:help 'list'`
 --  `:help 'listchars'`
 vim.opt.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.listchars = { tab = "", trail = "·", nbsp = "␣" }
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = "split"
@@ -400,24 +400,6 @@ require("lazy").setup({
 			{ "folke/neodev.nvim", opts = {} },
 		},
 		config = function()
-			-- LSP stands for Language Server Protocol. It's a protocol that helps editors
-			-- and language tooling communicate in a standardized fashion.
-			-- LSP provides Neovim with features like:
-			--  - Go to definition
-			--  - Find references
-			--  - Autocompletion
-			--  - Symbol Search
-			--
-			-- Thus, Language Servers are external tools that must be installed separately from
-			-- Neovim. This is where `mason` and related plugins come into play.
-			--
-			-- If you're wondering about lsp vs treesitter, you can check out the wonderfully
-			-- and elegantly composed help section, `:help lsp-vs-treesitter`
-
-			--  This function gets run when an LSP attaches to a particular buffer.
-			--    That is to say, every time a new file is opened that is associated with
-			--    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
-			--    function will be executed to configure the current buffer
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 				callback = function(event)
@@ -427,14 +409,11 @@ require("lazy").setup({
 						vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 					end
 
-					-- Jump to the definition of the word under your cursor.
-					--  This is where a variable was first declared, or where a function is defined, etc.
 					--  To jump back, press <C-t>.
 					map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
 					map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences") -- Find references for the word under your cursor.
 
 					-- Jump to the implementation of the word under your cursor.
-					--  Useful when your language has ways of declaring types without an actual implementation.
 					map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
 
 					-- Jump to the type of the word under your cursor.
@@ -442,26 +421,19 @@ require("lazy").setup({
 					--  the definition of its *type*, not where it was *defined*.
 					map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
 
-					--  Symbols are things like variables, functions, types, etc.
 					map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
 
-					-- Fuzzy find all the symbols in your current workspace.
 					map(
 						"<leader>ws",
 						require("telescope.builtin").lsp_dynamic_workspace_symbols,
 						"[W]orkspace [S]ymbols"
 					)
 
-					-- Rename the variable under your cursor.
 					map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-
 					map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
 
-					-- Opens a popup that displays documentation about the word under your cursor
-					--  See `:help K` for why this keymap.
 					map("K", vim.lsp.buf.hover, "Hover Documentation")
 
-					-- WARN: This is not Goto Definition, this is Goto Declaration.
 					--  For example, in C this would take you to the header.
 					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
@@ -495,9 +467,9 @@ require("lazy").setup({
 						})
 					end
 
+					-- TODO: Consider removing
 					-- The following autocommand is used to enable inlay hints in your
 					-- code, if the language server you are using supports them
-					--
 					-- This may be unwanted, since they displace some of your code
 					if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
 						map("<leader>th", function()
@@ -747,10 +719,9 @@ require("lazy").setup({
 		end,
 		opts = {
 			theme = "wave",
-			-- background = {
-			--   dark = 'dragon',
-			-- },
-			colors = { theme = { all = { ui = { bg_gutter = "none" } } } }, -- remove gutter background
+			-- background = { dark = 'dragon' },
+			-- remove gutter background
+			colors = { theme = { all = { ui = { bg_gutter = "none" } } } },
 		},
 	},
 	-- {
@@ -877,13 +848,8 @@ require("lazy").setup({
 			--    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 		end,
 	},
-	{
-		"petertriho/nvim-scrollbar",
-		opts = {},
-	},
-	{
-		"tpope/vim-fugitive",
-	},
+	{ "petertriho/nvim-scrollbar", opts = {} },
+	{ "tpope/vim-fugitive" },
 	{ "tpope/vim-rhubarb" },
 	-- require 'kickstart.plugins.debug',
 	-- require 'kickstart.plugins.indent_line',
