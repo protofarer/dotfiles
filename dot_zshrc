@@ -146,7 +146,7 @@ alias g='git_status_wrapper'
 
 function git_status_wrapper() {
   if [ $# -eq 0 ]; then
-    git status
+    git st
   else
     git "$@"
   fi
