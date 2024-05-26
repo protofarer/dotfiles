@@ -866,7 +866,7 @@ require("lazy").setup({
          ██║     ██╔══██║ ███╔╝    ╚██╔╝  ╚██╗ ██╔╝██║██║╚██╔╝██║ z         
          ███████╗██║  ██║███████╗   ██║    ╚████╔╝ ██║██║ ╚═╝ ██║           
          ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝     ╚═══╝  ╚═╝╚═╝     ╚═╝           
-    ]]
+            ]]
 
 			logo = string.rep("\n", 8) .. logo .. "\n\n"
 
@@ -885,7 +885,7 @@ require("lazy").setup({
           { action = "ene | startinsert",                                        desc = " New File",        icon = " ", key = "n" },
           { action = "Telescope oldfiles",                                       desc = " Recent Files",    icon = " ", key = "r" },
           { action = "Telescope live_grep",                                      desc = " Find Text",       icon = " ", key = "g" },
-          { action = [[lua LazyVim.telescope.config_files()()]], desc = " Config",          icon = " ", key = "c" },
+          { action = [[lua LazyVim.telescope.config_files()()]],                 desc = " Config",          icon = " ", key = "c" },
           { action = 'lua require("persistence").load()',                        desc = " Restore Session", icon = " ", key = "s" },
           -- { action = "LazyExtras",                                               desc = " Lazy Extras",     icon = " ", key = "x" },
           { action = "Lazy",                                                     desc = " Lazy",            icon = "󰒲 ", key = "l" },
