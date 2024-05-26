@@ -3,14 +3,9 @@
 - https://learnxinyminutes.com/docs/lua/
 - `:help lua-guide` reference for how Neovim integrates Lua.
 - (or HTML version): https://neovim.io/doc/user/lua-guide.html
+]]
+--
 
-"<space>sh" to [s]earch the [h]elp documentation,
-If you experience any errors while trying to install kickstart, run `:checkhealth` for more info.
---]]
-
--- Set <space> as the leader key
--- See `:help mapleader` ,leader
---  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -19,8 +14,8 @@ vim.g.have_nerd_font = true
 
 -- [[ Setting options ]] ,opts
 -- See `:help vim.opt`
--- NOTE: You can change these options as you wish!
---  For more options, you can see `:help option-list`
+
+local std_opts = { noremp = true, silent = true }
 
 -- Make line numbers default
 vim.opt.number = true
@@ -101,7 +96,7 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 --
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
-vim.keymap.set("t", "<C-space>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+vim.keymap.set("t", "<C-t>", "<C-\\><C-n>", { desc = "Exit terminal mode", table.unpack(std_opts) })
 
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
