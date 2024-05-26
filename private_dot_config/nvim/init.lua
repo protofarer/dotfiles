@@ -868,6 +868,7 @@ require("lazy").setup({
 	{
 		"nvimdev/dashboard-nvim",
 		opts = {
+			theme = "hyper",
 			week_header = {
 				enable = true,
 			},
