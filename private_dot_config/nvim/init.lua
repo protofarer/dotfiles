@@ -59,7 +59,7 @@ vim.opt.splitbelow = true
 --  `:help 'list'`
 --  `:help 'listchars'`
 vim.opt.list = true
-vim.opt.listchars = { tab = "␣ ",trail = "·", nbsp = "␣" }
+vim.opt.listchars = { tab = "  ", trail = "·", nbsp = "␣" }
 -- tab = "␣",
 
 -- Preview substitutions live, as you type!
