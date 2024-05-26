@@ -116,6 +116,7 @@ vim.keymap.set("n", "<C-a>", "gg<S-v>G", { noremap = true, silent = true })
 vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true })
 vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
 
+-- Prevent continueing comment on insert newline aka `o`
 vim.api.nvim_create_autocmd("BufEnter", {
 	desc = "Disable auto-commenting insert newline from a current line comment",
 	group = vim.api.nvim_create_augroup("no-newline-comment", { clear = true }),
