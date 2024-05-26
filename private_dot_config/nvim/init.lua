@@ -852,6 +852,9 @@ require("lazy").setup({
 		"petertriho/nvim-scrollbar",
 		opts = {},
 	},
+	{
+		"tpope/vim-fugitive",
+	},
 	-- require 'kickstart.plugins.debug',
 	-- require 'kickstart.plugins.indent_line',
 	-- require 'kickstart.plugins.lint',
@@ -861,24 +864,24 @@ require("lazy").setup({
 
 	--  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
 	--    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-	-- { import = 'custom.plugins' },
-	-- {
-	--   'nvimdev/dashboard-nvim',
-	--   event = 'VimEnter',
-	--   opts = function(_, opts)
-	--     local logo = [[
-	--       ██████╗ ███████╗██╗   ██╗ █████╗ ███████╗██╗     ██╗███████╗███████╗
-	--       ██╔══██╗██╔════╝██║   ██║██╔══██╗██╔════╝██║     ██║██╔════╝██╔════╝
-	--       ██║  ██║█████╗  ██║   ██║███████║███████╗██║     ██║█████╗  █████╗
-	--       ██║  ██║██╔══╝  ╚██╗ ██╔╝██╔══██║╚════██║██║     ██║██╔══╝  ██╔══╝
-	--       ██████╔╝███████╗ ╚████╔╝ ██║  ██║███████║███████╗██║██║     ███████╗
-	--       ╚═════╝ ╚══════╝  ╚═══╝  ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝╚═╝     ╚══════╝
-	--     ]]
-	--
-	--     logo = string.rep('\n', 8) .. logo .. '\n\n'
-	--     opts.config.header = vim.split(logo, '\n')
-	--   end,
-	-- },
+	{ import = "custom.plugins" },
+	{
+		"nvimdev/dashboard-nvim",
+		event = "VimEnter",
+		opts = function(_, opts)
+			local logo = [[
+	      ██████╗ ███████╗██╗   ██╗ █████╗ ███████╗██╗     ██╗███████╗███████╗
+	      ██╔══██╗██╔════╝██║   ██║██╔══██╗██╔════╝██║     ██║██╔════╝██╔════╝
+	      ██║  ██║█████╗  ██║   ██║███████║███████╗██║     ██║█████╗  █████╗
+	      ██║  ██║██╔══╝  ╚██╗ ██╔╝██╔══██║╚════██║██║     ██║██╔══╝  ██╔══╝
+	      ██████╔╝███████╗ ╚████╔╝ ██║  ██║███████║███████╗██║██║     ███████╗
+	      ╚═════╝ ╚══════╝  ╚═══╝  ╚═╝  ╚═╝╚══════╝╚══════╝╚═╝╚═╝     ╚══════╝
+	    ]]
+
+			logo = string.rep("\n", 8) .. logo .. "\n\n"
+			opts.config.header = vim.split(logo, "\n")
+		end,
+	},
 }, {
 	ui = {
 		-- If you are using a Nerd Font: set icons to an empty table which will use the
