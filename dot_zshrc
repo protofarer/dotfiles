@@ -142,9 +142,9 @@ alias zrd='sudo zypper ref && sudo zypper dup'
 alias zr='sudo zypper ref'
 
 ### Git
-alias g='git'
+alias g='git_status_wrapper'
 
-function g() {
+function git_status_wrapper() {
   if [ $# -eq 0 ]; then
     git status
   else
