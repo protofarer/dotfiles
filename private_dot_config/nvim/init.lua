@@ -117,8 +117,8 @@ vim.keymap.set("n", "<C-a>", "gg<S-v>G", { noremap = true, silent = true })
 vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true })
 vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
 
--- vim-fugitive
-
+-- ,fugitive
+vim.keymap.set("n", "<leader>gg", ":G<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>gc", ":G commit<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>gv", ":G commit -v<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>gs", ":G status --short --branch<CR>", { noremap = true })
