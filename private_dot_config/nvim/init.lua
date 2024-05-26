@@ -119,7 +119,7 @@ vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
 
 -- ,fugitive
 vim.keymap.set("n", "<leader>gg", ":G<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>gf", ":Ge:<CR>", { desc = "Fullscreen git view", noremap = true })
+vim.keymap.set("n", "<leader>gf", ":Gedit :<CR>", { desc = "Fullscreen git view", noremap = true })
 vim.keymap.set("n", "<leader>gc", ":G commit<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>gvc", ":G commit -v<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>ga", ":G commit --amend<CR>", { noremap = true })
@@ -147,7 +147,9 @@ vim.keymap.set("n", "<leader>gw", ":Gwrite<CR>", { noremap = true })
 -- vim.keymap.set("n", "<leader>gL", ":exe ':!cd ' . expand('%:p:h') . '; git la'<CR>")
 -- vim.keymap.set("n", "<leader>gl", ":exe ':!cd ' . expand('%:p:h') . '; git las'<CR>")
 
--- Gdiffsplt Gvdiffsplit -- staged side-by-side working tree
+vim.keymap.set("n", ";", ":", { noremap = true, silent = true })
+vim.keymap.set("n", "<Space>;", ";", { noremap = true, silent = true })
+vim.keymap.set("n", "<Space>,", ",", { noremap = true, silent = true })
 
 -- Odin Keymaps
 vim.keymap.set("n", "<leader>or", ":! odin run .<CR>", { noremap = true })
