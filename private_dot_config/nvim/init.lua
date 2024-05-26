@@ -77,6 +77,7 @@ vim.opt.shiftwidth = 4
 
 -- Note: might need autocmd, and use this instead of the vim.cmd BufEnter
 vim.opt.formatoptions:remove({ "r", "c", "o" })
+
 -- -= "cro"
 
 -- vim.opt.background = 'dark'
