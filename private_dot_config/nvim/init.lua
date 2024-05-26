@@ -513,7 +513,7 @@ require("lazy").setup({
 				docker_compose_language_service = {},
 				dockerls = {},
 				prismals = {},
-				tailwindcss = {},
+				-- tailwindcss = {}, -- CPU hog, cfg later
 				lua_ls = {
 					-- cmd = {...},
 					-- filetypes = { ...},
