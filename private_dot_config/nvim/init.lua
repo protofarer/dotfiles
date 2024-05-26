@@ -117,15 +117,22 @@ vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true })
 vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
 
 -- vim.api.nvim_create_autocmd("NoNewlineComment", {
-	-- desc = "Disable auto-commenting insert newline from a current line comment",
-	-- group = vim.api.nvim_create_augroup("no-newline-comment", { clear = true }),
-	-- callback = function()
-        -- print "hello!"
-		-- vim.opt.formatoptions:remove({ "r", "c", "o" })
-		-- vim.cmd("autocmd BufEnter * set formatoptions-=cro")
-		-- vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
-	-- end,
+-- desc = "Disable auto-commenting insert newline from a current line comment",
+-- group = vim.api.nvim_create_augroup("no-newline-comment", { clear = true }),
+-- callback = function()
+-- print "hello!"
+-- vim.opt.formatoptions:remove({ "r", "c", "o" })
+-- vim.cmd("autocmd BufEnter * set formatoptions-=cro")
+-- vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
+-- end,
 -- })
+vim.api.nvim_create_autocmd("NoNewlineComment", {
+	desc = "fuck it",
+	group = vim.api.nvim_create_augroup("fuck-the-comment", { clear = true }),
+	callback = function()
+		print("hello")
+	end,
+})
 
 -- intriguing keymap used by Takuya
 -- vim.keymap.set('n', 'dw', 'vb_d', { noremap = true, silent = true })
