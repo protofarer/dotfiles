@@ -124,16 +124,17 @@ vim.keymap.set("n", "<leader>gc", ":G commit<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>gvc", ":G commit -v<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>ga", ":G commit --amend<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>gva", ":G commit --amend<CR>", { noremap = true })
-
 vim.keymap.set("n", "<leader>gs", ":G status --short --branch<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>gp", ":G push<CR>", { noremap = true })
+
+vim.keymap.set("n", "<leader>gb", ":G blame<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>gl", ":G log<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>gh", ":G log -s<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>gp", ":G push<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>gd", ":G diff<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>gb", ":G blame<CR>", { noremap = true })
+
 vim.keymap.set("n", "<leader>g-", ":Git stash<CR>:e<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>g+", ":Git stash pop<CR>:e<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>gb", "GBrowse", { noremap = true })
+vim.keymap.set("n", "<leader>gw", "GBrowse", { noremap = true })
 
 -- git checkout -- filename  # operates on buffer not file.
 -- Can use undo and not get warnings about file changing outside vim
