@@ -75,7 +75,8 @@ vim.opt.termguicolors = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 
-vim.opt.formatoptions.remove({ "r", "c", "o" })
+-- Note: might need autocmd, and use this instead of the vim.cmd BufEnter
+vim.opt.formatoptions:remove({ "r", "c", "o" })
 -- -= "cro"
 
 -- vim.opt.background = 'dark'
