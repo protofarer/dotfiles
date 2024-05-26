@@ -143,7 +143,7 @@ vim.keymap.set("n", "<leader>gw", ":Gwrite<CR>", { noremap = true })
 -- Gdiffsplt Gvdiffsplit -- staged side-by-side working tree
 
 -- Odin Keymaps
-vim.keymap.set("n", "<leader>or", ":! odin run .", { noremap = true })
+vim.keymap.set("n", "<leader>or", ":! odin run .<CR>", { noremap = true })
 
 -- Prevent continueing comment on insert newline aka `o`
 vim.api.nvim_create_autocmd("BufEnter", {
