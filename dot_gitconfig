@@ -31,7 +31,7 @@
 [alias]
 	cm = commit -m
 	cam = commit -am
-	st = status -s
+	st = git status --short --branch
 	l = log --all --decorate --graph --oneline
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 
