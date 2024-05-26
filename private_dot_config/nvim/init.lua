@@ -118,8 +118,8 @@ vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
 
 -- vim-fugitive
 
-vim.keymap.set("n", "<leader>gc", ":G commit<CR>")
-vim.keymap.set("n", "<leader>gs", ":G status<CR>")
+vim.keymap.set("n", "<leader>gc", ":G commit<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>gs", ":G status<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>gp", ":G push<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>gl", ":G log<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>gh", ":G log -s<CR>", { noremap = true })
@@ -128,9 +128,14 @@ vim.keymap.set("n", "<leader>gb", ":G blame<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>g-", ":Silent Git stash<CR>:e<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>g+", ":Silent Git stash pop<CR>:e<CR>", { noremap = true })
 
--- git checkout -- filename  # operates on buffer not file. Can use undo and not get warnings about file changing outside vim
-vim.keymap.set("n", "<leader>gr", ":Gread<CR>")
-vim.keymap.set("n", "<leader>gw", ":Gwrite<CR>")
+vim.keymap.set("n", "<leader>gb", "GBrowse", { noremap = true })
+
+-- git checkout -- filename  # operates on buffer not file.
+-- Can use undo and not get warnings about file changing outside vim
+vim.keymap.set("n", "<leader>gr", ":Gread<CR>", { noremap = true })
+-- writes to both the work tree and index versions of a file, making it like git add when
+-- called from a work tree file and like git checkout when called from the index or a blob in history.
+vim.keymap.set("n", "<leader>gw", ":Gwrite<CR>", { noremap = true })
 
 -- vim.keymap.set("n", "<leader>gH",  ":G log<CR>:set nofoldenable<CR>")
 -- vim.keymap.set("n", "<leader>gL", ":exe ':!cd ' . expand('%:p:h') . '; git la'<CR>")
@@ -877,6 +882,7 @@ require("lazy").setup({
 	{
 		"tpope/vim-fugitive",
 	},
+	{ "tpope/vim-rhubarb" },
 	-- require 'kickstart.plugins.debug',
 	-- require 'kickstart.plugins.indent_line',
 	-- require 'kickstart.plugins.lint',
