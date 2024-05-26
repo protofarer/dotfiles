@@ -116,6 +116,28 @@ vim.keymap.set("n", "<C-a>", "gg<S-v>G", { noremap = true, silent = true })
 vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true })
 vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
 
+-- vim-fugitiveI just talked about my workflow in this thread.
+
+vim.keymap.set("n", "<leader>gc", ":G commit<CR>")
+vim.keymap.set("n", "<leader>gs", ":G status<CR>")
+vim.keymap.set("n", "<leader>gp", ":G push<CR>")
+vim.keymap.set("n", "<leader>gl", ":G log<CR>")
+vim.keymap.set("n", "<leader>gh", ":G log -s<CR>")
+vim.keymap.set("n", "<leader>gd", ":G diff<CR>")
+vim.keymap.set("n", "<leader>gb", ":G blame<CR>")
+vim.keymap.set("n", "<leader>g-", ":Silent Git stash<CR>:e<CR>")
+vim.keymap.set("n", "<leader>g+", ":Silent Git stash pop<CR>:e<CR>")
+
+-- git checkout -- filename  # operates on buffer not file. Can use undo and not get warnings about file changing outside vim
+vim.keymap.set("n", "<leader>gr", ":Gread<CR>")
+vim.keymap.set("n", "<leader>gw", ":Gwrite<CR>")
+
+-- vim.keymap.set("n", "<leader>gH",  ":G log<CR>:set nofoldenable<CR>")
+-- vim.keymap.set("n", "<leader>gL", ":exe ':!cd ' . expand('%:p:h') . '; git la'<CR>")
+-- vim.keymap.set("n", "<leader>gl", ":exe ':!cd ' . expand('%:p:h') . '; git las'<CR>")
+
+-- Gdiffsplt Gvdiffsplit -- staged side-by-side working tree
+
 -- Prevent continueing comment on insert newline aka `o`
 vim.api.nvim_create_autocmd("BufEnter", {
 	desc = "Disable auto-commenting insert newline from a current line comment",
