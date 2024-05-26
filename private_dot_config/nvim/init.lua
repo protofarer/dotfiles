@@ -850,6 +850,7 @@ require("lazy").setup({
 	},
 	{
 		"petertriho/nvim-scrollbar",
+		opts = {},
 	},
 	-- require 'kickstart.plugins.debug',
 	-- require 'kickstart.plugins.indent_line',
