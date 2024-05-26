@@ -143,6 +143,9 @@ alias zr='sudo zypper ref'
 
 ### Git
 alias g='git'
+function g() {
+  git status
+}
 # put these in gitconfig
 # alias gcam='git commit -am'
 # alias gcm='git commit -m'
