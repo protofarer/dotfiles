@@ -98,12 +98,6 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set("t", "<C-t>", "<C-\\><C-n>", { desc = "Exit terminal mode", table.unpack(std_opts) })
 
--- TIP: Disable arrow keys in normal mode
--- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
--- vim.keymap.set('n', '<right>', '<cmd>echo "Use l to move!!"<CR>')
--- vim.keymap.set('n', '<up>', '<cmd>echo "Use k to move!!"<CR>')
--- vim.keymap.set('n', '<down>', '<cmd>echo "Use j to move!!"<CR>')
-
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --  See `:help wincmd` for a list of all window commands
@@ -121,6 +115,15 @@ vim.keymap.set("n", "<C-a>", "gg<S-v>G", { noremap = true, silent = true })
 -- increment/decrement
 vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true })
 vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
+
+vim.api.nvim_create_autocmd("NoNewlineComment", {
+	desc = "Disable auto-commenting insert newline from a current line comment",
+	group = vim.api.nvim_create_augroup("no-newline-comment", { clear = true }),
+	callback = function()
+		vim.cmd("autocmd BufEnter * set formatoptions-=cro")
+		vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
+	end,
+})
 
 -- intriguing keymap used by Takuya
 -- vim.keymap.set('n', 'dw', 'vb_d', { noremap = true, silent = true })
@@ -934,4 +937,4 @@ require("lazy").setup({
 	},
 })
 
--- vim: ts=2 sts=2 sw=2 et
+-- vim: ts=4 sts=4 sw=4 et
