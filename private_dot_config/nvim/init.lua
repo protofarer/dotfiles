@@ -116,17 +116,17 @@ vim.keymap.set("n", "<C-a>", "gg<S-v>G", { noremap = true, silent = true })
 vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true })
 vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
 
--- vim-fugitiveI just talked about my workflow in this thread.
+-- vim-fugitive
 
-vim.keymap.set("n", "<leader>gc", ":G commit<CR>")
-vim.keymap.set("n", "<leader>gs", ":G status<CR>")
-vim.keymap.set("n", "<leader>gp", ":G push<CR>")
-vim.keymap.set("n", "<leader>gl", ":G log<CR>")
-vim.keymap.set("n", "<leader>gh", ":G log -s<CR>")
-vim.keymap.set("n", "<leader>gd", ":G diff<CR>")
-vim.keymap.set("n", "<leader>gb", ":G blame<CR>")
-vim.keymap.set("n", "<leader>g-", ":Silent Git stash<CR>:e<CR>")
-vim.keymap.set("n", "<leader>g+", ":Silent Git stash pop<CR>:e<CR>")
+vim.keymap.set("n", "<leader>gc", ":G commit<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>gs", ":G status<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>gp", ":G push<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>gl", ":G log<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>gh", ":G log -s<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>gd", ":G diff<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>gb", ":G blame<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>g-", ":Silent Git stash<CR>:e<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>g+", ":Silent Git stash pop<CR>:e<CR>", { noremap = true })
 
 -- git checkout -- filename  # operates on buffer not file. Can use undo and not get warnings about file changing outside vim
 vim.keymap.set("n", "<leader>gr", ":Gread<CR>")
