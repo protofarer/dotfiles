@@ -117,8 +117,8 @@ vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true })
 vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
 
 vim.api.nvim_create_autocmd("NoNewlineComment", {
-	desc = "Disable auto-commenting insert newline from a current line comment",
-	group = vim.api.nvim_create_augroup("no-newline-comment", { clear = true }),
+	-- desc = "Disable auto-commenting insert newline from a current line comment",
+	-- group = vim.api.nvim_create_augroup("no-newline-comment", { clear = true }),
 	callback = function()
 		vim.opt.formatoptions:remove({ "r", "c", "o" })
 		-- vim.cmd("autocmd BufEnter * set formatoptions-=cro")
