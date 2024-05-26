@@ -125,8 +125,8 @@ vim.keymap.set("n", "<leader>gl", ":G log<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>gh", ":G log -s<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>gd", ":G diff<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>gb", ":G blame<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>g-", ":Silent Git stash<CR>:e<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>g+", ":Silent Git stash pop<CR>:e<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>g-", ":Git stash<CR>:e<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>g+", ":Git stash pop<CR>:e<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>gb", "GBrowse", { noremap = true })
 
 -- git checkout -- filename  # operates on buffer not file.
