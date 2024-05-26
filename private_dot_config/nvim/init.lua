@@ -708,24 +708,6 @@ require("lazy").setup({
 			})
 		end,
 	},
-
-	--   -- change the command in the config to whatever the name of that colorscheme is.
-	--   --
-	--   -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-	--   -- TODO: FIND A GOOD ONE
-	--
-	--   'folke/tokyonight.nvim',
-	--   priority = 1000, -- Make sure to load this before all the other start plugins.
-	--   init = function()
-	--     -- Load the colorscheme here.
-	--     -- Like many other themes, this one has different styles, and you could load
-	--     -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-	--     vim.cmd.colorscheme 'tokyonight-night'
-	--
-	--     -- You can configure highlights by doing something like:
-	--     vim.cmd.hi 'Comment gui=none'
-	--   end,
-	-- },
 	{
 		"rebelot/kanagawa.nvim",
 		lazy = false, -- load during startup, since main colorscheme
@@ -743,14 +725,6 @@ require("lazy").setup({
 		},
 	},
 	-- {
-	--   'savq/melange-nvim',
-	--   priority = 1000,
-	--   init = function()
-	--     vim.cmd.colorscheme 'melange'
-	--     vim.cmd.hi 'Comment gui=none'
-	--   end,
-	-- },
-	-- {
 	--   'ellisonleao/gruvbox.nvim',
 	--   priority = 1000,
 	--   config = true,
@@ -759,15 +733,12 @@ require("lazy").setup({
 	--   end,
 	--   opts = { contrast = 'hard' },
 	-- },
-
-	-- Highlight todo, notes, etc in comments
 	{
 		"folke/todo-comments.nvim",
 		event = "VimEnter",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = { signs = false },
 	},
-
 	{ -- Collection of various small independent plugins/modules
 		"echasnovski/mini.nvim",
 		config = function()
@@ -780,7 +751,6 @@ require("lazy").setup({
 			require("mini.ai").setup({ n_lines = 500 })
 
 			-- Add/delete/replace surroundings (brackets, quotes, etc.)
-			--
 			-- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
 			-- - sd'   - [S]urround [D]elete [']quotes
 			-- - sr)'  - [S]urround [R]eplace [)] [']
@@ -878,16 +848,9 @@ require("lazy").setup({
 			--    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 		end,
 	},
-
-	-- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
-	-- init.lua. If you want these files, they are in the repository, so you can just download them and
-	-- place them in the correct locations.
-
-	-- NOTE: Next step on your Neovim journey: Add/Configure additional plugins for Kickstart
-	--
-	--  Here are some example plugins that I've included in the Kickstart repository.
-	--  Uncomment any of the lines below to enable them (you will need to restart nvim).
-	--
+	{
+		"petertriho/nvim-scrollbar",
+	},
 	-- require 'kickstart.plugins.debug',
 	-- require 'kickstart.plugins.indent_line',
 	-- require 'kickstart.plugins.lint',
