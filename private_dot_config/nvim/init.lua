@@ -119,8 +119,12 @@ vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
 
 -- ,fugitive
 vim.keymap.set("n", "<leader>gg", ":G<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>gf", ":Ge:<CR>", { desc = "Fullscreen git view", noremap = true })
 vim.keymap.set("n", "<leader>gc", ":G commit<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>gv", ":G commit -v<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>gvc", ":G commit -v<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>ga", ":G commit --amend<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>gva", ":G commit --amend<CR>", { noremap = true })
+
 vim.keymap.set("n", "<leader>gs", ":G status --short --branch<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>gp", ":G push<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>gl", ":G log<CR>", { noremap = true })
