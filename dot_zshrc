@@ -144,7 +144,7 @@ alias zr='sudo zypper ref'
 ### Git
 alias g='git'
 
-g() {
+function g() {
   if [ $# -eq 0 ]; then
     git status
   else
