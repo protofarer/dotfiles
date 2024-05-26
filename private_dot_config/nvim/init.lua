@@ -15,7 +15,7 @@ vim.g.have_nerd_font = true
 -- [[ Setting options ]] ,opts
 -- See `:help vim.opt`
 
-local std_opts = { noremp = true, silent = true }
+-- local std_opts = { noremp = true, silent = true }
 
 -- Make line numbers default
 vim.opt.number = true
@@ -75,6 +75,9 @@ vim.opt.termguicolors = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 
+vim.opt.formatoptions.remove({ "r", "c", "o" })
+-- -= "cro"
+
 -- vim.opt.background = 'dark'
 
 -- [[ Basic Keymaps ]] ,keymaps
@@ -117,12 +120,12 @@ vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true })
 vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
 
 -- vim.api.nvim_create_autocmd("NoNewlineComment", {
-	-- desc = "Disable auto-commenting insert newline from a current line comment",
-	-- group = vim.api.nvim_create_augroup("no-newline-comment", { clear = true }),
-	-- callback = function()
-        --	vim.cmd("autocmd BufEnter * set formatoptions-=cro")
-        -- vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
-	-- end,
+-- desc = "Disable auto-commenting insert newline from a current line comment",
+-- group = vim.api.nvim_create_augroup("no-newline-comment", { clear = true }),
+-- callback = function()
+-- vim.cmd("autocmd BufEnter * set formatoptions-=cro")
+-- vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
+-- end,
 -- })
 
 -- intriguing keymap used by Takuya
