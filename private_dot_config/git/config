@@ -16,10 +16,12 @@
        helper = 
        helper = !/usr/bin/gh auth git-credential
 
+[difftool]
+	prompt = true
 [diff]
-	tool = vscode
-[difftool "vscode"]
-	cmd = "code --wait --diff $LOCAL $REMOTE"
+	tool = nvimdiff
+[difftool "nvimdiff"]
+	cmd = "nvim -d $LOCAL $REMOTE"
 [push]
 	autoSetupRemote = true
 	default = current
