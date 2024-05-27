@@ -868,7 +868,7 @@ require("lazy").setup({
 		version = "*",
 		config = true,
 		opts = {
-			open_mapping = [[<C-\]],
+			open_mapping = [[<c-\]],
 		},
 	},
 	{ import = "custom.plugins" },
