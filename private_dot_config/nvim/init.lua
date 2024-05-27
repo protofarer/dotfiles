@@ -144,9 +144,8 @@ vim.keymap.set("n", "<Space>;", ";", { noremap = true, silent = true })
 vim.keymap.set("n", "<Space>,", ",", { noremap = true, silent = true })
 
 -- Odin Keymaps
-vim.keymap.set("n", "<leader>orb", ":! odin run .<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>orn", ":! odin run .<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>ord", ":! odin run . -define:DEBUG=true<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>orr", ":! odin run . -define:DEBUG=true<CR>", { noremap = true })
 
 -- ,keymaps
 -- Just tasks
