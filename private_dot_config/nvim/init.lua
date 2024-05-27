@@ -740,7 +740,7 @@ require("lazy").setup({
 		dependencies = { "nvim-lua/plenary.nvim" },
 		opts = { signs = false },
 	},
-	{ -- Collection of various small independent plugins/modules
+	{ --  Check out: https://github.com/echasnovski/mini.nvim
 		"echasnovski/mini.nvim",
 		config = function()
 			-- Better Around/Inside textobjects
@@ -757,21 +757,9 @@ require("lazy").setup({
 			-- - sr)'  - [S]urround [R]eplace [)] [']
 			require("mini.surround").setup()
 
-			-- not at speed of thought, cursor line highlight and glyph is enough.
-			-- local animate = require 'mini.animate'
-			-- animate.setup {
-			--   -- event = 'VeryLazy',
-			--   cursor = { timing = animate.gen_timing.linear { duration = 200, unit = 'total' } },
-			--   scroll = { timing = animate.gen_timing.linear { duration = 100, unit = 'total' } },
-			-- }
-
-			-- Simple and easy statusline.
-			--  You could remove this setup call if you don't like it,
-			--  and try some other statusline plugin
 			local statusline = require("mini.statusline")
 			-- set use_icons to true if you have a Nerd Font
 			statusline.setup({ use_icons = vim.g.have_nerd_font })
-
 			-- You can configure sections in the statusline by overriding their
 			-- default behavior. For example, here we set the section for
 			-- cursor location to LINE:COLUMN
@@ -780,8 +768,9 @@ require("lazy").setup({
 				return "%2l:%-2v"
 			end
 
-			-- ... and there is more!
-			--  Check out: https://github.com/echasnovski/mini.nvim
+			require("mini.files").setup({
+				version = "*",
+			})
 		end,
 	},
 	{ -- Highlight, edit, and navigate code ,treesitter
@@ -856,8 +845,7 @@ require("lazy").setup({
 	require("kickstart.plugins.neo-tree"),
 	require("kickstart.plugins.gitsigns"), -- adds gitsigns recommend keymaps
 
-	-- Custom
-	--    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
+	-- Custom ,plugins `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
 	{ "petertriho/nvim-scrollbar", opts = {} },
 	{ "tpope/vim-fugitive" },
 	{ "tpope/vim-rhubarb" },

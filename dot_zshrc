@@ -278,6 +278,13 @@ function mkdirgo() {
   mkdir -p "$@" && cd "$@"
 }
 
+# bun completions
+[ -s "/home/kenny/.bun/_bun" ] && source "/home/kenny/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
 if [ -n "$STARTUP_TIME" ]; then
   echo $(expr $(date +%s%3N) - $STARTUP_TIME)'ms'
   unset STARTUP_TIME
