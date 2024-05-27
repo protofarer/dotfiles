@@ -863,7 +863,7 @@ require("lazy").setup({
 	{ "petertriho/nvim-scrollbar", opts = {} },
 	{ "tpope/vim-fugitive" },
 	{ "tpope/vim-rhubarb" },
-    { " akinsho/toggleterm.nvim", version = "*", config = true }
+    { " akinsho/toggleterm.nvim", version = "*", config = true },
 	{ import = "custom.plugins" },
 }, {
 	ui = {
