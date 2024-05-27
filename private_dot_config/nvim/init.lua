@@ -785,13 +785,13 @@ require("lazy").setup({
 						end,
 						desc = "Open mini.files (Directory of Current File)",
 					},
-					-- {
-					-- 	"<leader>fM",
-					-- 	function()
-					-- 		require("mini.files").open(vim.uv.cwd(), true)
-					-- 	end,
-					-- 	desc = "Open mini.files (cwd)",
-					-- },
+					{
+						"<leader>fM",
+						function()
+							require("mini.files").open(vim.uv.cwd(), true)
+						end,
+						desc = "Open mini.files (cwd)",
+					},
 				},
 				config = function(_, opts)
 					require("mini.files").setup({ opts })
