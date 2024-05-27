@@ -771,7 +771,7 @@ require("lazy").setup({
 			require("mini.files").setup({
 				version = "*",
 				config = function()
-					vim.keymap.set("n", "\\", "MiniFiles.open()", { desc = "navigate mini.files " })
+					vim.keymap.set("n", "\\", "lua MiniFiles.open()", { desc = "navigate mini.files " })
 				end,
 			})
 		end,
