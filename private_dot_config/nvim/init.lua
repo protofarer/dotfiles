@@ -864,7 +864,7 @@ require("lazy").setup({
 	{ "tpope/vim-fugitive" },
 	{ "tpope/vim-rhubarb" },
 	{
-		" akinsho/toggleterm.nvim",
+		"akinsho/toggleterm.nvim",
 		version = "*",
 		config = true,
 		opts = {
