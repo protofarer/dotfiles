@@ -771,7 +771,24 @@ require("lazy").setup({
 			require("mini.files").setup({
 				version = "*",
 				config = function()
-					vim.keymap.set("n", "\\", "lua MiniFiles.open()<CR>", { desc = "navigate mini.files " })
+					local minifiles_toggle = function()
+						if not MiniFiles.close() then
+							MiniFiles.open()
+						end
+					end
+					vim.keymap.set("n", "\\", minifiles_toggle, { desc = "toggle mini.files navigation" })
+
+					local show_dotfiles = true
+					local toggle_dotfiles = function()
+						show_dotfiles = not show_dotfiles
+					end
+					vim.api.nvim_create_autocmd("User", {
+						pattern = "MiniFilesBufferCreate",
+						callback = function(args)
+							local buf_id = args.data.buf_id
+							vim.keymap.set("n", "g.", toggle_dotfiles, { buffer = buf_id })
+						end,
+					})
 				end,
 			})
 		end,
