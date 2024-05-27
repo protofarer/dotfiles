@@ -83,7 +83,7 @@ local function toggle_bg()
 	if curr_bg == "light" then
 		vim.opt.background = "dark"
 	else
-		vim.opt.background = "ligh"
+		vim.opt.background = "light"
 	end
 end
 vim.api.nvim_create_user_command("ToggleBackground", toggle_bg, {})
