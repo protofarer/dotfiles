@@ -768,7 +768,8 @@ require("lazy").setup({
 				return "%2l:%-2v"
 			end
 
-			require("mini.files").setup({
+			local minifiles = require("mini.files")
+			minifiles.setup({
 				version = "*",
 				opts = {
 					options = {
@@ -792,6 +793,7 @@ require("lazy").setup({
 					},
 				},
 				config = function(_, opts)
+					minifiles.setup(opts)
 					-- vim.keymap.set("n", "\\", minifiles_toggle, { desc = "toggle mini.files navigation" })
 					-- local minifiles_toggle = function()
 					-- 	if not MiniFiles.close() then
