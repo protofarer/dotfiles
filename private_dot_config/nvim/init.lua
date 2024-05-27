@@ -87,6 +87,7 @@ local function toggle_bg()
 	end
 end
 vim.api.nvim_create_user_command("ToggleBackground", toggle_bg, {})
+vim.keymap.set("n", "<leader>tb", "ToggleBackground", { desc = "Toggle background light/dark" })
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
