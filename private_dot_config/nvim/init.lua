@@ -517,6 +517,7 @@ require("lazy").setup({
 					-- filetypes = { ...},
 					-- capabilities = {},
 					settings = {
+						update_on_insert = true,
 						Lua = {
 							completion = {
 								callSnippet = "Replace",
