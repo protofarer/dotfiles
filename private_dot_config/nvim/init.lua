@@ -587,13 +587,10 @@ require("lazy").setup({
 				lua = { "stylua" },
 				rust = { "rust_analyzer" },
 				-- Conform can also run multiple formatters sequentially
-				-- python = { "isort", "black" },
-				--
-				-- You can use a sub-list to tell conform to run *until* a formatter
-				-- is found.
-				odin = { "ols" }, -- does this work?
-				javascript = { { "prettierd" } },
-				-- prettier?
+				-- You can use a sub-list to tell conform to run *until* a formatter is found.
+				odin = { "ols" },
+				javascript = { { "prettierd", "prettier" } },
+				typescript = { { "prettierd", "prettier" } },
 			},
 		},
 	},
