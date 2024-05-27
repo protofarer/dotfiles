@@ -169,6 +169,7 @@ vim.keymap.set("n", "<leader>jh", ":! just z ", { noremap = true })
 -- Terminal
 vim.keymap.set("n", "<c-t>", ":ToggleTerm direction=float<CR>", { desc = "open ToggleTerm" })
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+-- TODO: enter terminal mode?
 
 -- intriguing keymap used by Takuya
 -- vim.keymap.set('n', 'dw', 'vb_d', { noremap = true, silent = true })
