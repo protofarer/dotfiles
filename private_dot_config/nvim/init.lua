@@ -157,7 +157,7 @@ vim.keymap.set("n", "<leader>j;", ":! just 3<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>jh", ":! just 0<CR>", { noremap = true })
 
 -- Terminal
-vim.keymap.set("n", "<A-t>", ":ToggleTerm direction=float<CR>", { desc = "open ToggleTerm" })
+vim.keymap.set("n", "<c-t>", ":ToggleTerm direction=float<CR>", { desc = "open ToggleTerm" })
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- intriguing keymap used by Takuya
