@@ -151,10 +151,10 @@ vim.keymap.set("n", "<leader>orr", ":! odin run . -define:DEBUG=true<CR>", { nor
 -- ,keymaps
 -- Just tasks
 vim.keymap.set("n", "<leader>jj", ":! just<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>jk", ":! just 1<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>jl", ":! just 2<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>j;", ":! just 3<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>jh", ":! just 0<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>jk", ":! just a<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>jl", ":! just b<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>j;", ":! just c<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>jh", ":! just z<CR>", { noremap = true })
 
 -- Terminal
 vim.keymap.set("n", "<c-t>", ":ToggleTerm direction=float<CR>", { desc = "open ToggleTerm" })
