@@ -742,10 +742,10 @@ require("lazy").setup({
 	},
 	{ --  Check out: https://github.com/echasnovski/mini.nvim
 		"echasnovski/mini.nvim",
+		version = "*",
 		config = function()
 			-- Better Around/Inside textobjects
-			--
-			-- Examples:
+			-- eg:
 			--  - va)  - [V]isually select [A]round [)]paren
 			--  - yinq - [Y]ank [I]nside [N]ext [']quote
 			--  - ci'  - [C]hange [I]nside [']quote
@@ -768,8 +768,7 @@ require("lazy").setup({
 				return "%2l:%-2v"
 			end
 
-			local minifiles = require("mini.files")
-			minifiles.setup({
+			require("mini.files").setup({
 				version = "*",
 				opts = {
 					options = {
@@ -793,7 +792,6 @@ require("lazy").setup({
 					},
 				},
 				config = function(_, opts)
-					minifiles.setup(opts)
 					-- vim.keymap.set("n", "\\", minifiles_toggle, { desc = "toggle mini.files navigation" })
 					-- local minifiles_toggle = function()
 					-- 	if not MiniFiles.close() then
