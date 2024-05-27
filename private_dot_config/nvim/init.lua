@@ -770,6 +770,9 @@ require("lazy").setup({
 
 			require("mini.files").setup({
 				version = "*",
+				config = function()
+					vim.keymap.set("n", "\\", "MiniFiles.open()", { desc = "navigate mini.files " })
+				end,
 			})
 		end,
 	},
@@ -841,8 +844,8 @@ require("lazy").setup({
 	-- require 'kickstart.plugins.debug',
 	-- require 'kickstart.plugins.indent_line',
 	-- require 'kickstart.plugins.lint',
+	-- require("kickstart.plugins.neo-tree"), -- using mini.files
 	require("kickstart.plugins.autopairs"),
-	require("kickstart.plugins.neo-tree"),
 	require("kickstart.plugins.gitsigns"), -- adds gitsigns recommend keymaps
 
 	-- Custom ,plugins `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
