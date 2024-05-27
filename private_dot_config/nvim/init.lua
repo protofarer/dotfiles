@@ -76,7 +76,7 @@ vim.opt.termguicolors = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 
--- vim.opt.background = 'dark'
+vim.opt.background = "dark"
 
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
@@ -708,7 +708,7 @@ require("lazy").setup({
 		end,
 		opts = {
 			theme = "wave",
-			-- background = { dark = 'dragon' },
+			background = { dark = "dragon" },
 			-- remove gutter background
 			colors = { theme = { all = { ui = { bg_gutter = "none" } } } },
 		},
