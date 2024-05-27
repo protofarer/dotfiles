@@ -854,7 +854,7 @@ require("lazy").setup({
 		"akinsho/toggleterm.nvim",
 		version = "*",
 		config = true,
-		opts = { open_mapping = [[c-t]] },
+		-- opts = { open_mapping = [[c-t]] },
 	},
 	{ import = "custom.plugins" },
 }, {
