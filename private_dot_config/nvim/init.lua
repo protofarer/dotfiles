@@ -78,7 +78,7 @@ vim.opt.shiftwidth = 4
 
 -- vim.opt.background = 'dark'
 
--- [[ Basic Keymaps ]] ,keymaps
+-- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
@@ -152,22 +152,23 @@ vim.keymap.set("n", "<Space>;", ";", { noremap = true, silent = true })
 vim.keymap.set("n", "<Space>,", ",", { noremap = true, silent = true })
 
 -- Odin Keymaps
-vim.keymap.set("n", "<leader>or", ":! odin run .<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>orb", ":! odin run .<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>ord", ":! odin run . -define:DEBUG=true<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>orr", ":! odin run . -define:DEBUG=true<CR>", { noremap = true })
 
--- Prevent continueing comment on insert newline aka `o`
-vim.api.nvim_create_autocmd("BufEnter", {
-	desc = "Disable auto-commenting insert newline from a current line comment",
-	group = vim.api.nvim_create_augroup("no-newline-comment", { clear = true }),
-	callback = function()
-		vim.opt.formatoptions:remove({ "r", "c", "o" })
-	end,
-})
+-- ,keymaps
+-- Just tasks
+vim.keymap.set("n", "<leader>jj", ":! just<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>jk", ":! just 1<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>jl", ":! just 2<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>j;", ":! just 3<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>jh", ":! just 0<CR>", { noremap = true })
+
 
 -- intriguing keymap used by Takuya
 -- vim.keymap.set('n', 'dw', 'vb_d', { noremap = true, silent = true })
 
--- [[ Basic Autocommands ]] ,autocmd
---  See `:help lua-guide-autocommands`
+-- Autocommands  ,autocmd See `:help lua-guide-autocommands`
 
 -- Highlight when yanking (copying) text
 --  Try it with `yap` in normal mode
@@ -177,6 +178,15 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
 	callback = function()
 		vim.highlight.on_yank()
+	end,
+})
+
+-- Prevent continueing comment on insert newline aka `o`
+vim.api.nvim_create_autocmd("BufEnter", {
+	desc = "Disable auto-commenting insert newline from a current line comment",
+	group = vim.api.nvim_create_augroup("no-newline-comment", { clear = true }),
+	callback = function()
+		vim.opt.formatoptions:remove({ "r", "c", "o" })
 	end,
 })
 
@@ -192,24 +202,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 --     end
 --   end,
 -- })
--- vim.api.nvim_create_autocmd('ColorScheme', {
---   pattern = 'gruvbox',
---   callback = function()
---     if vim.o.background == 'light' then
---       vim.fn.system 'kitty +kitten themes gruvbox'
---     elseif vim.o.background == 'dark' then
---       vim.fn.system 'kitty +kitten themes gruvbox'
---     else
---       vim.fn.system 'kitty +kitten themes gruvbox'
---     end
---   end,
--- })
 
---
--- END AUTOCMD
 
--- [[ Install `lazy.nvim` plugin manager ]]
---    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 -- Use `opts = {}` to force a plugin to be loaded.
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -857,9 +851,6 @@ require("lazy").setup({
 			--    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 		end,
 	},
-	{ "petertriho/nvim-scrollbar", opts = {} },
-	{ "tpope/vim-fugitive" },
-	{ "tpope/vim-rhubarb" },
 	-- require 'kickstart.plugins.debug',
 	-- require 'kickstart.plugins.indent_line',
 	-- require 'kickstart.plugins.lint',
@@ -867,8 +858,12 @@ require("lazy").setup({
 	require("kickstart.plugins.neo-tree"),
 	require("kickstart.plugins.gitsigns"), -- adds gitsigns recommend keymaps
 
-	--  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
+    -- Custom
 	--    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
+	{ "petertriho/nvim-scrollbar", opts = {} },
+	{ "tpope/vim-fugitive" },
+	{ "tpope/vim-rhubarb" },
+    { " akinsho/toggleterm.nvim", version = "*", config = true }
 	{ import = "custom.plugins" },
 }, {
 	ui = {
