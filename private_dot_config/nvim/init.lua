@@ -776,7 +776,7 @@ require("lazy").setup({
 							MiniFiles.open()
 						end
 					end
-					vim.keymap.set("n", "\\", minifiles_toggle, { desc = "toggle mini.files navigation" })
+					vim.keymap.set("n", "<c-\\>", minifiles_toggle, { desc = "toggle mini.files navigation" })
 
 					local show_dotfiles = true
 					local toggle_dotfiles = function()
