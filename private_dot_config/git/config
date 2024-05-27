@@ -2,7 +2,7 @@
 	name = Kenny Baron
 	email = kennybaron@fastmail.com
 [core]
-	editor = code --wait
+	editor = nvim
 	autocrlf = input
 	pager = less
 [init]
