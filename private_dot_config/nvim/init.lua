@@ -795,6 +795,7 @@ require("lazy").setup({
 				-- },
 				config = function(_, opts)
 					require("mini.files").setup({ opts })
+
 					local minifiles_toggle = function()
 						if not MiniFiles.close() then
 							MiniFiles.open()
@@ -804,7 +805,7 @@ require("lazy").setup({
 					vim.keymap.set(
 						"n",
 						"<leader>fm",
-						":lua MiniFiles.open()<CR>",
+						":lua MiniFiles.open(vim.api.nvim_buf_get_name(0))<CR>",
 						{ desc = "toggle mini.files navigation" }
 					)
 
