@@ -570,7 +570,7 @@ require("lazy").setup({
 					require("conform").format({ async = true, lsp_fallback = true })
 				end,
 				mode = "",
-				desc = "[F]ormat buffer",
+				desc = "[ff]ormat buffer",
 			},
 		},
 		opts = {
@@ -744,7 +744,6 @@ require("lazy").setup({
 	},
 	{ --  Check out: https://github.com/echasnovski/mini.nvim
 		"echasnovski/mini.nvim",
-		version = "*",
 		config = function()
 			-- Better Around/Inside textobjects
 			-- eg:
