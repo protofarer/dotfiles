@@ -800,7 +800,13 @@ require("lazy").setup({
 							MiniFiles.open()
 						end
 					end
-					vim.keymap.set("n", "<leader>fm", minifiles_toggle, { desc = "toggle mini.files navigation" })
+					-- vim.keymap.set("n", "<leader>fm", minifiles_toggle, { desc = "toggle mini.files navigation" })
+					vim.keymap.set(
+						"n",
+						"<leader>fm",
+						":lua MiniFiles.open()<CR>",
+						{ desc = "toggle mini.files navigation" }
+					)
 
 					-- mapping to show/hide dot-files
 					local show_dotfiles = true
