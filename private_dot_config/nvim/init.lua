@@ -76,7 +76,7 @@ vim.opt.termguicolors = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 
-vim.opt.background = "dark"
+vim.opt.background = "light"
 
 local function toggle_bg()
 	local curr_bg = vim.api.nvim_get_option_value("background", {})
