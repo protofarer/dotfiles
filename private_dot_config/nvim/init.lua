@@ -813,6 +813,7 @@ require("lazy").setup({
 						local new_filter = show_dotfiles and filter_show or filter_hide
 						require("mini.files").refresh({ content = { filter = new_filter } })
 					end
+
 					vim.api.nvim_create_autocmd("User", {
 						pattern = "MiniFilesBufferCreate",
 						callback = function(args)
