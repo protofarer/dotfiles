@@ -719,7 +719,7 @@ require("lazy").setup({
 		end,
 		opts = {
 			theme = "wave",
-			background = { dark = "dragon" },
+			background = { dark = "dragon", light = "wave" },
 			-- remove gutter background
 			colors = { theme = { all = { ui = { bg_gutter = "none" } } } },
 		},
