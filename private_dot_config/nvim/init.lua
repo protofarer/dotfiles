@@ -275,7 +275,7 @@ require("lazy").setup({
 				["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
 				["<leader>t"] = { name = "[T]oggle", _ = "which_key_ignore" },
 				["<leader>h"] = { name = "Git [H]unk", _ = "which_key_ignore" },
-				-- ["<leader>fm"] = { name = "[f]iles [m]enu mini.files", _ = "which_key_ignore" },
+				-- ["<leader>fm"] = { name = "[f]iles [m]enu mini.files dir of current file", _ = "which_key_ignore" },
 				-- ["<leader>fM"] = { name = "[f]iles [M]enu mini.files with cwd", _ = "which_key_ignore" },
 			})
 			-- visual mode
@@ -770,70 +770,73 @@ require("lazy").setup({
 				return "%2l:%-2v"
 			end
 
-			require("mini.files").setup({})
-			-- 	version = "*",
-			-- 	opts = {
-			-- 		options = {
-			-- 			use_as_default_explorer = true,
-			-- 		},
-			-- 	},
-			-- 	keys = {
-			-- 		{
-			-- 			"<leader>fm",
-			-- 			function()
-			-- 				require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
-			-- 			end,
-			-- 			desc = "Open mini.files (Directory of Current File)",
-			-- 		},
-			-- 		{
-			-- 			"<leader>fM",
-			-- 			function()
-			-- 				require("mini.files").open(vim.uv.cwd(), true)
-			-- 			end,
-			-- 			desc = "Open mini.files (cwd)",
-			-- 		},
-			-- 	},
-			-- 	config = function(_, opts)
-			-- 		-- vim.keymap.set("n", "\\", minifiles_toggle, { desc = "toggle mini.files navigation" })
-			-- 		-- local minifiles_toggle = function()
-			-- 		-- 	if not MiniFiles.close() then
-			-- 		-- 		MiniFiles.open()
-			-- 		-- 	end
-			-- 		-- end
-			-- 		local show_dotfiles = true
-			-- 		local filter_show = function(fs_entry)
-			-- 			return true
-			-- 		end
-			-- 		local filter_hide = function(fs_entry)
-			-- 			return not vim.startswith(fs_entry.name, ".")
-			-- 		end
-			--
-			-- 		local toggle_dotfiles = function()
-			-- 			show_dotfiles = not show_dotfiles
-			-- 			local new_filter = show_dotfiles and filter_show or filter_hide
-			-- 			require("mini.files").refresh({ content = { filter = new_filter } })
-			-- 		end
-			--
-			-- 		vim.api.nvim_create_autocmd("User", {
-			-- 			pattern = "MiniFilesBufferCreate",
-			-- 			callback = function(args)
-			-- 				local buf_id = args.data.buf_id
-			-- 				vim.keymap.set(
-			-- 					"n",
-			-- 					"g.",
-			-- 					toggle_dotfiles,
-			-- 					{ buffer = buf_id, desc = "Toggle Hidden Files" }
-			-- 				)
-			-- 			end,
-			-- 		})
-			-- 		vim.api.nvim_create_autocmd("User", {
-			-- 			pattern = "MiniFilesActionRename",
-			-- 			callback = function(event)
-			-- 				LazyVim.lsp.on_rename(event.data.from, event.data.to)
-			-- 			end,
-			-- 		})
-			-- 	end,
-			-- })
+			require("mini.files").setup({
+				version = "*",
+				opts = {
+					options = {
+						use_as_default_explorer = true,
+					},
+				},
+				-- keys = {
+				-- 	{
+				-- 		"<leader>fm",
+				-- 		function()
+				-- 			require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
+				-- 		end,
+				-- 		desc = "Open mini.files (Directory of Current File)",
+				-- 	},
+				-- 	{
+				-- 		"<leader>fM",
+				-- 		function()
+				-- 			require("mini.files").open(vim.uv.cwd(), true)
+				-- 		end,
+				-- 		desc = "Open mini.files (cwd)",
+				-- 	},
+				-- },
+				config = function(_, opts)
+					require("mini.files").setup({ opts })
+					local minifiles_toggle = function()
+						if not MiniFiles.close() then
+							MiniFiles.open()
+						end
+					end
+					vim.keymap.set("n", "<leader>fm", minifiles_toggle, { desc = "toggle mini.files navigation" })
+
+					-- mapping to show/hide dot-files
+					local show_dotfiles = true
+					local filter_show = function(fs_entry)
+						return true
+					end
+					local filter_hide = function(fs_entry)
+						return not vim.startswith(fs_entry.name, ".")
+					end
+
+					local toggle_dotfiles = function()
+						show_dotfiles = not show_dotfiles
+						local new_filter = show_dotfiles and filter_show or filter_hide
+						require("mini.files").refresh({ content = { filter = new_filter } })
+					end
+
+					vim.api.nvim_create_autocmd("User", {
+						pattern = "MiniFilesBufferCreate",
+						callback = function(args)
+							local buf_id = args.data.buf_id
+							vim.keymap.set(
+								"n",
+								"g.",
+								toggle_dotfiles,
+								{ buffer = buf_id, desc = "Toggle Hidden Files" }
+							)
+						end,
+					})
+					vim.api.nvim_create_autocmd("User", {
+						pattern = "MiniFilesActionRename",
+						callback = function(event)
+							LazyVim.lsp.on_rename(event.data.from, event.data.to)
+						end,
+					})
+				end,
+			})
 		end,
 	},
 	{ -- Highlight, edit, and navigate code ,treesitter
