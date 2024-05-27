@@ -817,6 +817,8 @@ require("lazy").setup({
 					vim.keymap.set("n", "g.", toggle_dotfiles, { buffer = buf_id, desc = "Toggle Hidden Files" })
 				end,
 			})
+
+			-- use lsp for file renames
 			vim.api.nvim_create_autocmd("User", {
 				pattern = "MiniFilesActionRename",
 				callback = function(event)
