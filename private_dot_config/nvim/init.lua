@@ -91,16 +91,6 @@ vim.keymap.set("n", "<C-j>", vim.diagnostic.goto_next, { desc = "Go to next [D]i
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
--- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
--- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
--- is not what someone will guess without a bit more experience.
---
--- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
--- or just use <C-\><C-n> to exit terminal mode
--- vim.keymap.set("t", "<C-t>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
-
-vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
-
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --  See `:help wincmd` for a list of all window commands
@@ -165,6 +155,10 @@ vim.keymap.set("n", "<leader>jk", ":! just 1<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>jl", ":! just 2<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>j;", ":! just 3<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>jh", ":! just 0<CR>", { noremap = true })
+
+-- Terminal
+vim.keymap.set("n", "<C-t>", ":ToggleTerm direction=float", { desc = "open ToggleTerm" })
+vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- intriguing keymap used by Takuya
 -- vim.keymap.set('n', 'dw', 'vb_d', { noremap = true, silent = true })
@@ -278,13 +272,6 @@ require("lazy").setup({
 			}, { mode = "v" })
 		end,
 	},
-
-	-- NOTE: Plugins can specify dependencies.
-	--
-	-- The dependencies are proper plugin specifications as well - anything
-	-- you do for a plugin at the top level, you can do for a dependency.
-	--
-	-- Use the `dependencies` key to specify the dependencies of a particular plugin
 
 	{ -- Fuzzy Finder (files, lsp, etc)
 		"nvim-telescope/telescope.nvim",
