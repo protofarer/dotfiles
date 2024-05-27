@@ -78,6 +78,15 @@ vim.opt.shiftwidth = 4
 
 vim.opt.background = "dark"
 
+local function toggle_bg()
+	if vim.opt.background == "light" then
+		vim.opt.background = "dark"
+	else
+		vim.opt.background = "ligh"
+	end
+end
+vim.api.nvim_create_user_command("ToggleBackground", toggle_bg, {})
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
