@@ -97,7 +97,9 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 --
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
-vim.keymap.set("t", "<C-t>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+-- vim.keymap.set("t", "<C-t>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
+
+vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
@@ -164,7 +166,6 @@ vim.keymap.set("n", "<leader>jl", ":! just 2<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>j;", ":! just 3<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>jh", ":! just 0<CR>", { noremap = true })
 
-
 -- intriguing keymap used by Takuya
 -- vim.keymap.set('n', 'dw', 'vb_d', { noremap = true, silent = true })
 
@@ -202,7 +203,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
 --     end
 --   end,
 -- })
-
 
 -- Use `opts = {}` to force a plugin to be loaded.
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -858,12 +858,19 @@ require("lazy").setup({
 	require("kickstart.plugins.neo-tree"),
 	require("kickstart.plugins.gitsigns"), -- adds gitsigns recommend keymaps
 
-    -- Custom
+	-- Custom
 	--    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
 	{ "petertriho/nvim-scrollbar", opts = {} },
 	{ "tpope/vim-fugitive" },
 	{ "tpope/vim-rhubarb" },
-    { " akinsho/toggleterm.nvim", version = "*", config = true },
+	{
+		" akinsho/toggleterm.nvim",
+		version = "*",
+		config = true,
+		opts = {
+			open_mapping = [[<C-t]],
+		},
+	},
 	{ import = "custom.plugins" },
 }, {
 	ui = {
