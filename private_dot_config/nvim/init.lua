@@ -14,13 +14,6 @@ vim.g.have_nerd_font = true
 
 -- [[ Setting options ]] ,opts
 
-local km_opts = { noremap = true, silent = true }
-local function ext_km_opts(desc)
-	return vim.tbl_deep_extend("force", km_opts, { desc = desc })
-end
-print("km opts", vim.inspect(km_opts))
-print("km opts tbd ext", vim.inspect(ext_km_opts("An extended table")))
-
 -- Make line numbers default
 vim.opt.number = true
 -- Relative line numbers
@@ -96,6 +89,12 @@ vim.keymap.set("n", "<leader>bg", ":ToggleBackground<CR>", { desc = "Toggle back
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+local km_opts = { noremap = true, silent = true }
+
+local function ext_km_opts(desc)
+	return vim.tbl_deep_extend("force", km_opts, { desc = desc })
+end
+
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -114,19 +113,19 @@ vim.keymap.set("n", "sl", "<C-w><C-l>", { desc = "Move focus to the right window
 vim.keymap.set("n", "sj", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "sk", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
-vim.keymap.set("n", "ss", ":split<Return>", { noremap = true, silent = true })
-vim.keymap.set("n", "sv", ":vsplit<Return>", { noremap = true, silent = true })
+vim.keymap.set("n", "ss", ":split<Return>", km_opts)
+vim.keymap.set("n", "sv", ":vsplit<Return>", km_opts)
 
 -- select all
-vim.keymap.set("n", "<C-a>", "gg<S-v>G", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-a>", "gg<S-v>G", km_opts)
 
 -- increment/decrement
-vim.keymap.set("n", "+", "<C-a>", { noremap = true, silent = true })
-vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
+vim.keymap.set("n", "+", "<C-a>", km_opts)
+vim.keymap.set("n", "-", "<C-x>", km_opts)
 
 -- buffers
-vim.keymap.set("n", "<leader>bd", ":bd<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>w", ":w<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>bd", ":bd<CR>", km_opts)
+vim.keymap.set("n", "<leader>w", ":w<CR>", km_opts)
 
 -- ,fugitive
 -- vim.keymap.set("n", "<leader>gg", ":G<CR>", { noremap = true })
