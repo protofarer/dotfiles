@@ -149,7 +149,7 @@ vim.keymap.set("n", "<leader>gw", ":Gwrite<CR>", { noremap = true })
 -- vim.keymap.set("n", "<leader>gH",  ":G log<CR>:set nofoldenable<CR>")
 -- vim.keymap.set("n", "<leader>gL", ":exe ':!cd ' . expand('%:p:h') . '; git la'<CR>")
 -- vim.keymap.set("n", "<leader>gl", ":exe ':!cd ' . expand('%:p:h') . '; git las'<CR>")
-vim.keymap.set("n", ";", ":", km_opts)
+vim.keymap.set("n,v", ";", ":", km_opts)
 vim.keymap.set("n", "<Space>;", ";", km_opts)
 vim.keymap.set("n", "<Space>,", ",", km_opts)
 
