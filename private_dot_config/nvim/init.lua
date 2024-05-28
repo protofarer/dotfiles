@@ -893,7 +893,6 @@ require("lazy").setup({
 	{ "tpope/vim-rhubarb" },
 	{
 		"NeogitOrg/neogit",
-		version = "0.0.1",
 		dependencies = { "nvim-lua/plenary.nvim", "sindrets/diffview.nvim", "ibhagwan/fzf-lua" },
 		opts = {
 			graph_style = "unicode",
