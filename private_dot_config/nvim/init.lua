@@ -14,10 +14,12 @@ vim.g.have_nerd_font = true
 
 -- [[ Setting options ]] ,opts
 
--- local std_opts = { noremp = true, silent = true }
+local km_opts = { noremp = true, silent = true }
 local function opts(desc)
-	return vim.tbl_deep_extend("force", std_opts)
+	return vim.tbl_deep_extend("force", vm_opts)
 end
+print("km opts", km_opts)
+print("km opts tbd ext", opts("An extended table"))
 
 -- Make line numbers default
 vim.opt.number = true
