@@ -105,10 +105,10 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --  See `:help wincmd` for a list of all window commands
--- vim.keymap.set("n", "sh", "<C-w><C-h>", { desc = "Move focus to the left window" })
--- vim.keymap.set("n", "sl", "<C-w><C-l>", { desc = "Move focus to the right window" })
--- vim.keymap.set("n", "sj", "<C-w><C-j>", { desc = "Move focus to the lower window" })
--- vim.keymap.set("n", "sk", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+vim.keymap.set("n", "sh", "<C-w><C-h>", { desc = "Move focus to the left window" })
+vim.keymap.set("n", "sl", "<C-w><C-l>", { desc = "Move focus to the right window" })
+vim.keymap.set("n", "sj", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+vim.keymap.set("n", "sk", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 vim.keymap.set("n", "ss", ":split<Return>", { noremap = true, silent = true })
 vim.keymap.set("n", "sv", ":vsplit<Return>", { noremap = true, silent = true })
