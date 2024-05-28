@@ -171,6 +171,7 @@ vim.keymap.set("n", "<leader>gc", ":Neogit commit<CR>", { noremap = true })
 
 -- lua
 vim.keymap.set("n", "<leader>lf", ":luafile ", { noremap = true })
+vim.keymap.set("n", "<leader>lr", ":luafile %", { noremap = true })
 
 -- intriguing keymap used by Takuya
 -- vim.keymap.set('n', 'dw', 'vb_d', { noremap = true, silent = true })
