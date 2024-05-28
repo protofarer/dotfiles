@@ -13,9 +13,11 @@ vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
 
 -- [[ Setting options ]] ,opts
--- See `:help vim.opt`
 
 -- local std_opts = { noremp = true, silent = true }
+local function opts(desc)
+	return vim.list_extend("force", std_opts)
+end
 
 -- Make line numbers default
 vim.opt.number = true
@@ -305,18 +307,10 @@ require("lazy").setup({
 			{ "nvim-tree/nvim-web-devicons", lazy = true, enabled = vim.g.have_nerd_font },
 		},
 		config = function()
-			-- Telescope is a fuzzy finder. It's more than just a "file finder", it can search
-			-- many different aspects of Neovim, your workspace, LSP, and more!
 			-- :Telescope help_tags
-			--
-			-- After running this command, a window will open up and you're able to
-			-- type in the prompt window. You'll see a list of `help_tags` options and
-			-- a corresponding preview of the help.
-			--
 			-- Two important keymaps to use while in Telescope are:
 			--  - Insert mode: <c-/>
 			--  - Normal mode: ?
-			--
 			-- This opens a window that shows you all of the keymaps for the current
 			-- Telescope picker. This is really useful to discover what Telescope can
 			-- do as well as how to actually do it!
