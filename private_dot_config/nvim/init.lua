@@ -16,7 +16,7 @@ vim.g.have_nerd_font = true
 
 -- local std_opts = { noremp = true, silent = true }
 local function opts(desc)
-	return vim.list_extend("force", std_opts)
+	return vim.tbl_deep_extend("force", std_opts)
 end
 
 -- Make line numbers default
@@ -168,6 +168,9 @@ vim.keymap.set("n", "<leader>gs", ":G status --short --branch<CR>", { noremap = 
 -- NeoGit
 vim.keymap.set("n", "<leader>gg", ":Neogit<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>gc", ":Neogit commit<CR>", { noremap = true })
+
+-- lua
+vim.keymap.set("n", "<leader>lf", ":luafile ", { noremap = true })
 
 -- intriguing keymap used by Takuya
 -- vim.keymap.set('n', 'dw', 'vb_d', { noremap = true, silent = true })
