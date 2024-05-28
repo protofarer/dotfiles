@@ -894,9 +894,12 @@ require("lazy").setup({
 	require("kickstart.plugins.gitsigns"), -- adds gitsigns recommend keymaps
 
 	-- Custom ,plugins `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
-	{ "petertriho/nvim-scrollbar", opts = {
-		signs_on_startup = { "all" },
-	} },
+	{
+		"dstein64/nvim-scrollview",
+		opts = {
+			-- signs_on_startup = {'all'}
+		},
+	},
 	{ "tpope/vim-fugitive" },
 	{ "tpope/vim-rhubarb" },
 	{
