@@ -745,10 +745,8 @@ require("lazy").setup({
 			-- - sd'   - [S]urround [D]elete [']quotes
 			-- - sr)'  - [S]urround [R]eplace [)] [']
 			require("mini.surround").setup({
-				opts = {
-					mappings = {
-						highlight = "sH", -- default `sh` conflicts with my switch window focus
-					},
+				mappings = {
+					highlight = "sH", -- default `sh` conflicts with my switch window focus
 				},
 			})
 
