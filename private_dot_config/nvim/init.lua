@@ -105,10 +105,10 @@ vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagn
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --  See `:help wincmd` for a list of all window commands
-vim.keymap.set("n", "sh", "<C-w><C-h>", { desc = "Move focus to the left window" })
-vim.keymap.set("n", "sl", "<C-w><C-l>", { desc = "Move focus to the right window" })
-vim.keymap.set("n", "sj", "<C-w><C-j>", { desc = "Move focus to the lower window" })
-vim.keymap.set("n", "sk", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+-- vim.keymap.set("n", "sh", "<C-w><C-h>", { desc = "Move focus to the left window" })
+-- vim.keymap.set("n", "sl", "<C-w><C-l>", { desc = "Move focus to the right window" })
+-- vim.keymap.set("n", "sj", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+-- vim.keymap.set("n", "sk", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 vim.keymap.set("n", "ss", ":split<Return>", { noremap = true, silent = true })
 vim.keymap.set("n", "sv", ":vsplit<Return>", { noremap = true, silent = true })
@@ -123,11 +123,6 @@ vim.keymap.set("n", "-", "<C-x>", { noremap = true, silent = true })
 -- ,fugitive
 -- vim.keymap.set("n", "<leader>gg", ":G<CR>", { noremap = true })
 -- vim.keymap.set("n", "<leader>gf", ":Gedit :<CR>", { desc = "Fullscreen git view", noremap = true })
--- vim.keymap.set("n", "<leader>gc", ":G commit<CR>", { noremap = true })
--- vim.keymap.set("n", "<leader>gvc", ":G commit -v<CR>", { noremap = true })
--- vim.keymap.set("n", "<leader>ga", ":G commit --amend<CR>", { noremap = true })
--- vim.keymap.set("n", "<leader>gva", ":G commit --amend<CR>", { noremap = true })
--- vim.keymap.set("n", "<leader>gs", ":G status --short --branch<CR>", { noremap = true })
 --
 -- vim.keymap.set("n", "<leader>gb", ":G blame<CR>", { noremap = true })
 -- vim.keymap.set("n", "<leader>gl", ":G log<CR>", { noremap = true })
@@ -159,6 +154,10 @@ vim.keymap.set("n", "<leader>j", ":! just", { noremap = true })
 vim.keymap.set("n", "<c-t>", ":ToggleTerm direction=float<CR>", { desc = "open ToggleTerm" })
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 -- TODO: enter terminal mode?
+
+-- git
+vim.keymap.set("n", "<leader>g", ":!git ", { noremap = true })
+vim.keymap.set("n", "<leader>gs", ":G status --short --branch<CR>", { noremap = true })
 
 -- NeoGit
 vim.keymap.set("n", "<leader>gg", ":Neogit<CR>", { noremap = true })
