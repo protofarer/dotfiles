@@ -623,7 +623,7 @@ require("lazy").setup({
 					return "make install_jsregexp"
 				end)(),
 				config = function()
-					require("luasnip.loaders.from_vscode").load({ paths = { "~/.config/snippets" } }) -- Load snippets from my-snippets folder
+					require("luasnip.loaders.from_vscode").load({ paths = "~/.config/snippets" }) -- Load snippets from my-snippets folder
 				end,
 				-- prefer my own
 				-- dependencies = {
