@@ -625,14 +625,15 @@ require("lazy").setup({
 				config = function()
 					require("luasnip.loaders.from_vscode").load({ paths = { "~/.config/snippets" } }) -- Load snippets from my-snippets folder
 				end,
-				dependencies = {
-					{ -- https://github.com/rafamadriz/friendly-snippets
-						"rafamadriz/friendly-snippets",
-						config = function()
-							require("luasnip.loaders.from_vscode").lazy_load()
-						end,
-					},
-				},
+				-- prefer my own
+				-- dependencies = {
+				-- 	{ -- https://github.com/rafamadriz/friendly-snippets
+				-- 		"rafamadriz/friendly-snippets",
+				-- 		config = function()
+				-- 			require("luasnip.loaders.from_vscode").lazy_load()
+				-- 		end,
+				-- 	},
+				-- },
 			},
 			"saadparwaiz1/cmp_luasnip",
 
