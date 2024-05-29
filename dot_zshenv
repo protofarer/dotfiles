@@ -5,3 +5,42 @@ export ANDROID_SDK="$HOME/Android/Sdk"
 
 # zsh profiling, tmp
 skip_global_compinit=1
+
+alias g='git_status_wrapper'
+
+function git_status_wrapper() {
+  if [ $# -eq 0 ]; then
+    git st
+  else
+    git "$@"
+  fi
+}
+
+function grbi() {
+  if [ -z "$1" ]; then
+    echo "Please provide the number of commits to interactively rebase."
+    return 1
+  fi
+
+  git rebase -i HEAD~$1
+}
+
+function ghprcr() {
+  if [ -z "$1" ]; then
+    echo "Please provide a title for the pull request."
+    return 1
+  fi
+
+  current_branch=$(git rev-parse --abbrev-ref HEAD)
+  gh pr create --base master --head "$current_branch" --title "$1"
+}
+
+function gcob() {
+  if [ -z "$1" ]; then
+    echo "Please provide a name for the branch."
+    return 1
+  fi
+
+  git checkout -b kbaron/"$1"
+}
+
