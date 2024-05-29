@@ -6,6 +6,7 @@
 ]]
 --
 
+print(vim.opt.guifont)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
