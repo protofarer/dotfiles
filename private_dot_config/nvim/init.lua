@@ -755,16 +755,16 @@ require("lazy").setup({
 				},
 			})
 
-			-- local statusline = require("mini.statusline")
-			-- -- set use_icons to true if you have a Nerd Font
-			-- statusline.setup({ use_icons = vim.g.have_nerd_font })
-			-- -- You can configure sections in the statusline by overriding their
-			-- -- default behavior. For example, here we set the section for
-			-- -- cursor location to LINE:COLUMN
-			-- ---@diagnostic disable-next-line: duplicate-set-field
-			-- statusline.section_location = function()
-			-- 	return "%2l:%-2v"
-			-- end
+			local statusline = require("mini.statusline")
+			-- set use_icons to true if you have a Nerd Font
+			statusline.setup({ use_icons = vim.g.have_nerd_font })
+			-- You can configure sections in the statusline by overriding their
+			-- default behavior. For example, here we set the section for
+			-- cursor location to LINE:COLUMN
+			---@diagnostic disable-next-line: duplicate-set-field
+			statusline.section_location = function()
+				return "%2l:%-2v"
+			end
 		end,
 	},
 	{
@@ -924,36 +924,36 @@ require("lazy").setup({
 			shade_terminals = true,
 		},
 	},
-	{
-		"nvimdev/dashboard-nvim",
-		event = "VimEnter",
-		opts = {
-			theme = "hyper",
-			config = {
-				shortcut = {
-					{ desc = "Update", group = "@property", action = "Lazy update", key = "u" },
-					{ desc = "Search Files", group = "Label", icon_hl = "@variable", icon = "🗄️", key = "f" },
-				},
-				packages = { enable = true },
-				project = {
-					enable = true,
-					label = "Recent projects",
-					limit = 5,
-					action = function(path)
-						vim.cmd("Telescope find_files cwd=" .. path)
-					end,
-				},
-				mru = {
-					enable = true,
-					label = "Recently used",
-					limit = 5,
-				},
-				footer = {
-					first = "Yo mama gonna knock you awt",
-				},
-			},
-		},
-	},
+	-- {
+	-- 	"nvimdev/dashboard-nvim",
+	-- 	event = "VimEnter",
+	-- 	opts = {
+	-- 		theme = "hyper",
+	-- 		config = {
+	-- 			shortcut = {
+	-- 				{ desc = "Update", group = "@property", action = "Lazy update", key = "u" },
+	-- 				{ desc = "Search Files", group = "Label", icon_hl = "@variable", icon = "🗄️", key = "f" },
+	-- 			},
+	-- 			packages = { enable = true },
+	-- 			project = {
+	-- 				enable = true,
+	-- 				label = "Recent projects",
+	-- 				limit = 5,
+	-- 				action = function(path)
+	-- 					vim.cmd("Telescope find_files cwd=" .. path)
+	-- 				end,
+	-- 			},
+	-- 			mru = {
+	-- 				enable = true,
+	-- 				label = "Recently used",
+	-- 				limit = 5,
+	-- 			},
+	-- 			footer = {
+	-- 				first = "Yo mama gonna knock you awt",
+	-- 			},
+	-- 		},
+	-- 	},
+	-- },
 	{ import = "custom.plugins" },
 }, {
 	ui = {
