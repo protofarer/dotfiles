@@ -930,6 +930,10 @@ require("lazy").setup({
 		opts = {
 			theme = "hyper",
 			config = {
+				shortcut = {
+					{ desc = "Update", group = "@property", action = "Lazy update", key = "u" },
+					{ desc = "Search Files", group = "Label", icon_hl = "@variable", icon = "🗄️", key = "f" },
+				},
 				packages = { enable = true },
 				project = {
 					enable = true,
@@ -949,9 +953,6 @@ require("lazy").setup({
 				},
 			},
 		},
-		config = function()
-			require("dashboard").setup({})
-		end,
 	},
 	{ import = "custom.plugins" },
 }, {
