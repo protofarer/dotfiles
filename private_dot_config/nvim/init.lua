@@ -177,6 +177,10 @@ vim.keymap.set("n", "<leader>lr", ":luafile %<CR>", { noremap = true })
 -- intriguing keymap used by Takuya
 -- vim.keymap.set('n', 'dw', 'vb_d', { noremap = true, silent = true })
 
+-- system clipboard (yank into system clipboard, paste from clipboard register)
+vim.keymap.set("n", "<leader>y", "+y", { noremap = true })
+vim.keymap.set("n", "<leader>p", "+p", { noremap = true })
+
 -- Autocommands  ,autocmd See `:help lua-guide-autocommands`
 
 -- Highlight when yanking (copying) text
