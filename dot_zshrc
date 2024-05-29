@@ -142,16 +142,7 @@ alias zrd='sudo zypper ref && sudo zypper dup'
 alias zr='sudo zypper ref'
 
 ### Git
-alias g='git_status_wrapper'
-
-function git_status_wrapper() {
-  if [ $# -eq 0 ]; then
-    git st
-  else
-    git "$@"
-  fi
-}
-
+# see .zshenv, enable running in nvim command line
 # alias gcam='git commit -am'
 # alias gcm='git commit -m'
 # alias gitst='git status -s'
@@ -161,33 +152,6 @@ function git_status_wrapper() {
 # alias gitpf='git push --force-with-lease'
 # alias gita='git add'
 
-function grbi() {
-  if [ -z "$1" ]; then
-    echo "Please provide the number of commits to interactively rebase."
-    return 1
-  fi
-
-  git rebase -i HEAD~$1
-}
-
-function ghprcr() {
-  if [ -z "$1" ]; then
-    echo "Please provide a title for the pull request."
-    return 1
-  fi
-
-  current_branch=$(git rev-parse --abbrev-ref HEAD)
-  gh pr create --base master --head "$current_branch" --title "$1"
-}
-
-function gcob() {
-  if [ -z "$1" ]; then
-    echo "Please provide a name for the branch."
-    return 1
-  fi
-
-  git checkout -b kbaron/"$1"
-}
 
 ### Rust
 alias rrepl='evcxr'
@@ -198,6 +162,11 @@ alias cart1='cargo test -- --test-threads=1'
 ### Misc / One-off tool-related
 alias sshk='kitty +kitten ssh'
 alias ard='arduino-cli'
+alias ez='exec zsh' # aka zsh way of doing source bashrc
+alias j='just'
+alias nl='nvim -l' # luaJIT thru nvim
+
+### Chezmoi
 alias cz='chezmoi'
 alias cza='chezmoi apply'
 alias czgp='chezmoi git push'
@@ -205,9 +174,9 @@ alias czez='chezmoi edit ~/.zshrc'
 alias czeg='chezmoi edit ~/.config/git/config'
 alias czen='chezmoi edit ~/.config/nvim/init.lua'
 alias czek='chezmoi edit ~/.config/kitty/kitty.conf'
-alias ez='exec zsh' # aka zsh way of doing source bashrc
-alias j='just'
-alias lr='nvim -l'
+alias czen='chezmoi edit ~/.config/nvim/init.lua'
+alias czeze='chezmoi edit ~/.zshenv'
+
 
 # paste clipboard to
 alias pct='xclip -selection primary -o >'
