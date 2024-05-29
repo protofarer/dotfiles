@@ -126,7 +126,7 @@ vim.keymap.set("n", "-", "<C-x>", km_opts)
 
 -- buffers
 vim.keymap.set("n", "<leader>bd", ":bd<CR>", km_opts)
-vim.keymap.set("n", "<leader>w", ":update<CR>", km_opts)
+vim.keymap.set("n", "<C-s>", ":update<CR>", km_opts)
 
 -- ,fugitive
 -- vim.keymap.set("n", "<leader>gg", ":G<CR>", { noremap = true })
