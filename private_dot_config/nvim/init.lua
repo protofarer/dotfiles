@@ -932,7 +932,6 @@ require("lazy").setup({
 			config = {
 				shortcut = {
 					{ desc = "Update", group = "@property", action = "Lazy update", key = "u" },
-					{ desc = "Search Files", group = "Label", icon_hl = "@variable", icon = "🗄️", key = "f" },
 				},
 				packages = { enable = true },
 				project = {
