@@ -924,35 +924,32 @@ require("lazy").setup({
 			shade_terminals = true,
 		},
 	},
-	{
-		"nvimdev/dashboard-nvim",
-		event = "VimEnter",
-		opts = {
-			theme = "hyper",
-			config = {
-				shortcut = {
-					{ desc = "Update", group = "@property", action = "Lazy update", key = "u" },
-				},
-				packages = { enable = true },
-				project = {
-					enable = true,
-					label = "Recent projects",
-					limit = 5,
-					action = function(path)
-						vim.cmd("Telescope find_files cwd=" .. path)
-					end,
-				},
-				mru = {
-					enable = true,
-					label = "Recently used",
-					limit = 5,
-				},
-				footer = {
-					first = "Yo mama gonna knock you awt",
-				},
-			},
-		},
-	},
+	-- {
+	-- 	"nvimdev/dashboard-nvim",
+	-- 	event = "VimEnter",
+	-- 	opts = {
+	-- 		theme = "hyper",
+	-- 		config = {
+	-- 			shortcut = {
+	-- 				{ desc = "Update", group = "@property", action = "Lazy update", key = "u" },
+	-- 			},
+	-- 			packages = { enable = true },
+	-- 			project = {
+	-- 				enable = true,
+	-- 				label = "Recent projects",
+	-- 				limit = 5,
+	-- 				action = function(path)
+	-- 					vim.cmd("Telescope find_files cwd=" .. path)
+	-- 				end,
+	-- 			},
+	-- 			mru = {
+	-- 				enable = true,
+	-- 				label = "Recently used",
+	-- 				limit = 5,
+	-- 			},
+	-- 		},
+	-- 	},
+	-- },
 	{ import = "custom.plugins" },
 }, {
 	ui = {
