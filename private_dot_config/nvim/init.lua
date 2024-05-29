@@ -169,7 +169,6 @@ vim.keymap.set("n", "<leader>gs", ":G status --short --branch<CR>", { noremap = 
 
 -- NeoGit
 vim.keymap.set("n", "<leader>gg", ":Neogit<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>gc", ":Neogit commit<CR>", { noremap = true })
 
 -- lua
 vim.keymap.set("n", "<leader>lf", ":luafile ", { noremap = true })
