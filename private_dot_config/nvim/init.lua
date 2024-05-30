@@ -178,7 +178,7 @@ vim.keymap.set("n", "<leader>lf", ":luafile ", { noremap = true })
 vim.keymap.set("n", "<leader>lr", ":luafile %<CR>", { noremap = true })
 
 -- system clipboard (yank into system clipboard, paste from clipboard register)
-vim.keymap.set("n", "<leader>y", "+y<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>yy", "+y<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>p", "+p<CR>", { noremap = true })
 
 -- intriguing keymap used by Takuya
