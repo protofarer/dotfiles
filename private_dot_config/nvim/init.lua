@@ -973,11 +973,31 @@ require("lazy").setup({
 			}
 		end,
 	},
-	{ -- must setup after nvim-lint
-		"rshkarin/mason-nvim-lint",
-		-- opt = {
-		-- ensure_installed = {'eslint_d', } -- only these will be installed, ignoring nvim-lint
-		-- },
+	{
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+		opts = {
+			filetypes = {
+				javascript = true,
+				typescript = true,
+				javascriptreact = true,
+				typescriptreact = true,
+				python = true,
+				bash = true,
+				zsh = true,
+				rust = true,
+				odin = false,
+				sh = function()
+					if string.match(vim.fs.basename(vim.api.nvim_buf_get_name(0)), "^%.env.*") then
+						-- disable for .env files
+						return false
+					end
+					return true
+				end,
+				["*"] = false, -- disable all others
+			},
+		},
 	},
 	-- {
 	-- 	"nvimdev/dashboard-nvim",
