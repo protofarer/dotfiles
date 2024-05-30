@@ -975,9 +975,9 @@ require("lazy").setup({
 	},
 	{ -- must setup after nvim-lint
 		"rshkarin/mason-nvim-lint",
-		opt = {
-			-- ensure_installed = {'eslint_d', } -- only these will be installed, ignoring nvim-lint
-		},
+		-- opt = {
+		-- ensure_installed = {'eslint_d', } -- only these will be installed, ignoring nvim-lint
+		-- },
 	},
 	-- {
 	-- 	"nvimdev/dashboard-nvim",
