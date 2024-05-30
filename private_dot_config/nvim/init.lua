@@ -973,11 +973,12 @@ require("lazy").setup({
 			}
 		end,
 	},
-    { -- must setup after nvim-lint
-        "rshkarin/mason-nvim-linst", opt = {
-            -- ensure_installed = {'eslint_d', } -- only these will be installed, ignoring nvim-lint
-        }
-    },
+	{ -- must setup after nvim-lint
+		"rshkarin/mason-nvim-lint",
+		opt = {
+			-- ensure_installed = {'eslint_d', } -- only these will be installed, ignoring nvim-lint
+		},
+	},
 	-- {
 	-- 	"nvimdev/dashboard-nvim",
 	-- 	event = "VimEnter",
