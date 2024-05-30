@@ -237,10 +237,11 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	-- Extras
-	--	spec = {
-	-- { "LazyVim/LazyVim"}, import = "lazyvim.plugins" },
-	-- { import = "lazyvim.plugins.extras.coding.copilot" },
-	-- },
+	spec = {
+		{ "LazyVim/LazyVim" }, -- import = "lazyvim.plugins" },
+		{ import = "lazyvim.plugins.extras.coding.copilot" },
+		{ import = "plugins" },
+	},
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 	--  This is equivalent to:
 	--    require('Comment').setup({})
