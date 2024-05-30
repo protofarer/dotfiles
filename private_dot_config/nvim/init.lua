@@ -178,7 +178,8 @@ vim.keymap.set("n", "<leader>lf", ":luafile ", { noremap = true })
 vim.keymap.set("n", "<leader>lr", ":luafile %<CR>", { noremap = true })
 
 -- system clipboard (yank into system clipboard, paste from clipboard register)
-vim.keymap.set("n", "<leader>yy", "+y<CR>", { noremap = true })
+-- TODO: ISS: skips cursor line and yanks below it?
+vim.keymap.set("n", "<leader>y", "+y<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>p", "+p<CR>", { noremap = true })
 
 -- intriguing keymap used by Takuya
@@ -214,6 +215,16 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {
 	callback = function()
 		if vim.bo.modified and not vim.bo.readonly and vim.fn.expand("%") ~= "" and vim.bo.buftype == "" then
 			vim.api.nvim_command("silent update")
+		end
+	end,
+})
+
+-- run nvim-lint linters. To run on every text change use event "TextChanged"
+vim.api.nvim_create_aucmd({ "InsertLeave", "BufWritePost" }, {
+	callback = function()
+		local lint_status, lint = pcall(require, "lint")
+		if lint_status then
+			lint.try_lint()
 		end
 	end,
 })
@@ -944,7 +955,29 @@ require("lazy").setup({
 	{ -- treesitter autoclose/autorename html tags
 		"windwp/nvim-ts-autotag",
 	},
-	{ "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		opts = {},
+	},
+	{ -- must setup after mason
+		"mfussenegger/nvim-lint",
+		config = function()
+			local lint = require("lint")
+			lint.linters_by_ft = {
+				javascript = { "eslint_d" },
+				typescript = { "eslint_d" },
+				javascriptreact = { "eslint_d" },
+				typescriptreact = { "eslint_d" },
+				-- odin = { "ols"}
+			}
+		end,
+	},
+    { -- must setup after nvim-lint
+        "rshkarin/mason-nvim-linst", opt = {
+            -- ensure_installed = {'eslint_d', } -- only these will be installed, ignoring nvim-lint
+        }
+    }
 	-- {
 	-- 	"nvimdev/dashboard-nvim",
 	-- 	event = "VimEnter",
