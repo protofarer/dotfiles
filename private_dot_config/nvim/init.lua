@@ -109,10 +109,11 @@ vim.keymap.set("n", "<leader>kq", vim.diagnostic.setloclist, { desc = "Open diag
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --  See `:help wincmd` for a list of all window commands
-vim.keymap.set("n", "sh", "<C-w><C-h>", { desc = "Move focus to the left window" })
-vim.keymap.set("n", "sl", "<C-w><C-l>", { desc = "Move focus to the right window" })
-vim.keymap.set("n", "sj", "<C-w><C-j>", { desc = "Move focus to the lower window" })
-vim.keymap.set("n", "sk", "<C-w><C-k>", { desc = "Move focus to the upper window" })
+-- using non modifier has unwanted interactions with fullscreen plugins
+-- vim.keymap.set("n", "sh", "<C-w><C-h>", { desc = "Move focus to the left window" })
+-- vim.keymap.set("n", "sl", "<C-w><C-l>", { desc = "Move focus to the right window" })
+-- vim.keymap.set("n", "sj", "<C-w><C-j>", { desc = "Move focus to the lower window" })
+-- vim.keymap.set("n", "sk", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 vim.keymap.set("n", "ss", ":split<Return>", km_opts)
 vim.keymap.set("n", "sv", ":vsplit<Return>", km_opts)
@@ -150,12 +151,13 @@ vim.keymap.set("n", "<leader>gw", ":Gwrite<CR>", { noremap = true })
 -- vim.keymap.set("n", "<leader>gH",  ":G log<CR>:set nofoldenable<CR>")
 -- vim.keymap.set("n", "<leader>gL", ":exe ':!cd ' . expand('%:p:h') . '; git la'<CR>")
 -- vim.keymap.set("n", "<leader>gl", ":exe ':!cd ' . expand('%:p:h') . '; git las'<CR>")
+
+-- easy command
 vim.keymap.set("n", ";", ":", km_opts)
 vim.keymap.set("v", ";", ":", km_opts) -- TODO: can this be consolidated?
 vim.keymap.set("n", "<Space>;", ";", km_opts)
 vim.keymap.set("n", "<Space>,", ",", km_opts)
 
--- ,keymaps
 -- Justfile tasks
 vim.keymap.set("n", "<leader>j", ":! just", { noremap = true })
 
@@ -175,12 +177,14 @@ vim.keymap.set("n", "<leader>gg", ":Neogit<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>lf", ":luafile ", { noremap = true })
 vim.keymap.set("n", "<leader>lr", ":luafile %<CR>", { noremap = true })
 
--- intriguing keymap used by Takuya
--- vim.keymap.set('n', 'dw', 'vb_d', { noremap = true, silent = true })
-
 -- system clipboard (yank into system clipboard, paste from clipboard register)
 vim.keymap.set("n", "<leader>y", "+y", { noremap = true })
 vim.keymap.set("n", "<leader>p", "+p", { noremap = true })
+
+-- intriguing keymap used by Takuya
+-- vim.keymap.set('n', 'dw', 'vb_d', { noremap = true, silent = true })
+
+-- ,keymaps
 
 -- Autocommands  ,autocmd See `:help lua-guide-autocommands`
 
@@ -784,14 +788,14 @@ require("lazy").setup({
 		},
 		keys = {
 			{
-				"<leader>fm",
+				"<leader>fe",
 				function()
 					require("mini.files").open(vim.api.nvim_buf_get_name(0), true)
 				end,
 				desc = "Open mini.files (Directory of Current File)",
 			},
 			{
-				"<leader>fM",
+				"<leader>fE",
 				function()
 					require("mini.files").open(vim.uv.cwd(), true)
 				end,
