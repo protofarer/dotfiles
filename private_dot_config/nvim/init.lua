@@ -923,7 +923,7 @@ require("lazy").setup({
 	{
 		"dstein64/nvim-scrollview",
 		opts = {
-			-- signs_on_startup = {'all'}
+			signs_on_startup = { "all" },
 		},
 	},
 	{ "tpope/vim-fugitive" },
