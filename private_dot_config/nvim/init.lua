@@ -220,7 +220,7 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {
 })
 
 -- run nvim-lint linters. To run on every text change use event "TextChanged"
-vim.api.nvim_create_aucmd({ "InsertLeave", "BufWritePost" }, {
+vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost" }, {
 	callback = function()
 		local lint_status, lint = pcall(require, "lint")
 		if lint_status then
