@@ -159,7 +159,7 @@ vim.keymap.set("n", "<Space>;", ";", km_opts)
 vim.keymap.set("n", "<Space>,", ",", km_opts)
 
 -- Justfile tasks
-vim.keymap.set("n", "<leader>j", ":! just", { noremap = true })
+vim.keymap.set("n", "<leader>j", ":! just ", { noremap = true })
 
 -- Terminal
 vim.keymap.set("n", "<C-t>", ":ToggleTerm direction=float<CR>", { desc = "open ToggleTerm" })
