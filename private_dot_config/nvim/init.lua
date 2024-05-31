@@ -1049,7 +1049,7 @@ require("lazy").setup({
 	-- },
 	-- { import = "custom.plugins" },
 	{
-		"custom.contrib_gitsigns",
+		import = "custom.contrib_gitsigns",
 		opts = {},
 		dependencies = {
 			"lewis6991/gitsigns.nvim",
