@@ -1048,7 +1048,7 @@ require("lazy").setup({
 	-- 	},
 	-- },
 	-- { import = "custom.plugins" },
-	{ import = "custom.gitsigns_contrib" },
+	{ "custom.gitsigns_contrib", opts = {} },
 }, {
 	ui = {
 		-- If you are using a Nerd Font: set icons to an empty table which will use the
