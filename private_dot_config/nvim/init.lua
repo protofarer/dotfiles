@@ -922,9 +922,9 @@ require("lazy").setup({
 	-- Custom ,plugins `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
 	{ -- no out-of-the-box gitsigns integration, but see my custom.plugins
 		"dstein64/nvim-scrollview",
-		opts = {
-			-- signs_on_startup = { "all" }, -- defaults to search & diagnostics
-		},
+		-- opts = {
+		-- signs_on_startup = { "all" }, -- defaults to search & diagnostics
+		-- },
 	},
 	{ "tpope/vim-fugitive" },
 	{ "tpope/vim-rhubarb" },
