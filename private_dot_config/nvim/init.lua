@@ -1048,16 +1048,16 @@ require("lazy").setup({
 	-- 	},
 	-- },
 	-- { import = "custom.plugins" },
-	{
-		"custom.contrib_gitsigns",
-		config = function()
-			require("contrib_gitsigns").setup()
-		end,
-		dependencies = {
-			"lewis6991/gitsigns.nvim",
-			"dstein64/nvim-scrollview",
-		},
-	},
+	-- {
+	-- 	"custom.contrib_gitsigns",
+	-- 	config = function()
+	-- 		require("contrib_gitsigns").setup()
+	-- 	end,
+	-- 	dependencies = {
+	-- 		"lewis6991/gitsigns.nvim",
+	-- 		"dstein64/nvim-scrollview",
+	-- 	},
+	-- },
 }, {
 	ui = {
 		-- If you are using a Nerd Font: set icons to an empty table which will use the
