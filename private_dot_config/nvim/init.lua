@@ -1049,7 +1049,7 @@ require("lazy").setup({
 	-- },
 	-- { import = "custom.plugins" },
 	{
-		import = "custom.contrib-gitsigns",
+		import = "custom.contrib_gitsigns",
 	},
 }, {
 	ui = {
