@@ -162,7 +162,7 @@ vim.keymap.set("n", "<Space>,", ",", km_opts)
 vim.keymap.set("n", "<leader>j", ":! just ", { noremap = true })
 
 -- Terminal
-vim.keymap.set("n", "<C-t>", ":ToggleTerm direction=float<CR>", { desc = "open ToggleTerm" })
+vim.keymap.set("n", "<c-t>", ":ToggleTerm direction=float<CR>", { desc = "open ToggleTerm" })
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 -- TODO: enter terminal mode?
 
@@ -941,7 +941,7 @@ require("lazy").setup({
 		version = "*",
 		config = true,
 		opts = {
-			open_mapping = [[C-t]],
+			open_mapping = [[c-t]],
 			shade_terminals = true,
 		},
 	},
