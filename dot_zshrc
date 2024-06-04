@@ -137,9 +137,10 @@ alias his='history -50'
 alias hist='history -100 | less'
 alias hg='history | rg'
 
-### Distro-specific
+### System
 alias zrd='sudo zypper ref && sudo zypper dup'
 alias zr='sudo zypper ref'
+alias sysup='sudo zypper ref && sudo zypper dup && flatpak update'
 
 ### Git
 # see .zshenv, enable running in nvim command line
