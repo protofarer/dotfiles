@@ -1021,7 +1021,17 @@ require("lazy").setup({
 			},
 		},
 	},
-	{ "xvzc/chezmoi.nvim", dependencies = { "nvim-lua/plenary.nvim" }, lazy = false, opts = {} },
+	{
+		"xvzc/chezmoi.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		lazy = false,
+		init = function()
+			-- required option
+			vim.g["chezmoi#use_tmp_buffer"] = true
+			-- add other options as needed
+		end,
+		opts = {},
+	},
 	-- {
 	-- 	"nvimdev/dashboard-nvim",
 	-- 	event = "VimEnter",
