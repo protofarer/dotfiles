@@ -1021,7 +1021,7 @@ require("lazy").setup({
 			},
 		},
 	},
-	{ "xvzc/chezmoi.nvim", dependencies = { "nvim-lua/plenary.nvim" }, opts = {} },
+	{ "xvzc/chezmoi.nvim", dependencies = { "nvim-lua/plenary.nvim" }, lazy = false, opts = {} },
 	-- {
 	-- 	"nvimdev/dashboard-nvim",
 	-- 	event = "VimEnter",
