@@ -32,7 +32,7 @@ function ghprcr() {
   fi
 
   current_branch=$(git rev-parse --abbrev-ref HEAD)
-  gh pr create --base master --head "$current_branch" --title "$1"
+  gh pr create --base main --head "$current_branch" --title "$1"
 }
 
 function gcob() {
