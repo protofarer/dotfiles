@@ -909,10 +909,12 @@ require("lazy").setup({
 			-- with nvim-treesitter. You should go explore a few and see what interests you:
 			--
 			--    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-			--    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-			require("nvim-treesitter/treesitter-context").setup()
 			--    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 		end,
+	},
+	{
+		"nvim-treesitter/treesitter-context",
+		dependencies = { "nvim-treesitter/nvim-treesitter" },
 	},
 	-- require 'kickstart.plugins.debug',
 	-- require 'kickstart.plugins.indent_line',
