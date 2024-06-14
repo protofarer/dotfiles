@@ -913,7 +913,7 @@ require("lazy").setup({
 		end,
 	},
 	{
-		"nvim-treesitter/treesitter-context",
+		"nvim-treesitter/nvim-treesitter-context",
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 	},
 	-- require 'kickstart.plugins.debug',
