@@ -604,7 +604,7 @@ require("lazy").setup({
 				},
 			})
 
-			require("nvim-lint").setup({
+			require("mfussenegger/nvim-lint").setup({
 				config = function()
 					local lint = require("lint")
 					lint.linters_by_ft = {
