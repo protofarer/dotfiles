@@ -465,7 +465,7 @@ require("lazy").setup({
 					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
 					map(
-						"<leader>cF",
+						"<leader>cz",
 						vim.lsp.buf.format({
 							-- filter = function(client)
 							-- 	return client.name ~= "tsserver"
