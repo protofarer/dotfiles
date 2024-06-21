@@ -604,19 +604,6 @@ require("lazy").setup({
 				},
 			})
 
-			require("mfussenegger/nvim-lint").setup({
-				config = function()
-					local lint = require("lint")
-					lint.linters_by_ft = {
-						javascript = { "eslint_d" },
-						typescript = { "eslint_d" },
-						javascriptreact = { "eslint_d" },
-						typescriptreact = { "eslint_d" },
-						-- odin = { "ols"}
-					}
-				end,
-			})
-
 			local lspc = require("lspconfig")
 			lspc.eslint.setup({
 				on_attach = function(_client, bufnr)
@@ -630,6 +617,19 @@ require("lazy").setup({
 				},
 				root_dir = lspc.util.find_git_ancestor,
 			})
+		end,
+	},
+	{
+		"mfussenegger/nvim-lint",
+		config = function()
+			local lint = require("lint")
+			lint.linters_by_ft = {
+				javascript = { "eslint_d" },
+				typescript = { "eslint_d" },
+				javascriptreact = { "eslint_d" },
+				typescriptreact = { "eslint_d" },
+				-- odin = { "ols"}
+			}
 		end,
 	},
 	{ -- Autoformat ,fmt :: use external formatter if available, fallback to lsp
