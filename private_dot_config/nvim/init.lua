@@ -295,7 +295,7 @@ require("lazy").setup({
     -- after the plugin has been loaded:
     --  config = function() ... end
 
-    {                 -- Useful plugin to show you pending keybinds.
+    {                       -- Useful plugin to show you pending keybinds.
         "folke/which-key.nvim",
         event = "VimEnter", -- Sets the loading event to 'VimEnter'
         config = function() -- This is the function that runs, AFTER loading
@@ -464,6 +464,10 @@ require("lazy").setup({
                     --  For example, in C this would take you to the header.
                     map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
+                    map("<leader>cF", vim.lsp.buf.format {
+                        filter = function(client) return client.name ~= "tsserver" end
+                    })
+
                     -- The following two autocommands are used to highlight references of the
                     -- word under your cursor when your cursor rests there for a little while.
                     --    See `:help CursorHold` for information about when this is executed
@@ -573,6 +577,7 @@ require("lazy").setup({
 
             require("mason-lspconfig").setup({
                 handlers = {
+                    -- default handler
                     function(server_name)
                         local server = servers[server_name] or {}
                         -- This handles overriding only values explicitly passed
@@ -581,6 +586,15 @@ require("lazy").setup({
                         server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
                         require("lspconfig")[server_name].setup(server)
                     end,
+                    ["tsserver"] = function()
+                        local lspconfig = require('lspconfig')
+                        lspconfig.tsserver.setup {
+                            settings = {
+
+                            }
+                        }
+                    end
+
                 },
             })
         end,
@@ -600,6 +614,7 @@ require("lazy").setup({
             },
         },
         opts = {
+            log_level = vim.log.levels.DEBUG,
             notify_on_error = false,
             format_on_save = function(bufnr)
                 -- Disable "format_on_save lsp_fallback" for languages that don't
@@ -623,15 +638,6 @@ require("lazy").setup({
                 javascriptriptreact = { { "prettierd", "prettier" } },
             },
         },
-        config = function(opts)
-            require("conform").setup({ opts })
-            vim.api.nvim_create_autocmd("BufWritePre", {
-                pattern = "*",
-                callback = function(args)
-                    require("conform").format({ bufnr = args.buf, lsp_fallback = true })
-                end,
-            })
-        end,
     },
 
     { -- Autocompletion ,cmp
@@ -742,7 +748,7 @@ require("lazy").setup({
     },
     {
         "rebelot/kanagawa.nvim",
-        lazy = false, -- load during startup, since main colorscheme
+        lazy = false,    -- load during startup, since main colorscheme
         priority = 1000, -- load before all other start plugins
         init = function()
             vim.cmd.colorscheme("kanagawa")
