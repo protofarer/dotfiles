@@ -464,7 +464,12 @@ require("lazy").setup({
 					--  For example, in C this would take you to the header.
 					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
-					map("<leader>cz", vim.lsp.buf.format, "[c]ode [F]ormat via LSP")
+					vim.lsp.buf.format({
+						filter = function(client)
+							return client.name ~= "tsserver"
+						end,
+					})
+					map("<leader>cF", vim.lsp.buf.format, "[c]ode [F]ormat via LSP")
 					-- filter = function(client)
 					-- 	return client.name ~= "tsserver"
 					-- end,
