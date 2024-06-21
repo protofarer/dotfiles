@@ -467,9 +467,9 @@ require("lazy").setup({
 					map(
 						"<leader>cF",
 						vim.lsp.buf.format({
-							filter = function(client)
-								return client.name ~= "tsserver"
-							end,
+							-- filter = function(client)
+							-- 	return client.name ~= "tsserver"
+							-- end,
 						}),
 						"[c]ode [F]ormat via LSP"
 					)
