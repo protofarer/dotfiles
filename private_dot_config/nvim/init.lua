@@ -621,14 +621,14 @@ require("lazy").setup({
 			-- })
 			lspc.eslint.setup({
 				root_dir = util.root_pattern(
-                    "eslint.config.js",
-                    "eslint.config.mjs",
-                    "eslint.config.cjs",
+					"eslint.config.js",
+					"eslint.config.mjs",
+					"eslint.config.cjs",
 					".eslintrc.js",
 					".eslintrc.cjs",
 					".eslintrc.yaml",
 					".eslintrc.yml",
-					".eslintrc.json",
+					".eslintrc.json"
 					-- Disabled to prevent "No ESLint configuration found" exceptions
 					-- 'package.json',
 				),
