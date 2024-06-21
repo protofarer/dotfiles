@@ -1028,7 +1028,13 @@ require("lazy").setup({
 		main = "ibl",
 		opts = {
 			indent = { char = "" },
-			scope = { enabled = true, show_start = true, show_end = true, highlight = { "Function", "Label" } },
+			scope = {
+				enabled = true,
+				char = "|",
+				show_start = true,
+				show_end = true,
+				highlight = { "Function", "Label" },
+			},
 		},
 	},
 	{
