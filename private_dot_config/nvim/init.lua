@@ -622,6 +622,15 @@ require("lazy").setup({
 				javascriptriptreact = { { "prettierd", "prettier" } },
 			},
 		},
+		config = function(opts)
+			require("conform").setup({ opts })
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				pattern = "*",
+				callback = function(args)
+					require("conform").format({ bufnr = args.buf, lsp_fallback = true })
+				end,
+			})
+		end,
 	},
 
 	{ -- Autocompletion ,cmp
