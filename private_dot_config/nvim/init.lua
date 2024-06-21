@@ -635,7 +635,7 @@ require("lazy").setup({
 				javascript = { { "prettierd", "prettier" } },
 				typescript = { { "prettierd", "prettier" } },
 				typescriptreact = { { "prettier" } },
-				javascriptriptreact = { { "prettierd", "prettier" } },
+				javascriptriptreact = { { "prettier" } },
 			},
 		},
 	},
