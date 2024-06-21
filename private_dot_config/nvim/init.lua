@@ -618,6 +618,8 @@ require("lazy").setup({
 				odin = { "ols" },
 				javascript = { { "prettierd", "prettier" } },
 				typescript = { { "prettierd", "prettier" } },
+				typescriptreact = { { "prettierd", "prettier" } },
+				javascriptriptreact = { { "prettierd", "prettier" } },
 			},
 		},
 	},
