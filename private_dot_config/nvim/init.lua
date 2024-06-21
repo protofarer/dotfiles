@@ -604,19 +604,20 @@ require("lazy").setup({
 				},
 			})
 
-			local lspc = require("lspconfig")
-			lspc.eslint.setup({
-				on_attach = function(_client, bufnr)
-					vim.api.nvim_create_autocmd("BufWritePre", {
-						buffer = bufnr,
-						command = "EslintFixAll",
-					})
-				end,
-				settings = {
-					workingDirectory = { mode = "location" },
-				},
-				root_dir = lspc.util.find_git_ancestor,
-			})
+			-- local lspc = require("lspconfig")
+			-- -- does this work?
+			-- lspc.eslint.setup({
+			--     on_attach = function(_client, bufnr)
+			--         vim.api.nvim_create_autocmd("BufWritePre", {
+			--             buffer = bufnr,
+			--             command = "EslintFixAll",
+			--         })
+			--     end,
+			--     settings = {
+			--         workingDirectory = { mode = "location" },
+			--     },
+			--     root_dir = lspc.util.find_git_ancestor,
+			-- })
 		end,
 	},
 	{
