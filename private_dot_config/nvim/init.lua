@@ -590,12 +590,12 @@ require("lazy").setup({
 		lazy = false,
 		keys = {
 			{
-				"<leader>ff",
+				"<leader>cf",
 				function()
-					require("conform").format({ async = true, lsp_fallback = true })
+					require("conform").format({ async = true, lsp_fallback = true, timeout_ms = 3000 })
 				end,
-				mode = "",
-				desc = "[ff]ormat buffer",
+				mode = { "n", "v" },
+				desc = "[c]ode [f]ormat buffer",
 			},
 		},
 		opts = {
