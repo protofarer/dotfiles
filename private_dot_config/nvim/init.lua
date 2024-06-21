@@ -855,7 +855,7 @@ require("lazy").setup({
 			end
 
 			-- local indentscope = require("mini.indentscope")
-			require("mini.indentscope").gen_animation.none().setup()
+			require("mini.indentscope").setup().gen_animation.none()
 			-- indentscope.setup({})
 		end,
 	},
