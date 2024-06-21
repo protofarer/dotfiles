@@ -417,6 +417,7 @@ require("lazy").setup({
 			{ "williamboman/mason.nvim", config = true }, -- NOTE: Must be loaded before dependants
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
+			"mfussenegger/nvim-lint",
 
 			-- Useful status updates for LSP.
 			-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
@@ -469,7 +470,7 @@ require("lazy").setup({
 							return client.name ~= "tsserver"
 						end,
 					})
-					map("<leader>cF", vim.lsp.buf.format, "[c]ode [F]ormat via LSP")
+					map("<leader>cF", vim.lsp.buf.format, "LSP [c]ode [F]ormat")
 
 					-- The following two autocommands are used to highlight references of the
 					-- word under your cursor when your cursor rests there for a little while.
@@ -574,8 +575,13 @@ require("lazy").setup({
 			-- for you, so that they are available from within Neovim.
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
-				"stylua", -- Used to format Lua code
+				-- Install formatters for me, conform configs them
+				"stylua",
+				"rust_analyzer",
+				"prettier",
+				"prettierd",
 			})
+
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 			require("mason-lspconfig").setup({
@@ -597,9 +603,35 @@ require("lazy").setup({
 					end,
 				},
 			})
+
+			require("nvim-lint").setup({
+				config = function()
+					local lint = require("lint")
+					lint.linters_by_ft = {
+						javascript = { "eslint_d" },
+						typescript = { "eslint_d" },
+						javascriptreact = { "eslint_d" },
+						typescriptreact = { "eslint_d" },
+						-- odin = { "ols"}
+					}
+				end,
+			})
+
+			local lspc = require("lspconfig")
+			lspc.eslint.setup({
+				on_attach = function(_client, bufnr)
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						buffer = bufnr,
+						command = "EslintFixAll",
+					})
+				end,
+				settings = {
+					workingDirectory = { mode = "location" },
+				},
+				root_dir = lspc.util.find_git_ancestor,
+			})
 		end,
 	},
-
 	{ -- Autoformat ,fmt :: use external formatter if available, fallback to lsp
 		"stevearc/conform.nvim",
 		lazy = false,
@@ -979,19 +1011,6 @@ require("lazy").setup({
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
 		opts = {},
-	},
-	{ -- must setup after mason
-		"mfussenegger/nvim-lint",
-		config = function()
-			local lint = require("lint")
-			lint.linters_by_ft = {
-				javascript = { "eslint_d" },
-				typescript = { "eslint_d" },
-				javascriptreact = { "eslint_d" },
-				typescriptreact = { "eslint_d" },
-				-- odin = { "ols"}
-			}
-		end,
 	},
 	{
 		"zbirenbaum/copilot.lua",
