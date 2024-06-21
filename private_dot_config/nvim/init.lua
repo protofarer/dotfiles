@@ -623,19 +623,19 @@ require("lazy").setup({
 				settings = {
 					workingDirectory = { mode = "location" },
 				},
-				root_dir = lspc.util.find_git_ancestor,
-				-- root_dir = lspc.util.root_pattern(
-				--     "eslint.config.js",
-				--     "eslint.config.mjs",
-				--     "eslint.config.cjs",
-				--     ".eslintrc.js",
-				--     ".eslintrc.cjs",
-				--     ".eslintrc.yaml",
-				--     ".eslintrc.yml",
-				--     ".eslintrc.json"
-				-- -- Disabled to prevent "No ESLint configuration found" exceptions
-				-- -- 'package.json',
-				-- ),
+				-- root_dir = lspc.util.find_git_ancestor,
+				root_dir = lspc.util.root_pattern(
+					"eslint.config.js",
+					"eslint.config.mjs",
+					"eslint.config.cjs",
+					".eslintrc.js",
+					".eslintrc.cjs",
+					".eslintrc.yaml",
+					".eslintrc.yml",
+					".eslintrc.json"
+					-- Disabled to prevent "No ESLint configuration found" exceptions
+					-- 'package.json',
+				),
 			})
 		end,
 	},
