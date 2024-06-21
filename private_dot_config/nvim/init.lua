@@ -470,9 +470,11 @@ require("lazy").setup({
 						end,
 					})
 					map("<leader>cF", vim.lsp.buf.format, "[c]ode [F]ormat via LSP")
-					-- filter = function(client)
-					-- 	return client.name ~= "tsserver"
-					-- end,
+
+					vim.api.nvim_create_autocmd("BufWritePre", {
+						buffer = event.buf,
+						command = "EslintFixAll",
+					})
 
 					-- The following two autocommands are used to highlight references of the
 					-- word under your cursor when your cursor rests there for a little while.
