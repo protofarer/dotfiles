@@ -1026,9 +1026,7 @@ require("lazy").setup({
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
-		opts = {
-			indent = { char = "." },
-		},
+		opts = {},
 	},
 	{
 		"zbirenbaum/copilot.lua",
