@@ -604,8 +604,9 @@ require("lazy").setup({
 				},
 			})
 
-			-- local lspc = require("lspconfig")
-			-- -- does this work?
+			local lspc = require("lspconfig")
+			-- does this work?
+			-- version A
 			-- lspc.eslint.setup({
 			--     on_attach = function(_client, bufnr)
 			--         vim.api.nvim_create_autocmd("BufWritePre", {
@@ -618,6 +619,20 @@ require("lazy").setup({
 			--     },
 			--     root_dir = lspc.util.find_git_ancestor,
 			-- })
+			lspc.eslint.setup({
+				root_dir = util.root_pattern(
+                    "eslint.config.js",
+                    "eslint.config.mjs",
+                    "eslint.config.cjs",
+					".eslintrc.js",
+					".eslintrc.cjs",
+					".eslintrc.yaml",
+					".eslintrc.yml",
+					".eslintrc.json",
+					-- Disabled to prevent "No ESLint configuration found" exceptions
+					-- 'package.json',
+				),
+			})
 		end,
 	},
 	{
