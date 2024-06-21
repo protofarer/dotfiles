@@ -470,7 +470,8 @@ require("lazy").setup({
 							filter = function(client)
 								return client.name ~= "tsserver"
 							end,
-						})
+						}),
+						"[c]ode [F]ormat via LSP"
 					)
 
 					-- The following two autocommands are used to highlight references of the
