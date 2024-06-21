@@ -620,6 +620,9 @@ require("lazy").setup({
 			--     root_dir = lspc.util.find_git_ancestor,
 			-- })
 			lspc.eslint.setup({
+				settings = {
+					workingDirectory = { mode = "location" },
+				},
 				root_dir = lspc.util.find_git_ancestor,
 				-- root_dir = lspc.util.root_pattern(
 				--     "eslint.config.js",
