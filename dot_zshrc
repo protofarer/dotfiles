@@ -175,6 +175,7 @@ alias ard='arduino-cli'
 alias ez='exec zsh' # aka zsh way of doing source bashrc
 alias j='just'
 alias nl='nvim -l' # luaJIT thru nvim
+alias ghas='gh auth switch'
 
 ### Chezmoi
 alias cz='chezmoi'
