@@ -1026,7 +1026,9 @@ require("lazy").setup({
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		main = "ibl",
-		opts = {},
+		opts = {
+			indent = { char = ":" },
+		},
 	},
 	{
 		"zbirenbaum/copilot.lua",
@@ -1121,5 +1123,4 @@ require("lazy").setup({
 	},
 })
 
-print(vim.opt.guifont)
 -- vim: ts=4 sts=4 sw=4 et
