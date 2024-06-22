@@ -648,7 +648,8 @@ require("lazy").setup({
 				typescript = { "eslint_d" },
 				javascriptreact = { "eslint_d" },
 				typescriptreact = { "eslint_d" },
-				-- odin = { "ols"}
+				odin = { "ols" },
+				zsh = { "zsh" },
 			}
 		end,
 	},
