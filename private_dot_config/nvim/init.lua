@@ -808,6 +808,7 @@ require("lazy").setup({
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "path" },
+					{ name = "copilot" },
 				},
 			})
 		end,
@@ -1070,7 +1071,16 @@ require("lazy").setup({
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
 		event = "InsertEnter",
+		{
+			"<leader>cp",
+			function()
+				require("copilot.suggestion").toggle_auto_trigger()
+			end,
+			mode = { "n", "v" },
+			desc = "[c]ode [f]ormat buffer",
+		},
 		opts = {
+			auto_trigger = true,
 			filetypes = {
 				javascript = true,
 				typescript = true,
