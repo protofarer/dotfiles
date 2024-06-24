@@ -269,10 +269,14 @@ require("lazy").setup({
 		},
 		opts = {
 			-- pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
-			pre_hook = function()
-				return vim.bo.commenstring
-			end,
 		},
+		config = function()
+			require("Comment").setup({
+				pre_hook = function()
+					return vim.bo.commentstring
+				end,
+			})
+		end,
 	},
 
 	-- Here is a more advanced example where we pass configuration
