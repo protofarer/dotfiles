@@ -975,16 +975,17 @@ require("lazy").setup({
 				additional_vim_regex_highlighting = { "ruby" },
 			},
 			indent = { enable = true, disable = { "ruby" } },
-			context_commenstring = {
+			context_commentstring = {
 				config = {
-					javascript = {
-						__default = "// %s",
-						jsx_element = "{/* %s */}",
-						jsx_fragment = "{/* %s */}",
-						jsx_attribute = "// %s",
-						comment = "// %s",
-					},
-					typescript = { __default = "// %s", __multiline = "/* %s */" },
+                            enable_autocmd = false,
+			-- 		javascript = {
+			-- 			__default = "// %s",
+			-- 			jsx_element = "{/* %s */}",
+			-- 			jsx_fragment = "{/* %s */}",
+			-- 			jsx_attribute = "// %s",
+			-- 			comment = "// %s",
+			-- 		},
+			-- 		typescript = { __default = "// %s", __multiline = "/* %s */" },
 				},
 			},
 		},
