@@ -260,7 +260,12 @@ require("lazy").setup({
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 	--  This is equivalent to:
 	--    require('Comment').setup({})
-	{ "numToStr/Comment.nvim", opts = {} },
+	{
+		"numToStr/Comment.nvim",
+		opts = {
+			pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+		},
+	},
 
 	-- Here is a more advanced example where we pass configuration
 	-- options to `gitsigns.nvim`. This is equivalent to the following Lua:
