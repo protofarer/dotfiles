@@ -109,6 +109,7 @@ vim.keymap.set("n", "<leader>kq", vim.diagnostic.setloclist, { desc = "Open diag
 -- Keybinds to make split navigation easier.
 --  Use CTRL+<hjkl> to switch between windows
 --  See `:help wincmd` for a list of all window commands
+
 -- using non modifier has unwanted interactions with fullscreen plugins
 -- vim.keymap.set("n", "sh", "<C-w><C-h>", { desc = "Move focus to the left window" })
 -- vim.keymap.set("n", "sl", "<C-w><C-l>", { desc = "Move focus to the right window" })
@@ -152,13 +153,13 @@ vim.keymap.set("n", "<leader>gw", ":Gwrite<CR>", { noremap = true })
 -- vim.keymap.set("n", "<leader>gL", ":exe ':!cd ' . expand('%:p:h') . '; git la'<CR>")
 -- vim.keymap.set("n", "<leader>gl", ":exe ':!cd ' . expand('%:p:h') . '; git las'<CR>")
 
--- easy command
+-- ez vim commands
 vim.keymap.set("n", ";", ":", km_opts)
 vim.keymap.set("v", ";", ":", km_opts) -- TODO: can this be consolidated?
 vim.keymap.set("n", "<Space>;", ";", km_opts)
 vim.keymap.set("n", "<Space>,", ",", km_opts)
 
--- Justfile tasks
+-- ez justfile
 vim.keymap.set("n", "<leader>j", ":! just ", { noremap = true })
 
 -- Terminal
@@ -242,7 +243,6 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost" }, {
 -- 	end,
 -- })
 
--- Use `opts = {}` to force a plugin to be loaded.
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -251,15 +251,12 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	-- Extras
 	-- spec = {
 	-- 	{ "LazyVim/LazyVim",  import = "lazyvim.plugins" },
 	-- 	{ import = "lazyvim.plugins.extras.coding.copilot" },
 	-- 	{ import = "plugins" },
 	-- },
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
-	--  This is equivalent to:
-	--    require('Comment').setup({})
 	{
 		"numToStr/Comment.nvim",
 		lazy = false,
@@ -268,7 +265,7 @@ require("lazy").setup({
 			"nvim-treesitter/nvim-treesitter",
 		},
 		opts = {
-			-- pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+			-- pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(), -- per context_commentstring, but doesnt work!
 		},
 		config = function()
 			require("Comment").setup({
@@ -284,7 +281,7 @@ require("lazy").setup({
 	--    require('gitsigns').setup({ ... })
 	--
 	-- See `:help gitsigns` to understand what the configuration keys do
-	{ -- Adds git related signs to the gutter, as well as utilities for managing changes
+	{
 		"lewis6991/gitsigns.nvim",
 		opts = {
 			signs = {
@@ -990,14 +987,6 @@ require("lazy").setup({
 			context_commentstring = {
 				config = {
 					enable_autocmd = false, -- disable default autocmd, use plugin (numToStr/Comment.nvim) hook function instead
-					-- 		javascript = {
-					-- 			__default = "// %s",
-					-- 			jsx_element = "{/* %s */}",
-					-- 			jsx_fragment = "{/* %s */}",
-					-- 			jsx_attribute = "// %s",
-					-- 			comment = "// %s",
-					-- 		},
-					-- 		typescript = { __default = "// %s", __multiline = "/* %s */" },
 				},
 			},
 		},
