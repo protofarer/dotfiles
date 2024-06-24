@@ -262,8 +262,16 @@ require("lazy").setup({
 	--    require('Comment').setup({})
 	{
 		"numToStr/Comment.nvim",
+		lazy = false,
+		dependencies = {
+			"JoosepAlviste/nvim-ts-context-commentstring",
+			"nvim-treesitter/nvim-treesitter",
+		},
 		opts = {
 			-- pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+			pre_hook = function()
+				return vim.bo.commenstring
+			end,
 		},
 	},
 
@@ -977,15 +985,15 @@ require("lazy").setup({
 			indent = { enable = true, disable = { "ruby" } },
 			context_commentstring = {
 				config = {
-                            enable_autocmd = false,
-			-- 		javascript = {
-			-- 			__default = "// %s",
-			-- 			jsx_element = "{/* %s */}",
-			-- 			jsx_fragment = "{/* %s */}",
-			-- 			jsx_attribute = "// %s",
-			-- 			comment = "// %s",
-			-- 		},
-			-- 		typescript = { __default = "// %s", __multiline = "/* %s */" },
+					enable_autocmd = false, -- disable default autocmd, use plugin (numToStr/Comment.nvim) hook function instead
+					-- 		javascript = {
+					-- 			__default = "// %s",
+					-- 			jsx_element = "{/* %s */}",
+					-- 			jsx_fragment = "{/* %s */}",
+					-- 			jsx_attribute = "// %s",
+					-- 			comment = "// %s",
+					-- 		},
+					-- 		typescript = { __default = "// %s", __multiline = "/* %s */" },
 				},
 			},
 		},
