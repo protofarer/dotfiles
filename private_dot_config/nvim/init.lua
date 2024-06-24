@@ -1071,13 +1071,13 @@ require("lazy").setup({
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
 		event = "InsertEnter",
-		{
+		keys = {
 			"<leader>cp",
 			function()
 				require("copilot.suggestion").toggle_auto_trigger()
 			end,
-			mode = { "n", "v" },
-			desc = "[c]ode [f]ormat buffer",
+			mode = { "n" },
+			desc = "toggle [c]o[p]ilot autosuggestion",
 		},
 		opts = {
 			auto_trigger = true,
