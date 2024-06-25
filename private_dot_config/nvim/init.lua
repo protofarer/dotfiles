@@ -250,6 +250,9 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost" }, {
 -- 	end,
 -- })
 
+-- LazyVim notes:
+-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -441,7 +444,6 @@ require("lazy").setup({
 			"mfussenegger/nvim-lint",
 
 			-- Useful status updates for LSP.
-			-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 			{ "j-hui/fidget.nvim", opts = {} },
 
 			-- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
@@ -708,7 +710,7 @@ require("lazy").setup({
 				javascript = { { "prettierd", "prettier" } },
 				typescript = { { "prettierd", "prettier" } },
 				typescriptreact = { { "prettier" } },
-				javascriptriptreact = { { "prettier" } },
+				javascriptreact = { { "prettier" } },
 			},
 		},
 	},
@@ -883,6 +885,44 @@ require("lazy").setup({
 			local indentscope = require("mini.indentscope")
 			indentscope.gen_animation.none()
 			indentscope.setup()
+
+			-- advanced text objects
+			-- require("mini.ai").setup({
+			-- 	version = "*",
+			-- 	event = "VeryLazy",
+			-- 	config = function()
+			-- 		LazyVim.on_load("which-key.nvim", function()
+			-- 			vim.schedule(LazyVim.mini.ai_whichkey)
+			-- 		end)
+			-- 		local ai = require("mini.ai")
+			-- 		return {
+			-- 			n_lines = 500,
+			-- 			custom_textobjects = {
+			-- 				o = ai.gen_spec.treesitter({ -- code block
+			-- 					a = { "@block.outer", "@conditional.outer", "@loop.outer" },
+			-- 					i = { "@block.inner", "@conditional.inner", "@loop.inner" },
+			-- 				}),
+			-- 				f = ai.gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }), -- function
+			-- 				c = ai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }), -- class
+			-- 				t = { "<([%p%w]-)%f[^<%w][^<>]->.-</%1>", "^<.->().*()</[^/]->$" }, -- tags
+			-- 				d = { "%f[%d]%d+" }, -- digits
+			-- 				e = { -- Word with case
+			-- 					{
+			-- 						"%u[%l%d]+%f[^%l%d]",
+			-- 						"%f[%S][%l%d]+%f[^%l%d]",
+			-- 						"%f[%P][%l%d]+%f[^%l%d]",
+			-- 						"^[%l%d]+%f[^%l%d]",
+			-- 					},
+			-- 					"^().*()$",
+			-- 				},
+			-- 				i = LazyVim.mini.ai_indent, -- indent
+			-- 				g = LazyVim.mini.ai_buffer, -- buffer
+			-- 				u = ai.gen_spec.function_call(), -- u for "Usage"
+			-- 				U = ai.gen_spec.function_call({ name_pattern = "[%w_]" }), -- without dot in function name
+			-- 			},
+			-- 		}
+			-- 	end,
+			-- })
 		end,
 	},
 	{
@@ -1078,6 +1118,7 @@ require("lazy").setup({
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
 		event = "InsertEnter",
+		build = ":Copilot auth",
 		-- keys = {
 		--     "<leader>cp",
 		--     function()
@@ -1087,7 +1128,8 @@ require("lazy").setup({
 		--     desc = "toggle [c]o[p]ilot autosuggestion",
 		-- },
 		opts = {
-			auto_trigger = true,
+			suggestion = { enabled = true, auto_trigger = true },
+			panel = { enabled = false },
 			filetypes = {
 				javascript = true,
 				typescript = true,
@@ -1096,8 +1138,11 @@ require("lazy").setup({
 				python = true,
 				bash = true,
 				zsh = true,
+				markdown = true,
+				help = true,
 				rust = true,
 				odin = false,
+				terraform = false,
 				sh = function()
 					if string.match(vim.fs.basename(vim.api.nvim_buf_get_name(0)), "^%.env.*") then
 						-- disable for .env files
