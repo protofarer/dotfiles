@@ -1119,14 +1119,14 @@ require("lazy").setup({
 		cmd = "Copilot",
 		event = "InsertEnter",
 		build = ":Copilot auth",
-		keys = {
-			"<leader>cp",
-			function()
-				require("copilot.suggestion").toggle_auto_trigger()
-			end,
-			mode = { "n" },
-			desc = "toggle [c]o[p]ilot autosuggestion",
-		},
+		-- keys = {
+		--     "<leader>cp",
+		--     function()
+		--         require("copilot.suggestion").toggle_auto_trigger()
+		--     end,
+		--     mode = { "n" },
+		--     desc = "toggle [c]o[p]ilot autosuggestion",
+		-- },
 		opts = {
 			suggestion = {
 				enabled = true,
