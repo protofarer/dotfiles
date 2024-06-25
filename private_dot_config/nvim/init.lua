@@ -181,12 +181,18 @@ vim.keymap.set("n", "<leader>lr", ":luafile %<CR>", { noremap = true })
 -- system clipboard (yank into system clipboard, paste from clipboard register)
 -- TODO: ISS: skips cursor line and yanks below it?
 vim.keymap.set("n", "<leader>y", "+y<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>p", "+p<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>pc", "+p<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>pp", '"_dP', { noremap = true })
 
 -- intriguing keymap used by Takuya
 -- vim.keymap.set('n', 'dw', 'vb_d', { noremap = true, silent = true })
 
 -- ,keymaps
+-- move lines up or down
+vim.keymap.set("n", "<A-j>", ":m '>+1<CR>==", { noremap = true, desc = "move line down (n)" })
+vim.keymap.set("n", "<A-k>", ":m '>-2<CR>==", { noremap = true, desc = "move line up (n)" })
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, desc = "move line up (v)" })
+vim.keymap.set("v", "<A-k>", ":m '>-2<CR>gv=gv", { noremap = true, desc = "move line down (v)" })
 
 -- Autocommands  ,autocmd See `:help lua-guide-autocommands`
 
