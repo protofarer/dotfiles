@@ -188,11 +188,12 @@ vim.keymap.set("n", "<leader>pp", '"_dP', { noremap = true })
 -- vim.keymap.set('n', 'dw', 'vb_d', { noremap = true, silent = true })
 
 -- ,keymaps
--- move lines up or down
-vim.keymap.set("n", "<A-j>", ":m '>+1<CR>==", { noremap = true, desc = "move line down (n)" })
-vim.keymap.set("n", "<A-k>", ":m '>-2<CR>==", { noremap = true, desc = "move line up (n)" })
+
+vim.keymap.set("n", "<A-j>", ":m '.+1<CR>==", { noremap = true, desc = "move line down (n)" })
+vim.keymap.set("n", "<A-k>", ":m '.-2<CR>==", { noremap = true, desc = "move line up (n)" })
 vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, desc = "move line up (v)" })
 vim.keymap.set("v", "<A-k>", ":m '>-2<CR>gv=gv", { noremap = true, desc = "move line down (v)" })
+-- move lines up or down
 
 -- Autocommands  ,autocmd See `:help lua-guide-autocommands`
 
