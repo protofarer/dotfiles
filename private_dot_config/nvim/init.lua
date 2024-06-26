@@ -596,7 +596,7 @@ require("lazy").setup({
 					keys = {
 						{
 							"<leader>co",
-							vim.lsp.buf.action["source.organizeImports"],
+							vim.lsp.buf.code_action["source.organizeImports"],
 							desc = "Organize Imports",
 						},
 						-- {
