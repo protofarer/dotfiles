@@ -567,32 +567,32 @@ require("lazy").setup({
 						"typescriptreact",
 						"typescript.tsx",
 					},
-					settings = {
-						complete_function_calls = true,
-						vtsls = {
-							enableMoveToFileCodeAction = true,
-							autoUseWorkspaceTsdk = true,
-							experimental = {
-								completion = {
-									enableServerSideFuzzyMatch = true,
-								},
-							},
-						},
-						typescript = {
-							updateImportsOnFileMove = { enabled = "always" },
-							suggest = {
-								completeFunctionCalls = true,
-							},
-							inlayHints = {
-								enumMemberValues = { enabled = true },
-								functionLikeReturnTypes = { enabled = true },
-								parameterNames = { enabled = "literals" },
-								parameterTypes = { enabled = true },
-								propertyDeclarationTypes = { enabled = true },
-								variableTypes = { enabled = false },
-							},
-						},
-					},
+					-- settings = {
+					--     complete_function_calls = true,
+					--     vtsls = {
+					--         enableMoveToFileCodeAction = true,
+					--         autoUseWorkspaceTsdk = true,
+					--         experimental = {
+					--             completion = {
+					--                 enableServerSideFuzzyMatch = true,
+					--             },
+					--         },
+					--     },
+					--     typescript = {
+					--         updateImportsOnFileMove = { enabled = "always" },
+					--         suggest = {
+					--             completeFunctionCalls = true,
+					--         },
+					--         inlayHints = {
+					--             enumMemberValues = { enabled = true },
+					--             functionLikeReturnTypes = { enabled = true },
+					--             parameterNames = { enabled = "literals" },
+					--             parameterTypes = { enabled = true },
+					--             propertyDeclarationTypes = { enabled = true },
+					--             variableTypes = { enabled = false },
+					--         },
+					--     },
+					-- },
 				},
 				eslint = {},
 				rust_analyzer = {},
@@ -1130,7 +1130,6 @@ require("lazy").setup({
 		end,
 	},
 	{ -- Highlight, edit, and navigate code ,treesitter
-		-- TODO: explore features
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		opts = {
@@ -1201,6 +1200,10 @@ require("lazy").setup({
 	{
 		"nvim-treesitter/nvim-treesitter-context",
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
+	},
+	{
+		"windowp/nvim-ts-autotag",
+		opts = {},
 	},
 	-- require 'kickstart.plugins.debug',
 	-- require 'kickstart.plugins.indent_line',
