@@ -683,11 +683,9 @@ require("lazy").setup({
 					end,
 					["vtsls"] = function(_, opts)
 						local lspconfig = require("lspconfig")
-                        -- Do keymap setup here, instead of with `servers` table
-                        lspconfig.vtsls.setup({
-
-                        })
-                    end
+						-- Do keymap setup here, instead of with `servers` table
+						lspconfig.vtsls.setup({})
+					end,
 					-- keys = {
 					-- 	{
 					-- 		"<leader>co",
@@ -711,58 +709,58 @@ require("lazy").setup({
 					-- 	},
 					-- },
 					--
-						-- LazyVim.lsp.on_attach(function(client, buffer)
-						-- 	client.commands["_typescript.moveToFileRefactoring"] = function(command, ctx)
-						-- 		---@type string, string, lsp.Range
-						-- 		local action, uri, range = unpack(command.arguments)
-						--
-						-- 		local function move(newf)
-						-- 			client.request("workspace/executeCommand", {
-						-- 				command = command.command,
-						-- 				arguments = { action, uri, range, newf },
-						-- 			})
-						-- 		end
-						--
-						-- 		local fname = vim.uri_to_fname(uri)
-						-- 		client.request("workspace/executeCommand", {
-						-- 			command = "typescript.tsserverRequest",
-						-- 			arguments = {
-						-- 				"getMoveToRefactoringFileSuggestions",
-						-- 				{
-						-- 					file = fname,
-						-- 					startLine = range.start.line + 1,
-						-- 					startOffset = range.start.character + 1,
-						-- 					endLine = range["end"].line + 1,
-						-- 					endOffset = range["end"].character + 1,
-						-- 				},
-						-- 			},
-						-- 		}, function(_, result)
-						-- 			---@type string[]
-						-- 			local files = result.body.files
-						-- 			table.insert(files, 1, "Enter new path...")
-						-- 			vim.ui.select(files, {
-						-- 				prompt = "Select move destination:",
-						-- 				format_item = function(f)
-						-- 					return vim.fn.fnamemodify(f, ":~:.")
-						-- 				end,
-						-- 			}, function(f)
-						-- 				if f and f:find("^Enter new path") then
-						-- 					vim.ui.input({
-						-- 						prompt = "Enter move destination:",
-						-- 						default = vim.fn.fnamemodify(fname, ":h") .. "/",
-						-- 						completion = "file",
-						-- 					}, function(newf)
-						-- 						return newf and move(newf)
-						-- 					end)
-						-- 				elseif f then
-						-- 					move(f)
-						-- 				end
-						-- 			end)
-						-- 		end)
-						-- 	end
-						-- end, "vtsls")
-                        -- end of LazyVim on_attach
-				}
+					-- LazyVim.lsp.on_attach(function(client, buffer)
+					-- 	client.commands["_typescript.moveToFileRefactoring"] = function(command, ctx)
+					-- 		---@type string, string, lsp.Range
+					-- 		local action, uri, range = unpack(command.arguments)
+					--
+					-- 		local function move(newf)
+					-- 			client.request("workspace/executeCommand", {
+					-- 				command = command.command,
+					-- 				arguments = { action, uri, range, newf },
+					-- 			})
+					-- 		end
+					--
+					-- 		local fname = vim.uri_to_fname(uri)
+					-- 		client.request("workspace/executeCommand", {
+					-- 			command = "typescript.tsserverRequest",
+					-- 			arguments = {
+					-- 				"getMoveToRefactoringFileSuggestions",
+					-- 				{
+					-- 					file = fname,
+					-- 					startLine = range.start.line + 1,
+					-- 					startOffset = range.start.character + 1,
+					-- 					endLine = range["end"].line + 1,
+					-- 					endOffset = range["end"].character + 1,
+					-- 				},
+					-- 			},
+					-- 		}, function(_, result)
+					-- 			---@type string[]
+					-- 			local files = result.body.files
+					-- 			table.insert(files, 1, "Enter new path...")
+					-- 			vim.ui.select(files, {
+					-- 				prompt = "Select move destination:",
+					-- 				format_item = function(f)
+					-- 					return vim.fn.fnamemodify(f, ":~:.")
+					-- 				end,
+					-- 			}, function(f)
+					-- 				if f and f:find("^Enter new path") then
+					-- 					vim.ui.input({
+					-- 						prompt = "Enter move destination:",
+					-- 						default = vim.fn.fnamemodify(fname, ":h") .. "/",
+					-- 						completion = "file",
+					-- 					}, function(newf)
+					-- 						return newf and move(newf)
+					-- 					end)
+					-- 				elseif f then
+					-- 					move(f)
+					-- 				end
+					-- 			end)
+					-- 		end)
+					-- 	end
+					-- end, "vtsls")
+					-- end of LazyVim on_attach
+				},
 			})
 
 			-- local lspconfig = require("lspconfig")
@@ -800,12 +798,15 @@ require("lazy").setup({
 			-- })
 		end,
 	},
-    -- { "yioneko/nvim-vtsls",
-    -- ft = {
-    --     "javascript",
-    --         "javascriptreact", "typescript", 'typescriptreact'
-    --     }
-    -- },
+	{
+		"yioneko/nvim-vtsls",
+		ft = {
+			"javascript",
+			"javascriptreact",
+			"typescript",
+			"typescriptreact",
+		},
+	},
 	{
 		"mfussenegger/nvim-lint",
 		config = function()
