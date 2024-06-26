@@ -493,7 +493,7 @@ require("lazy").setup({
 							return client.name ~= "tsserver"
 						end,
 					})
-					map("<leader>cF", vim.lsp.buf.format, "LSP [c]ode [F]ormat")
+					map("<leader>cF", vim.lsp.buf.format, "[c]ode [F]ormat")
 
 					-- The following two autocommands are used to highlight references of the
 					-- word under your cursor when your cursor rests there for a little while.
