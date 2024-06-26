@@ -688,29 +688,29 @@ require("lazy").setup({
 
                         })
                     end
-					keys = {
-						{
-							"<leader>co",
-							LazyVim.lsp.action["source.organizeImports"],
-							desc = "Organize Imports",
-						},
-						{
-							"<leader>cM",
-							LazyVim.lsp.action["source.addMissingImports.ts"],
-							desc = "Add missing imports",
-						},
-						{
-							"<leader>cu",
-							LazyVim.lsp.action["source.removeUnused.ts"],
-							desc = "Remove unused imports",
-						},
-						{
-							"<leader>cD",
-							LazyVim.lsp.action["source.fixAll.ts"],
-							desc = "Fix all diagnostics",
-						},
-					},
-
+					-- keys = {
+					- 	{
+					-- 		"<leader>co",
+					-- 		LazyVim.lsp.action["source.organizeImports"],
+					-- 		desc = "Organize Imports",
+					-- 	},
+					-- 	{
+					-- 		"<leader>cM",
+					-- 		LazyVim.lsp.action["source.addMissingImports.ts"],
+					-- 		desc = "Add missing imports",
+					-- 	},
+					-- 	{
+					-- 		"<leader>cu",
+					-- 		LazyVim.lsp.action["source.removeUnused.ts"],
+					-- 		desc = "Remove unused imports",
+					-- 	},
+					-- 	{
+					-- 		"<leader>cD",
+					-- 		LazyVim.lsp.action["source.fixAll.ts"],
+					-- 		desc = "Fix all diagnostics",
+					-- 	},
+					-- },
+					--
 						-- LazyVim.lsp.on_attach(function(client, buffer)
 						-- 	client.commands["_typescript.moveToFileRefactoring"] = function(command, ctx)
 						-- 		---@type string, string, lsp.Range
