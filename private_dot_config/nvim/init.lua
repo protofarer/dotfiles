@@ -801,11 +801,12 @@ require("lazy").setup({
 			-- })
 		end,
 	},
-    { "yioneko/nvim-vtsls",
-    ft = {
-    "javascript",
-            "javascriptreact", "typescript", 'typescriptreact'
-}},
+    -- { "yioneko/nvim-vtsls",
+    -- ft = {
+    --     "javascript",
+    --         "javascriptreact", "typescript", 'typescriptreact'
+    --     }
+    -- },
 	{
 		"mfussenegger/nvim-lint",
 		config = function()
