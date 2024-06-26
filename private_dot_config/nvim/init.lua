@@ -830,7 +830,7 @@ require("lazy").setup({
 					require("conform").format({ async = true, lsp_fallback = true, timeout_ms = 3000 })
 				end,
 				mode = { "n", "v" },
-				desc = "[c]ode [f]ormat buffer",
+				desc = "Formatter: [c]ode [f]ormat",
 			},
 		},
 		opts = {
