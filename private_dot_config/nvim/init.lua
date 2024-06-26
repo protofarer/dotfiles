@@ -596,22 +596,22 @@ require("lazy").setup({
 					keys = {
 						{
 							"<leader>co",
-							LazyVim.lsp.action["source.organizeImports"],
+							vim.lsp.action["source.organizeImports"],
 							desc = "Organize Imports",
 						},
 						{
 							"<leader>cM",
-							LazyVim.lsp.action["source.addMissingImports.ts"],
+							vim.lsp.action["source.addMissingImports.ts"],
 							desc = "Add missing imports",
 						},
 						{
 							"<leader>cu",
-							LazyVim.lsp.action["source.removeUnused.ts"],
+							vim.lsp.action["source.removeUnused.ts"],
 							desc = "Remove unused imports",
 						},
 						{
 							"<leader>cD",
-							LazyVim.lsp.action["source.fixAll.ts"],
+							vim.lsp.action["source.fixAll.ts"],
 							desc = "Fix all diagnostics",
 						},
 					},
@@ -1263,7 +1263,7 @@ require("lazy").setup({
 				enabled = true,
 				auto_trigger = true,
 				keymap = {
-					accept = "<Tab>",
+					accept = "<A-l>",
 					next = "<A-)>",
 					prev = "<A-(>",
 					dismiss = "<A-Esc>",
