@@ -596,24 +596,24 @@ require("lazy").setup({
 					keys = {
 						{
 							"<leader>co",
-							vim.lsp.action["source.organizeImports"],
+							vim.lsp.buf.action["source.organizeImports"],
 							desc = "Organize Imports",
 						},
-						{
-							"<leader>cM",
-							vim.lsp.action["source.addMissingImports.ts"],
-							desc = "Add missing imports",
-						},
-						{
-							"<leader>cu",
-							vim.lsp.action["source.removeUnused.ts"],
-							desc = "Remove unused imports",
-						},
-						{
-							"<leader>cD",
-							vim.lsp.action["source.fixAll.ts"],
-							desc = "Fix all diagnostics",
-						},
+						-- {
+						-- 	"<leader>cM",
+						-- 	vim.lsp.buf.action["source.addMissingImports.ts"],
+						-- 	desc = "Add missing imports",
+						-- },
+						-- {
+						-- 	"<leader>cu",
+						-- 	vim.lsp.buf.action["source.removeUnused.ts"],
+						-- 	desc = "Remove unused imports",
+						-- },
+						-- {
+						-- 	"<leader>cD",
+						-- 	vim.lsp.buf.action["source.fixAll.ts"],
+						-- 	desc = "Fix all diagnostics",
+						-- },
 					},
 				},
 				eslint = {},
