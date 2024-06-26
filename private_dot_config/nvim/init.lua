@@ -687,6 +687,7 @@ require("lazy").setup({
                         lspconfig.vtsls.setup({
 
                         })
+                    end
 					keys = {
 						{
 							"<leader>co",
@@ -761,9 +762,7 @@ require("lazy").setup({
 						-- 	end
 						-- end, "vtsls")
                         -- end of LazyVim on_attach
-
-					end,
-				},
+				}
 			})
 
 			-- local lspconfig = require("lspconfig")
