@@ -536,10 +536,10 @@ require("lazy").setup({
 					end
 
 					-- Unsure if this disables autoformatting on new buffer enter (or whatever it is that is happening whenever I open a file and things format via LSP)
-					-- if client and client.server_capabilities then
-					--     client.server_capabilities.documentFormattingProvider = false
-					--     client.server_capabilities.documentRangeFormattingProvider = false
-					-- end
+					if client and client.server_capabilities then
+						client.server_capabilities.documentFormattingProvider = false
+						client.server_capabilities.documentRangeFormattingProvider = false
+					end
 				end,
 			})
 
