@@ -856,6 +856,7 @@ require("lazy").setup({
 				typescript = { { "prettier" } },
 				typescriptreact = { { "prettier" } },
 				javascriptreact = { { "prettier" } },
+				json = { { "prettier" } },
 			},
 		},
 	},
