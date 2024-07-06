@@ -130,11 +130,20 @@ vim.keymap.set("n", "-", "<C-x>", km_opts)
 vim.keymap.set("n", "<leader>bd", ":bd<CR>", km_opts)
 vim.keymap.set("n", "<C-s>", ":update<CR>", km_opts)
 
+-- ,diffview
+vim.keymap.set("n", "<leader>gd", ":DiffviewOpen<CR>", { desc = "Open diffview on buffer", noremap = true })
+vim.keymap.set(
+	"n",
+	"<leader>gD",
+	":DiffviewOpen main<CR>",
+	{ desc = "Open diffview against main branch", noremap = true }
+)
+
 -- ,fugitive
 -- vim.keymap.set("n", "<leader>gg", ":G<CR>", { noremap = true })
 -- vim.keymap.set("n", "<leader>gf", ":Gedit :<CR>", { desc = "Fullscreen git view", noremap = true })
 --
--- vim.keymap.set("n", "<leader>gb", ":G blame<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>gb", ":G blame<CR>", { noremap = true })
 -- vim.keymap.set("n", "<leader>gl", ":G log<CR>", { noremap = true })
 -- vim.keymap.set("n", "<leader>gh", ":G log -s<CR>", { noremap = true })
 -- vim.keymap.set("n", "<leader>gp", ":G push<CR>", { noremap = true })
@@ -152,6 +161,12 @@ vim.keymap.set("n", "<leader>gw", ":Gwrite<CR>", { noremap = true })
 -- vim.keymap.set("n", "<leader>gH",  ":G log<CR>:set nofoldenable<CR>")
 -- vim.keymap.set("n", "<leader>gL", ":exe ':!cd ' . expand('%:p:h') . '; git la'<CR>")
 -- vim.keymap.set("n", "<leader>gl", ":exe ':!cd ' . expand('%:p:h') . '; git las'<CR>")
+
+-- ,neogit
+
+-- add the most common log option?
+vim.keymap.set("n", "<leader>gl", ":Neogit log<CR>", { desc = "Neogit log", noremap = true })
+vim.keymap.set("n", "<leader>gp", ":Neogit push<CR>", { desc = "Neogit push", noremap = true })
 
 -- ez vim commands
 vim.keymap.set("n", ";", ":", km_opts)
