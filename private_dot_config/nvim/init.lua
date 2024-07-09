@@ -305,18 +305,26 @@ require("lazy").setup({
 	},
 	{
 		"lewis6991/gitsigns.nvim",
-		opts = {
-			signs = {
-				add = { text = "+" },
-				change = { text = "~" },
-				delete = { text = "_" },
-				topdelete = { text = "‾" },
-				changedelete = { text = "~" },
-			},
-		},
-		config = function(opts)
+		-- opts = {
+		--     signs = {
+		--         add = { text = "+" },
+		--         change = { text = "~" },
+		--         delete = { text = "_" },
+		--         topdelete = { text = "‾" },
+		--         changedelete = { text = "~" },
+		--     },
+		-- },
+		config = function()
 			local gs = require("gitsigns")
-			gs.setup(opts)
+			gs.setup({
+				signs = {
+					add = { text = "+" },
+					change = { text = "~" },
+					delete = { text = "_" },
+					topdelete = { text = "‾" },
+					changedelete = { text = "~" },
+				},
+			})
 			--     vim.keymap.set("n", "<leader>tB", gs.toggle_current_line_blame)
 			--     vim.keymap.set("n", "<leader>hp", gs.preview_hunk)
 		end,
