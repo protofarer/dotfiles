@@ -315,7 +315,7 @@ require("lazy").setup({
 			},
 		},
 		config = function(opts)
-			local gs = require("gitsigns.nvim")
+			local gs = require("gitsigns")
 			gs.setup(opts)
 			vim.keymap.set("n", "<leader>tB", gs.toggle_current_line_blame)
 			vim.keymap.set("n", "<leader>hp", gs.preview_hunk)
