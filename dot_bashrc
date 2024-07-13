@@ -118,3 +118,6 @@ fi
 
 export FZF_BASE=~/bin/fzf
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# shopify hydrogen alias to local proejcts
+alias h2='$(npm prefix -s)/node_modules/.bin/shopify hydrogen'
