@@ -169,15 +169,6 @@ alias car='cargo'
 alias carrq='RUSTFLAGS="-A warnings" cargo run'  # unfortunately rebuilds packages
 alias cart1='cargo test -- --test-threads=1'
 
-### Misc / One-off tool-related
-alias v='nvim'
-alias sshk='kitty +kitten ssh'
-alias ard='arduino-cli'
-alias ez='exec zsh' # aka zsh way of doing source bashrc
-alias j='just'
-alias nl='nvim -l' # luaJIT thru nvim
-alias ghas='gh auth switch'
-
 ### Chezmoi
 alias cz='chezmoi'
 alias cza='chezmoi apply'
@@ -188,6 +179,14 @@ alias czeg='chezmoi edit ~/.config/git/config'
 alias czen='chezmoi edit ~/.config/nvim/init.lua'
 alias czek='chezmoi edit ~/.config/kitty/kitty.conf'
 
+### Misc / One-off tool-related
+alias ez='exec zsh' # aka zsh way of doing source bashrc
+alias v='nvim'
+alias nl='nvim -l' # luaJIT thru nvim
+alias sshk='kitty +kitten ssh'
+alias ard='arduino-cli'
+alias j='just'
+alias ghas='gh auth switch'
 
 # paste clipboard to
 alias pct='xclip -selection primary -o >'
