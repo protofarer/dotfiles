@@ -1299,22 +1299,6 @@ require("lazy").setup({
 	{ -- treesitter autoclose/autorename html tags
 		"windwp/nvim-ts-autotag",
 	},
-	-- not this because couldnt find quick way to exclude outer scopes (noisy), and only show current scope
-	-- {
-	--     "lukas-reineke/indent-blankline.nvim",
-	--     main = "ibl",
-	--     opts = {
-	--         indent = {
-	--
-	--         },
-	--         scope = {
-	--             enabled = true,
-	--             show_start = true,
-	--             show_end = true,
-	--             highlight = { "Function", "Label" },
-	--         },
-	--     },
-	-- },
 	{
 		"zbirenbaum/copilot.lua",
 		cmd = "Copilot",
@@ -1429,6 +1413,13 @@ require("lazy").setup({
 			lazy = "💤 ",
 		},
 	},
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "c",
+	callback = function()
+		print("C file detected. Tabstop: " .. vim.bo.tabstop .. ", Shiftwidth: " .. vim.bo.shiftwidth)
+	end,
 })
 
 -- vim: ts=4 sts=4 sw=4 et
