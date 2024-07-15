@@ -1096,10 +1096,12 @@ require("lazy").setup({
 		end,
 	},
 	{
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		lazy = true,
+		opts = { enable_autocmd = false },
+	},
+	{
 		"echasnovski/mini.comment",
-		dependencies = {
-			"JoosepAlviste/nvim-ts-context-commentstring",
-		},
 		event = "VeryLazy",
 		opts = {
 			options = {
