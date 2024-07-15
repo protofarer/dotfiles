@@ -1415,11 +1415,11 @@ require("lazy").setup({
 	},
 })
 
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "c",
-	callback = function()
-		print("C file detected. Tabstop: " .. vim.bo.tabstop .. ", Shiftwidth: " .. vim.bo.shiftwidth)
-	end,
-})
+-- vim.api.nvim_create_autocmd("FileType", {
+--     pattern = "c",
+--     callback = function()
+--         print("C file detected. Tabstop: " .. vim.bo.tabstop .. ", Shiftwidth: " .. vim.bo.shiftwidth)
+--     end,
+-- })
 
 -- vim: ts=4 sts=4 sw=4 et
