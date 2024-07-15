@@ -1,4 +1,4 @@
----@diagnostic disable: undefined-global
+--@diagnostic disable: undefined-global
 --[[
 - https://learnxinyminutes.com/docs/lua/
 - `:help lua-guide` reference for how Neovim integrates Lua.
@@ -579,7 +579,7 @@ require("lazy").setup({
 			--
 			-- `:help lspconfig-all` for a list of all the pre-configured LSPs ,lsps
 			local servers = {
-				clangd = {},
+				-- clangd = {},
 				tsserver = { enabled = false },
 				vtsls = {
 					filetypes = {
