@@ -1217,7 +1217,7 @@ require("lazy").setup({
 				--  the list of additional_vim_regex_highlighting and disabled languages for indent.
 				additional_vim_regex_highlighting = { "ruby" },
 			},
-			indent = { enable = false, disable = { "ruby" } },
+			indent = { enable = false, disable = { "ruby", "c" } },
 			context_commentstring = {
 				config = {
 					enable_autocmd = false, -- disable default autocmd, use plugin (numToStr/Comment.nvim) hook function instead
@@ -1413,13 +1413,6 @@ require("lazy").setup({
 			lazy = "💤 ",
 		},
 	},
-})
-
-vim.api.nvim_create_autocmd("LspAttach", {
-	callback = function(args)
-		local client = vim.lsp.get_client_by_id(args.data.client_id)
-		print(string.format("Language Server %s attached", client.name))
-	end,
 })
 
 -- vim: ts=4 sts=4 sw=4 et
