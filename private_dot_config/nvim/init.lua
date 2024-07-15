@@ -1217,7 +1217,7 @@ require("lazy").setup({
 				--  the list of additional_vim_regex_highlighting and disabled languages for indent.
 				additional_vim_regex_highlighting = { "ruby" },
 			},
-			indent = { enable = true, disable = { "ruby" } },
+			indent = { enable = false, disable = { "ruby" } },
 			context_commentstring = {
 				config = {
 					enable_autocmd = false, -- disable default autocmd, use plugin (numToStr/Comment.nvim) hook function instead
