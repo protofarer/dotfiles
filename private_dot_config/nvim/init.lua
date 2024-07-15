@@ -285,24 +285,24 @@ require("lazy").setup({
 	-- 	{ import = "plugins" },
 	-- },
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
-	{
-		"numToStr/Comment.nvim",
-		lazy = false,
-		dependencies = {
-			"JoosepAlviste/nvim-ts-context-commentstring",
-			"nvim-treesitter/nvim-treesitter",
-		},
-		opts = {
-			-- pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(), -- per context_commentstring, but doesnt work!
-		},
-		config = function()
-			require("Comment").setup({
-				pre_hook = function()
-					return vim.bo.commentstring
-				end,
-			})
-		end,
-	},
+	-- {
+	--     "numToStr/Comment.nvim",
+	--     lazy = false,
+	--     dependencies = {
+	--         "JoosepAlviste/nvim-ts-context-commentstring",
+	--         "nvim-treesitter/nvim-treesitter",
+	--     },
+	--     opts = {
+	--         -- pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(), -- per context_commentstring, but doesnt work!
+	--     },
+	--     config = function()
+	--         require("Comment").setup({
+	--             pre_hook = function()
+	--                 return vim.bo.commentstring
+	--             end,
+	--         })
+	--     end,
+	-- },
 	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
@@ -1094,6 +1094,18 @@ require("lazy").setup({
 			-- 	end,
 			-- })
 		end,
+	},
+	{
+		"echasnovski/mini.comment",
+		event = "VeryLazy",
+		opts = {
+			options = {
+				custom_commentstring = function()
+					return require("ts_context_commentstring.internal").calculate_commentstring()
+						or vim.bo.commentstring
+				end,
+			},
+		},
 	},
 	{
 		"echasnovski/mini.files",
