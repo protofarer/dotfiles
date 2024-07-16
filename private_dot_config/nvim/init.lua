@@ -164,12 +164,13 @@ vim.keymap.set("n", "<leader>gw", ":Gwrite<CR>", add_desc_std_opts("[g]it [w]rit
 
 -- ,neogit
 vim.keymap.set("n", "<leader>gl", ":Neogit log<CR>", { desc = "Neogit log", noremap = true })
-vim.keymap.set("n", "<leader>gc", ":Neogit commit<CR>", add_desc_std_opts("Neogit commit"))
+-- vim.keymap.set("n", "<leader>gc", ":Neogit commit<CR>", add_desc_std_opts("Neogit commit"))
 vim.keymap.set("n", "<leader>gp", ":Neogit push<CR>", { desc = "Neogit push", noremap = true })
 vim.keymap.set("n", "<leader>gP", ":Neogit pull<CR>", add_desc_std_opts("Neogit pull"))
 
 -- git telescope
 vim.keymap.set("n", "<leader>gb", ":Telescope git_branches<CR>", add_desc_std_opts("Fuzzy search [g]it [b]ranches"))
+vim.keymap.set("n", "<leader>gc", ":Telescope git_commits<CR>", add_desc_std_opts("Telescope [g]it [c]ommit"))
 
 -- ez vim commands
 vim.keymap.set({ "n", "v" }, ";", ":", km_opts)
