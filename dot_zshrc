@@ -258,7 +258,7 @@ npm() {
 # setopt auto_cd
 export CDPATH=:~/spaces/projects/:~/spaces/education/:~/spaces/work/:$CDPATH
 
-function mkdirgo() {
+function mdg() {
   mkdir -p "$@" && cd "$@"
 }
 
