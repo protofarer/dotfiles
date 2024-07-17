@@ -1220,7 +1220,7 @@ require("lazy").setup({
 			},
 			indent = {
 				enable = false,
-				disable = { "ruby", "c", "js", "jsx", "ts", "tsx", "typescriptreact", "javascriptreact" },
+				disable = { "ruby", "c" },
 			},
 			context_commentstring = {
 				config = {
