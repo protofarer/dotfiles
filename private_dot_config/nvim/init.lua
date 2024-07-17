@@ -304,23 +304,24 @@ require("lazy").setup({
 	--         })
 	--     end,
 	-- },
-	{
-		"lewis6991/gitsigns.nvim",
-		config = function()
-			local gs = require("gitsigns")
-			gs.setup({
-				signs = {
-					add = { text = "+" },
-					change = { text = "~" },
-					delete = { text = "_" },
-					topdelete = { text = "‾" },
-					changedelete = { text = "~" },
-				},
-			})
-			vim.keymap.set("n", "<leader>tB", gs.toggle_current_line_blame)
-			vim.keymap.set("n", "<leader>hp", gs.preview_hunk)
-		end,
-	},
+	-- see kickstarter plugin spec, commented out in a hurry, cleanup later
+	-- {
+	--     "lewis6991/gitsigns.nvim",
+	--     config = function()
+	--         local gs = require("gitsigns")
+	--         gs.setup({
+	--             signs = {
+	--                 add = { text = "+" },
+	--                 change = { text = "~" },
+	--                 delete = { text = "_" },
+	--                 topdelete = { text = "‾" },
+	--                 changedelete = { text = "~" },
+	--             },
+	--         })
+	--         vim.keymap.set("n", "<leader>tB", gs.toggle_current_line_blame)
+	--         vim.keymap.set("n", "<leader>hp", gs.preview_hunk)
+	--     end,
+	-- },
 
 	-- NOTE: Plugins can also be configured to run Lua code when they are loaded.
 	--
