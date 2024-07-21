@@ -261,7 +261,10 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost" }, {
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-	vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+	local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+	if vim.v.shell_error ~= 0 then
+		error("Error cloning lazy.nvim:\n" .. out)
+	end
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
@@ -295,25 +298,12 @@ require("lazy").setup({
 			-- Document existing key chains
 			wk.add({
 				{ "<leader>c", group = "[C]ode" },
-				{ "<leader>c_", hidden = true },
 				{ "<leader>d", group = "[D]ocument" },
-				{ "<leader>d_", hidden = true },
-				{ "<leader>h", group = "Git [H]unk" },
-				{ "<leader>h_", hidden = true },
 				{ "<leader>r", group = "[R]ename" },
-				{ "<leader>r_", hidden = true },
 				{ "<leader>s", group = "[S]earch" },
-				{ "<leader>s_", hidden = true },
 				{ "<leader>t", group = "[T]oggle" },
-				{ "<leader>t_", hidden = true },
 				{ "<leader>w", group = "[W]orkspace" },
-				{ "<leader>w_", hidden = true },
-			})
-			-- visual mode
-			wk.add({
-				"<leader>h",
-				{ "Git [H]unk" },
-				mode = "v",
+				{ "<leader>h", { "Git [H]unk" }, mode = { "n", "v" } },
 			})
 		end,
 	},
@@ -647,7 +637,6 @@ require("lazy").setup({
 				"stylua",
 				"rust_analyzer",
 				"prettier",
-				-- "prettierd",
 			})
 
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
@@ -838,12 +827,12 @@ require("lazy").setup({
 				function()
 					require("conform").format({ async = true, lsp_fallback = true, timeout_ms = 3000 })
 				end,
-				mode = { "n", "v" },
-				desc = "Formatter: [c]ode [f]ormat",
+				mode = "",
+				desc = "Formatter: [c]ode [f]ormat buffer",
 			},
 		},
 		opts = {
-			log_level = vim.log.levels.DEBUG,
+			-- log_level = vim.log.levels.DEBUG,
 			notify_on_error = false,
 			format_on_save = function(bufnr)
 				-- Disable "format_on_save lsp_fallback" for languages that don't
@@ -1166,6 +1155,8 @@ require("lazy").setup({
 				"git_config",
 				"gitignore",
 				"markdown",
+				"markdown_inline",
+				"query",
 				"yaml",
 				"toml",
 				"just",
