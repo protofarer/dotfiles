@@ -466,9 +466,12 @@ require("lazy").setup({
 
 					vim.lsp.buf.format({
 						filter = function(client)
-							return client.name ~= "tsserver"
+							local disabled_formatters = { "tsserver", "vtsls" }
+							-- not tsserver, vtsls, eslin
+							return not vim.tbl_contains(disabled_formatters, client.name)
 						end,
 					})
+					-- lsp formatter here, versus conform formatter
 					map("<leader>cF", vim.lsp.buf.format, "[c]ode [F]ormat")
 
 					-- The following two autocommands are used to highlight references of the
@@ -511,7 +514,6 @@ require("lazy").setup({
 						end, "[T]oggle Inlay [H]ints")
 					end
 
-					-- TODO:
 					-- Unsure if this disables autoformatting on new buffer enter (or whatever it is that is happening whenever I open a file and things format via LSP)
 					-- if client and client.server_capabilities then
 					-- 	client.server_capabilities.documentFormattingProvider = false
@@ -804,7 +806,7 @@ require("lazy").setup({
 			}
 		end,
 	},
-	{ -- Autoformat ,fmt :: use external formatter if available, fallback to lsp
+	{ -- Autoformat ,fmt :: use external formatter if available, don't fallback to lsp
 		"stevearc/conform.nvim",
 		lazy = false,
 		keys = {
