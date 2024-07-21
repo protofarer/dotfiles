@@ -595,7 +595,14 @@ require("lazy").setup({
 						end,
 					},
 				},
-				eslint = {},
+				eslint = {
+					settings = {
+						on_attach = function(client, bufnr)
+							client.server_capabilities.documentFormattingProvider = false
+							client.server_capabilities.documentRangeFormattingProvider = false
+						end,
+					},
+				},
 				rust_analyzer = {},
 				ols = {},
 				pyright = {},
