@@ -47,8 +47,7 @@ function gcob() {
 function prolite() {
 	local dir="~/spaces/work/prolite/builder/worktrees"
 	cd "$dir"
-	kitty @ send-text "launch zsh"
-	# kitty @ run --title "prolite.builder.editor"
+	kitty @ run --title "prolite.builder.editor"
 	# launch --title "prolite.builder.devserver" zsh
 	# resize_window shorter 10
 }
