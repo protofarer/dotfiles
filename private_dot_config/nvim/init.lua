@@ -544,47 +544,47 @@ require("lazy").setup({
 			-- `:help lspconfig-all` for a list of all the pre-configured LSPs ,lsps
 			local servers = {
 				-- clangd = {},
-				tsserver = { enabled = false },
-				vtsls = {
-					filetypes = {
-						"javascript",
-						"javascriptreact",
-						"javascript.jsx",
-						"typescript",
-						"typescriptreact",
-						"typescript.tsx",
-					},
-					settings = {
-						complete_function_calls = true,
-						vtsls = {
-							enableMoveToFileCodeAction = true,
-							autoUseWorkspaceTsdk = true,
-							experimental = {
-								completion = {
-									enableServerSideFuzzyMatch = true,
-								},
-							},
-						},
-						typescript = {
-							updateImportsOnFileMove = { enabled = "always" },
-							suggest = {
-								completeFunctionCalls = true,
-							},
-							inlayHints = {
-								enumMemberValues = { enabled = true },
-								functionLikeReturnTypes = { enabled = true },
-								parameterNames = { enabled = "literals" },
-								parameterTypes = { enabled = true },
-								propertyDeclarationTypes = { enabled = true },
-								variableTypes = { enabled = false },
-							},
-						},
-						on_attach = function(client, bufnr)
-							client.server_capabilities.documentFormattingProvider = false
-							client.server_capabilities.documentRangeFormattingProvider = false
-						end,
-					},
-				},
+				tsserver = { enabled = true },
+				-- vtsls = {
+				--     filetypes = {
+				--         "javascript",
+				--         "javascriptreact",
+				--         "javascript.jsx",
+				--         "typescript",
+				--         "typescriptreact",
+				--         "typescript.tsx",
+				--     },
+				--     settings = {
+				--         complete_function_calls = true,
+				--         vtsls = {
+				--             enableMoveToFileCodeAction = true,
+				--             autoUseWorkspaceTsdk = true,
+				--             experimental = {
+				--                 completion = {
+				--                     enableServerSideFuzzyMatch = true,
+				--                 },
+				--             },
+				--         },
+				--         typescript = {
+				--             updateImportsOnFileMove = { enabled = "always" },
+				--             suggest = {
+				--                 completeFunctionCalls = true,
+				--             },
+				--             inlayHints = {
+				--                 enumMemberValues = { enabled = true },
+				--                 functionLikeReturnTypes = { enabled = true },
+				--                 parameterNames = { enabled = "literals" },
+				--                 parameterTypes = { enabled = true },
+				--                 propertyDeclarationTypes = { enabled = true },
+				--                 variableTypes = { enabled = false },
+				--             },
+				--         },
+				--         on_attach = function(client, bufnr)
+				--             client.server_capabilities.documentFormattingProvider = false
+				--             client.server_capabilities.documentRangeFormattingProvider = false
+				--         end,
+				--     },
+				-- },
 				eslint = {
 					settings = {
 						on_attach = function(client, bufnr)
@@ -652,12 +652,12 @@ require("lazy").setup({
 						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
 						require("lspconfig")[server_name].setup(server)
 					end,
-					-- ["tsserver"] = function()
-					--     local lspconfig = require("lspconfig")
-					--     lspconfig.tsserver.setup({
-					--         settings = {},
-					--     })
-					-- end,
+					["tsserver"] = function()
+						local lspconfig = require("lspconfig")
+						lspconfig.tsserver.setup({
+							settings = {},
+						})
+					end,
 					["eslint"] = function()
 						local lspconfig = require("lspconfig")
 						lspconfig.eslint.setup({
@@ -679,11 +679,11 @@ require("lazy").setup({
 							),
 						})
 					end,
-					["vtsls"] = function(_, opts)
-						local lspconfig = require("lspconfig")
-						-- Do keymap setup here, instead of with `servers` table
-						lspconfig.vtsls.setup({})
-					end,
+					-- ["vtsls"] = function(_, opts)
+					-- 	local lspconfig = require("lspconfig")
+					-- 	-- Do keymap setup here, instead of with `servers` table
+					-- 	lspconfig.vtsls.setup({})
+					-- end,
 					-- keys = {
 					-- 	{
 					-- 		"<leader>co",
