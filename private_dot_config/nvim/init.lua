@@ -319,7 +319,7 @@ require("lazy").setup({
     -- after the plugin has been loaded:
     --  config = function() ... end
 
-    {                 -- Useful plugin to show you pending keybinds.
+    {                       -- Useful plugin to show you pending keybinds.
         "folke/which-key.nvim",
         event = "VimEnter", -- Sets the loading event to 'VimEnter'
         config = function() -- This is the function that runs, AFTER loading
@@ -977,7 +977,7 @@ require("lazy").setup({
     },
     {
         "rebelot/kanagawa.nvim",
-        lazy = false, -- load during startup, since main colorscheme
+        lazy = false,    -- load during startup, since main colorscheme
         priority = 1000, -- load before all other start plugins
         init = function()
             vim.cmd.colorscheme("kanagawa")
