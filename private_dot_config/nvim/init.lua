@@ -344,7 +344,7 @@ require("lazy").setup({
 				{ "<leader>w_", hidden = true },
 			})
 			-- visual mode
-			require("which-key").register({
+			wk.add({
 				"<leader>h",
 				{ "Git [H]unk" },
 				mode = "v",
