@@ -44,3 +44,9 @@ function gcob() {
   git checkout -b kbaron/"$1"
 }
 
+function prolite() {
+	local dir="~/spaces/work/prolite/builder/worktrees"
+	kitty @ new-window --title "prolite.builder.editor" --directory 
+	# launch --title "prolite.builder.devserver" zsh
+	# resize_window shorter 10
+}
