@@ -256,20 +256,6 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost" }, {
 	end,
 })
 
--- vim.api.nvim_create_autocmd("ColorScheme", {
--- 	pattern = "kanagawa",
--- 	callback = function()
--- 		if vim.o.background == "light" then
--- 			vim.fn.system("kitty +kitten themes Kanagawa_light")
--- 		elseif vim.o.background == "dark" then
--- 			vim.fn.system("kitty +kitten themes Kanagawa_dragon")
--- 		else
--- 			vim.fn.system("kitty +kitten themes Kanagawa")
--- 		end
--- 	end,
--- })
-
--- LazyVim notes:
 -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -286,24 +272,6 @@ require("lazy").setup({
 	-- 	{ import = "plugins" },
 	-- },
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
-	-- {
-	--     "numToStr/Comment.nvim",
-	--     lazy = false,
-	--     dependencies = {
-	--         "JoosepAlviste/nvim-ts-context-commentstring",
-	--         "nvim-treesitter/nvim-treesitter",
-	--     },
-	--     opts = {
-	--         -- pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(), -- per context_commentstring, but doesnt work!
-	--     },
-	--     config = function()
-	--         require("Comment").setup({
-	--             pre_hook = function()
-	--                 return vim.bo.commentstring
-	--             end,
-	--         })
-	--     end,
-	-- },
 	-- NOTE: Plugins can also be configured to run Lua code when they are loaded.
 	--
 	-- This is often very useful to both group configuration, as well as handle
@@ -317,8 +285,6 @@ require("lazy").setup({
 	--
 	-- Then, because we use the `config` key, the configuration only runs
 	-- after the plugin has been loaded:
-	--  config = function() ... end
-
 	{ -- Useful plugin to show you pending keybinds.
 		"folke/which-key.nvim",
 		event = "VimEnter", -- Sets the loading event to 'VimEnter'
@@ -352,13 +318,13 @@ require("lazy").setup({
 		end,
 	},
 
-	{ -- Fuzzy Finder (files, lsp, etc)
+	{
 		"nvim-telescope/telescope.nvim",
 		event = "VimEnter",
 		branch = "0.1.x",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			{ -- If encountering errors, see telescope-fzf-native README for installation instructions
+			{
 				"nvim-telescope/telescope-fzf-native.nvim",
 
 				-- `build` is used to run some command when the plugin is installed/updated.
@@ -444,7 +410,7 @@ require("lazy").setup({
 		end,
 	},
 
-	{ -- LSP Configuration & Plugins ,lsp
+	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
 			-- Automatically install LSPs and related tools to stdpath for Neovim
@@ -541,15 +507,16 @@ require("lazy").setup({
 					-- This may be unwanted, since they displace some of your code
 					if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
 						map("<leader>th", function()
-							vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+							vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
 						end, "[T]oggle Inlay [H]ints")
 					end
 
+					-- TODO:
 					-- Unsure if this disables autoformatting on new buffer enter (or whatever it is that is happening whenever I open a file and things format via LSP)
-					if client and client.server_capabilities then
-						client.server_capabilities.documentFormattingProvider = false
-						client.server_capabilities.documentRangeFormattingProvider = false
-					end
+					-- if client and client.server_capabilities then
+					-- 	client.server_capabilities.documentFormattingProvider = false
+					-- 	client.server_capabilities.documentRangeFormattingProvider = false
+					-- end
 				end,
 			})
 
