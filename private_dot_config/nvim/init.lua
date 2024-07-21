@@ -514,6 +514,18 @@ require("lazy").setup({
 						end, "[T]oggle Inlay [H]ints")
 					end
 
+					local capabilities = vim.lsp.protocol.make_client_capabilities()
+					capabilities =
+						vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+
+					-- Disable formatting for specific LSP servers
+					local disable_formatting = { "tsserver", "vtsls" }
+
+					if client and vim.tbl_contains(disable_formatting, client.name) then
+						client.server_capabilities.documentFormattingProvider = false
+						client.server_capabilities.documentRangeFormattingProvider = false
+					end
+
 					-- Unsure if this disables autoformatting on new buffer enter (or whatever it is that is happening whenever I open a file and things format via LSP)
 					-- if client and client.server_capabilities then
 					-- 	client.server_capabilities.documentFormattingProvider = false
