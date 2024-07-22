@@ -579,10 +579,10 @@ require("lazy").setup({
 								variableTypes = { enabled = false },
 							},
 						},
-						on_attach = function(client, bufnr)
-							client.server_capabilities.documentFormattingProvider = false
-							client.server_capabilities.documentRangeFormattingProvider = false
-						end,
+						-- on_attach = function(client, bufnr)
+						--     client.server_capabilities.documentFormattingProvider = false
+						--     client.server_capabilities.documentRangeFormattingProvider = false
+						-- end,
 					},
 				},
 				eslint = {
@@ -844,11 +844,11 @@ require("lazy").setup({
 					lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
 				}
 			end,
+			-- Conform can also run multiple formatters sequentially
+			-- You can use a sub-list to tell conform to run *until* a formatter is found.
 			formatters_by_ft = {
 				lua = { "stylua" },
 				rust = { "rust_analyzer" },
-				-- Conform can also run multiple formatters sequentially
-				-- You can use a sub-list to tell conform to run *until* a formatter is found.
 				odin = { "ols" },
 				javascript = { { "prettier" } },
 				typescript = { { "prettier" } },
