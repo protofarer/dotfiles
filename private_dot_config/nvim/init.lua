@@ -504,10 +504,6 @@ require("lazy").setup({
 						end, "[T]oggle Inlay [H]ints")
 					end
 
-					-- local capabilities = vim.lsp.protocol.make_client_capabilities()
-					-- capabilities =
-					--     vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
-
 					-- -- Disable formatting for specific LSP servers
 					-- local disable_formatting = { "tsserver", "vtsls" }
 					--
@@ -518,10 +514,10 @@ require("lazy").setup({
 
 					-- Unsure if this disables autoformatting on new buffer enter (or whatever it is that is happening whenever I open a file and things format via LSP)
 					-- Try to disable all formatting done by LSPs, only allow conform (or other dedicated formatter)
-					-- if client and client.server_capabilities then
-					--     client.server_capabilities.documentFormattingProvider = false
-					--     client.server_capabilities.documentRangeFormattingProvider = false
-					-- end
+					if client and client.server_capabilities then
+						client.server_capabilities.documentFormattingProvider = false
+						client.server_capabilities.documentRangeFormattingProvider = false
+					end
 				end,
 			})
 
@@ -1472,5 +1468,17 @@ require("lazy").setup({
 --         print(string.format("Formatting capability: %s", client.server_capabilities.documentFormattingProvider))
 --     end,
 -- })
+vim.lsp.handlers["textDocument/formatting"] = function(err, result, ctx)
+	if err then
+		-- Silently ignore formatting errors
+		return
+	end
+	-- This shouldn't happen, but just in case:
+	-- vim.lsp.util.apply_text_edits(result, ctx.bufnr, ctx.client_id)
+	if result then
+		local client = vim.lsp.get_client_by_id(ctx.client_id)
+		vim.lsp.util.apply_text_edits(result, ctx.bufnr, client.offset_encoding)
+	end
+end
 
 -- vim: ts=4 sts=4 sw=4 et
