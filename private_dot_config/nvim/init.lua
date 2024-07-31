@@ -258,6 +258,38 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost" }, {
 
 -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 
+-- Disable LSP formatting
+local orig_lsp_buf_request = vim.lsp.buf_request
+
+vim.lsp.buf_request = function(bufnr, method, params, handler)
+	if method == "textDocument/formatting" or method == "textDocument/rangeFormatting" then
+		-- Optionally log the blocked format request
+		-- print("LSP format request blocked for method: " .. method)
+		return -- Silently block the format request
+	end
+	return orig_lsp_buf_request(bufnr, method, params, handler)
+end
+
+-- Override the built-in format functions to do nothing
+vim.lsp.buf.format = function(options)
+	-- Optionally log the blocked format attempt
+	-- print("LSP format attempt blocked")
+end
+
+vim.lsp.buf.formatting = vim.lsp.buf.format
+vim.lsp.buf.formatting_sync = function(options, timeout_ms)
+	-- Optionally log the blocked sync format attempt
+	-- print("LSP sync format attempt blocked")
+end
+
+-- Prevent "format on save" functionality
+vim.api.nvim_create_autocmd("BufWritePre", {
+	callback = function(args)
+		-- Clear any autocommands that might trigger formatting
+		vim.api.nvim_clear_autocmds({ group = "LspFormatting", buffer = args.buf })
+	end,
+})
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
