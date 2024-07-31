@@ -1465,12 +1465,12 @@ require("lazy").setup({
 --     end,
 -- })
 
-vim.api.nvim_create_autocmd("LspAttach", {
-	callback = function(args)
-		local client = vim.lsp.get_client_by_id(args.data.client_id)
-		print(string.format("LSP attached: %s", client.name))
-		print(string.format("Formatting capability: %s", client.server_capabilities.documentFormattingProvider))
-	end,
-})
+-- vim.api.nvim_create_autocmd("LspAttach", {
+--     callback = function(args)
+--         local client = vim.lsp.get_client_by_id(args.data.client_id)
+--         print(string.format("LSP attached: %s", client.name))
+--         print(string.format("Formatting capability: %s", client.server_capabilities.documentFormattingProvider))
+--     end,
+-- })
 
 -- vim: ts=4 sts=4 sw=4 et
