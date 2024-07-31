@@ -846,7 +846,7 @@ require("lazy").setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
 				rust = { "rust_analyzer" },
-				-- odin = { "ols" }, -- best way to learn
+				odin = { "ols" }, -- best way to learn
 				javascript = { { "prettier" } },
 				typescript = { { "prettier" } },
 				typescriptreact = { { "prettier" } },
@@ -1452,6 +1452,16 @@ require("lazy").setup({
 			lazy = "💤 ",
 		},
 	},
+})
+
+-- TODO: troubleshoot when the LSP format failed, missing language server
+-- print debug by showing when events are triggered: BufEnter, BufWrite, PreBufWrite, LspAttach, lsp format run,
+vim.api.nvim_create_autocmd("TextYankPost", {
+	desc = "Highlight when yanking (copying) text",
+	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+	callback = function()
+		vim.highlight.on_yank()
+	end,
 })
 
 -- vim: ts=4 sts=4 sw=4 et
