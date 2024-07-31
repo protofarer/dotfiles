@@ -507,7 +507,7 @@ require("lazy").setup({
 					-- local capabilities = vim.lsp.protocol.make_client_capabilities()
 					-- capabilities =
 					--     vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
-					--
+
 					-- -- Disable formatting for specific LSP servers
 					-- local disable_formatting = { "tsserver", "vtsls" }
 					--
@@ -517,6 +517,7 @@ require("lazy").setup({
 					-- end
 
 					-- Unsure if this disables autoformatting on new buffer enter (or whatever it is that is happening whenever I open a file and things format via LSP)
+					-- Try to disable all formatting done by LSPs, only allow conform (or other dedicated formatter)
 					if client and client.server_capabilities then
 						client.server_capabilities.documentFormattingProvider = false
 						client.server_capabilities.documentRangeFormattingProvider = false
@@ -623,17 +624,11 @@ require("lazy").setup({
 				},
 			}
 
-			-- Ensure the servers and tools above are installed
-			--  To check the current status of installed tools and/or manually install
-			--  other tools, you can run
-			--    :Mason
 			require("mason").setup()
 
-			-- You can add other tools here that you want Mason to install
-			-- for you, so that they are available from within Neovim.
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
-				-- Install formatters for me, conform configs them
+				-- Install formatters here, but use conform to config them
 				"stylua",
 				"rust_analyzer",
 				"prettier",
@@ -762,7 +757,9 @@ require("lazy").setup({
 			})
 
 			-- local lspconfig = require("lspconfig")
+
 			-- does this work?
+
 			-- version A
 			-- lspc.eslint.setup({
 			--     on_attach = function(_client, bufnr)
@@ -818,7 +815,7 @@ require("lazy").setup({
 			}
 		end,
 	},
-	{ -- Autoformat ,fmt :: use external formatter if available, don't fallback to lsp
+	{ -- Autoformat ,fmt :: use explicit external formatters, don't default to formatting via lsp
 		"stevearc/conform.nvim",
 		lazy = false,
 		keys = {
@@ -849,7 +846,7 @@ require("lazy").setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
 				rust = { "rust_analyzer" },
-				odin = { "ols" },
+				-- odin = { "ols" }, -- best way to learn
 				javascript = { { "prettier" } },
 				typescript = { { "prettier" } },
 				typescriptreact = { { "prettier" } },
@@ -981,15 +978,6 @@ require("lazy").setup({
 			colors = { theme = { all = { ui = { bg_gutter = "none" } } } },
 		},
 	},
-	-- {
-	--   'ellisonleao/gruvbox.nvim',
-	--   priority = 1000,
-	--   config = true,
-	--   init = function()
-	--     vim.cmd.colorscheme 'gruvbox'
-	--   end,
-	--   opts = { contrast = 'hard' },
-	-- },
 	{
 		"folke/todo-comments.nvim",
 		event = "VimEnter",
@@ -1230,13 +1218,14 @@ require("lazy").setup({
 		"windowp/nvim-ts-autotag",
 		opts = {},
 	},
+	require("kickstart.plugins.autopairs"),
+
 	-- require 'kickstart.plugins.debug',
 	-- require 'kickstart.plugins.indent_line',
 	-- require 'kickstart.plugins.lint',
-	require("kickstart.plugins.autopairs"),
 	-- require("kickstart.plugins.gitsigns"), -- adds gitsigns recommend keymaps
 
-	-- Custom ,plugins `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
+	-- More custom ,plugins (order not important) `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
 	{ -- no out-of-the-box gitsigns integration, but see my custom.plugins
 		"dstein64/nvim-scrollview",
 		-- opts = {
@@ -1416,24 +1405,21 @@ require("lazy").setup({
 				map("n", "<leader>tD", gitsigns.toggle_deleted, { desc = "[T]oggle git show [D]eleted" })
 			end,
 		},
+		--     config = function()
+		--         local gs = require("gitsigns")
+		--         gs.setup({
+		--             signs = {
+		--                 add = { text = "+" },
+		--                 change = { text = "~" },
+		--                 delete = { text = "_" },
+		--                 topdelete = { text = "‾" },
+		--                 changedelete = { text = "~" },
+		--             },
+		--         })
+		--         vim.keymap.set("n", "<leader>tB", gs.toggle_current_line_blame)
+		--         vim.keymap.set("n", "<leader>hp", gs.preview_hunk)
+		--     end,
 	},
-	-- {
-	--     "lewis6991/gitsigns.nvim",
-	--     config = function()
-	--         local gs = require("gitsigns")
-	--         gs.setup({
-	--             signs = {
-	--                 add = { text = "+" },
-	--                 change = { text = "~" },
-	--                 delete = { text = "_" },
-	--                 topdelete = { text = "‾" },
-	--                 changedelete = { text = "~" },
-	--             },
-	--         })
-	--         vim.keymap.set("n", "<leader>tB", gs.toggle_current_line_blame)
-	--         vim.keymap.set("n", "<leader>hp", gs.preview_hunk)
-	--     end,
-	-- },
 
 	-- { import = "custom.plugins" },
 	-- {
