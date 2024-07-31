@@ -282,11 +282,20 @@ vim.lsp.buf.formatting_sync = function(options, timeout_ms)
 	-- print("LSP sync format attempt blocked")
 end
 
+-- Create a custom augroup for any formatting-related autocommands
+local format_augroup = vim.api.nvim_create_augroup("CustomFormatting", { clear = true })
+
 -- Prevent "format on save" functionality
 vim.api.nvim_create_autocmd("BufWritePre", {
+	group = format_augroup,
 	callback = function(args)
-		-- Clear any autocommands that might trigger formatting
-		vim.api.nvim_clear_autocmds({ group = "LspFormatting", buffer = args.buf })
+		-- Instead of clearing autocommands, we'll just ensure our blocking is in place
+		-- This approach avoids errors from non-existent groups
+		local client = vim.lsp.get_active_clients({ bufnr = args.buf })[1]
+		if client then
+			client.server_capabilities.documentFormattingProvider = false
+			client.server_capabilities.documentRangeFormattingProvider = false
+		end
 	end,
 })
 
