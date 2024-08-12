@@ -10,7 +10,7 @@ alias g='git_status_wrapper'
 
 function git_status_wrapper() {
   if [ $# -eq 0 ]; then
-    git st
+    git status
   else
     git "$@"
   fi
@@ -41,5 +41,5 @@ function gcob() {
     return 1
   fi
 
-  git checkout -b kbaron/"$1"
+  git checkout -b kenny/"$1"
 }
