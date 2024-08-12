@@ -245,7 +245,7 @@ node() {
   unset -f node
   export NVM_DIR=~/.nvm
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-  nvm alias default "$DEFAULT_NODE_VERSION"
+  nvm alias default 20
   node "$@"
 }
 
