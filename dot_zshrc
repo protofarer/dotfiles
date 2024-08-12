@@ -230,13 +230,14 @@ export ZYPP_MEDIANETWORK=1
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+DEFAULT_NODE_VERSION=20
 # ####### lazy load nvm/node/npm, respective programs loaded on first invocation instead of at shell startup
 nvm() {
   unset -f nvm
   export NVM_DIR=~/.nvm
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-  nvm alias default 20
+  nvm alias default "$DEFAULT_MODE_VERSION"
   nvm "$@"
 }
 
@@ -244,7 +245,7 @@ node() {
   unset -f node
   export NVM_DIR=~/.nvm
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-  nvm alias default 20
+  nvm alias default "$DEFAULT_MODE_VERSION"
   node "$@"
 }
 
@@ -252,8 +253,16 @@ npm() {
   unset -f npm
   export NVM_DIR=~/.nvm
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-  nvm alias default 20
+  nvm alias default "$DEFAULT_MODE_VERSION"
   npm "$@"
+}
+
+npx() {
+  unset -f node
+  export NVM_DIR=~/.nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+  nvm alias default "$DEFAULT_MODE_VERSION"
+  npx "$@"
 }
 
 # setopt auto_cd
