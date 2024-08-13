@@ -1508,9 +1508,9 @@ require("lazy").setup({
 
 -- ,colorscheme toggle
 local COLORSCHEMES = {
-	-- "kanagawa",
+	"kanagawa",
 	-- "true-monochrome",
-	"tmc",
+	-- "tmc",
 	"kundalini",
 }
 local CURR_COLORSCHEME_INDEX = 1
