@@ -1502,9 +1502,6 @@ require("lazy").setup({
 --     end,
 -- })
 
-
-
-
 -- ,colorscheme toggle
 local COLORSCHEMES = { "kanagawa", "vim" }
 local CURR_COLORSCHEME_INDEX = 1
@@ -1539,10 +1536,9 @@ local function toggle_colorscheme()
 	print("Colorscheme set to: " .. new_scheme)
 end
 
-vim.api.nvim_create_user_command("ToggleColoscheme", toggle_colorscheme, {})
+vim.api.nvim_create_user_command("ToggleColorscheme", toggle_colorscheme, {})
 vim.keymap.set("n", "<leader>tc", ":ToggleColorscheme<CR>", { desc = "Toggle colorscheme" })
 
 vim.cmd("colorscheme " .. COLORSCHEMES[get_saved_scheme()])
-
 
 -- vim: ts=4 sts=4 sw=4 et
