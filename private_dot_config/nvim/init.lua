@@ -1017,6 +1017,9 @@ require("lazy").setup({
 		},
 	},
 	{
+		"tjdevries/colorbuddy.nvim",
+	},
+	{
 		"folke/todo-comments.nvim",
 		event = "VimEnter",
 		dependencies = { "nvim-lua/plenary.nvim" },
