@@ -1511,7 +1511,7 @@ local CURR_COLORSCHEME_INDEX = 1
 
 local function get_saved_scheme()
 	local home = os.getenv("HOME")
-	ocal file = io.open(home .. "/.vim_colorscheme", "r")
+	local file = io.open(home .. "/.vim_colorscheme", "r")
 	if file then
 		local content = file:read("*all")
 		file:close()
