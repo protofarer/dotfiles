@@ -87,45 +87,6 @@ end
 vim.api.nvim_create_user_command("ToggleBackground", toggle_bg, {})
 vim.keymap.set("n", "<leader>bg", ":ToggleBackground<CR>", { desc = "Toggle background light/dark" })
 
--- ,colorscheme toggle
-local COLORSCHEMES = { "kanagawa", "vim" }
-local CURR_COLORSCHEME_INDEX = 1
-
-local function get_saved_scheme()
-	local home = os.getenv("HOME")
-	local file = io.open(home .. "/.vim_colorscheme", "r")
-	if file then
-		local content = file:read("*all")
-		file:close()
-		return tonumber(content) or 1
-	end
-	return 1
-end
-
-local function save_scheme(index)
-	local home = os.getenv("HOME")
-	local file = io.open(home .. "/.vim_colorscheme", "w")
-	if file then
-		file:write(tostring(index))
-		file:close()
-	end
-end
-
-local function toggle_colorscheme()
-	CURR_COLORSCHEME_INDEX = get_saved_scheme()
-	CURR_COLORSCHEME_INDEX = (CURR_COLORSCHEME_INDEX % #COLORSCHEMES) + 1
-	local new_scheme = COLORSCHEMES[CURR_COLORSCHEME_INDEX]
-
-	vim.cmd("colorscheme " .. new_scheme)
-	save_scheme(CURR_COLORSCHEME_INDEX)
-	print("Colorscheme set to: " .. new_scheme)
-end
-
-vim.api.nvim_create_user_command("ToggleColoscheme", toggle_colorscheme, {})
-vim.keymap.set("n", "<leader>tc", ":ToggleColorscheme<CR>", { desc = "Toggle colorscheme" })
-
-vim.cmd("colorscheme " .. COLORSCHEMES[get_saved_scheme()])
-
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -1533,14 +1494,6 @@ require("lazy").setup({
 
 -- TODO: troubleshoot when the LSP format failed, missing language server
 -- print debug by showing when events are triggered: BufEnter, BufWrite, PreBufWrite, LspAttach, lsp format run,
--- vim.api.nvim_create_autocmd("TextYankPost", {
---     desc = "Highlight when yanking (copying) text",
---     group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
---     callback = function()
---         vim.highlight.on_yank()
---     end,
--- })
-
 -- vim.api.nvim_create_autocmd("LspAttach", {
 --     callback = function(args)
 --         local client = vim.lsp.get_client_by_id(args.data.client_id)
@@ -1548,17 +1501,48 @@ require("lazy").setup({
 --         print(string.format("Formatting capability: %s", client.server_capabilities.documentFormattingProvider))
 --     end,
 -- })
-vim.lsp.handlers["textDocument/formatting"] = function(err, result, ctx)
-	if err then
-		-- Silently ignore formatting errors
-		return
+
+
+
+
+-- ,colorscheme toggle
+local COLORSCHEMES = { "kanagawa", "vim" }
+local CURR_COLORSCHEME_INDEX = 1
+
+local function get_saved_scheme()
+	local home = os.getenv("HOME")
+	ocal file = io.open(home .. "/.vim_colorscheme", "r")
+	if file then
+		local content = file:read("*all")
+		file:close()
+		return tonumber(content) or 1
 	end
-	-- This shouldn't happen, but just in case:
-	-- vim.lsp.util.apply_text_edits(result, ctx.bufnr, ctx.client_id)
-	if result then
-		local client = vim.lsp.get_client_by_id(ctx.client_id)
-		vim.lsp.util.apply_text_edits(result, ctx.bufnr, client.offset_encoding)
+	return 1
+end
+
+local function save_scheme(index)
+	local home = os.getenv("HOME")
+	local file = io.open(home .. "/.vim_colorscheme", "w")
+	if file then
+		file:write(tostring(index))
+		file:close()
 	end
 end
+
+local function toggle_colorscheme()
+	CURR_COLORSCHEME_INDEX = get_saved_scheme()
+	CURR_COLORSCHEME_INDEX = (CURR_COLORSCHEME_INDEX % #COLORSCHEMES) + 1
+	local new_scheme = COLORSCHEMES[CURR_COLORSCHEME_INDEX]
+
+	vim.cmd("colorscheme " .. new_scheme)
+	save_scheme(CURR_COLORSCHEME_INDEX)
+	print("Colorscheme set to: " .. new_scheme)
+end
+
+vim.api.nvim_create_user_command("ToggleColoscheme", toggle_colorscheme, {})
+vim.keymap.set("n", "<leader>tc", ":ToggleColorscheme<CR>", { desc = "Toggle colorscheme" })
+
+vim.cmd("colorscheme " .. COLORSCHEMES[get_saved_scheme()])
+
 
 -- vim: ts=4 sts=4 sw=4 et
