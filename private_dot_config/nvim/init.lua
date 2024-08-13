@@ -87,6 +87,45 @@ end
 vim.api.nvim_create_user_command("ToggleBackground", toggle_bg, {})
 vim.keymap.set("n", "<leader>bg", ":ToggleBackground<CR>", { desc = "Toggle background light/dark" })
 
+-- ,colorscheme toggle
+local COLORSCHEMES = { "kanagawa", "vim" }
+local CURR_COLORSCHEME_INDEX = 1
+
+local function get_saved_scheme()
+	local home = os.getenv("HOME")
+	local file = io.open(home .. "/.vim_colorscheme", "r")
+	if file then
+		local content = file:read("*all")
+		file:close()
+		return tonumber(content) or 1
+	end
+	return 1
+end
+
+local function save_scheme(index)
+	local home = os.getenv("HOME")
+	local file = io.open(home .. "/.vim_colorscheme", "w")
+	if file then
+		file:write(tostring(index))
+		file:close()
+	end
+end
+
+local function toggle_colorscheme()
+	CURR_COLORSCHEME_INDEX = get_saved_scheme()
+	CURR_COLORSCHEME_INDEX = (CURR_COLORSCHEME_INDEX % #COLORSCHEMES) + 1
+	local new_scheme = COLORSCHEMES[CURR_COLORSCHEME_INDEX]
+
+	vim.cmd("colorscheme " .. new_scheme)
+	save_scheme(CURR_COLORSCHEME_INDEX)
+	print("Colorscheme set to: " .. new_scheme)
+end
+
+vim.api.nvim_create_user_command("ToggleColoscheme", toggle_colorscheme, {})
+vim.keymap.set("n", "<leader>tc", ":ToggleColorscheme<CR>", { desc = "Toggle colorscheme" })
+
+vim.cmd("colorscheme " .. COLORSCHEMES[get_saved_scheme()])
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
