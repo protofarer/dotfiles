@@ -6,16 +6,6 @@ export ANDROID_SDK="$HOME/Android/Sdk"
 # zsh profiling, tmp
 skip_global_compinit=1
 
-alias g='git_status_wrapper'
-
-function git_status_wrapper() {
-  if [ $# -eq 0 ]; then
-    git status
-  else
-    git "$@"
-  fi
-}
-
 function grbi() {
   if [ -z "$1" ]; then
     echo "Please provide the number of commits to interactively rebase."
