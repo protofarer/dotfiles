@@ -31,7 +31,7 @@
 	postBuffer = 120000000
 
 [alias]
-	st = status --short --branch
+	s = status --short --branch
 	l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset' --abbrev-commit --date=relative
 	cm = commit -m
 	cam = commit -am
