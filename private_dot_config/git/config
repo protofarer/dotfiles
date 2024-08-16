@@ -21,7 +21,7 @@
 [diff]
 	tool = nvimdiff
 [difftool "nvimdiff"]
-	cmd = "nvim -d $LOCAL $MERGED $REMOTE"
+	cmd = "nvim -d $LOCAL $BASE $REMOTE $MERGED"
 [push]
 	autoSetupRemote = true
 	default = current
