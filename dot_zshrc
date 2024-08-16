@@ -153,15 +153,17 @@ alias sysup='sudo zypper ref && sudo zypper dup && flatpak update'
 # alias gitpf='git push --force-with-lease'
 # alias gita='git add'
 
-# alias g='git_status_wrapper' # set in .zshenv
+
+alias g='git_status_wrapper' # set in .zshenv
 
 function git_status_wrapper() {
   if [ $# -eq 0 ]; then
-    git st
+    git status
   else
     git "$@"
   fi
 }
+
 
 ### Rust
 alias rrepl='evcxr'
