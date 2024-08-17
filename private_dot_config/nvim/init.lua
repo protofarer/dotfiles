@@ -137,9 +137,12 @@ vim.keymap.set("n", "<leader>vd", ":DiffviewOpen<CR>", { desc = "[v]iew [d]iff o
 vim.keymap.set(
 	"n",
 	"<leader>vD",
-	":DiffviewOpen main<CR>",
+	":DiffviewOpen origin/main...HEAD --imply-local<CR>",
 	{ desc = "[v]iew [d]iff against main branch", noremap = true }
 )
+vim.keymap.set("n", "<leader>VD", ":DiffviewOpen", { desc = "[v]iew [d]iff command entry", noremap = true })
+vim.keymap.set("n", "<leader>do", "2do", { desc = "diff obtain hunk from rev OURS, Diffview 3way", noremap = true })
+vim.keymap.set("n", "<leader>dt", "3do", { desc = "diff obtain hunk from rev THEIRS, Diffview 3way", noremap = true })
 
 -- ,fugitive
 -- vim.keymap.set("n", "<leader>gg", ":G<CR>", { noremap = true })
