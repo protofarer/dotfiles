@@ -140,9 +140,23 @@ vim.keymap.set(
 	":DiffviewOpen origin/main...HEAD --imply-local<CR>",
 	{ desc = "[v]iew [d]iff against main branch", noremap = true }
 )
-vim.keymap.set("n", "<leader>VD", ":DiffviewOpen", { desc = "[v]iew [d]iff command entry", noremap = true })
+vim.keymap.set("n", "<leader>VD", ":DiffviewOpen", { desc = "[v]iew [d]iff cmd entry", noremap = true })
+
 vim.keymap.set("n", "<leader>do", "2do", { desc = "diff obtain hunk from rev OURS, Diffview 3way", noremap = true })
 vim.keymap.set("n", "<leader>dt", "3do", { desc = "diff obtain hunk from rev THEIRS, Diffview 3way", noremap = true })
+
+vim.keymap.set(
+	"n",
+	"<leader>vh",
+	":DiffviewFileHistory %",
+	{ desc = "[v]iew [d]iff current file history", noremap = true }
+)
+vim.keymap.set(
+	"n",
+	"<leader>VH",
+	":DiffviewFileHistory ",
+	{ desc = "[v]iew [d]iff file history cmd entry", noremap = true }
+)
 
 -- ,fugitive
 -- vim.keymap.set("n", "<leader>gg", ":G<CR>", { noremap = true })
