@@ -225,13 +225,14 @@ vim.keymap.set("n", "<leader>pp", '"_dP', { noremap = true })
 -- intriguing keymap used by Takuya
 -- vim.keymap.set('n', 'dw', 'vb_d', { noremap = true, silent = true })
 
--- ,keymaps
+vim.keymap.set("n", "<leader>m", ":messages<CR>", { noremap = true, desc = "cmd :messages" })
 
 -- move lines up or down
-vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { noremap = true, desc = "move line down (n)" })
-vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { noremap = true, desc = "move line up (n)" })
-vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, desc = "move line up (v)" })
-vim.keymap.set("v", "<A-k>", ":m '>-2<CR>gv=gv", { noremap = true, desc = "move line down (v)" })
+-- see `mini.move`
+-- vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { noremap = true, desc = "move line down (n)" })
+-- vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", { noremap = true, desc = "move line up (n)" })
+-- vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, desc = "move line up (v)" })
+-- vim.keymap.set("v", "<A-k>", ":m '>-2<CR>gv=gv", { noremap = true, desc = "move line down (v)" })
 
 -- Autocommands  ,autocmd See `:help lua-guide-autocommands`
 
@@ -1116,6 +1117,9 @@ require("lazy").setup({
 			-- 		}
 			-- 	end,
 			-- })
+
+			local move = require("mini.move")
+			move.setup()
 		end,
 	},
 	{
