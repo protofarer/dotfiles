@@ -1117,9 +1117,6 @@ require("lazy").setup({
 			-- 		}
 			-- 	end,
 			-- })
-
-			local move = require("mini.move")
-			move.setup()
 		end,
 	},
 	{
@@ -1129,6 +1126,7 @@ require("lazy").setup({
 	},
 	{
 		"echasnovski/mini.comment",
+		version = "*",
 		event = "VeryLazy",
 		opts = {
 			options = {
@@ -1197,6 +1195,10 @@ require("lazy").setup({
 				end,
 			})
 		end,
+	},
+	{
+		"echasnovski/mini.move",
+		version = "*",
 	},
 	{ -- Highlight, edit, and navigate code ,treesitter
 		"nvim-treesitter/nvim-treesitter",
