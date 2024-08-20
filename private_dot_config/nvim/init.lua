@@ -1199,6 +1199,7 @@ require("lazy").setup({
 	{
 		"echasnovski/mini.move",
 		version = "*",
+		opts = {},
 	},
 	{ -- Highlight, edit, and navigate code ,treesitter
 		"nvim-treesitter/nvim-treesitter",
