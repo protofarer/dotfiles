@@ -1317,6 +1317,13 @@ require("lazy").setup({
 			-- use_default_keymaps = true,
 		},
 	},
+    { "sindrets/diffview.nvim", version= "*", opts = {
+        view = {
+            merge_tool = {
+                layout = "diff3_mixed"
+            }
+        }
+    }}
 	{
 		"akinsho/toggleterm.nvim",
 		version = "*",
