@@ -1483,18 +1483,18 @@ require("lazy").setup({
 				map("n", "<leader>tD", gitsigns.toggle_deleted, { desc = "[T]oggle git show [D]eleted" })
 			end,
 		},
-		-- {
-		-- 	"iamcco/markdown-preview.nvim",
-		-- 	cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-		-- 	build = "cd app && npm install",
-		-- 	init = function()
-		-- 		vim.g.mkdp_filetypes = { "markdown" }
-		-- 	end,
-		-- 	ft = { "markdown" },
-		-- 	-- config = function()
-		-- 	--     local mp = require("markdown-preview")
-		-- 	-- end
-		-- },
+		{
+			"iamcco/markdown-preview.nvim",
+			cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+			build = "cd app && npm install",
+			init = function()
+				vim.g.mkdp_filetypes = { "markdown" }
+			end,
+			ft = { "markdown" },
+			-- config = function()
+			--     local mp = require("markdown-preview")
+			-- end
+		},
 		--     config = function()
 		--         local gs = require("gitsigns")
 		--         gs.setup({
