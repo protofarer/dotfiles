@@ -1491,6 +1491,9 @@ require("lazy").setup({
 				vim.g.mkdp_filetypes = { "markdown" }
 			end,
 			ft = { "markdown" },
+			-- config = function()
+			--     local mp = require("markdown-preview")
+			-- end
 		},
 		--     config = function()
 		--         local gs = require("gitsigns")
