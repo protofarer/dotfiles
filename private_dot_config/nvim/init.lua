@@ -1483,6 +1483,15 @@ require("lazy").setup({
 				map("n", "<leader>tD", gitsigns.toggle_deleted, { desc = "[T]oggle git show [D]eleted" })
 			end,
 		},
+		{
+			"imacco/markdown-preview.nvim",
+			cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+			build = "cd app && yarn install",
+			init = function()
+				vim.g.mkdp_filetypes = { "markdown" }
+			end,
+			ft = { "markdown" },
+		},
 		--     config = function()
 		--         local gs = require("gitsigns")
 		--         gs.setup({
