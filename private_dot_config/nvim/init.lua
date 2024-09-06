@@ -1491,6 +1491,9 @@ require("lazy").setup({
 				vim.g.mkdp_filetypes = { "markdown" }
 			end,
 			ft = { "markdown" },
+			keys = {
+				{ "<leader>mp", ":MarkdownPreview", { desc = "Markdown Preview" } },
+			},
 			-- config = function()
 			--     local mp = require("markdown-preview")
 			-- end
