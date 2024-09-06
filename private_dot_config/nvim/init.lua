@@ -1492,7 +1492,7 @@ require("lazy").setup({
 			end,
 			ft = { "markdown" },
 			keys = {
-				{ "<leader>mp", ":MarkdownPreview", { desc = "Markdown Preview" } },
+				{ "<leader>mp", ":MarkdownPreview<CR>", { desc = "Markdown Preview" } },
 			},
 			-- config = function()
 			--     local mp = require("markdown-preview")
