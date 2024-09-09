@@ -206,8 +206,7 @@ vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" }
 -- TODO: enter terminal mode?
 
 -- git
-vim.keymap.set("n", "<leader>g", ":!git ", { noremap = true })
-vim.keymap.set("n", "<leader>gs", ":G status --short --branch<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>gs", ":G status<CR>", { noremap = true })
 
 -- NeoGit
 vim.keymap.set("n", "<leader>gg", ":Neogit<CR>", { noremap = true })
