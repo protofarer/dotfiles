@@ -134,6 +134,7 @@ vim.keymap.set("n", "<C-s>", ":update<CR>", km_opts)
 
 -- ,diffview
 vim.keymap.set("n", "<leader>vd", ":DiffviewOpen<CR>", { desc = "[v]iew [d]iff on buffer", noremap = true })
+vim.keymap.set("n", "<leader>vx", ":DiffviewClose<CR>", { desc = "[v]iew diff close [x]", noremap = true })
 vim.keymap.set(
 	"n",
 	"<leader>vD",
