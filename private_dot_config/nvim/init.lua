@@ -699,6 +699,9 @@ require("lazy").setup({
 						-- This handles overriding only values explicitly passed
 						-- by the server configuration above. Useful when disabling
 						-- certain features of an LSP (for example, turning off formatting for tsserver)
+						if server_name == "tsserver" then
+							server_name = "ts_ls"
+						end
 						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
 						require("lspconfig")[server_name].setup(server)
 					end,
@@ -723,123 +726,8 @@ require("lazy").setup({
 							),
 						})
 					end,
-					-- ["vtsls"] = function(_, opts)
-					-- 	local lspconfig = require("lspconfig")
-					-- 	-- Do keymap setup here, instead of with `servers` table
-					-- 	lspconfig.vtsls.setup({})
-					-- end,
-					-- keys = {
-					-- 	{
-					-- 		"<leader>co",
-					-- 		LazyVim.lsp.action["source.organizeImports"],
-					-- 		desc = "Organize Imports",
-					-- 	},
-					-- 	{
-					-- 		"<leader>cM",
-					-- 		LazyVim.lsp.action["source.addMissingImports.ts"],
-					-- 		desc = "Add missing imports",
-					-- 	},
-					-- 	{
-					-- 		"<leader>cu",
-					-- 		LazyVim.lsp.action["source.removeUnused.ts"],
-					-- 		desc = "Remove unused imports",
-					-- 	},
-					-- 	{
-					-- 		"<leader>cD",
-					-- 		LazyVim.lsp.action["source.fixAll.ts"],
-					-- 		desc = "Fix all diagnostics",
-					-- 	},
-					-- },
-					--
-					-- LazyVim.lsp.on_attach(function(client, buffer)
-					-- 	client.commands["_typescript.moveToFileRefactoring"] = function(command, ctx)
-					-- 		---@type string, string, lsp.Range
-					-- 		local action, uri, range = unpack(command.arguments)
-					--
-					-- 		local function move(newf)
-					-- 			client.request("workspace/executeCommand", {
-					-- 				command = command.command,
-					-- 				arguments = { action, uri, range, newf },
-					-- 			})
-					-- 		end
-					--
-					-- 		local fname = vim.uri_to_fname(uri)
-					-- 		client.request("workspace/executeCommand", {
-					-- 			command = "typescript.tsserverRequest",
-					-- 			arguments = {
-					-- 				"getMoveToRefactoringFileSuggestions",
-					-- 				{
-					-- 					file = fname,
-					-- 					startLine = range.start.line + 1,
-					-- 					startOffset = range.start.character + 1,
-					-- 					endLine = range["end"].line + 1,
-					-- 					endOffset = range["end"].character + 1,
-					-- 				},
-					-- 			},
-					-- 		}, function(_, result)
-					-- 			---@type string[]
-					-- 			local files = result.body.files
-					-- 			table.insert(files, 1, "Enter new path...")
-					-- 			vim.ui.select(files, {
-					-- 				prompt = "Select move destination:",
-					-- 				format_item = function(f)
-					-- 					return vim.fn.fnamemodify(f, ":~:.")
-					-- 				end,
-					-- 			}, function(f)
-					-- 				if f and f:find("^Enter new path") then
-					-- 					vim.ui.input({
-					-- 						prompt = "Enter move destination:",
-					-- 						default = vim.fn.fnamemodify(fname, ":h") .. "/",
-					-- 						completion = "file",
-					-- 					}, function(newf)
-					-- 						return newf and move(newf)
-					-- 					end)
-					-- 				elseif f then
-					-- 					move(f)
-					-- 				end
-					-- 			end)
-					-- 		end)
-					-- 	end
-					-- end, "vtsls")
-					-- end of LazyVim on_attach
 				},
 			})
-
-			-- local lspconfig = require("lspconfig")
-
-			-- does this work?
-
-			-- version A
-			-- lspc.eslint.setup({
-			--     on_attach = function(_client, bufnr)
-			--         vim.api.nvim_create_autocmd("BufWritePre", {
-			--             buffer = bufnr,
-			--             command = "EslintFixAll",
-			--         })
-			--     end,
-			--     settings = {
-			--         workingDirectory = { mode = "location" },
-			--     },
-			--     root_dir = lspc.util.find_git_ancestor,
-			-- })
-			-- lspconfig.eslint.setup({
-			-- 	settings = {
-			-- 		workingDirectory = { mode = "location" },
-			-- 	},
-			-- 	-- root_dir = lspc.util.find_git_ancestor,
-			-- 	root_dir = lspconfig.util.root_pattern(
-			-- 		"eslint.config.js",
-			-- 		"eslint.config.mjs",
-			-- 		"eslint.config.cjs",
-			-- 		".eslintrc.js",
-			-- 		".eslintrc.cjs",
-			-- 		".eslintrc.yaml",
-			-- 		".eslintrc.yml",
-			-- 		".eslintrc.json"
-			-- 		-- Disabled to prevent "No ESLint configuration found" exceptions
-			-- 		-- 'package.json',
-			-- 	),
-			-- })
 		end,
 	},
 	{
