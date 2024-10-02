@@ -516,8 +516,8 @@ require("lazy").setup({
 
 					vim.lsp.buf.format({
 						filter = function(client)
-							local disabled_formatters = { "tsserver", "vtsls" }
-							-- not tsserver, vtsls, eslin
+							local disabled_formatters = { "vtsls" }
+							-- not vtsls, eslin
 							return not vim.tbl_contains(disabled_formatters, client.name)
 						end,
 					})
@@ -601,7 +601,6 @@ require("lazy").setup({
 			-- `:help lspconfig-all` for a list of all the pre-configured LSPs ,lsps
 			local servers = {
 				-- clangd = {},
-				tsserver = { enabled = false },
 				vtsls = {
 					filetypes = {
 						"javascript",
@@ -703,12 +702,6 @@ require("lazy").setup({
 						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
 						require("lspconfig")[server_name].setup(server)
 					end,
-					-- ["tsserver"] = function()
-					--     local lspconfig = require("lspconfig")
-					--     lspconfig.tsserver.setup({
-					--         settings = {},
-					--     })
-					-- end,
 					["eslint"] = function()
 						local lspconfig = require("lspconfig")
 						lspconfig.eslint.setup({
