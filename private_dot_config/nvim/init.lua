@@ -601,7 +601,7 @@ require("lazy").setup({
 			-- `:help lspconfig-all` for a list of all the pre-configured LSPs ,lsps
 			local servers = {
 				-- clangd = {},
-				tsserver = { enabled = false },
+				-- tsserver = { enabled = false },
 				vtsls = {
 					filetypes = {
 						"javascript",
