@@ -1365,7 +1365,7 @@ require("lazy").setup({
 				map("n", "<leader>tD", gitsigns.toggle_deleted, { desc = "[T]oggle git show [D]eleted" })
 			end,
 		},
-		{ "ellisionleao/glow.nvim", config = true, cmd = "Glow" },
+		{ "ellisonleao/glow.nvim", config = true, cmd = "Glow" },
 		--     config = function()
 		--         local gs = require("gitsigns")
 		--         gs.setup({
