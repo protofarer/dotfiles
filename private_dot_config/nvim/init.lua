@@ -1373,6 +1373,11 @@ require("lazy").setup({
 			build = function()
 				vim.fn["mkdp#util#install"]()
 			end,
+
+			keys = {
+				{ "<leader>pm", ":MarkdownPreview<CR>", { desc = "Start markdown preview browser" } },
+				{ "<leader>ps", ":MarkdownPreviewStop<CR>", { desc = "Stop markdown preview browser" } },
+			},
 		},
 		--     config = function()
 		--         local gs = require("gitsigns")
