@@ -602,7 +602,8 @@ require("lazy").setup({
 			-- `:help lspconfig-all` for a list of all the pre-configured LSPs ,lsps
 			local servers = {
 				-- clangd = {},
-				-- tsserver = { enabled = false },
+				ts_ls = { enabled = false },
+				tsserver = { enabled = false },
 				vtsls = {
 					filetypes = {
 						"javascript",
@@ -644,12 +645,13 @@ require("lazy").setup({
 					},
 				},
 				eslint = {
-					settings = {
-						on_attach = function(client, bufnr)
-							client.server_capabilities.documentFormattingProvider = false
-							client.server_capabilities.documentRangeFormattingProvider = false
-						end,
-					},
+					enabled = false,
+					-- settings = {
+					-- 	on_attach = function(client, bufnr)
+					-- 		client.server_capabilities.documentFormattingProvider = false
+					-- 		client.server_capabilities.documentRangeFormattingProvider = false
+					-- 	end,
+					-- },
 				},
 				rust_analyzer = {},
 				ols = {},
