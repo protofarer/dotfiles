@@ -197,6 +197,7 @@ alias pct='xclip -selection primary -o >'
 ### workspace just command
 alias jps='just -f /home/kenny/spaces/work/pastorstays-workspace/justfile'
 alias jpl='just -f /home/kenny/spaces/work/prolite/workspace/justfile'
+alias jhg='just -f /home/kenny/spaces/work/hopegives/workspace/justfile'
 
 ## File and Dir colors for ls and other outputs
 eval "$(dircolors -b)"
