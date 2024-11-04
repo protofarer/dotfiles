@@ -199,6 +199,9 @@ alias jps='just -f /home/kenny/spaces/work/pastorstays-workspace/justfile'
 alias jpl='just -f /home/kenny/spaces/work/prolite/workspace/justfile'
 alias jhg='just -f /home/kenny/spaces/work/hopegives/workspace/justfile'
 
+### project related commands
+alias hgtokens='source ~/spaces/work/hopegives/workspace/.node-tokens'
+
 ## File and Dir colors for ls and other outputs
 eval "$(dircolors -b)"
 
