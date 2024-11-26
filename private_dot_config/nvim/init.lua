@@ -1136,8 +1136,6 @@ require("lazy").setup({
 			context_commentstring = {
 				config = {
 					-- enable_autocmd = false, -- disable default autocmd, use plugin (numToStr/Comment.nvim) hook function instead
-					enable = true,
-					c = { __default = "// %s", __multiline = "/* %s */" },
 				},
 			},
 		},
@@ -1481,5 +1479,14 @@ vim.api.nvim_create_user_command("ToggleColorscheme", toggle_colorscheme, {})
 vim.keymap.set("n", "<leader>tc", ":ToggleColorscheme<CR>", { desc = "Toggle colorscheme" })
 
 vim.cmd("colorscheme " .. COLORSCHEMES[get_saved_scheme()])
+
+vim.filetype.add({
+	extension = {
+		c = function()
+			vim.bo.commentstring = "// %s"
+			return "c"
+		end,
+	},
+})
 
 -- vim: ts=4 sts=4 sw=4 et
