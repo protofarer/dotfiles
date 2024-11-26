@@ -1011,6 +1011,10 @@ require("lazy").setup({
 		opts = {
 			options = {
 				custom_commentstring = function()
+					local ft = vim.bo.filetype
+					if ft == "c" then
+						return "// %s"
+					end
 					return require("ts_context_commentstring.internal").calculate_commentstring()
 						or vim.bo.commentstring
 				end,
@@ -1479,14 +1483,5 @@ vim.api.nvim_create_user_command("ToggleColorscheme", toggle_colorscheme, {})
 vim.keymap.set("n", "<leader>tc", ":ToggleColorscheme<CR>", { desc = "Toggle colorscheme" })
 
 vim.cmd("colorscheme " .. COLORSCHEMES[get_saved_scheme()])
-
-vim.filetype.add({
-	extension = {
-		c = function()
-			vim.bo.commentstring = "// %s"
-			return "c"
-		end,
-	},
-})
 
 -- vim: ts=4 sts=4 sw=4 et
