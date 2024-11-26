@@ -792,7 +792,7 @@ require("lazy").setup({
 				javascriptreact = { "prettier" },
 				json = { "prettier" },
 				css = { "prettier" },
-				c = { "clangd" },
+				c = { "clang-format" },
 			},
 		},
 	},
