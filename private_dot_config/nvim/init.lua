@@ -1136,6 +1136,7 @@ require("lazy").setup({
 			context_commentstring = {
 				config = {
 					enable_autocmd = false, -- disable default autocmd, use plugin (numToStr/Comment.nvim) hook function instead
+                    c = { __default = "// %s", __multiline = "/* %s */" }
 				},
 			},
 		},
