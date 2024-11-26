@@ -601,7 +601,6 @@ require("lazy").setup({
 			--
 			-- `:help lspconfig-all` for a list of all the pre-configured LSPs ,lsps
 			local servers = {
-				clangd = {},
 				ts_ls = { enabled = false },
 				vtsls = {
 					filetypes = {
@@ -652,6 +651,7 @@ require("lazy").setup({
 					-- 	end,
 					-- },
 				},
+				clangd = {},
 				rust_analyzer = {},
 				ols = {},
 				pyright = {},
@@ -690,6 +690,7 @@ require("lazy").setup({
 				"stylua",
 				"rust_analyzer",
 				"prettier",
+				"clang-format",
 			})
 
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
@@ -791,6 +792,7 @@ require("lazy").setup({
 				javascriptreact = { "prettier" },
 				json = { "prettier" },
 				css = { "prettier" },
+				c = { "clangd" },
 			},
 		},
 	},
