@@ -272,8 +272,7 @@ npx() {
 }
 
 # setopt auto_cd
-# export CDPATH=:~/spaces/projects/:~/spaces/education/:~/spaces/work/:$CDPATH
-export CDPATH=:~/spaces/*:$CDPATH
+export CDPATH=:~/spaces/projects/:~/spaces/education/:~/spaces/work/:~/spaces/katas:$CDPATH
 
 function mdg() {
   mkdir -p "$@" && cd "$@"
