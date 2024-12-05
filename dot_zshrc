@@ -195,9 +195,9 @@ alias ghas='gh auth switch'
 alias pct='xclip -selection primary -o >'
 
 ### workspace just command
-alias psj='just -f /home/kenny/spaces/work/pastorstays-workspace/justfile'
-alias plj='just -f /home/kenny/spaces/work/prolite/workspace/justfile'
-alias hgj='just -f /home/kenny/spaces/work/hopegives/workspace/justfile'
+alias jps='just -f /home/kenny/spaces/work/pastorstays-workspace/justfile'
+alias jpl='just -f /home/kenny/spaces/work/prolite/workspace/justfile'
+alias jhg='just -f /home/kenny/spaces/work/hopegives/workspace/justfile'
 
 ### project related commands
 alias hgtokens='source ~/spaces/work/hopegives/workspace/.node-tokens'
