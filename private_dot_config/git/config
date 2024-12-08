@@ -41,9 +41,11 @@
 	pf = push --force
 	pfl = push --force-with-lease
 	rbi = rebase -i
+	ds = diff --staged
 
 	# Basic version - shows just the numbers
-	loc = git diff main...HEAD --shortstat
+	loc = diff main...HEAD --shortstat
 
 	# Or a slightly fancier version that gives you just the total LOC delta
-	locd = 'git diff main...HEAD --numstat | awk "{added+=\$1; removed+=\$2} END {print \"Total LOC delta: \"added-removed}"'ds = diff --staged
+    locd = "!git diff main...HEAD --numstat | awk '{added+=$1; removed+=$2} END {print \"Total LOC delta: \" added-removed}'"
+
