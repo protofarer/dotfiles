@@ -792,6 +792,7 @@ require("lazy").setup({
 				javascriptreact = { "prettier" },
 				json = { "prettier" },
 				css = { "prettier" },
+				astro = { "prettier" },
 				-- c = { "clang-format" },
 			},
 		},
@@ -1125,6 +1126,7 @@ require("lazy").setup({
 				"odin",
 				"python",
 				"regex",
+				"astro",
 			},
 			-- Autoinstall languages that are not installed
 			auto_install = true,
