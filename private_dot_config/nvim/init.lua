@@ -793,6 +793,7 @@ require("lazy").setup({
 				json = { "prettier" },
 				css = { "prettier" },
 				astro = { "prettier" },
+				yml = { "prettier" },
 				-- c = { "clang-format" },
 			},
 		},
