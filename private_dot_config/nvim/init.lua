@@ -626,6 +626,7 @@ require("lazy").setup({
 							updateImportsOnFileMove = { enabled = "always" },
 							suggest = {
 								completeFunctionCalls = true,
+								autoImports = true,
 							},
 							inlayHints = {
 								enumMemberValues = { enabled = true },
@@ -634,6 +635,15 @@ require("lazy").setup({
 								parameterTypes = { enabled = true },
 								propertyDeclarationTypes = { enabled = true },
 								variableTypes = { enabled = false },
+							},
+							referencesCodeLens = { enabled = true },
+							watch = true,
+							tsserver = {
+								watchOptions = {
+									watchFile = "useFsEvents",
+									watchDirectory = "useFsEvents",
+									fallbackPolling = "dynamicPriorityPolling",
+								},
 							},
 						},
 						-- on_attach = function(client, bufnr)
