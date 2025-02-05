@@ -227,6 +227,13 @@ vim.keymap.set("n", "<leader>pp", '"_dP', { noremap = true })
 
 vim.keymap.set("n", "<leader>m", ":messages<CR>", { noremap = true, desc = "cmd :messages" })
 
+vim.keymap.set("n", "<leader>lr", function()
+	vim.cmd("LspStop")
+	vim.cmd("sleep 50m")
+	vim.cmd("LspStart")
+	print("LSP restarted")
+end, { noremap = true, desc = "[L]SP [R]estart" })
+
 -- move lines up or down
 -- see `mini.move`
 -- vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { noremap = true, desc = "move line down (n)" })
