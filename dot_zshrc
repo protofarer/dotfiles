@@ -192,7 +192,7 @@ alias j='just'
 alias ghas='gh auth switch'
 
 # download youtube audio mp3 to cwd
-alias ytdla='yt-dlp -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 -o "%(title)s.%(ext)s"'
+alias ytdla='yt-dlp -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 -o "/home/kenny/Downloads/ytdla/%(title)s.%(ext)s"'
 
 # paste clipboard to
 alias pct='xclip -selection primary -o >'
