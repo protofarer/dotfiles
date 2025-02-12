@@ -214,7 +214,7 @@ vim.keymap.set("n", "<leader>gg", ":Neogit<CR>", { noremap = true })
 
 -- lua
 vim.keymap.set("n", "<leader>lf", ":luafile ", { noremap = true })
-vim.keymap.set("n", "<leader>lr", ":luafile %<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>lc", ":luafile %<CR>", { noremap = true })
 
 -- system clipboard (yank into system clipboard, paste from clipboard register)
 -- TODO: ISS: skips cursor line and yanks below it?
@@ -227,12 +227,7 @@ vim.keymap.set("n", "<leader>pp", '"_dP', { noremap = true })
 
 vim.keymap.set("n", "<leader>m", ":messages<CR>", { noremap = true, desc = "cmd :messages" })
 
-vim.keymap.set("n", "<leader>lr", function()
-	vim.cmd("LspStop")
-	vim.cmd("sleep 50m")
-	vim.cmd("LspStart")
-	print("LSP restarted")
-end, { noremap = true, desc = "[L]SP [R]estart" })
+vim.keymap.set("n", "<leader>lr", ":LspRestart", { noremap = true, desc = "[L]SP [R]estart" })
 
 -- move lines up or down
 -- see `mini.move`
