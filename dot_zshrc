@@ -288,7 +288,11 @@ function mdg() {
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
+# neovim
 export PATH="$PATH:/opt/nvim-linux64/bin"
+
+# odin
+export PATH="/home/kenny/spaces/src/Odin:$PATH"
 
 eval "$(direnv hook zsh)"
 
@@ -296,3 +300,4 @@ if [ -n "$STARTUP_TIME" ]; then
   echo $(expr $(date +%s%3N) - $STARTUP_TIME)'ms'
   unset STARTUP_TIME
 fi
+
