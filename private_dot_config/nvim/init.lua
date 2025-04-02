@@ -260,13 +260,14 @@ vim.api.nvim_create_autocmd("BufEnter", {
 
 -- https://www.reddit.com/r/neovim/comments/10pkzpw/what_is_your_saving_method_what_keys_have_to/
 -- save anytime a buffer is left or neovim focus ist lost
-vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {
-	callback = function()
-		if vim.bo.modified and not vim.bo.readonly and vim.fn.expand("%") ~= "" and vim.bo.buftype == "" then
-			vim.api.nvim_command("silent update")
-		end
-	end,
-})
+-- commented out on 250402, due to mass errors every time these event triggers occur
+-- vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost" }, {
+-- 	callback = function()
+-- 		if vim.bo.modified and not vim.bo.readonly and vim.fn.expand("%") ~= "" and vim.bo.buftype == "" then
+-- 			vim.api.nvim_command("silent update")
+-- 		end
+-- 	end,
+-- })
 
 -- run nvim-lint linters. To run on every text change use event "TextChanged"
 vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost" }, {
