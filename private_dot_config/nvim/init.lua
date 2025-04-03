@@ -1554,4 +1554,17 @@ vim.keymap.set("n", "<leader>tc", ":ToggleColorscheme<CR>", { desc = "Toggle col
 
 vim.cmd("colorscheme " .. COLORSCHEMES[get_saved_scheme()])
 
+vim.api.nvim_create_user_command("DiagnoseComments", function()
+	-- Get the current colorscheme
+	print("Current colorscheme: " .. vim.g.colors_name)
+
+	-- Check various comment highlight groups
+	local groups = { "Comment", "@comment", "TSComment" }
+	for _, group in ipairs(groups) do
+		local hl = vim.api.nvim_get_hl(0, { name = group })
+		print(group .. " highlight:")
+		vim.print(hl)
+	end
+end, {})
+
 -- vim: ts=4 sts=4 sw=4 et
