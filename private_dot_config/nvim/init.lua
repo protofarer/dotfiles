@@ -1527,23 +1527,10 @@ local function toggle_colorscheme()
 	CURR_COLORSCHEME_INDEX = (CURR_COLORSCHEME_INDEX % #COLORSCHEMES) + 1
 	local new_scheme = COLORSCHEMES[CURR_COLORSCHEME_INDEX]
 
-	-- try to clear colorschemes when switching:
-	-- Clear all highlights first
-	vim.cmd("highlight clear")
-	if vim.fn.exists("syntax_on") == 1 then
-		vim.cmd("syntax reset")
-	end
-
-	-----------------------------------
-
 	vim.cmd("colorscheme " .. new_scheme)
 
-	-- Apply specific overrides for kundalini if needed
 	if new_scheme == "kundalini" then
-		-- Force red comments
-		vim.cmd("highlight Comment guifg=#8B0000 guibg=#0B0000 gui=italic")
-		vim.cmd("highlight @comment guifg=#8B0000 guibg=#0B0000 gui=italic")
-		vim.cmd("highlight TSComment guifg=#8B0000 guibg=#0B0000 gui=italic")
+		fix_kundalini_comments()
 	end
 
 	save_scheme(CURR_COLORSCHEME_INDEX)
@@ -1567,5 +1554,23 @@ vim.api.nvim_create_user_command("DiagnoseComments", function()
 		vim.print(hl)
 	end
 end, {})
+
+local function fix_kundalini_comments()
+	-- Red color for comments (using your color values)
+	local comment_fg = "#8B0000" -- Adjust if needed to match your red
+	local comment_bg = "#0B0000" -- Adjust if needed to match your black
+
+	-- Set all comment highlight groups
+	vim.api.nvim_set_hl(0, "Comment", { fg = comment_fg, bg = comment_bg, italic = true })
+	vim.api.nvim_set_hl(0, "@comment", { fg = comment_fg, bg = comment_bg, italic = true })
+	vim.api.nvim_set_hl(0, "TSComment", { fg = comment_fg, bg = comment_bg, italic = true })
+
+	-- Additional comment groups that might be used
+	vim.api.nvim_set_hl(0, "@comment.documentation", { fg = comment_fg, bg = comment_bg, italic = true })
+	vim.api.nvim_set_hl(0, "@comment.error", { fg = comment_fg, bg = comment_bg, italic = true })
+	vim.api.nvim_set_hl(0, "@comment.warning", { fg = comment_fg, bg = comment_bg, italic = true })
+	vim.api.nvim_set_hl(0, "@comment.todo", { fg = comment_fg, bg = comment_bg, italic = true })
+	vim.api.nvim_set_hl(0, "@comment.note", { fg = comment_fg, bg = comment_bg, italic = true })
+end
 
 -- vim: ts=4 sts=4 sw=4 et
