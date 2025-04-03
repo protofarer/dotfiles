@@ -236,6 +236,16 @@ vim.keymap.set("n", "<leader>lr", ":LspRestart<CR>", { noremap = true, desc = "[
 -- vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, desc = "move line up (v)" })
 -- vim.keymap.set("v", "<A-k>", ":m '>-2<CR>gv=gv", { noremap = true, desc = "move line down (v)" })
 
+-- for gamedev, specifically odin hot reloading
+vim.keymap.set("n", "<leader>ff", function()
+	vim.cmd("!./build_hot_reload.sh")
+end, { desc = "Run build hot reload script" })
+
+-- Key binding for running game_hot_reload.bin
+vim.keymap.set("n", "<leader>fr", function()
+	vim.cmd("!./game_hot_reload.bin")
+end, { desc = "Run game hot reload executable" })
+
 -- Autocommands  ,autocmd See `:help lua-guide-autocommands`
 
 -- Highlight when yanking (copying) text
