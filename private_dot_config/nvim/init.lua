@@ -1556,4 +1556,15 @@ vim.api.nvim_create_user_command("SyntaxInfo", function()
 	print("Foreground color: " .. (fg or "none"))
 	print("Background color: " .. (bg or "none"))
 end, {})
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+	pattern = "kundalini",
+	callback = function()
+		-- Set with highest priority
+		vim.api.nvim_set_hl(0, "Comment", { fg = "#8B0000", bg = "#0B0000", italic = true, priority = 1000 })
+		vim.api.nvim_set_hl(0, "@comment", { fg = "#8B0000", bg = "#0B0000", italic = true, priority = 1000 })
+		vim.api.nvim_set_hl(0, "TSComment", { fg = "#8B0000", bg = "#0B0000", italic = true, priority = 1000 })
+	end,
+	group = vim.api.nvim_create_augroup("KundaliniHighlightFix", { clear = true }),
+})
 -- vim: ts=4 sts=4 sw=4 et
