@@ -1537,4 +1537,27 @@ vim.keymap.set("n", "<leader>tc", ":ToggleColorscheme<CR>", { desc = "Toggle col
 
 vim.cmd("colorscheme " .. COLORSCHEMES[get_saved_scheme()])
 
+vim.api.nvim_create_user_command("CheckHighlight", function()
+	local word = vim.fn.expand("<cword>")
+	local line = vim.fn.line(".")
+	local col = vim.fn.col(".")
+	local ns_id = vim.api.nvim_get_namespaces()["treesitter"]
+
+	-- Get syntax ID at cursor
+	local syntax_id = vim.fn.synID(line, col, 1)
+	local syntax_name = vim.fn.synIDattr(syntax_id, "name")
+
+	-- Get treesitter highlight group at cursor
+	local ts_captures = vim.treesitter.get_captures_at_pos(0, line - 1, col - 1)
+
+	print("Syntax ID: " .. syntax_name)
+	print("Treesitter captures:")
+	vim.pretty_print(ts_captures)
+
+	-- Get highlight information
+	local hl = vim.api.nvim_get_hl(0, { name = syntax_name })
+	print("Highlight attributes:")
+	vim.pretty_print(hl)
+end, {})
+
 -- vim: ts=4 sts=4 sw=4 et
