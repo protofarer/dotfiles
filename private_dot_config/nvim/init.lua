@@ -280,7 +280,7 @@ vim.keymap.set("n", "<leader>fr", function()
 		},
 		-- Optional: close on exit
 		on_exit = function(t, job, exit_code, name)
-			if exit_code == 0 then
+			if exit_code == 0 or exit_code == 1 then
 				-- Auto close on successful exit
 				vim.defer_fn(function()
 					t:close()
