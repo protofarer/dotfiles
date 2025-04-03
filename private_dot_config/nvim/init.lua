@@ -237,12 +237,34 @@ vim.keymap.set("n", "<leader>lr", ":LspRestart<CR>", { noremap = true, desc = "[
 -- vim.keymap.set("v", "<A-k>", ":m '>-2<CR>gv=gv", { noremap = true, desc = "move line down (v)" })
 
 -- for gamedev, specifically odin hot reloading
+-- Auto-closing build command using <leader>ff
 vim.keymap.set("n", "<leader>ff", function()
-	vim.cmd("!./build_hot_reload.sh")
+	-- Create a new terminal buffer and run the build script
 	vim.cmd("botright split")
+	local bufnr = vim.api.nvim_get_current_buf()
+
+	-- Set up an autocommand to close the terminal when the job exits
+	vim.api.nvim_create_autocmd("TermClose", {
+		buffer = bufnr,
+		callback = function(args)
+			-- Close the window containing the terminal buffer
+			vim.cmd("silent! close")
+
+			-- Show build status in the command line
+			local exit_code = vim.v.event.status
+			if exit_code == 0 then
+				vim.notify("Build succeeded!", vim.log.levels.INFO)
+			else
+				vim.notify("Build failed with code " .. exit_code, vim.log.levels.ERROR)
+			end
+		end,
+		once = true,
+	})
+
+	-- Run the build script
 	vim.cmd("terminal ./build_hot_reload.sh")
 	vim.cmd("startinsert")
-end, { desc = "Run build hot reload script" })
+end, { desc = "Build project with auto-close" })
 
 -- Key binding for running game_hot_reload.bin
 vim.keymap.set("n", "<leader>fr", function()
