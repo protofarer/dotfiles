@@ -1522,35 +1522,11 @@ local function save_scheme(index)
 	end
 end
 
-local function fix_kundalini_comments()
-	-- Red color for comments (using your color values)
-	local comment_fg = "#8B0000" -- Adjust if needed to match your red
-	local comment_bg = "#0B0000" -- Adjust if needed to match your black
-
-	-- Set all comment highlight groups
-	vim.api.nvim_set_hl(0, "Comment", { fg = comment_fg, bg = comment_bg, italic = true })
-	vim.api.nvim_set_hl(0, "@comment", { fg = comment_fg, bg = comment_bg, italic = true })
-	vim.api.nvim_set_hl(0, "TSComment", { fg = comment_fg, bg = comment_bg, italic = true })
-
-	-- Additional comment groups that might be used
-	vim.api.nvim_set_hl(0, "@comment.documentation", { fg = comment_fg, bg = comment_bg, italic = true })
-	vim.api.nvim_set_hl(0, "@comment.error", { fg = comment_fg, bg = comment_bg, italic = true })
-	vim.api.nvim_set_hl(0, "@comment.warning", { fg = comment_fg, bg = comment_bg, italic = true })
-	vim.api.nvim_set_hl(0, "@comment.todo", { fg = comment_fg, bg = comment_bg, italic = true })
-	vim.api.nvim_set_hl(0, "@comment.note", { fg = comment_fg, bg = comment_bg, italic = true })
-end
-
 local function toggle_colorscheme()
 	CURR_COLORSCHEME_INDEX = get_saved_scheme()
 	CURR_COLORSCHEME_INDEX = (CURR_COLORSCHEME_INDEX % #COLORSCHEMES) + 1
 	local new_scheme = COLORSCHEMES[CURR_COLORSCHEME_INDEX]
-
 	vim.cmd("colorscheme " .. new_scheme)
-
-	if new_scheme == "kundalini" then
-		fix_kundalini_comments()
-	end
-
 	save_scheme(CURR_COLORSCHEME_INDEX)
 	print("Colorscheme set to: " .. new_scheme)
 end
