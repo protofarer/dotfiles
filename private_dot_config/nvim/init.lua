@@ -239,11 +239,15 @@ vim.keymap.set("n", "<leader>lr", ":LspRestart<CR>", { noremap = true, desc = "[
 -- for gamedev, specifically odin hot reloading
 vim.keymap.set("n", "<leader>ff", function()
 	vim.cmd("!./build_hot_reload.sh")
+	vim.cmd("botright split")
+	vim.cmd("terminal ./build_hot_reload.sh")
+	vim.cmd("startinsert")
 end, { desc = "Run build hot reload script" })
 
 -- Key binding for running game_hot_reload.bin
 vim.keymap.set("n", "<leader>fr", function()
-	vim.cmd("!./game_hot_reload.bin")
+	require("toggleterm").exec("./game_hot_reload.bin")
+	-- vim.cmd("!./game_hot_reload.bin")
 end, { desc = "Run game hot reload executable" })
 
 -- Autocommands  ,autocmd See `:help lua-guide-autocommands`
