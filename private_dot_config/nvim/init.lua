@@ -1527,7 +1527,24 @@ local function toggle_colorscheme()
 	CURR_COLORSCHEME_INDEX = (CURR_COLORSCHEME_INDEX % #COLORSCHEMES) + 1
 	local new_scheme = COLORSCHEMES[CURR_COLORSCHEME_INDEX]
 
+	-- try to clear colorschemes when switching:
+	-- Clear all highlights first
+	vim.cmd("highlight clear")
+	if vim.fn.exists("syntax_on") == 1 then
+		vim.cmd("syntax reset")
+	end
+
+	-----------------------------------
+
 	vim.cmd("colorscheme " .. new_scheme)
+
+	-- Apply specific overrides for kundalini if needed
+	-- if new_scheme == "kundalini" then
+	--     vim.cmd('highlight Comment guifg=#8B0000 guibg=#0B0000 gui=italic')
+	--     vim.cmd('highlight @comment guifg=#8B0000 guibg=#0B0000 gui=italic')
+	--     vim.cmd('highlight TSComment guifg=#8B0000 guibg=#0B0000 gui=italic')
+	-- end
+
 	save_scheme(CURR_COLORSCHEME_INDEX)
 	print("Colorscheme set to: " .. new_scheme)
 end
