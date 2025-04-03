@@ -1539,11 +1539,11 @@ local function toggle_colorscheme()
 	vim.cmd("colorscheme " .. new_scheme)
 
 	-- Apply specific overrides for kundalini if needed
-	-- if new_scheme == "kundalini" then
-	--     vim.cmd('highlight Comment guifg=#8B0000 guibg=#0B0000 gui=italic')
-	--     vim.cmd('highlight @comment guifg=#8B0000 guibg=#0B0000 gui=italic')
-	--     vim.cmd('highlight TSComment guifg=#8B0000 guibg=#0B0000 gui=italic')
-	-- end
+	if new_scheme == "kundalini" then
+		vim.cmd("highlight Comment guifg=#8B0000 guibg=#0B0000 gui=italic")
+		vim.cmd("highlight @comment guifg=#8B0000 guibg=#0B0000 gui=italic")
+		vim.cmd("highlight TSComment guifg=#8B0000 guibg=#0B0000 gui=italic")
+	end
 
 	save_scheme(CURR_COLORSCHEME_INDEX)
 	print("Colorscheme set to: " .. new_scheme)
