@@ -960,7 +960,7 @@ require("lazy").setup({
 		priority = 1000, -- load before all other start plugins
 		init = function()
 			vim.cmd.colorscheme("kanagawa")
-			-- vim.cmd.hi("Comment gui=none")
+			vim.cmd.hi("Comment gui=none")
 		end,
 		opts = {
 			theme = "wave",
