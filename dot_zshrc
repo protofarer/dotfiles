@@ -181,6 +181,7 @@ alias czee='chezmoi edit ~/.zshenv'
 alias czeg='chezmoi edit ~/.config/git/config'
 alias czen='chezmoi edit ~/.config/nvim/init.lua'
 alias czek='chezmoi edit ~/.config/kitty/kitty.conf'
+alias czec='chezmoi edit ~/.config/nvim/colors/kundalini.lua'
 
 ### Misc / One-off tool-related
 alias ez='exec zsh' # aka zsh way of doing source bashrc
