@@ -1537,34 +1537,4 @@ vim.keymap.set("n", "<leader>tc", ":ToggleColorscheme<CR>", { desc = "Toggle col
 
 vim.cmd("colorscheme " .. COLORSCHEMES[get_saved_scheme()])
 
-vim.api.nvim_create_user_command("SyntaxInfo", function()
-	local line = vim.fn.line(".")
-	local col = vim.fn.col(".")
-
-	-- Get syntax ID at cursor
-	local syntax_id = vim.fn.synID(line, col, 1)
-	local syntax_name = vim.fn.synIDattr(syntax_id, "name")
-	local trans_id = vim.fn.synIDtrans(syntax_id)
-	local trans_name = vim.fn.synIDattr(trans_id, "name")
-
-	-- Get colors
-	local fg = vim.fn.synIDattr(trans_id, "fg")
-	local bg = vim.fn.synIDattr(trans_id, "bg")
-
-	print("Syntax name: " .. syntax_name)
-	print("Translated name: " .. trans_name)
-	print("Foreground color: " .. (fg or "none"))
-	print("Background color: " .. (bg or "none"))
-end, {})
-
-vim.api.nvim_create_autocmd("ColorScheme", {
-	pattern = "kundalini",
-	callback = function()
-		-- Set with highest priority
-		vim.api.nvim_set_hl(0, "Comment", { fg = "#8B0000", bg = "#0B0000", italic = true, priority = 1000 })
-		vim.api.nvim_set_hl(0, "@comment", { fg = "#8B0000", bg = "#0B0000", italic = true, priority = 1000 })
-		vim.api.nvim_set_hl(0, "TSComment", { fg = "#8B0000", bg = "#0B0000", italic = true, priority = 1000 })
-	end,
-	group = vim.api.nvim_create_augroup("KundaliniHighlightFix", { clear = true }),
-})
 -- vim: ts=4 sts=4 sw=4 et
