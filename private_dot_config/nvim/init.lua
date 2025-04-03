@@ -246,8 +246,29 @@ end, { desc = "Run build hot reload script" })
 
 -- Key binding for running game_hot_reload.bin
 vim.keymap.set("n", "<leader>fr", function()
-	require("toggleterm").exec("./game_hot_reload.bin")
-	-- vim.cmd("!./game_hot_reload.bin")
+	-- Get the toggleterm module
+	local Terminal = require("toggleterm.terminal").Terminal
+
+	-- Create a floating terminal instance
+	local game_terminal = Terminal:new({
+		cmd = "./game_hot_reload.bin",
+		direction = "float",
+		float_opts = {
+			border = "curved",
+		},
+		-- Optional: close on exit
+		on_exit = function(t, job, exit_code, name)
+			if exit_code == 0 then
+				-- Auto close on successful exit
+				vim.defer_fn(function()
+					t:close()
+				end, 2000) -- Close after 2 seconds
+			end
+		end,
+	})
+
+	-- Toggle/open the terminal
+	game_terminal:toggle()
 end, { desc = "Run game hot reload executable" })
 
 -- Autocommands  ,autocmd See `:help lua-guide-autocommands`
