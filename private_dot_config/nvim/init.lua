@@ -833,7 +833,7 @@ require("lazy").setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
 				rust = { "rust_analyzer" },
-				odin = { "ols" }, -- best way to learn
+				odin = { "ols" },
 				javascript = { "prettier" },
 				typescript = { "prettier" },
 				typescriptreact = { "prettier" },
@@ -1283,55 +1283,55 @@ require("lazy").setup({
 	{ -- treesitter autoclose/autorename html tags
 		"windwp/nvim-ts-autotag",
 	},
-	{
-		"zbirenbaum/copilot.lua",
-		cmd = "Copilot",
-		event = "InsertEnter",
-		build = ":Copilot auth",
-		-- keys = {
-		--     "<leader>cp",
-		--     function()
-		--         require("copilot.suggestion").toggle_auto_trigger()
-		--     end,
-		--     mode = { "n" },
-		--     desc = "toggle [c]o[p]ilot autosuggestion",
-		-- },
-		opts = {
-			suggestion = {
-				enabled = true,
-				auto_trigger = true,
-				keymap = {
-					accept = "<A-l>",
-					next = "<A-)>",
-					prev = "<A-(>",
-					dismiss = "<A-Esc>",
-				},
-			},
-			panel = { enabled = false },
-			filetypes = {
-				javascript = true,
-				typescript = true,
-				javascriptreact = true,
-				typescriptreact = true,
-				python = true,
-				bash = true,
-				zsh = true,
-				markdown = true,
-				help = true,
-				rust = true,
-				odin = false,
-				terraform = false,
-				sh = function()
-					if string.match(vim.fs.basename(vim.api.nvim_buf_get_name(0)), "^%.env.*") then
-						-- disable for .env files
-						return false
-					end
-					return true
-				end,
-				["*"] = false, -- disable all others
-			},
-		},
-	},
+	-- {
+	-- 	"zbirenbaum/copilot.lua",
+	-- 	cmd = "Copilot",
+	-- 	event = "InsertEnter",
+	-- 	build = ":Copilot auth",
+	-- 	-- keys = {
+	-- 	--     "<leader>cp",
+	-- 	--     function()
+	-- 	--         require("copilot.suggestion").toggle_auto_trigger()
+	-- 	--     end,
+	-- 	--     mode = { "n" },
+	-- 	--     desc = "toggle [c]o[p]ilot autosuggestion",
+	-- 	-- },
+	-- 	opts = {
+	-- 		suggestion = {
+	-- 			enabled = true,
+	-- 			auto_trigger = true,
+	-- 			keymap = {
+	-- 				accept = "<A-l>",
+	-- 				next = "<A-)>",
+	-- 				prev = "<A-(>",
+	-- 				dismiss = "<A-Esc>",
+	-- 			},
+	-- 		},
+	-- 		panel = { enabled = false },
+	-- 		filetypes = {
+	-- 			javascript = true,
+	-- 			typescript = true,
+	-- 			javascriptreact = true,
+	-- 			typescriptreact = true,
+	-- 			python = true,
+	-- 			bash = true,
+	-- 			zsh = true,
+	-- 			markdown = true,
+	-- 			help = true,
+	-- 			rust = true,
+	-- 			odin = false,
+	-- 			terraform = false,
+	-- 			sh = function()
+	-- 				if string.match(vim.fs.basename(vim.api.nvim_buf_get_name(0)), "^%.env.*") then
+	-- 					-- disable for .env files
+	-- 					return false
+	-- 				end
+	-- 				return true
+	-- 			end,
+	-- 			["*"] = false, -- disable all others
+	-- 		},
+	-- 	},
+	-- },
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		version = "*",
