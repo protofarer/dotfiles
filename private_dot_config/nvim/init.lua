@@ -239,9 +239,9 @@ vim.keymap.set("n", "<leader>lr", ":LspRestart<CR>", { noremap = true, desc = "[
 -- for gamedev, specifically odin hot reloading
 vim.keymap.set("n", "<leader>ff", function()
 	vim.cmd("!./build_hot_reload.sh")
-	vim.cmd("botright split")
-	vim.cmd("terminal ./build_hot_reload.sh")
-	vim.cmd("startinsert")
+	-- vim.cmd("botright split")
+	-- vim.cmd("terminal ./build_hot_reload.sh")
+	-- vim.cmd("startinsert")
 end, { desc = "Run build hot reload script" })
 
 -- Key binding for running game_hot_reload.bin
