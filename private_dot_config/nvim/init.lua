@@ -272,6 +272,14 @@ vim.keymap.set("n", "<leader>fr", function()
 	game_terminal:toggle()
 end, { desc = "Run game hot reload executable" })
 
+-- Odin build
+vim.keymap.set("n", "<leader>fb", function()
+	vim.cmd("!odin build source")
+	-- vim.cmd("botright split")
+	-- vim.cmd("terminal ./build_hot_reload.sh")
+	-- vim.cmd("startinsert")
+end, { desc = "Run build hot reload script" })
+
 -- Key binding for running an odin program
 vim.keymap.set("n", "<leader>fj", function()
 	-- Get the toggleterm module
