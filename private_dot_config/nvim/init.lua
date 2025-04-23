@@ -279,7 +279,7 @@ vim.keymap.set("n", "<leader>fj", function()
 
 	-- Create a floating terminal instance
 	local terminal = Terminal:new({
-		cmd = "./main",
+		cmd = "./source.bin",
 		direction = "float",
 		float_opts = {
 			border = "curved",
