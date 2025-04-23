@@ -268,10 +268,35 @@ vim.keymap.set("n", "<leader>fr", function()
 			end
 		end,
 	})
-
 	-- Toggle/open the terminal
 	game_terminal:toggle()
 end, { desc = "Run game hot reload executable" })
+
+-- Key binding for running an odin program
+vim.keymap.set("n", "<leader>fj", function()
+	-- Get the toggleterm module
+	local Terminal = require("toggleterm.terminal").Terminal
+
+	-- Create a floating terminal instance
+	local terminal = Terminal:new({
+		cmd = "./main",
+		direction = "float",
+		float_opts = {
+			border = "curved",
+		},
+		-- Optional: close on exit
+		on_exit = function(t, job, exit_code, name)
+			if exit_code == 0 then
+				-- Auto close on successful exit
+				vim.defer_fn(function()
+					t:close()
+				end, 2000) -- Close after 2 seconds
+			end
+		end,
+	})
+	-- Toggle/open the terminal
+	terminal:toggle()
+end, { desc = "Run executable" })
 
 -- Autocommands  ,autocmd See `:help lua-guide-autocommands`
 
