@@ -274,11 +274,11 @@ end, { desc = "Run game hot reload executable" })
 
 -- Odin build
 vim.keymap.set("n", "<leader>fb", function()
-	vim.cmd("!odin build source")
+	vim.cmd("!odin build src")
 	-- vim.cmd("botright split")
 	-- vim.cmd("terminal ./build_hot_reload.sh")
 	-- vim.cmd("startinsert")
-end, { desc = "Run build hot reload script" })
+end, { desc = "Default odin build command" })
 
 -- Key binding for running an odin program
 vim.keymap.set("n", "<leader>fj", function()
@@ -287,7 +287,7 @@ vim.keymap.set("n", "<leader>fj", function()
 
 	-- Create a floating terminal instance
 	local terminal = Terminal:new({
-		cmd = "./source.bin",
+		cmd = "./src.bin",
 		direction = "float",
 		float_opts = {
 			border = "curved",
@@ -304,7 +304,7 @@ vim.keymap.set("n", "<leader>fj", function()
 	})
 	-- Toggle/open the terminal
 	terminal:toggle()
-end, { desc = "Run executable" })
+end, { desc = "Default odin run executable" })
 
 -- Autocommands  ,autocmd See `:help lua-guide-autocommands`
 
