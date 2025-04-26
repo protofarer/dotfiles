@@ -239,7 +239,7 @@ vim.keymap.set("n", "<leader>li", ":LspInfo<CR>", { noremap = true, desc = "[L]S
 -- vim.keymap.set("v", "<A-k>", ":m '>-2<CR>gv=gv", { noremap = true, desc = "move line down (v)" })
 
 -- for gamedev, specifically odin hot reloading
-vim.keymap.set("n", "<leader>ff", function()
+vim.keymap.set("n", "<leader>fv", function()
 	vim.cmd("!./build_hot_reload.sh")
 	-- vim.cmd("botright split")
 	-- vim.cmd("terminal ./build_hot_reload.sh")
@@ -247,7 +247,7 @@ vim.keymap.set("n", "<leader>ff", function()
 end, { desc = "Run build hot reload script" })
 
 -- Key binding for running game_hot_reload.bin
-vim.keymap.set("n", "<leader>fr", function()
+vim.keymap.set("n", "<leader>fb", function()
 	-- Get the toggleterm module
 	local Terminal = require("toggleterm.terminal").Terminal
 
@@ -273,7 +273,7 @@ vim.keymap.set("n", "<leader>fr", function()
 end, { desc = "Run game hot reload executable" })
 
 -- Odin build
-vim.keymap.set("n", "<leader>fb", function()
+vim.keymap.set("n", "<leader>ff", function()
 	vim.cmd("!odin build src")
 	-- vim.cmd("botright split")
 	-- vim.cmd("terminal ./build_hot_reload.sh")
@@ -281,7 +281,7 @@ vim.keymap.set("n", "<leader>fb", function()
 end, { desc = "Default odin build command" })
 
 -- Key binding for running an odin program
-vim.keymap.set("n", "<leader>fj", function()
+vim.keymap.set("n", "<leader>fg", function()
 	-- Get the toggleterm module
 	local Terminal = require("toggleterm.terminal").Terminal
 
