@@ -238,7 +238,7 @@ vim.keymap.set("n", "<leader>li", ":LspInfo<CR>", { noremap = true, desc = "[L]S
 -- vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, desc = "move line up (v)" })
 -- vim.keymap.set("v", "<A-k>", ":m '>-2<CR>gv=gv", { noremap = true, desc = "move line down (v)" })
 
--- for gamedev, specifically odin hot reloading
+-- for gamedev, specifically odin hot reloading w/ raylib
 vim.keymap.set("n", "<leader>fv", function()
 	vim.cmd("!./build_hot_reload.sh")
 	-- vim.cmd("botright split")
@@ -271,6 +271,14 @@ vim.keymap.set("n", "<leader>fb", function()
 	-- Toggle/open the terminal
 	game_terminal:toggle()
 end, { desc = "Run game hot reload executable" })
+
+-- for gamedev, specifically odin hot reloading w/ sokol
+vim.keymap.set("n", "<leader>fr", function()
+	vim.cmd("!./build.py -hot-reload -run")
+	-- vim.cmd("botright split")
+	-- vim.cmd("terminal ./build_hot_reload.sh")
+	-- vim.cmd("startinsert")
+end, { desc = "Run build+run hot reload script" })
 
 -- Odin build
 vim.keymap.set("n", "<leader>ff", function()
