@@ -302,3 +302,5 @@ if [ -n "$STARTUP_TIME" ]; then
   unset STARTUP_TIME
 fi
 
+# run `ls` every time pwd changes
+chpwd() ls
