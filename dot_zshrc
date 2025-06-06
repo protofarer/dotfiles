@@ -306,3 +306,4 @@ fi
 chpwd() ls
 
 export EMSDK_QUIET=1
+alias claude="/home/kenny/.claude/local/claude"
