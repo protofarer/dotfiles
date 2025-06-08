@@ -1483,14 +1483,13 @@ require("lazy").setup({
 				"nvim-lua/plenary.nvim",
 			},
 			config = function()
-				require("claude-code").setup()
+				require("claude-code").setup({
+					command = "claude-with-code",
+				})
 			end,
 			keys = {
 				{ "<leader>cc", ":ClaudeCode<CR>", { desc = "Toggle Claude Code" } },
 			},
-			on_attach = function()
-				vim.fn.system('zsh -c "source ~/.zshrc && nvm use default"')
-			end,
 		},
 		--     config = function()
 		--         local gs = require("gitsigns")
