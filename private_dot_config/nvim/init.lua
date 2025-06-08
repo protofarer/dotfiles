@@ -1489,7 +1489,7 @@ require("lazy").setup({
 				{ "<leader>cc", ":ClaudeCode<CR>", { desc = "Toggle Claude Code" } },
 			},
 			on_attach = function()
-				vim.fn.system("source ~/.bashrc && nvm use default")
+				vim.fn.system('zsh -c "source ~/.zshrc && nvm use default"')
 			end,
 		},
 		--     config = function()
