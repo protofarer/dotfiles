@@ -1485,6 +1485,9 @@ require("lazy").setup({
 			config = function()
 				require("claude-code").setup()
 			end,
+			keys = {
+				{ "<leader>cc", ":ClaudeCode<CR>", { desc = "Toggle Claude Code" } },
+			},
 		},
 		--     config = function()
 		--         local gs = require("gitsigns")
