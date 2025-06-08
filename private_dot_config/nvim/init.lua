@@ -1477,6 +1477,15 @@ require("lazy").setup({
 				{ "<leader>ps", ":MarkdownPreviewStop<CR>", { desc = "Stop markdown preview browser" } },
 			},
 		},
+		{
+			"greggh/claude-code.nvim",
+			dependencies = {
+				"nvim-lua/plenary.nvim",
+			},
+			config = function()
+				require("claude-code").setup()
+			end,
+		},
 		--     config = function()
 		--         local gs = require("gitsigns")
 		--         gs.setup({
