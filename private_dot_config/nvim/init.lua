@@ -1607,4 +1607,20 @@ vim.api.nvim_create_user_command("DiagnoseComments", function()
 	end
 end, {})
 
+-- Preload Node when claude-code plugin is about to be used
+vim.api.nvim_create_autocmd("VimEnter", {
+	callback = function()
+		vim.defer_fn(function()
+			vim.fn.jobstart({ "zsh", "-c", "source ~/.zshrc && nvm use default" }, {
+				detach = true,
+				on_exit = function(_, code)
+					if code == 0 then
+						vim.g.node_loaded_for_claude = true
+					end
+				end,
+			})
+		end, 200) -- Load 200ms after startup
+	end,
+})
+
 -- vim: ts=4 sts=4 sw=4 et
