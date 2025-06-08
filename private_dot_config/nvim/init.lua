@@ -1485,6 +1485,9 @@ require("lazy").setup({
 			config = function()
 				require("claude-code").setup({
 					command = "claude-with-node",
+					window = {
+						position = "vertical",
+					},
 				})
 			end,
 			keys = {
