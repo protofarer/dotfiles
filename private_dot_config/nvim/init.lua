@@ -1488,6 +1488,9 @@ require("lazy").setup({
 			keys = {
 				{ "<leader>cc", ":ClaudeCode<CR>", { desc = "Toggle Claude Code" } },
 			},
+			on_attach = function()
+				vim.fn.system("source ~/.bashrc && nvm use default")
+			end,
 		},
 		--     config = function()
 		--         local gs = require("gitsigns")
