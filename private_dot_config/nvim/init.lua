@@ -1484,7 +1484,7 @@ require("lazy").setup({
 			},
 			config = function()
 				require("claude-code").setup({
-					command = "claude-with-code",
+					command = "claude-with-node",
 				})
 			end,
 			keys = {
