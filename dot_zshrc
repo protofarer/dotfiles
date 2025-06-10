@@ -120,6 +120,66 @@ SAVEHIST=10000
 
 export LS_OPTIONS='--color=auto'
 
+# default nvm load
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# ####### lazy load nvm/node/npm, respective programs loaded on first invocation instead of at shell startup
+DEFAULT_NODE_VERSION=20
+nvm() {
+  unset -f nvm
+  export NVM_DIR=~/.nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+  nvm alias default $DEFAULT_NODE_VERSION
+  nvm "$@"
+}
+
+node() {
+  unset -f node
+  export NVM_DIR=~/.nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+  nvm alias default $DEFAULT_NODE_VERSION
+  node "$@"
+}
+
+npm() {
+  unset -f npm
+  export NVM_DIR=~/.nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+  nvm alias default $DEFAULT_NODE_VERSION
+  npm "$@"
+}
+
+npx() {
+  unset -f npx
+  export NVM_DIR=~/.nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+  nvm alias default $DEFAULT_NODE_VERSION
+  npx "$@"
+}
+
+load_nvm() {
+  if command -v nvm >/dev/null 2>&1; then
+    echo "NVM already loaded"
+    return 0
+  fi
+  
+  export NVM_DIR=~/.nvm
+  if [ -s "$NVM_DIR/nvm.sh" ]; then
+    echo "Loading NVM..."
+    . "$NVM_DIR/nvm.sh"
+    if [ -n "$DEFAULT_NODE_VERSION" ]; then
+      nvm alias default $DEFAULT_NODE_VERSION
+    fi
+    echo "NVM loaded successfully"
+  else
+    echo "NVM not found at $NVM_DIR/nvm.sh"
+    return 1
+  fi
+}
+
 ## ,Aliases
 
 ### Coreutils
@@ -235,46 +295,6 @@ export LESS=-R
 
 export ZYPP_MEDIANETWORK=1
 
-# default nvm load
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-DEFAULT_NODE_VERSION=20
-# ####### lazy load nvm/node/npm, respective programs loaded on first invocation instead of at shell startup
-nvm() {
-  unset -f nvm
-  export NVM_DIR=~/.nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-  nvm alias default $DEFAULT_NODE_VERSION
-  nvm "$@"
-}
-
-node() {
-  unset -f node
-  export NVM_DIR=~/.nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-  nvm alias default $DEFAULT_NODE_VERSION
-  node "$@"
-}
-
-npm() {
-  unset -f npm
-  export NVM_DIR=~/.nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-  nvm alias default $DEFAULT_NODE_VERSION
-  npm "$@"
-}
-
-npx() {
-  unset -f npx
-  export NVM_DIR=~/.nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-  nvm alias default $DEFAULT_NODE_VERSION
-  npx "$@"
-}
-
 # setopt auto_cd
 export CDPATH=:~/spaces/:~/spaces/projects/:~/spaces/education/:~/spaces/work/:~/spaces/katas/:$CDPATH
 
@@ -295,15 +315,21 @@ export PATH="$PATH:/opt/nvim-linux64/bin"
 # odin
 export PATH="/home/kenny/spaces/src/Odin:$PATH"
 
-eval "$(direnv hook zsh)"
-
-if [ -n "$STARTUP_TIME" ]; then
-  echo $(expr $(date +%s%3N) - $STARTUP_TIME)'ms'
-  unset STARTUP_TIME
-fi
-
 # run `ls` every time pwd changes
 chpwd() ls
 
 export EMSDK_QUIET=1
-alias claude="/home/kenny/.claude/local/claude"
+
+# Claude Code CLI
+# alias claude="/home/kenny/.claude/local/claude"
+claude() {
+load_nvm && /home/kenny/.claude/local/claude "$@"
+}
+
+eval "$(direnv hook zsh)"
+
+# Keep at end
+if [ -n "$STARTUP_TIME" ]; then
+  echo $(expr $(date +%s%3N) - $STARTUP_TIME)'ms'
+  unset STARTUP_TIME
+fi
