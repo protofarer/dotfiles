@@ -160,26 +160,6 @@ npx() {
   npx "$@"
 }
 
-load_nvm() {
-  if command -v nvm >/dev/null 2>&1; then
-    echo "NVM already loaded"
-    return 0
-  fi
-  
-  export NVM_DIR=~/.nvm
-  if [ -s "$NVM_DIR/nvm.sh" ]; then
-    echo "Loading NVM..."
-    . "$NVM_DIR/nvm.sh"
-    if [ -n "$DEFAULT_NODE_VERSION" ]; then
-      nvm alias default $DEFAULT_NODE_VERSION
-    fi
-    echo "NVM loaded successfully"
-  else
-    echo "NVM not found at $NVM_DIR/nvm.sh"
-    return 1
-  fi
-}
-
 ## ,Aliases
 
 ### Coreutils
@@ -323,7 +303,9 @@ export EMSDK_QUIET=1
 # Claude Code CLI
 # alias claude="/home/kenny/.claude/local/claude"
 claude() {
-load_nvm && /home/kenny/.claude/local/claude "$@"
+  export NVM_DIR=~/.nvm
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+  /home/kenny/.claude/local/claude "$@"
 }
 
 eval "$(direnv hook zsh)"
