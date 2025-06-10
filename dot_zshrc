@@ -127,10 +127,16 @@ export LS_OPTIONS='--color=auto'
 
 # ####### lazy load nvm/node/npm, respective programs loaded on first invocation instead of at shell startup
 DEFAULT_NODE_VERSION=20
-nvm() {
-  unset -f nvm
+
+# Use this before programs that need node. Especially for scripting.
+load_nvm() {
   export NVM_DIR=~/.nvm
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+}
+
+nvm() {
+  unset -f nvm
+  load_nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
   nvm alias default $DEFAULT_NODE_VERSION
   nvm "$@"
@@ -138,24 +144,21 @@ nvm() {
 
 node() {
   unset -f node
-  export NVM_DIR=~/.nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+  load_nvm
   nvm alias default $DEFAULT_NODE_VERSION
   node "$@"
 }
 
 npm() {
   unset -f npm
-  export NVM_DIR=~/.nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+  load_nvm
   nvm alias default $DEFAULT_NODE_VERSION
   npm "$@"
 }
 
 npx() {
   unset -f npx
-  export NVM_DIR=~/.nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+  load_nvm
   nvm alias default $DEFAULT_NODE_VERSION
   npx "$@"
 }
@@ -303,8 +306,7 @@ export EMSDK_QUIET=1
 # Claude Code CLI
 # alias claude="/home/kenny/.claude/local/claude"
 claude() {
-  export NVM_DIR=~/.nvm
-  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+  load_nvm
   /home/kenny/.claude/local/claude "$@"
 }
 
