@@ -298,6 +298,9 @@ export PATH="$PATH:/opt/nvim-linux64/bin"
 # odin
 export PATH="/home/kenny/spaces/src/Odin:$PATH"
 
+# yarn globally installed binaries
+export PATH="$(yarn global bin):$PATH"
+
 # run `ls` every time pwd changes
 chpwd() ls
 
