@@ -306,6 +306,10 @@ chpwd() ls
 
 export EMSDK_QUIET=1
 
+# wine
+# setup debug env
+export WINEPREFIX=$HOME/.wine_debug
+
 # Claude Code CLI
 # alias claude="/home/kenny/.claude/local/claude"
 claude() {
