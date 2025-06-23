@@ -317,6 +317,8 @@ claude() {
   /home/kenny/.claude/local/claude "$@"
 }
 
+export ANDROID_HOME=/home/kenny/Android/Sdk
+
 eval "$(direnv hook zsh)"
 
 # Keep at end
