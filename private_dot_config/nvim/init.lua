@@ -1510,7 +1510,7 @@ require("lazy").setup({
 		--     end,
 	},
 
-	-- { import = "custom.plugins" },
+	{ import = "custom.plugins" },
 	-- {
 	-- 	"custom.contrib_gitsigns",
 	-- 	config = function()
