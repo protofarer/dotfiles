@@ -240,27 +240,10 @@ vim.keymap.set("n", "<leader>li", ":LspInfo<CR>", { noremap = true, desc = "[L]S
 
 -- for gamedev, specifically odin hot reloading w/ sokol
 vim.keymap.set("n", "<leader>fr", function()
-	local Terminal = require("toggleterm.terminal").Terminal
-
-	-- Create a floating terminal instance
-	local terminal = Terminal:new({
-		cmd = "./build.py -hot-reload -debug -run",
-		direction = "float",
-		float_opts = {
-			border = "curved",
-		},
-		-- Optional: close on exit
-		on_exit = function(t, job, exit_code, name)
-			if exit_code == 0 then
-				-- Auto close on successful exit
-				vim.defer_fn(function()
-					t:close()
-				end, 2000) -- Close after 2 seconds
-			end
-		end,
-	})
-	-- Toggle/open the terminal
-	terminal:toggle()
+	vim.cmd("!./build.py -hot-reload -debug -run")
+	-- vim.cmd("botright split")
+	-- vim.cmd("terminal ./build_hot_reload.sh")
+	-- vim.cmd("startinsert")
 end, { desc = "Run build+run hot reload script" })
 
 -- Odin build
