@@ -1,5 +1,5 @@
 return {
-	name = "quick-tasks",
+	"quick-tasks",
 	dev = true,
 	-- dir = vim.fn.stdpath 'config' .. '/lua/quick-tasks',
 	config = function()
