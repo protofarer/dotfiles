@@ -395,8 +395,6 @@ do
 			return
 		end
 
-		-- Execute the task in a new terminal split
-		vim.cmd("split | terminal " .. script_path .. " " .. task_letter)
 		-- get toggleterm module
 		local Terminal = require("toggleterm.terminal").Terminal
 
