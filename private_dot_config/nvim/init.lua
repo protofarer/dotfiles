@@ -238,21 +238,22 @@ vim.keymap.set("n", "<leader>li", ":LspInfo<CR>", { noremap = true, desc = "[L]S
 -- vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, desc = "move line up (v)" })
 -- vim.keymap.set("v", "<A-k>", ":m '>-2<CR>gv=gv", { noremap = true, desc = "move line down (v)" })
 
--- for gamedev, specifically odin hot reloading w/ raylib
--- replaced by quick tasks
--- vim.keymap.set("n", "<leader>fv", function()
--- 	vim.cmd("!./build_hot_reload.sh")
--- end, { desc = "Run build hot reload script" })
+-- for gamedev, specifically odin hot reloading w/ sokol
+vim.keymap.set("n", "<leader>fr", function()
+	vim.cmd("!./build.py -hot-reload -debug -run")
+	-- vim.cmd("botright split")
+	-- vim.cmd("terminal ./build_hot_reload.sh")
+	-- vim.cmd("startinsert")
+end, { desc = "Run build+run hot reload script" })
 
--- Key binding for running game_hot_reload.bin
--- replaced by quick tasks
-vim.keymap.set("n", "<leader>fb", function()
+-- Odin build
+vim.keymap.set("n", "<leader>ob", function()
 	-- Get the toggleterm module
 	local Terminal = require("toggleterm.terminal").Terminal
 
 	-- Create a floating terminal instance
-	local game_terminal = Terminal:new({
-		cmd = "./game_hot_reload.bin",
+	local terminal = Terminal:new({
+		cmd = "!odin build src",
 		direction = "float",
 		float_opts = {
 			border = "curved",
@@ -268,27 +269,11 @@ vim.keymap.set("n", "<leader>fb", function()
 		end,
 	})
 	-- Toggle/open the terminal
-	game_terminal:toggle()
-end, { desc = "Run game hot reload executable" })
-
--- for gamedev, specifically odin hot reloading w/ sokol
-vim.keymap.set("n", "<leader>fr", function()
-	vim.cmd("!./build.py -hot-reload -debug -run")
-	-- vim.cmd("botright split")
-	-- vim.cmd("terminal ./build_hot_reload.sh")
-	-- vim.cmd("startinsert")
-end, { desc = "Run build+run hot reload script" })
-
--- Odin build
-vim.keymap.set("n", "<leader>ff", function()
-	vim.cmd("!odin build src")
-	-- vim.cmd("botright split")
-	-- vim.cmd("terminal ./build_hot_reload.sh")
-	-- vim.cmd("startinsert")
+	terminal:toggle()
 end, { desc = "Default odin build command" })
 
 -- Key binding for running an odin program
-vim.keymap.set("n", "<leader>fg", function()
+vim.keymap.set("n", "<leader>or", function()
 	-- Get the toggleterm module
 	local Terminal = require("toggleterm.terminal").Terminal
 
