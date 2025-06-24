@@ -242,7 +242,7 @@ vim.keymap.set("n", "<leader>li", ":LspInfo<CR>", { noremap = true, desc = "[L]S
 vim.keymap.set("n", "<leader>fr", function()
 	-- vim.cmd("!./build.py -hot-reload -debug -run")
 	vim.cmd("botright split")
-	vim.cmd("terminal ./build_hot_reload.sh")
+	vim.cmd("terminal ./build.py -hot-reload -debug -run")
 	vim.cmd("startinsert")
 end, { desc = "Run build+run hot reload script" })
 
