@@ -3,4 +3,6 @@
 --
 -- See the kickstart.nvim README for more information
 
+require("custom.plugins.quick-tasks").setup()
+
 return {}
