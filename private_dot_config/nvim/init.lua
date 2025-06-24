@@ -239,14 +239,13 @@ vim.keymap.set("n", "<leader>li", ":LspInfo<CR>", { noremap = true, desc = "[L]S
 -- vim.keymap.set("v", "<A-k>", ":m '>-2<CR>gv=gv", { noremap = true, desc = "move line down (v)" })
 
 -- for gamedev, specifically odin hot reloading w/ raylib
-vim.keymap.set("n", "<leader>fv", function()
-	vim.cmd("!./build_hot_reload.sh")
-	-- vim.cmd("botright split")
-	-- vim.cmd("terminal ./build_hot_reload.sh")
-	-- vim.cmd("startinsert")
-end, { desc = "Run build hot reload script" })
+-- replaced by quick tasks
+-- vim.keymap.set("n", "<leader>fv", function()
+-- 	vim.cmd("!./build_hot_reload.sh")
+-- end, { desc = "Run build hot reload script" })
 
 -- Key binding for running game_hot_reload.bin
+-- replaced by quick tasks
 vim.keymap.set("n", "<leader>fb", function()
 	-- Get the toggleterm module
 	local Terminal = require("toggleterm.terminal").Terminal
@@ -398,6 +397,20 @@ do
 
 		-- Execute the task in a new terminal split
 		vim.cmd("split | terminal " .. script_path .. " " .. task_letter)
+		-- get toggleterm module
+		local Terminal = require("toggleterm.terminal").Terminal
+
+		-- Create float term instance
+		local task_terminal = Terminal:new({
+			cmd = script_path .. " " .. task_letter,
+			direction = "float",
+			float_opts = {
+				border = "curved",
+			},
+			close_on_exit = false,
+		})
+		-- toggle the terminal
+		task_terminal:toggle()
 	end
 
 	-- Set up keymaps
@@ -405,25 +418,25 @@ do
 		desc = "Create quick task script",
 	})
 
-	vim.keymap.set("n", "<leader>rr", function()
+	vim.keymap.set("n", "<leader>ff", function()
 		run_task("a")
 	end, {
 		desc = "Run quick task A",
 	})
 
-	vim.keymap.set("n", "<leader>rt", function()
+	vim.keymap.set("n", "<leader>fg", function()
 		run_task("b")
 	end, {
 		desc = "Run quick task B",
 	})
 
-	vim.keymap.set("n", "<leader>rf", function()
+	vim.keymap.set("n", "<leader>fv", function()
 		run_task("c")
 	end, {
 		desc = "Run quick task C",
 	})
 
-	vim.keymap.set("n", "<leader>rg", function()
+	vim.keymap.set("n", "<leader>fb", function()
 		run_task("d")
 	end, {
 		desc = "Run quick task D",
