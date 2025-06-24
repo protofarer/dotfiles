@@ -1,5 +1,8 @@
 return {
 	name = "quick-tasks",
+	dev = {
+		path = "~/.config/nvim/lua/custom/plugins",
+	},
 	-- dir = vim.fn.stdpath 'config' .. '/lua/quick-tasks',
 	config = function()
 		local M = {}
