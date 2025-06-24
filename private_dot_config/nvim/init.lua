@@ -279,7 +279,8 @@ vim.keymap.set("n", "<leader>or", function()
 
 	-- Create a floating terminal instance
 	local terminal = Terminal:new({
-		cmd = "./src.bin",
+		-- cmd = "./src.bin",
+		cmd = "odin run src",
 		direction = "float",
 		float_opts = {
 			border = "curved",
