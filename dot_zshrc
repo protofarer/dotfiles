@@ -132,6 +132,9 @@ DEFAULT_NODE_VERSION=20
 load_nvm() {
   export NVM_DIR=~/.nvm
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+  # yarn globally installed binaries
+  export PATH="$(yarn global bin):$PATH"
 }
 
 nvm() {
@@ -297,9 +300,6 @@ export PATH="$PATH:/opt/nvim-linux64/bin"
 
 # odin
 export PATH="/home/kenny/spaces/src/Odin:$PATH"
-
-# yarn globally installed binaries
-export PATH="$(yarn global bin):$PATH"
 
 # run `ls` every time pwd changes
 chpwd() ls
