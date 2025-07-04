@@ -1659,7 +1659,7 @@ require("lazy").setup({
 				vim.keymap.set("n", "<leader>a", function()
 					harpoon:list():add()
 				end)
-				vim.keymap.set("n", "<C-r>", function()
+				vim.keymap.set("n", "<C-g>", function()
 					harpoon:list():select(1)
 				end)
 				vim.keymap.set("n", "<C-t>", function()
