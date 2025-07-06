@@ -281,8 +281,9 @@ export LESS=-R
 
 export ZYPP_MEDIANETWORK=1
 
-# setopt auto_cd
-export CDPATH=:~/spaces/:~/spaces/*:$CDPATH
+# setopt auto_cd, below is zsh specific
+# export CDPATH=:~/spaces/:~/spaces/*:$CDPATH
+cdpath=(. ~/spaces ~/spaces/*/ $cdpath)
 
 function mdg() {
   mkdir -p "$@" && cd "$@"
