@@ -282,7 +282,7 @@ export LESS=-R
 export ZYPP_MEDIANETWORK=1
 
 # setopt auto_cd
-export CDPATH=:~/spaces/:~/spaces/projects/:~/spaces/education/:~/spaces/work/:~/spaces/katas/:$CDPATH
+export CDPATH=:~/spaces/:~/spaces/*:$CDPATH
 
 function mdg() {
   mkdir -p "$@" && cd "$@"
