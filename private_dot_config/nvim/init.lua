@@ -1752,6 +1752,7 @@ local COLORSCHEMES = {
 	-- "true-monochrome",
 	-- "tmc",
 	"kundalini",
+    "amber",
 }
 local CURR_COLORSCHEME_INDEX = 1
 
