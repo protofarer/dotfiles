@@ -1681,37 +1681,26 @@ require("lazy").setup({
 				end)
 			end,
 		},
-		-- {
-		-- 	"greggh/claude-code.nvim",
-		-- 	dependencies = {
-		-- 		"nvim-lua/plenary.nvim",
-		-- 	},
-		-- 	config = function()
-		-- 		require("claude-code").setup({
-		-- 			command = "claude-with-node",
-		-- 			window = {
-		-- 				position = "vertical",
-		-- 			},
-		-- 		})
-		-- 	end,
-		-- 	keys = {
-		-- 		{ "<leader>cc", ":ClaudeCode<CR>", { desc = "Toggle Claude Code" } },
-		-- 	},
-		-- },
-		--     config = function()
-		--         local gs = require("gitsigns")
-		--         gs.setup({
-		--             signs = {
-		--                 add = { text = "+" },
-		--                 change = { text = "~" },
-		--                 delete = { text = "_" },
-		--                 topdelete = { text = "‾" },
-		--                 changedelete = { text = "~" },
-		--             },
-		--         })
-		--         vim.keymap.set("n", "<leader>tB", gs.toggle_current_line_blame)
-		--         vim.keymap.set("n", "<leader>hp", gs.preview_hunk)
-		--     end,
+		-- To avoid press-enter to continue annoyance
+		{
+			"folke/noice.nvim",
+			dependencies = {
+				"MunifHongKuang/nui.nvim",
+				"rcarriga/nvim-notify",
+			},
+			config = function()
+				require("noice").setup({
+					cmdline = {
+						enabled = true,
+						view = "cmdline_popup", -- Floating command line
+					},
+					messages = {
+						enabled = true,
+						view = "notify", -- Use notifications instead of command line
+					},
+				})
+			end,
+		},
 	},
 
 	{ import = "custom.plugins" },
@@ -1827,6 +1816,48 @@ vim.api.nvim_create_autocmd("VimEnter", {
 			})
 		end, 200) -- Load 200ms after startup
 	end,
+})
+
+--[[
+Advanced Autosave Configuration
+
+This autocommand automatically saves files when certain events occur, with safety checks
+to prevent saving inappropriate buffers or non-existent files.
+
+Triggers (when it runs):
+- BufHidden: when a buffer becomes hidden (switched away from)
+- FocusLost: when Neovim loses focus (switching to another application)  
+- WinLeave: when leaving a window (changing splits/tabs)
+- CursorHold: after cursor stays still for 'updatetime' milliseconds (default 4000ms)
+
+Safety checks:
+- buftype == '': only saves normal file buffers (excludes terminal, help, quickfix, etc.)
+- filereadable(): only saves files that actually exist on disk (prevents errors on new unsaved files)
+
+Save behavior:
+- silent: suppresses save messages to avoid UI interruption
+- lockmarks: preserves mark positions during save operation
+- update: only saves if buffer has actual changes (more efficient than 'write')
+- ++p: creates parent directories if they don't exist
+--]]
+
+vim.api.nvim_create_autocmd({ "BufHidden", "FocusLost", "WinLeave", "CursorHold" }, {
+	pattern = "*",
+	callback = function()
+		if vim.bo.buftype == "" and vim.fn.filereadable(vim.fn.expand("%:p")) == 1 then
+			pcall(vim.cmd, "silent lockmarks update ++p")
+		end
+	end,
+	desc = "Advanced autosave with safety checks",
+})
+
+-- Map [[ to jump to previous shell prompt in terminal buffers
+vim.api.nvim_create_autocmd("TermOpen", {
+	callback = function()
+		vim.keymap.set("n", "[[", "<Plug>(shell-prompt-previous)", { buffer = true })
+		vim.keymap.set("n", "]]", "<Plug>(shell-prompt-next)", { buffer = true })
+	end,
+	desc = "Set shell prompt navigation in terminal buffers",
 })
 
 -- vim: ts=4 sts=4 sw=4 et
