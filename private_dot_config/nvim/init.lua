@@ -1690,14 +1690,14 @@ require("lazy").setup({
 			},
 			config = function()
 				require("noice").setup({
-					cmdline = {
-						enabled = true,
-						view = "cmdline_popup", -- Floating command line
-					},
-					messages = {
-						enabled = true,
-						view = "notify", -- Use notifications instead of command line
-					},
+					-- cmdline = {
+					-- 	enabled = true,
+					-- 	view = "cmdline_popup", -- Floating command line
+					-- },
+					-- messages = {
+					-- 	enabled = true,
+					-- 	view = "notify", -- Use notifications instead of command line
+					-- },
 				})
 			end,
 		},
@@ -1752,7 +1752,7 @@ local COLORSCHEMES = {
 	-- "true-monochrome",
 	-- "tmc",
 	"kundalini",
-    "amber",
+	"amber",
 }
 local CURR_COLORSCHEME_INDEX = 1
 
