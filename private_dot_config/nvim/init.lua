@@ -1525,6 +1525,7 @@ require("lazy").setup({
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
 			"MunifTanjim/nui.nvim",
+
 			-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
 		},
 		cmd = "Neotree",
@@ -1685,7 +1686,7 @@ require("lazy").setup({
 		{
 			"folke/noice.nvim",
 			dependencies = {
-				"MunifHongKuang/nui.nvim",
+				"MunifTanjim/nui.nvim",
 				"rcarriga/nvim-notify",
 			},
 			config = function()
