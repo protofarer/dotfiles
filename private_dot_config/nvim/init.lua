@@ -1683,25 +1683,25 @@ require("lazy").setup({
 			end,
 		},
 		-- To avoid press-enter to continue annoyance
-		{
-			"folke/noice.nvim",
-			dependencies = {
-				"MunifTanjim/nui.nvim",
-				"rcarriga/nvim-notify",
-			},
-			config = function()
-				require("noice").setup({
-					-- cmdline = {
-					-- 	enabled = true,
-					-- 	view = "cmdline_popup", -- Floating command line
-					-- },
-					-- messages = {
-					-- 	enabled = true,
-					-- 	view = "notify", -- Use notifications instead of command line
-					-- },
-				})
-			end,
-		},
+		-- {
+		-- 	"folke/noice.nvim",
+		-- 	dependencies = {
+		-- 		"MunifTanjim/nui.nvim",
+		-- 		"rcarriga/nvim-notify",
+		-- 	},
+		-- 	config = function()
+		-- 		require("noice").setup({
+		-- 			cmdline = {
+		-- 				enabled = true,
+		-- 				view = "cmdline_popup", -- Floating command line
+		-- 			},
+		-- 			messages = {
+		-- 				enabled = true,
+		-- 				view = "notify", -- Use notifications instead of command line
+		-- 			},
+		-- 		})
+		-- 	end,
+		-- },
 	},
 
 	{ import = "custom.plugins" },
