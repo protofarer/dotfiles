@@ -330,4 +330,4 @@ fi
 
 # Created by `pipx` on 2025-08-01 15:41:22
 # for `ds4drv`
-export PATH="$PATH:/home/kenny/.local/bin"
+export PATH="$PATH:/root/.local/bin"
