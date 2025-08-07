@@ -1424,7 +1424,7 @@ require("lazy").setup({
            winblend = 75,
            base = "right",
            column = 1, -- Position scrollbar 1 column from the right edge
-           character = "▐",
+           -- character = "▐",
          },
 		-- opts = {
 		-- signs_on_startup = { "all" }, -- defaults to search & diagnostics
