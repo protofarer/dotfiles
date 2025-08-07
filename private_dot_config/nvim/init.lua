@@ -1418,6 +1418,14 @@ require("lazy").setup({
 	-- More custom ,plugins (order not important) `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
 	{ -- no out-of-the-box gitsigns integration, but see my custom.plugins
 		"dstein64/nvim-scrollview",
+         opts = {
+           excluded_filetypes = { "neo-tree", "NvimTree", "toggleterm" },
+           current_only = true,
+           winblend = 75,
+           base = "right",
+           column = 1, -- Position scrollbar 1 column from the right edge
+           character = "▐",
+         },
 		-- opts = {
 		-- signs_on_startup = { "all" }, -- defaults to search & diagnostics
 		-- },
