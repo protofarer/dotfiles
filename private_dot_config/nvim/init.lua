@@ -1864,25 +1864,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 	desc = "Set shell prompt navigation in terminal buffers",
 })
 
--- Set block comments for C files and headers
--- vim.api.nvim_create_autocmd({ "FileType", "BufRead", "BufNewFile" }, {
--- 	pattern = { "*.c", "*.h" },
--- 	callback = function()
--- 		vim.bo.commentstring = "/* %s */"
--- 	end,
--- 	desc = "Force block comments for C89 files",
--- })
-
--- Additional FileType autocmd as backup
--- vim.api.nvim_create_autocmd("FileType", {
--- 	pattern = "c",
--- 	callback = function()
--- 		vim.bo.commentstring = "/* %s */"
--- 	end,
--- 	desc = "Ensure C filetype uses block comments",
--- })
-
--- Force .h files to be treated as C, not C++
+-- Force .h files to be treated as C, not C++. To get C89 block comments working in all *.h files.
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	pattern = "*.h",
 	callback = function()
