@@ -1254,9 +1254,6 @@ require("lazy").setup({
 					if ft == "c" then
 						return "/* %s */"
 					end
-					if ft == "h" then
-						return "/* %s */"
-					end
 					return require("ts_context_commentstring.internal").calculate_commentstring()
 						or vim.bo.commentstring
 				end,
@@ -1866,6 +1863,15 @@ vim.api.nvim_create_autocmd("TermOpen", {
 		vim.keymap.set("n", "]]", "<Plug>(shell-prompt-next)", { buffer = true })
 	end,
 	desc = "Set shell prompt navigation in terminal buffers",
+})
+
+-- TODO: improve this. Force block comments "/* */" for C header files as well. IDK how to do the file ext pattern match in the mini.comments config
+
+vim.api.nvim_create_autocmd("BufRead", {
+  pattern = "*.h",
+  callback = function()
+      vim.bo.commentstring = "/* %s */"
+  end,
 })
 
 -- vim: ts=4 sts=4 sw=4 et
