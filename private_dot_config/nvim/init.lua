@@ -1246,7 +1246,6 @@ require("lazy").setup({
 		"echasnovski/mini.comment",
 		version = "*",
 		event = "VeryLazy",
-		-- opts = {},
 		opts = {
 			options = {
 				custom_commentstring = function()
@@ -1865,12 +1864,22 @@ vim.api.nvim_create_autocmd("TermOpen", {
 	desc = "Set shell prompt navigation in terminal buffers",
 })
 
--- Block comments "/* */" for C header files. IDK how to do the file ext pattern match in the mini.comments config
-vim.api.nvim_create_autocmd("BufWinEnter", {
-	pattern = "*.h",
+-- Set block comments for C files and headers
+vim.api.nvim_create_autocmd({ "FileType", "BufRead", "BufNewFile" }, {
+	pattern = { "*.c", "*.h" },
 	callback = function()
 		vim.bo.commentstring = "/* %s */"
 	end,
+	desc = "Force block comments for C89 files",
+})
+
+-- Additional FileType autocmd as backup
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "c",
+	callback = function()
+		vim.bo.commentstring = "/* %s */"
+	end,
+	desc = "Ensure C filetype uses block comments",
 })
 
 -- vim: ts=4 sts=4 sw=4 et
