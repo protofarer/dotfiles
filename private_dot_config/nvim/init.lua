@@ -1246,6 +1246,7 @@ require("lazy").setup({
 		"echasnovski/mini.comment",
 		version = "*",
 		event = "VeryLazy",
+		opts = {},
 		-- opts = {
 		-- 	options = {
 		-- 		custom_commentstring = function()
