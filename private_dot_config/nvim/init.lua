@@ -1247,18 +1247,18 @@ require("lazy").setup({
 		version = "*",
 		event = "VeryLazy",
 		-- opts = {},
-		-- opts = {
-		-- 	options = {
-		-- 		custom_commentstring = function()
-		-- 			local ft = vim.bo.filetype
-		-- 			if ft == "c" then
-		-- 				return "// %s"
-		-- 			end
-		-- 			return require("ts_context_commentstring.internal").calculate_commentstring()
-		-- 				or vim.bo.commentstring
-		-- 		end,
-		-- 	},
-		-- },
+		opts = {
+			options = {
+				custom_commentstring = function()
+					local ft = vim.bo.filetype
+					if ft == "c" then
+						return "/* %s */"
+					end
+					return require("ts_context_commentstring.internal").calculate_commentstring()
+						or vim.bo.commentstring
+				end,
+			},
+		},
 	},
 	{
 		"echasnovski/mini.files",
@@ -1379,7 +1379,7 @@ require("lazy").setup({
 			},
 			-- context_commentstring = {
 			-- 	config = {
-					-- enable_autocmd = false, -- disable default autocmd, use plugin (numToStr/Comment.nvim) hook function instead
+			-- enable_autocmd = false, -- disable default autocmd, use plugin (numToStr/Comment.nvim) hook function instead
 			-- 	},
 			-- },
 		},
