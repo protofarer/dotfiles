@@ -1866,11 +1866,14 @@ vim.api.nvim_create_autocmd("TermOpen", {
 })
 
 -- Block comments "/* */" for C header files. IDK how to do the file ext pattern match in the mini.comments config
-vim.api.nvim_create_autocmd("BufRead", {
-  pattern = "*.h",
-  callback = function()
-      vim.bo.commentstring = "/* %s */"
-  end,
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "c", "cpp" }, -- cpp filetype often used for .h files
+	callback = function()
+		local filename = vim.fn.expand("%:t")
+		if filename:match("%.h$") or vim.bo.filetype == "c" then
+			vim.bo.commentstring = "/* %s */"
+		end
+	end,
 })
 
 -- vim: ts=4 sts=4 sw=4 et
