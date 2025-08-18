@@ -1865,8 +1865,7 @@ vim.api.nvim_create_autocmd("TermOpen", {
 	desc = "Set shell prompt navigation in terminal buffers",
 })
 
--- TODO: improve this. Force block comments "/* */" for C header files as well. IDK how to do the file ext pattern match in the mini.comments config
-
+-- Block comments "/* */" for C header files. IDK how to do the file ext pattern match in the mini.comments config
 vim.api.nvim_create_autocmd("BufRead", {
   pattern = "*.h",
   callback = function()
