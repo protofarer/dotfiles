@@ -1865,21 +1865,30 @@ vim.api.nvim_create_autocmd("TermOpen", {
 })
 
 -- Set block comments for C files and headers
-vim.api.nvim_create_autocmd({ "FileType", "BufRead", "BufNewFile" }, {
-	pattern = { "*.c", "*.h" },
-	callback = function()
-		vim.bo.commentstring = "/* %s */"
-	end,
-	desc = "Force block comments for C89 files",
-})
+-- vim.api.nvim_create_autocmd({ "FileType", "BufRead", "BufNewFile" }, {
+-- 	pattern = { "*.c", "*.h" },
+-- 	callback = function()
+-- 		vim.bo.commentstring = "/* %s */"
+-- 	end,
+-- 	desc = "Force block comments for C89 files",
+-- })
 
 -- Additional FileType autocmd as backup
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "c",
+-- vim.api.nvim_create_autocmd("FileType", {
+-- 	pattern = "c",
+-- 	callback = function()
+-- 		vim.bo.commentstring = "/* %s */"
+-- 	end,
+-- 	desc = "Ensure C filetype uses block comments",
+-- })
+
+-- Force .h files to be treated as C, not C++
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = "*.h",
 	callback = function()
-		vim.bo.commentstring = "/* %s */"
+		vim.bo.filetype = "c"
 	end,
-	desc = "Ensure C filetype uses block comments",
+	desc = "Set .h files to C filetype",
 })
 
 -- vim: ts=4 sts=4 sw=4 et
