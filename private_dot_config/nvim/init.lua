@@ -1028,7 +1028,7 @@ require("lazy").setup({
 				css = { "prettier" },
 				astro = { "prettier" },
 				yml = { "prettier" },
-				-- c = { "clang-format" },
+				c = { "clang-format" },
 			},
 		},
 	},
@@ -1246,18 +1246,18 @@ require("lazy").setup({
 		"echasnovski/mini.comment",
 		version = "*",
 		event = "VeryLazy",
-		opts = {
-			options = {
-				custom_commentstring = function()
-					local ft = vim.bo.filetype
-					if ft == "c" then
-						return "// %s"
-					end
-					return require("ts_context_commentstring.internal").calculate_commentstring()
-						or vim.bo.commentstring
-				end,
-			},
-		},
+		-- opts = {
+		-- 	options = {
+		-- 		custom_commentstring = function()
+		-- 			local ft = vim.bo.filetype
+		-- 			if ft == "c" then
+		-- 				return "// %s"
+		-- 			end
+		-- 			return require("ts_context_commentstring.internal").calculate_commentstring()
+		-- 				or vim.bo.commentstring
+		-- 		end,
+		-- 	},
+		-- },
 	},
 	{
 		"echasnovski/mini.files",
@@ -1419,9 +1419,9 @@ require("lazy").setup({
 	{ -- no out-of-the-box gitsigns integration, but see my custom.plugins
 		"dstein64/nvim-scrollview",
 		opts = {
-            -- signs_on_startup = { "all" }, -- defaults to search & diagnostics
+			-- signs_on_startup = { "all" }, -- defaults to search & diagnostics
 			-- excluded_filetypes = { "neo-tree", "NvimTree", "toggleterm" },
-            mode = "virtual"
+			mode = "virtual",
 		},
 	},
 	{ "tpope/vim-fugitive" },
