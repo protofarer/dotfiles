@@ -1254,6 +1254,9 @@ require("lazy").setup({
 					if ft == "c" then
 						return "/* %s */"
 					end
+					if ft == "h" then
+						return "/* %s */"
+					end
 					return require("ts_context_commentstring.internal").calculate_commentstring()
 						or vim.bo.commentstring
 				end,
