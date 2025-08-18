@@ -1246,7 +1246,7 @@ require("lazy").setup({
 		"echasnovski/mini.comment",
 		version = "*",
 		event = "VeryLazy",
-		opts = {},
+		-- opts = {},
 		-- opts = {
 		-- 	options = {
 		-- 		custom_commentstring = function()
@@ -1377,11 +1377,11 @@ require("lazy").setup({
 				enable = false,
 				disable = { "ruby", "c" },
 			},
-			context_commentstring = {
-				config = {
+			-- context_commentstring = {
+			-- 	config = {
 					-- enable_autocmd = false, -- disable default autocmd, use plugin (numToStr/Comment.nvim) hook function instead
-				},
-			},
+			-- 	},
+			-- },
 		},
 		config = function(_, opts)
 			-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
