@@ -392,17 +392,16 @@ do
 				border = "curved",
 			},
 
-			-- close_on_exit = false,
+			close_on_exit = false,
 			-- Optional: close on exit
-
-			-- on_exit = function(t, job, exit_code, name)
-			-- 	if exit_code == 0 then
-			-- 		-- Auto close on successful exit
-			-- 		vim.defer_fn(function()
-			-- 			t:close()
-			-- 		end, 2000) -- Close after 2 seconds
-			-- 	end
-			-- end,
+			on_exit = function(t, job, exit_code, name)
+				if exit_code == 0 then
+					-- Auto close on successful exit
+					vim.defer_fn(function()
+						t:close()
+					end, 2000) -- Close after 2 seconds
+				end
+			end,
 		})
 		-- toggle the terminal
 		task_terminal:toggle()
