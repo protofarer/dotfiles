@@ -398,7 +398,7 @@ do
 					-- Auto close on successful exit
 					vim.defer_fn(function()
 						t:close()
-					end, 2000) -- Close after 2 seconds
+					end, 4000) -- Close after 2 seconds
 				end
 			end,
 		})
