@@ -398,12 +398,12 @@ do
 					-- Auto close on successful exit
 					vim.defer_fn(function()
 						t:close()
-					end, 4000) -- Close after 2 seconds
+					end, 2000) -- Close after 2 seconds
 				end
 			end,
 		})
 		-- toggle the terminal
-		task_terminal:toggle()
+		-- task_terminal:toggle()
 	end
 
 	-- Set up keymaps
