@@ -367,7 +367,6 @@ do
 		vim.cmd("edit " .. script_path)
 	end
 
-	-- Execute a specific task
 	local function run_task(task_letter)
 		local script_path = get_task_script_path()
 
@@ -381,7 +380,6 @@ do
 			return
 		end
 
-		-- get toggleterm module
 		local Terminal = require("toggleterm.terminal").Terminal
 
 		-- Create float term instance
@@ -393,8 +391,7 @@ do
 			},
 
 			close_on_exit = false,
-			-- Optional: close on exit
-			on_exit = function(t, job, exit_code, name)
+			on_exit = function(t, _, exit_code, _)
 				if exit_code == 0 then
 					-- Auto close on successful exit
 					vim.defer_fn(function()
