@@ -1956,7 +1956,14 @@ local function align_function_params()
 	local before_paren = content:sub(1, paren_col)
 	local after_paren = content:sub(paren_col + 1)
 	local close_pos = after_paren:find(close_char:gsub("[%(%)]", "%%%1"))
-	local params_text = after_paren:sub(1, close_pos - 1)
+
+    -- Check if close_pos was found
+    if not close_pos then return end
+
+    local params_text = after_paren:sub(1, close_pos - 1)
+
+    -- Everything after the closing paren (including the paren itself)
+    local after_close = after_paren:sub(close_pos)
 
 	-- Split by commas (simple split, doesn't handle nested parens perfectly)
 	local params = {}
@@ -1998,11 +2005,9 @@ local function align_function_params()
 		table.insert(new_lines, indent .. params[i] .. ",")
 	end
 
-	-- Last parameter without trailing comma, then closing paren
-	table.insert(new_lines, indent .. params[#params] .. close_char)
 
-	-- Add closing paren to last line
-	-- new_lines[#new_lines] = new_lines[#new_lines] .. close_char
+    -- Last parameter without trailing comma, then closing paren and everything after
+    table.insert(new_lines, indent .. params[#params] .. after_close)
 
 	-- Replace the lines
 	vim.api.nvim_buf_set_lines(0, start_line - 1, end_line, false, new_lines)
