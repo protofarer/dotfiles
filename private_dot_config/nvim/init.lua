@@ -1991,15 +1991,18 @@ local function align_function_params()
 	local new_lines = {}
 
 	-- First line: everything up to and including first parameter
-	table.insert(new_lines, before_paren .. params[1])
+	table.insert(new_lines, before_paren .. params[1] .. ",")
 
-	-- Subsequent parameters, aligned
-	for i = 2, #params do
-		table.insert(new_lines, indent .. params[i])
+	-- Subsequent parameters, aligned (add comma except for last)
+	for i = 2, #params - 1 do
+		table.insert(new_lines, indent .. params[i] .. ",")
 	end
 
+	-- Last parameter without trailing comma, then closing paren
+	table.insert(new_lines, indent .. params[#params] .. close_char)
+
 	-- Add closing paren to last line
-	new_lines[#new_lines] = new_lines[#new_lines] .. close_char
+	-- new_lines[#new_lines] = new_lines[#new_lines] .. close_char
 
 	-- Replace the lines
 	vim.api.nvim_buf_set_lines(0, start_line - 1, end_line, false, new_lines)
