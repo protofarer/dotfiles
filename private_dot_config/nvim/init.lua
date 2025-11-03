@@ -1871,4 +1871,141 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	desc = "Set .h files to C filetype",
 })
 
+-- Function to align parameters
+local function align_function_params()
+	-- Save cursor position
+	local cursor_pos = vim.api.nvim_win_get_cursor(0)
+	local line_num = cursor_pos[1]
+
+	-- Find the opening parenthesis on or before current line
+	local found = false
+	local start_line = line_num
+
+	-- Search backwards for opening paren
+	while start_line >= 1 and not found do
+		local line = vim.api.nvim_buf_get_lines(0, start_line - 1, start_line, false)[1]
+		if line:match("[({]") then
+			found = true
+			break
+		end
+		start_line = start_line - 1
+	end
+
+	if not found then
+		return
+	end
+
+	-- Get the line with opening paren
+	local line = vim.api.nvim_buf_get_lines(0, start_line - 1, start_line, false)[1]
+
+	-- Find position of opening paren
+	local paren_col = nil
+	local paren_char = nil
+	for i = 1, #line do
+		local char = line:sub(i, i)
+		if char == "(" or char == "{" then
+			paren_col = i
+			paren_char = char
+			break
+		end
+	end
+
+	if not paren_col then
+		return
+	end
+
+	-- Find matching closing paren
+	local close_char = paren_char == "(" and ")" or "}"
+	local depth = 1
+	local end_line = start_line
+	local end_col = nil
+
+	local search_pos = paren_col + 1
+	while end_line <= vim.api.nvim_buf_line_count(0) do
+		local search_line = vim.api.nvim_buf_get_lines(0, end_line - 1, end_line, false)[1]
+
+		for i = search_pos, #search_line do
+			local char = search_line:sub(i, i)
+			if char == paren_char then
+				depth = depth + 1
+			elseif char == close_char then
+				depth = depth - 1
+				if depth == 0 then
+					end_col = i
+					break
+				end
+			end
+		end
+
+		if end_col then
+			break
+		end
+		end_line = end_line + 1
+		search_pos = 1
+	end
+
+	if not end_col then
+		return
+	end
+
+	-- Extract content between parens
+	local lines = vim.api.nvim_buf_get_lines(0, start_line - 1, end_line, false)
+	local content = table.concat(lines, " ")
+
+	-- Extract just the parameter content
+	local before_paren = content:sub(1, paren_col)
+	local after_paren = content:sub(paren_col + 1)
+	local close_pos = after_paren:find(close_char:gsub("[%(%)]", "%%%1"))
+	local params_text = after_paren:sub(1, close_pos - 1)
+
+	-- Split by commas (simple split, doesn't handle nested parens perfectly)
+	local params = {}
+	local current = ""
+	local depth_local = 0
+
+	for i = 1, #params_text do
+		local char = params_text:sub(i, i)
+		if char == "(" or char == "{" or char == "[" then
+			depth_local = depth_local + 1
+			current = current .. char
+		elseif char == ")" or char == "}" or char == "]" then
+			depth_local = depth_local - 1
+			current = current .. char
+		elseif char == "," and depth_local == 0 then
+			table.insert(params, current:match("^%s*(.-)%s*$"))
+			current = ""
+		else
+			current = current .. char
+		end
+	end
+	if current:match("%S") then
+		table.insert(params, current:match("^%s*(.-)%s*$"))
+	end
+
+	-- Build new formatted lines
+	if #params == 0 then
+		return
+	end
+
+	local indent = string.rep(" ", paren_col)
+	local new_lines = {}
+
+	-- First line: everything up to and including first parameter
+	table.insert(new_lines, before_paren .. params[1])
+
+	-- Subsequent parameters, aligned
+	for i = 2, #params do
+		table.insert(new_lines, indent .. params[i])
+	end
+
+	-- Add closing paren to last line
+	new_lines[#new_lines] = new_lines[#new_lines] .. close_char
+
+	-- Replace the lines
+	vim.api.nvim_buf_set_lines(0, start_line - 1, end_line, false, new_lines)
+end
+
+-- Create the keybinding (e.g., <leader>va for "[V]ertical [A]lign parameters")
+vim.keymap.set("n", "<leader>va", align_function_params, { desc = "[V]ertically [A]lign function parameters" })
+
 -- vim: ts=4 sts=4 sw=4 et
