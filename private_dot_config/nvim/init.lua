@@ -230,6 +230,7 @@ vim.keymap.set("n", "<leader>m", ":messages<CR>", { noremap = true, desc = "cmd 
 vim.keymap.set("n", "<leader>lr", ":LspRestart<CR>", { noremap = true, desc = "[L]SP [R]estart" })
 vim.keymap.set("n", "<leader>ls", ":LspStart<CR>", { noremap = true, desc = "[L]SP [S]tart" })
 vim.keymap.set("n", "<leader>li", ":LspInfo<CR>", { noremap = true, desc = "[L]SP [I]nfo" })
+vim.keymap.set("n", "<leader>lx", ":LspStop<CR>", { noremap = true, desc = "[L]SP (x)Stop" })
 
 -- move lines up or down
 -- see `mini.move`
