@@ -200,6 +200,10 @@ vim.keymap.set("n", "<Space>,", ",", km_opts)
 
 -- ez justfile
 vim.keymap.set("n", "<leader>j", ":! just ", { noremap = true })
+vim.keymap.set("n", "<leader>jf", ":! just a", { noremap = true, desc = "Run justfile task 'a'" })
+vim.keymap.set("n", "<leader>jg", ":! just a", { noremap = true, desc = "Run justfile task 'b'" })
+vim.keymap.set("n", "<leader>jv", ":! just a", { noremap = true, desc = "Run justfile task 'c'" })
+vim.keymap.set("n", "<leader>jb", ":! just a", { noremap = true, desc = "Run justfile task 'd'" })
 
 -- Terminal
 vim.keymap.set("n", "<c-t>", ":ToggleTerm direction=float<CR>", { desc = "open ToggleTerm" })
@@ -1958,13 +1962,15 @@ local function align_function_params()
 	local after_paren = content:sub(paren_col + 1)
 	local close_pos = after_paren:find(close_char:gsub("[%(%)]", "%%%1"))
 
-    -- Check if close_pos was found
-    if not close_pos then return end
+	-- Check if close_pos was found
+	if not close_pos then
+		return
+	end
 
-    local params_text = after_paren:sub(1, close_pos - 1)
+	local params_text = after_paren:sub(1, close_pos - 1)
 
-    -- Everything after the closing paren (including the paren itself)
-    local after_close = after_paren:sub(close_pos)
+	-- Everything after the closing paren (including the paren itself)
+	local after_close = after_paren:sub(close_pos)
 
 	-- Split by commas (simple split, doesn't handle nested parens perfectly)
 	local params = {}
@@ -2006,9 +2012,8 @@ local function align_function_params()
 		table.insert(new_lines, indent .. params[i] .. ",")
 	end
 
-
-    -- Last parameter without trailing comma, then closing paren and everything after
-    table.insert(new_lines, indent .. params[#params] .. after_close)
+	-- Last parameter without trailing comma, then closing paren and everything after
+	table.insert(new_lines, indent .. params[#params] .. after_close)
 
 	-- Replace the lines
 	vim.api.nvim_buf_set_lines(0, start_line - 1, end_line, false, new_lines)
