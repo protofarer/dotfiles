@@ -1759,6 +1759,7 @@ local COLORSCHEMES = {
 	-- "tmc",
 	"kundalini",
 	"amber",
+    "jb"
 }
 local CURR_COLORSCHEME_INDEX = 1
 
