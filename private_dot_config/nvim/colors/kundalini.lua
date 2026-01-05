@@ -63,7 +63,7 @@ Group.new("@string", c.light, c.black, s.italic)
 Group.new("@string.escape", c.light, c.black, s.NONE)
 
 -- editor
-Group.new("Normal", c.green, c.black, s.NONE) -- statusline stdout text fg
+Group.new("Normal", c.white, c.black, s.NONE) -- statusline stdout text fg
 Group.new("MatchParen", c.white, c.black, s.NONE)
 
 -- editor
@@ -85,7 +85,7 @@ Group.new("WarningMsg", c.blue, c.black, s.NONE)
 -- black fg w/white bg
 -- Group.new("IncSearch", c.black, c.white, s.italic)
 -- Group.new("Search", c.black, c.white, s.italic)
--- Group.new("Visual", c.black, c.white, s.italic)
+Group.new("Visual", c.green, c.white, s.italic)
 -- Group.new("VisualNOS", c.black, c.white, s.italic)
 -- grey fg, white bg
 -- Group.new("CursorColumn", c.grey, c.white, s.NONE)
