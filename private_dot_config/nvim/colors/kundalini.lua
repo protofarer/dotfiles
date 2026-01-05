@@ -35,6 +35,7 @@ Color.new("green", "#00FF00")
 
 Group.new("Comment", c.grey, c.black, s.italic)
 Group.new("@comment", c.grey, c.black, s.italic)
+Group.new("TodoFgTODO", c.green, c.black, s.italic)
 
 -- std style, normal code
 Group.new("@variable", c.grey, c.black, s.NONE)
