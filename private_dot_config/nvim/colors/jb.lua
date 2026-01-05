@@ -95,6 +95,7 @@ Group.new("@keyword", c.white, c.deep_wood_green, s.NONE)
 
 -- std + bold
 Group.new("Type", c.lime, c.deep_wood_green, s.NONE) -- both def and ref
+Group.new("@type", c.lime, c.deep_wood_green, s.NONE)
 Group.new("Special", c.lime, c.deep_wood_green, s.NONE) -- affects words `int` `char` `void`, aka built-in C types aka `@type.builtin.c`
 
 -- editor
@@ -113,9 +114,11 @@ Group.new("Directory", c.gold, c.deep_wood_green, s.NONE)
 
 Group.new("Todo", c.warm_yellow, c.deep_wood_green, s.bold + s.underline)
 -- Group.new('Visual', c.deep_wood_green, c.bright_amber, s.italic)
-Group.new("Visual", nil, c.gold, s.italic)
+Group.new("Visual", nil, c.dbg_blue, s.italic)
 Group.new("VisualNOS", c.deep_wood_green, c.bright_amber, s.italic)
 
+-- Type references (class names when used, seems to be more specific than neovim Type)
+-- Group.new('@type.builtin', c.lime, c.deep_wood_green, s.NONE)
 
 -- (diag)
 Group.new("Error", c.warm_red, c.deep_wood_green, s.NONE)
@@ -127,7 +130,6 @@ Group.new("CurSearch", c.deep_wood_green, c.lime, s.bold)
 Group.new("IncSearch", c.deep_wood_green, c.lime, s.italic)
 Group.new("Search", c.deep_wood_green, c.lime, s.italic)
 
-
 -- what are these?
 -- -----------------------------------------
 Group.new("DiffAdd", c.warm_yellow, c.deep_wood_green, s.NONE)
@@ -136,56 +138,43 @@ Group.new("Statement", c.dbg_blue, c.deep_wood_green, s.NONE)
 Group.new("Structure", c.dbg_blue, c.deep_wood_green, s.NONE) -- default imported package name refs, match module alias (@variable above)
 Group.new("TypeDef", c.dbg_blue, c.deep_wood_green, s.NONE)
 
-
 -- gold fg w/bright_amber bg
 Group.new("CursorColumn", c.dbg_blue, c.bright_amber, s.NONE)
-Group.new('CursorLine', c.dbg_blue, c.light_yellow, s.NONE)
+Group.new("CursorLine", c.dbg_blue, c.light_yellow, s.NONE)
 
 -- -----------------------------------------
 
--- gold fg w/deep_wood_green bg
-Group.new("DiffChange", c.gold, c.deep_wood_green, s.NONE)
-Group.new("DiffDelete", c.gold, c.deep_wood_green, s.NONE)
-Group.new("DiffText", c.gold, c.deep_wood_green, s.NONE)
-Group.new("Folded", c.gold, c.deep_wood_green, s.NONE)
-Group.new("Ignore", c.gold, c.deep_wood_green, s.NONE)
-Group.new("Label", c.gold, c.deep_wood_green, s.NONE)
-Group.new("ModeMsg", c.gold, c.deep_wood_green, s.NONE)
-Group.new("MoreMsg", c.gold, c.deep_wood_green, s.NONE)
-Group.new("NonText", c.gold, c.deep_wood_green, s.NONE)
-Group.new("PmenuSbar", c.gold, c.deep_wood_green, s.NONE)
-Group.new("PmenuSel", c.gold, c.deep_wood_green, s.italic)
-Group.new("PmenuThumb", c.gold, c.deep_wood_green, s.NONE)
-Group.new("SpecialKey", c.gold, c.deep_wood_green, s.italic)
-Group.new("StorageClass", c.gold, c.deep_wood_green, s.NONE)
+Group.new("DiffText", c.dbg_blue, c.deep_wood_green, s.NONE)
+Group.new("DiffAdd", c.dbg_blue, c.deep_wood_green, s.NONE)
+Group.new("DiffChange", c.dbg_blue, c.deep_wood_green, s.NONE)
+Group.new("DiffDelete", c.dbg_blue, c.deep_wood_green, s.NONE)
 
-Group.new("TabLine", c.gold, c.deep_wood_green, s.NONE)
-Group.new("TabLineFill", c.gold, c.deep_wood_green, s.NONE)
-Group.new("TabLineSel", c.gold, c.deep_wood_green, s.bold)
-Group.new("Title", c.gold, c.deep_wood_green, s.NONE)
-Group.new("Underlined", c.gold, c.deep_wood_green, s.underline)
-Group.new("VertSplit", c.gold, c.deep_wood_green, s.NONE)
-Group.new("WarningMsg", c.gold, c.deep_wood_green, s.NONE)
-Group.new("WildMenu", c.gold, c.deep_wood_green, s.NONE)
-Group.new("cucumberTags", c.gold, c.deep_wood_green, s.bold)
-Group.new("htmlTagN", c.gold, c.deep_wood_green, s.bold)
-Group.new("rubySymbol", c.gold, c.deep_wood_green, s.NONE)
+Group.new("WarningMsg", c.dbg_blue, c.deep_wood_green, s.NONE)
+Group.new("ModeMsg", c.dbg_blue, c.deep_wood_green, s.NONE)
+Group.new("MoreMsg", c.dbg_blue, c.deep_wood_green, s.NONE)
 
--- bright_amber fg w/deep_wood_green bg
-Group.new("DiffAdd", c.bright_amber, c.deep_wood_green, s.NONE)
-Group.new("Pmenu", c.bright_amber, c.deep_wood_green, s.bold)
+Group.new("Pmenu", c.dbg_blue, c.deep_wood_green, s.bold)
+Group.new("PmenuSbar", c.dbg_blue, c.deep_wood_green, s.NONE)
+Group.new("PmenuSel", c.dbg_blue, c.deep_wood_green, s.italic)
+Group.new("PmenuThumb", c.dbg_blue, c.deep_wood_green, s.NONE)
 
+Group.new("SpecialKey", c.dbg_blue, c.deep_wood_green, s.italic)
+Group.new("StorageClass", c.dbg_blue, c.deep_wood_green, s.NONE)
 
--- Type references (class names when used, seems to be more specific than neovim Type)
--- Group.new('@type', c.lime, c.deep_wood_green, s.NONE)
--- Group.new('@type.builtin', c.lime, c.deep_wood_green, s.NONE)
+Group.new("TabLine", c.dbg_blue, c.deep_wood_green, s.NONE)
+Group.new("TabLineFill", c.dbg_blue, c.deep_wood_green, s.NONE)
+Group.new("TabLineSel", c.dbg_blue, c.deep_wood_green, s.bold)
 
--- Constructor calls
--- Group.new('@constructor', c.lime, c.deep_wood_green, s.NONE)
+Group.new("Label", c.dbg_blue, c.deep_wood_green, s.NONE)
+Group.new("Title", c.dbg_blue, c.deep_wood_green, s.NONE)
+Group.new("NonText", c.dbg_blue, c.deep_wood_green, s.NONE)
 
--- Class/type definitions
-Group.new("@type.definition", c.lime, c.deep_wood_green, s.NONE)
--- override possible treesitter highlighting, fix green comments in odin
--- vim.cmd [[highlight Comment guifg=#8B0000 guibg=#0B0000 gui=italic]]
--- vim.cmd [[highlight TSComment guifg=#8B0000 guibg=#0B0000 gui=italic]]
--- vim.cmd [[highlight @comment guifg=#8B0000 guibg=#0B0000 gui=italic]]
+Group.new("Folded", c.dbg_blue, c.deep_wood_green, s.NONE)
+Group.new("Ignore", c.dbg_blue, c.deep_wood_green, s.NONE)
+Group.new("Underlined", c.dbg_blue, c.deep_wood_green, s.underline)
+Group.new("VertSplit", c.dbg_blue, c.deep_wood_green, s.NONE)
+
+Group.new("WildMenu", c.dbg_blue, c.deep_wood_green, s.NONE)
+Group.new("cucumberTags", c.dbg_blue, c.deep_wood_green, s.bold)
+Group.new("htmlTagN", c.dbg_blue, c.deep_wood_green, s.bold)
+Group.new("rubySymbol", c.dbg_blue, c.deep_wood_green, s.NONE)
