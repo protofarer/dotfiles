@@ -47,6 +47,7 @@ Group.new("@operator", c.grey, c.black, s.NONE)
 Group.new("Function", c.grey, c.black, s.NONE)
 Group.new("@function", c.grey, c.black, s.NONE)
 Group.new("Identifier", c.grey, c.black, s.NONE) -- struct fields
+Group.new("PreProc", c.grey, c.black, s.bold) -- backslash for preproc newline
 
 -- std + bold
 Group.new("Type", c.grey, c.black, s.bold)
@@ -118,7 +119,6 @@ Group.new("PmenuSbar", c.blue, c.black, s.NONE)
 Group.new("PmenuThumb", c.blue, c.black, s.NONE)
 Group.new("PmenuSel", c.blue, c.black, s.italic)
 Group.new("Label", c.blue, c.black, s.bold)
-Group.new("PreProc", c.blue, c.black, s.bold)
 Group.new("StorageClass", c.blue, c.black, s.bold)
 Group.new("SpecialKey", c.blue, c.black, s.italic)
 Group.new("TabLineSel", c.blue, c.black, s.bold)
