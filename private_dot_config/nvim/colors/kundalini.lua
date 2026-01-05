@@ -85,7 +85,7 @@ Group.new("WarningMsg", c.blue, c.black, s.NONE)
 -- black fg w/white bg
 -- Group.new("IncSearch", c.black, c.white, s.italic)
 -- Group.new("Search", c.black, c.white, s.italic)
-Group.new("Visual", c.green, c.white, s.italic)
+Group.new("Visual", c.white, c.muted, s.italic) -- visual select
 -- Group.new("VisualNOS", c.black, c.white, s.italic)
 -- grey fg, white bg
 -- Group.new("CursorColumn", c.grey, c.white, s.NONE)
