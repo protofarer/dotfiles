@@ -46,11 +46,11 @@ Group.new("@punctuation.bracket", c.grey, c.black, s.NONE)
 Group.new("@operator", c.grey, c.black, s.NONE)
 Group.new("Function", c.grey, c.black, s.NONE)
 Group.new("@function", c.grey, c.black, s.NONE)
-Group.new("Identifier", c.grey, c.black, s.bold) -- struct fields
+Group.new("Identifier", c.grey, c.black, s.NONE) -- struct fields
+Group.new("TypeDef", c.blue, c.black, s.NONE) -- the builtin word typedef
 
 -- std + bold
 Group.new("Type", c.grey, c.black, s.bold)
-Group.new("TypeDef", c.blue, c.black, s.bold)
 Group.new("Special", c.grey, c.black, s.bold) -- affects words `int` `char` `void`, aka built-in C types aka `@type.builtin.c`
 
 -- lighter
