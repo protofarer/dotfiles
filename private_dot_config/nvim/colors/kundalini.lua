@@ -66,8 +66,6 @@ Group.new("@string.escape", c.light, c.black, s.NONE)
 -- editor
 Group.new("Normal", c.white, c.black, s.NONE) -- statusline stdout text fg
 Group.new("MatchParen", c.white, c.black, s.NONE)
-
--- editor
 Group.new("Cursor", c.black, c.white, s.NONE)
 Group.new("LineNr", c.grey, c.black, s.NONE)
 Group.new("StatusLine", c.grey, c.black, s.bold)
