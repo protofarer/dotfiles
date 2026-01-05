@@ -47,7 +47,6 @@ Group.new("@operator", c.grey, c.black, s.NONE)
 Group.new("Function", c.grey, c.black, s.NONE)
 Group.new("@function", c.grey, c.black, s.NONE)
 Group.new("Identifier", c.grey, c.black, s.NONE) -- struct fields
-Group.new("TypeDef", c.blue, c.black, s.NONE) -- the builtin word typedef
 
 -- std + bold
 Group.new("Type", c.grey, c.black, s.bold)
@@ -99,6 +98,7 @@ Group.new("WarningMsg", c.blue, c.black, s.NONE)
 
 Group.new("Statement", c.blue, c.black, s.bold)
 Group.new("Structure", c.blue, c.black, s.bold)
+Group.new("TypeDef", c.blue, c.black, s.bold)
 
 -- grey fg, black bg
 Group.new("DiffChange", c.blue, c.black, s.NONE)
@@ -109,7 +109,7 @@ Group.new("Ignore", c.blue, c.black, s.NONE)
 Group.new("ModeMsg", c.blue, c.black, s.NONE)
 Group.new("MoreMsg", c.blue, c.black, s.NONE)
 Group.new("NonText", c.blue, c.black, s.NONE)
-Group.new("TabLine", c.blue, c.black, s.NONE)
+Group.new("TabLine", c.green, c.black, s.NONE)
 Group.new("TabLineFill", c.blue, c.black, s.NONE)
 Group.new("Title", c.blue, c.black, s.NONE)
 Group.new("VertSplit", c.blue, c.black, s.NONE)
