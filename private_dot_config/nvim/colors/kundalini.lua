@@ -88,8 +88,7 @@ Group.new("WarningMsg", c.blue, c.black, s.NONE)
 Group.new("Visual", c.white, c.muted, s.italic) -- visual select
 -- Group.new("VisualNOS", c.black, c.white, s.italic)
 -- grey fg, white bg
-Group.new("CursorColumn", c.green, c.white, s.NONE)
--- Group.new("CursorLine", c.white, c.lightgrey, s.NONE)
+Group.new("CursorLine", c.green, c.lightgrey, s.NONE)
 
 -- ------------------------------
 -- ------------------------------
@@ -99,6 +98,8 @@ Group.new("CursorColumn", c.green, c.white, s.NONE)
 Group.new("Statement", c.blue, c.black, s.bold)
 Group.new("Structure", c.blue, c.black, s.bold)
 Group.new("TypeDef", c.blue, c.black, s.bold)
+
+-- Group.new("CursorColumn", c.grey, c.white, s.NONE)
 
 -- grey fg, black bg
 Group.new("DiffChange", c.blue, c.black, s.NONE)
