@@ -1794,6 +1794,9 @@ end
 
 vim.api.nvim_create_user_command("ToggleColorscheme", toggle_colorscheme, {})
 vim.keymap.set("n", "<leader>tc", ":ToggleColorscheme<CR>", { desc = "Toggle colorscheme" })
+vim.keymap.set("n", "<leader>tt", function()
+	vim.cmd("colorscheme " .. vim.g.colors_name)
+end, { desc = "Reload colorscheme" })
 
 vim.cmd("colorscheme " .. COLORSCHEMES[get_saved_scheme()])
 
