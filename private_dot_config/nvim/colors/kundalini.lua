@@ -35,7 +35,7 @@ Color.new("green", "#00FF00")
 
 Group.new("Comment", c.grey, c.black, s.italic)
 Group.new("@comment", c.grey, c.black, s.italic)
-Group.new("TodoFg", c.green, nil, s.italic) -- TODO comment plugin
+Group.new("TodoFgTODO", c.green, nil, s.italic) -- TODO comment plugin
 -- Group.new("TodoBg", c.grey, nil, s.italic) -- TODO comment plugin
 
 -- std style, normal code
