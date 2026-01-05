@@ -48,8 +48,8 @@ Group.new("Identifier", c.grey, c.black, s.bold) -- struct fields
 
 -- std + bold
 Group.new("Type", c.grey, c.black, s.bold)
-Group.new("TypeDef", c.green, c.black, s.bold)
-Group.new("Special", c.green, c.black, s.bold)
+Group.new("TypeDef", c.blue, c.black, s.bold)
+Group.new("Special", c.grey, c.black, s.bold) -- affects words `int` `char` `void`, aka built-in C types aka `@type.builtin.c`
 
 -- lighter
 Group.new("Constant", c.light, c.black, s.NONE)
