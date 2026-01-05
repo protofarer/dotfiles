@@ -88,7 +88,7 @@ Group.new("WarningMsg", c.blue, c.black, s.NONE)
 Group.new("Visual", c.white, c.muted, s.italic) -- visual select
 -- Group.new("VisualNOS", c.black, c.white, s.italic)
 -- grey fg, white bg
--- Group.new("CursorColumn", c.grey, c.white, s.NONE)
+Group.new("CursorColumn", c.green, c.white, s.NONE)
 -- Group.new("CursorLine", c.white, c.lightgrey, s.NONE)
 
 -- ------------------------------
