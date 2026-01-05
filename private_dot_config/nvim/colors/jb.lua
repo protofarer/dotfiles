@@ -17,7 +17,11 @@ end
 vim.g.colors_name = 'jb'
 vim.o.background = 'dark'
 
+-- -----------------------------------------
 -- Define colors
+-- -----------------------------------------
+
+-- General
 Color.new('black', '#000000')
 Color.new('white', '#fefefe')
 Color.new('max_white', '#ffffff')
@@ -67,7 +71,36 @@ Color.new('silver', '#a3a3a3') -- literals aka numbers, strings, booleans and co
 Color.new('ombre', '#da491d') -- keywords, operators
 Color.new('bronze', '#c26b00') -- variables, fields
 
+
+-- -----------------------------------------
 -- Define highlight groups
+-- -----------------------------------------
+
+
+-- -----------------------------------------
+
+-- What I actually care about for this theme:
+
+Group.new('Comment', c.terminal_green, c.deep_wood_green, s.italic)
+Group.new('@comment', c.terminal_green, c.deep_wood_green, s.NONE)
+Group.new("TodoFgTODO", c.terminal_green, nil, s.italic) -- TODO comment plugin; the colon and comment itself
+Group.new("TodoBgTODO", c.terminal_green, nil, s.bold + s.underline) -- TODO comment plugin; the word TODO itself
+
+-- plain styles, common code
+Group.new('@variable', c.gold, c.deep_wood_green, s.NONE)
+Group.new('@keyword', c.white, c.deep_wood_green, s.NONE)
+Group.new('@punctuation.delimiter', c.gold, c.deep_wood_green, s.NONE)
+Group.new('@punctuation.bracket', c.gold, c.deep_wood_green, s.NONE)
+Group.new('@operator', c.gold, c.deep_wood_green, s.NONE)
+Group.new('Function', c.gold, c.deep_wood_green, s.NONE)
+Group.new('@function', c.gold, c.deep_wood_green, s.NONE)
+Group.new('Identifier', c.gold, c.deep_wood_green, s.NONE)
+Group.new('PreProc', c.gold, c.deep_wood_green, s.NONE)
+
+-- std + bold
+Group.new('Type', c.lime, c.deep_wood_green, s.NONE) -- both def and ref
+Group.new('Special', c.lime, c.deep_wood_green, s.NONE) -- affects words `int` `char` `void`, aka built-in C types aka `@type.builtin.c`
+
 
 -- Special Cases
 Group.new('ErrorMsg', c.warm_red, c.deep_wood_green, s.NONE)
@@ -94,6 +127,8 @@ Group.new('CursorColumn', c.gold, c.bright_amber, s.NONE)
 -- Group.new('CursorLine', c.bright_amber, c.dull_amber, s.NONE)
 -- Group.new('CursorLine', c.white, c.light_yellow, s.NONE)
 
+-- -----------------------------------------
+
 -- gold fg w/deep_wood_green bg
 Group.new('DiffChange', c.gold, c.deep_wood_green, s.NONE)
 Group.new('DiffDelete', c.gold, c.deep_wood_green, s.NONE)
@@ -112,8 +147,6 @@ Group.new('Normal', c.gold, c.deep_wood_green, s.NONE)
 Group.new('PmenuSbar', c.gold, c.deep_wood_green, s.NONE)
 Group.new('PmenuSel', c.gold, c.deep_wood_green, s.italic)
 Group.new('PmenuThumb', c.gold, c.deep_wood_green, s.NONE)
-Group.new('PreProc', c.gold, c.deep_wood_green, s.NONE)
-Group.new('Special', c.gold, c.deep_wood_green, s.NONE)
 Group.new('SpecialKey', c.gold, c.deep_wood_green, s.italic)
 Group.new('Statement', c.gold, c.deep_wood_green, s.NONE)
 Group.new('StatusLine', c.gold, c.deep_wood_green, s.NONE)
@@ -140,39 +173,17 @@ Group.new('String', c.bright_amber, c.deep_wood_green, s.NONE)
 
 -- no impact on Odin
 Group.new('TypeDef', c.gold, c.deep_wood_green, s.NONE)
-Group.new('Identifier', c.gold, c.deep_wood_green, s.NONE)
 
 -- Neovim Custom from above (above will either stay that way because: A. no effect on Odin B. overriden by treesitter C. trivial/unimportant)
 Group.new('Constant', c.cyan, c.deep_wood_green, s.NONE)
-Group.new('Comment', c.terminal_green, c.deep_wood_green, s.italic)
-Group.new('@comment', c.terminal_green, c.deep_wood_green, s.NONE)
-Group.new('Type', c.lime, c.deep_wood_green, s.NONE) -- both def and ref
 
--- Treesitter Groups
 
--- keywords (NOT operators) - common and language core constant syntax :: body text like, a lot of it, should be easily readable because there's alot of it, it's common. :: med amber. Operators are common and should blend with body/common syntax
-Group.new('@keyword', c.white, c.deep_wood_green, s.NONE)
-Group.new('@operator', c.gold, c.deep_wood_green, s.NONE)
-
--- NB: functions should have their own distinct color, transformative, common, powerful
-Group.new('Function', c.gold, c.deep_wood_green, s.NONE)
-Group.new('@function', c.gold, c.deep_wood_green, s.NONE)
-
--- NB: variables should be distinguishable from objects and fields, and but less contrast among these tokens, just need to tell they're different :: blue/silver/bronze
--- included: struct fields, module alias (but not declaration), variable declaration and referencing
-Group.new('@variable', c.gold, c.deep_wood_green, s.NONE)
 Group.new('Structure', c.gold, c.deep_wood_green, s.NONE) -- default imported package name refs, match module alias (@variable above)
 
 -- literals:: not sure they should stand out all that much, but surely distinguished from the above :: green/silver/blue
 Group.new('@number', c.cyan, c.deep_wood_green, s.NONE)
 Group.new('@boolean', c.cyan, c.deep_wood_green, s.NONE)
 Group.new('@string', c.teal, c.deep_wood_green, s.NONE)
-
--- TODO: should type declarations be different? :: purple if so
-
-Group.new('@punctuation.delimiter', c.gold, c.deep_wood_green, s.NONE)
-Group.new('@punctuation.delimiter', c.gold, c.deep_wood_green, s.NONE)
-Group.new('@punctuation.bracket', c.gold, c.deep_wood_green, s.NONE)
 
 -- Type references (class names when used, seems to be more specific than neovim Type)
 -- Group.new('@type', c.lime, c.deep_wood_green, s.NONE)

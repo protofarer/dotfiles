@@ -38,7 +38,7 @@ Group.new("@comment", c.grey, c.black, s.italic)
 Group.new("TodoFgTODO", c.grey, nil, s.italic) -- TODO comment plugin; the colon and comment itself
 Group.new("TodoBgTODO", c.light, nil, s.underline) -- TODO comment plugin; the word TODO itself
 
--- std style, normal code
+-- plain style, common code
 Group.new("@variable", c.grey, c.black, s.NONE)
 Group.new("@keyword", c.grey, c.black, s.NONE)
 Group.new("@punctuation.delimiter", c.grey, c.black, s.NONE)
