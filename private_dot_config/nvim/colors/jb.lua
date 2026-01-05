@@ -55,10 +55,10 @@ Color.new("burnt_orange", "#cc5500")
 Color.new("phosphor", "#ff7700")
 
 -- Special
-Color.new("green", "#347919") -- functions
-Color.new("silver", "#a3a3a3") -- literals aka numbers, strings, booleans and constants
-Color.new("ombre", "#da491d") -- keywords, operators
-Color.new("bronze", "#c26b00") -- variables, fields
+Color.new("green", "#347919")
+Color.new("silver", "#a3a3a3")
+Color.new("ombre", "#da491d")
+Color.new("bronze", "#c26b00")
 
 -- -----------------------------------------
 -- Define highlight groups
@@ -132,12 +132,14 @@ Group.new("Search", c.deep_wood_green, c.lime, s.italic)
 -- -----------------------------------------
 Group.new("DiffAdd", c.warm_yellow, c.deep_wood_green, s.NONE)
 Group.new("DiffDelete", c.warm_red, c.deep_wood_green, s.NONE)
+Group.new("Statement", c.dbg_blue, c.deep_wood_green, s.NONE)
+Group.new("Structure", c.dbg_blue, c.deep_wood_green, s.NONE) -- default imported package name refs, match module alias (@variable above)
+Group.new("TypeDef", c.dbg_blue, c.deep_wood_green, s.NONE)
 
 
 -- gold fg w/bright_amber bg
-Group.new("CursorColumn", c.gold, c.bright_amber, s.NONE)
--- Group.new('CursorLine', c.bright_amber, c.dull_amber, s.NONE)
--- Group.new('CursorLine', c.white, c.light_yellow, s.NONE)
+Group.new("CursorColumn", c.dbg_blue, c.bright_amber, s.NONE)
+Group.new('CursorLine', c.dbg_blue, c.light_yellow, s.NONE)
 
 -- -----------------------------------------
 
@@ -155,7 +157,6 @@ Group.new("PmenuSbar", c.gold, c.deep_wood_green, s.NONE)
 Group.new("PmenuSel", c.gold, c.deep_wood_green, s.italic)
 Group.new("PmenuThumb", c.gold, c.deep_wood_green, s.NONE)
 Group.new("SpecialKey", c.gold, c.deep_wood_green, s.italic)
-Group.new("Statement", c.gold, c.deep_wood_green, s.NONE)
 Group.new("StorageClass", c.gold, c.deep_wood_green, s.NONE)
 
 Group.new("TabLine", c.gold, c.deep_wood_green, s.NONE)
@@ -174,10 +175,6 @@ Group.new("rubySymbol", c.gold, c.deep_wood_green, s.NONE)
 Group.new("DiffAdd", c.bright_amber, c.deep_wood_green, s.NONE)
 Group.new("Pmenu", c.bright_amber, c.deep_wood_green, s.bold)
 
--- no impact on Odin
-Group.new("TypeDef", c.gold, c.deep_wood_green, s.NONE)
-
-Group.new("Structure", c.gold, c.deep_wood_green, s.NONE) -- default imported package name refs, match module alias (@variable above)
 
 -- Type references (class names when used, seems to be more specific than neovim Type)
 -- Group.new('@type', c.lime, c.deep_wood_green, s.NONE)
