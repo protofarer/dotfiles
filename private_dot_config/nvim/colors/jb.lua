@@ -25,6 +25,8 @@ vim.o.background = "dark"
 Color.new("black", "#000000")
 Color.new("white", "#fefefe")
 Color.new("max_white", "#ffffff")
+Color.new("gray", "#a0a0a0")
+-- TODO: grey for search
 
 -- Background
 Color.new("deep_wood_green", "#062626")
@@ -33,8 +35,8 @@ Color.new("deep_wood_green", "#062626")
 Color.new("gold", "#e5cbb0")
 Color.new("terminal_green", "#68f24d")
 Color.new("lime", "#85f79c")
-Color.new("cyan", "#8df4cf")
-Color.new("teal", "#43d8a9")
+Color.new("cyan", "#9cfcd9")
+Color.new("teal", "#3ddba6")
 
 -- Editor
 Color.new("bright_amber", "#e28513")
@@ -67,9 +69,9 @@ Color.new("bronze", "#c26b00")
 -- What I actually care about for this theme:
 -- -----------------------------------------
 
-Group.new("Comment", c.terminal_green, c.deep_wood_green, s.italic)
+Group.new("Comment", c.terminal_green, c.deep_wood_green, s.NONE)
 Group.new("@comment", c.terminal_green, c.deep_wood_green, s.NONE)
-Group.new("TodoFgTODO", c.terminal_green, nil, s.italic) -- TODO comment plugin; the colon and comment itself
+Group.new("TodoFgTODO", c.terminal_green, nil, s.NONE) -- TODO comment plugin; the colon and comment itself
 Group.new("TodoBgTODO", c.terminal_green, nil, s.bold + s.underline) -- TODO comment plugin; the word TODO itself
 
 -- plain styles, common code
@@ -82,7 +84,7 @@ Group.new("@function", c.gold, c.deep_wood_green, s.NONE)
 Group.new("Identifier", c.gold, c.deep_wood_green, s.NONE)
 Group.new("PreProc", c.gold, c.deep_wood_green, s.NONE) -- backslash token used for preproc newline
 
-Group.new("@string.escape", c.teal, c.black, s.NONE)
+Group.new("@string.escape", c.teal, c.deep_wood_green, s.NONE)
 Group.new("String", c.teal, c.deep_wood_green, s.NONE)
 Group.new("@string", c.teal, c.deep_wood_green, s.NONE)
 
@@ -98,7 +100,8 @@ Group.new("Type", c.lime, c.deep_wood_green, s.NONE) -- both def and ref
 Group.new("@type", c.lime, c.deep_wood_green, s.NONE)
 Group.new("Special", c.lime, c.deep_wood_green, s.NONE) -- affects words `int` `char` `void`, aka built-in C types aka `@type.builtin.c`
 
--- editor
+-- editor / misc
+Group.new("Visual", nil, c.white, s.NONE) -- cursor word match auto-highlight and visual selection
 Group.new("LineNr", c.gold, c.deep_wood_green, s.NONE)
 Group.new("Normal", c.gold, c.deep_wood_green, s.NONE)
 Group.new("MatchParen", c.gold, c.deep_wood_green, s.NONE)
@@ -107,28 +110,26 @@ Group.new("StatusLine", c.gold, c.deep_wood_green, s.NONE)
 Group.new("StatusLineNC", c.gold, c.deep_wood_green, s.italic)
 Group.new("Directory", c.gold, c.deep_wood_green, s.NONE)
 
+-- search
+Group.new("Search", c.deep_wood_green, c.gray, s.NONE)
+Group.new("CurSearch", c.deep_wood_green, c.lime, s.NONE)
+Group.new("IncSearch", c.deep_wood_green, c.max_white, s.NONE)
+
+-- e.g. When C LSP deems an #include statement unnecessary, thus should be some muted color
+Group.new("DiagnosticUnnecessary", c.muted_amber, c.deep_wood_green, s.NONE)
+
 -- -----------------------------------------
 
 -- N2H
 -- -----------------------------------------
 
 Group.new("Todo", c.warm_yellow, c.deep_wood_green, s.bold + s.underline)
--- Group.new('Visual', c.deep_wood_green, c.bright_amber, s.italic)
-Group.new("Visual", nil, c.dbg_blue, s.italic)
 Group.new("VisualNOS", c.deep_wood_green, c.bright_amber, s.italic)
 
--- Type references (class names when used, seems to be more specific than neovim Type)
--- Group.new('@type.builtin', c.lime, c.deep_wood_green, s.NONE)
-
 -- (diag)
-Group.new("Error", c.warm_red, c.deep_wood_green, s.NONE)
-Group.new("ErrorMsg", c.warm_red, c.deep_wood_green, s.NONE)
-Group.new("WarningMsg", c.burnt_orange, c.deep_wood_green, s.NONE)
-
--- (search)
-Group.new("CurSearch", c.deep_wood_green, c.lime, s.bold)
-Group.new("IncSearch", c.deep_wood_green, c.lime, s.italic)
-Group.new("Search", c.deep_wood_green, c.lime, s.italic)
+Group.new("Error", c.dbg_blue, c.deep_wood_green, s.NONE)
+Group.new("ErrorMsg", c.dbg_blue, c.deep_wood_green, s.NONE)
+Group.new("WarningMsg", c.dbg_blue, c.deep_wood_green, s.NONE)
 
 -- what are these?
 -- -----------------------------------------
