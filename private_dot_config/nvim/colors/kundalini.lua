@@ -49,7 +49,7 @@ Group.new("Identifier", c.grey, c.black, s.bold) -- struct fields
 -- std + bold
 Group.new("Type", c.grey, c.black, s.bold)
 Group.new("TypeDef", c.green, c.black, s.bold)
-Group.new("@type.builtin", c.grey, c.black, s.bold)
+Group.new("Special", c.green, c.black, s.bold)
 
 -- lighter
 Group.new("Constant", c.light, c.black, s.NONE)
@@ -116,7 +116,6 @@ Group.new("PmenuThumb", c.blue, c.black, s.NONE)
 Group.new("PmenuSel", c.blue, c.black, s.italic)
 Group.new("Label", c.blue, c.black, s.bold)
 Group.new("PreProc", c.blue, c.black, s.bold)
-Group.new("Special", c.blue, c.black, s.bold)
 Group.new("StorageClass", c.blue, c.black, s.bold)
 Group.new("SpecialKey", c.blue, c.black, s.italic)
 Group.new("TabLineSel", c.blue, c.black, s.bold)
