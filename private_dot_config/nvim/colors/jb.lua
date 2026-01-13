@@ -34,7 +34,7 @@ Color.new("deep_wood_green", "#062626")
 -- Core / Code
 Color.new("gold", "#e5cbb0")
 Color.new("terminal_green", "#68f24d")
-Color.new("lime", "#85f79c")
+Color.new("lime", "#9df9af")
 Color.new("cyan", "#9cfcd9")
 Color.new("teal", "#3ddba6")
 
