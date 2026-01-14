@@ -128,9 +128,13 @@ vim.keymap.set("n", "<C-a>", "gg<S-v>G", km_opts)
 vim.keymap.set("n", "+", "<C-a>", km_opts)
 vim.keymap.set("n", "-", "<C-x>", km_opts)
 
+
+
 -- buffers
 vim.keymap.set("n", "<leader>bd", ":bd<CR>", km_opts)
 vim.keymap.set("n", "<C-s>", ":update<CR>", km_opts)
+
+
 
 -- ,diffview
 vim.keymap.set("n", "<leader>vd", ":DiffviewOpen<CR>", { desc = "[v]iew [d]iff on buffer", noremap = true })
@@ -159,6 +163,10 @@ vim.keymap.set(
 	{ desc = "[v]iew [d]iff file history cmd entry", noremap = true }
 )
 
+
+-- git
+vim.keymap.set("n", "<leader>gs", ":G status<CR>", { noremap = true })
+
 -- ,fugitive
 -- vim.keymap.set("n", "<leader>gg", ":G<CR>", { noremap = true })
 -- vim.keymap.set("n", "<leader>gf", ":Gedit :<CR>", { desc = "Fullscreen git view", noremap = true })
@@ -183,6 +191,8 @@ vim.keymap.set("n", "<leader>gw", ":Gwrite<CR>", add_desc_std_opts("[g]it [w]rit
 -- vim.keymap.set("n", "<leader>gl", ":exe ':!cd ' . expand('%:p:h') . '; git las'<CR>")
 
 -- ,neogit
+vim.keymap.set("n", "<leader>gg", ":Neogit<CR>", { noremap = true })
+
 vim.keymap.set("n", "<leader>gl", ":Neogit log<CR>", { desc = "Neogit log", noremap = true })
 -- vim.keymap.set("n", "<leader>gc", ":Neogit commit<CR>", add_desc_std_opts("Neogit commit"))
 vim.keymap.set("n", "<leader>gp", ":Neogit push<CR>", { desc = "Neogit push", noremap = true })
@@ -192,33 +202,28 @@ vim.keymap.set("n", "<leader>gP", ":Neogit pull<CR>", add_desc_std_opts("Neogit 
 vim.keymap.set("n", "<leader>gb", ":Telescope git_branches<CR>", add_desc_std_opts("Fuzzy search [g]it [b]ranches"))
 vim.keymap.set("n", "<leader>gc", ":Telescope git_commits<CR>", add_desc_std_opts("Telescope [g]it [c]ommit"))
 
+
+
 -- ez vim commands
 vim.keymap.set({ "n", "v" }, ";", ":", km_opts)
 -- vim.keymap.set("v", ";", ":", km_opts) -- TODO: can this be consolidated?
 vim.keymap.set("n", "<Space>;", ";", km_opts)
 vim.keymap.set("n", "<Space>,", ",", km_opts)
 
--- ez justfile
-vim.keymap.set("n", "<leader>j", ":! just ", { noremap = true })
-vim.keymap.set("n", "<leader>jf", ":! just a", { noremap = true, desc = "Run justfile task 'a'" })
-vim.keymap.set("n", "<leader>jg", ":! just a", { noremap = true, desc = "Run justfile task 'b'" })
-vim.keymap.set("n", "<leader>jv", ":! just a", { noremap = true, desc = "Run justfile task 'c'" })
-vim.keymap.set("n", "<leader>jb", ":! just a", { noremap = true, desc = "Run justfile task 'd'" })
 
--- Terminal
+
+-- terminal
 vim.keymap.set("n", "<c-t>", ":ToggleTerm direction=float<CR>", { desc = "open ToggleTerm" })
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 -- TODO: enter terminal mode?
 
--- git
-vim.keymap.set("n", "<leader>gs", ":G status<CR>", { noremap = true })
 
--- NeoGit
-vim.keymap.set("n", "<leader>gg", ":Neogit<CR>", { noremap = true })
 
 -- lua
 vim.keymap.set("n", "<leader>lf", ":luafile ", { noremap = true })
 vim.keymap.set("n", "<leader>lc", ":luafile %<CR>", { noremap = true })
+
+
 
 -- system clipboard (yank into system clipboard, paste from clipboard register)
 -- TODO: ISS: skips cursor line and yanks below it?
@@ -229,12 +234,18 @@ vim.keymap.set("n", "<leader>pp", '"_dP', { noremap = true })
 -- intriguing keymap used by Takuya
 -- vim.keymap.set('n', 'dw', 'vb_d', { noremap = true, silent = true })
 
+
+
+
+-- lsp keymaps
 vim.keymap.set("n", "<leader>m", ":messages<CR>", { noremap = true, desc = "cmd :messages" })
 
 vim.keymap.set("n", "<leader>lr", ":LspRestart<CR>", { noremap = true, desc = "[L]SP [R]estart" })
 vim.keymap.set("n", "<leader>ls", ":LspStart<CR>", { noremap = true, desc = "[L]SP [S]tart" })
 vim.keymap.set("n", "<leader>li", ":LspInfo<CR>", { noremap = true, desc = "[L]SP [I]nfo" })
 vim.keymap.set("n", "<leader>lx", ":LspStop<CR>", { noremap = true, desc = "[L]SP (x)Stop" })
+
+
 
 -- move lines up or down
 -- see `mini.move`
@@ -243,6 +254,8 @@ vim.keymap.set("n", "<leader>lx", ":LspStop<CR>", { noremap = true, desc = "[L]S
 -- vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { noremap = true, desc = "move line up (v)" })
 -- vim.keymap.set("v", "<A-k>", ":m '>-2<CR>gv=gv", { noremap = true, desc = "move line down (v)" })
 
+
+
 -- for gamedev, specifically odin hot reloading w/ sokol
 vim.keymap.set("n", "<leader>fr", function()
 	-- vim.cmd("!./build.py -hot-reload -debug -run")
@@ -250,6 +263,8 @@ vim.keymap.set("n", "<leader>fr", function()
 	vim.cmd("terminal ./build.py -hot-reload -debug -run")
 	vim.cmd("startinsert")
 end, { desc = "Run build+run hot reload script" })
+
+
 
 -- Odin build
 vim.keymap.set("n", "<leader>ob", function()
@@ -277,6 +292,8 @@ vim.keymap.set("n", "<leader>ob", function()
 	terminal:toggle()
 end, { desc = "Default odin build command" })
 
+
+
 -- Key binding for running an odin program
 vim.keymap.set("n", "<leader>or", function()
 	-- Get the toggleterm module
@@ -303,6 +320,17 @@ vim.keymap.set("n", "<leader>or", function()
 	-- Toggle/open the terminal
 	terminal:toggle()
 end, { desc = "Default odin run executable" })
+
+
+
+-- ez justfile
+vim.keymap.set("n", "<leader>j", ":! just ", { noremap = true })
+vim.keymap.set("n", "<leader>jf", ":! just a", { noremap = true, desc = "Run justfile task 'a'" })
+vim.keymap.set("n", "<leader>jg", ":! just b", { noremap = true, desc = "Run justfile task 'b'" })
+vim.keymap.set("n", "<leader>jv", ":! just c", { noremap = true, desc = "Run justfile task 'c'" })
+vim.keymap.set("n", "<leader>jb", ":! just d", { noremap = true, desc = "Run justfile task 'd'" })
+
+
 
 -- Quick Tasks functionality for project-specific task.sh scripts
 do
@@ -460,6 +488,8 @@ do
 	})
 end
 
+
+
 -- Autocommands  ,autocmd See `:help lua-guide-autocommands`
 
 -- Highlight when yanking (copying) text
@@ -472,6 +502,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank()
 	end,
 })
+
+
 
 -- Prevent continueing comment on insert newline aka `o`
 vim.api.nvim_create_autocmd("BufEnter", {
@@ -492,6 +524,8 @@ vim.api.nvim_create_autocmd("BufEnter", {
 -- 		end
 -- 	end,
 -- })
+
+
 
 -- run nvim-lint linters. To run on every text change use event "TextChanged"
 vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost" }, {
