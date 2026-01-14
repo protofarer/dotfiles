@@ -53,12 +53,15 @@ Color.new("warm_red", "#a82626")
 Color.new("muted_red", "#8b3a3a")
 Color.new("warm_yellow", "#b8860b")
 Color.new("light_yellow", "#b5a40c")
+Color.new("bright_yellow", "#f7e87b")
 Color.new("burnt_orange", "#cc5500")
 Color.new("phosphor", "#ff7700")
 
 -- Special
 Color.new("green", "#347919")
 Color.new("silver", "#a3a3a3")
+Color.new("light_silver", "#c6c6c6")
+Color.new("bright_silver", "#e0e0e0")
 Color.new("ombre", "#da491d")
 Color.new("bronze", "#c26b00")
 
@@ -104,7 +107,7 @@ Group.new("Special", c.lime, c.deep_wood_green, s.NONE) -- affects words `int` `
 Group.new("Visual", nil, c.white, s.NONE) -- cursor word match auto-highlight and visual selection
 Group.new("LineNr", c.gold, c.deep_wood_green, s.NONE)
 Group.new("Normal", c.gold, c.deep_wood_green, s.NONE)
-Group.new("MatchParen", c.silver, c.deep_wood_green, s.NONE)
+Group.new("MatchParen", c.terminal_green, c.deep_wood_green, s.NONE)
 Group.new("Cursor", c.lime, c.deep_wood_green, s.NONE)
 Group.new("StatusLine", c.gold, c.deep_wood_green, s.NONE)
 Group.new("StatusLineNC", c.gold, c.deep_wood_green, s.italic)
