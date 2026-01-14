@@ -104,7 +104,7 @@ Group.new("Special", c.lime, c.deep_wood_green, s.NONE) -- affects words `int` `
 Group.new("Visual", nil, c.white, s.NONE) -- cursor word match auto-highlight and visual selection
 Group.new("LineNr", c.gold, c.deep_wood_green, s.NONE)
 Group.new("Normal", c.gold, c.deep_wood_green, s.NONE)
-Group.new("MatchParen", c.gold, c.deep_wood_green, s.NONE)
+Group.new("MatchParen", c.silver, c.deep_wood_green, s.NONE)
 Group.new("Cursor", c.lime, c.deep_wood_green, s.NONE)
 Group.new("StatusLine", c.gold, c.deep_wood_green, s.NONE)
 Group.new("StatusLineNC", c.gold, c.deep_wood_green, s.italic)
