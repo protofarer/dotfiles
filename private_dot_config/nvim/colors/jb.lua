@@ -99,12 +99,18 @@ Group.new("@boolean", c.cyan, c.deep_wood_green, s.NONE)
 Group.new("@keyword", c.white, c.deep_wood_green, s.NONE)
 
 -- std + bold
-Group.new("Type", c.lime, c.deep_wood_green, s.NONE) -- both def and ref
+
+-- both def and ref
+Group.new("Type", c.lime, c.deep_wood_green, s.NONE)
+
 Group.new("@type", c.lime, c.deep_wood_green, s.NONE)
-Group.new("Special", c.lime, c.deep_wood_green, s.NONE) -- affects words `int` `char` `void`, aka built-in C types aka `@type.builtin.c`
+
+-- affects words `int` `char` `void`, aka built-in C types aka `@type.builtin.c`
+Group.new("Special", c.lime, c.deep_wood_green, s.NONE)
 
 -- editor / misc
-Group.new("Visual", nil, c.white, s.NONE) -- cursor word match auto-highlight and visual selection
+
+Group.new("Visual", nil, c.gray, s.NONE) -- cursor word match auto-highlight and visual selection
 Group.new("LineNr", c.gold, c.deep_wood_green, s.NONE)
 Group.new("Normal", c.gold, c.deep_wood_green, s.NONE)
 Group.new("MatchParen", c.terminal_green, c.deep_wood_green, s.NONE)
