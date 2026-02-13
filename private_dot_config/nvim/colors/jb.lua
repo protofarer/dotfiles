@@ -26,6 +26,7 @@ Color.new("black", "#000000")
 Color.new("white", "#fefefe")
 Color.new("max_white", "#ffffff")
 Color.new("gray", "#a0a0a0")
+Color.new("darkgray", "#898989")
 -- TODO: grey for search
 
 -- Background
@@ -110,7 +111,7 @@ Group.new("Special", c.lime, c.deep_wood_green, s.NONE)
 
 -- editor / misc
 
-Group.new("Visual", nil, c.gray, s.NONE) -- cursor word match auto-highlight and visual selection
+Group.new("Visual", nil, c.darkgray, s.NONE) -- cursor word match auto-highlight and visual selection
 Group.new("LineNr", c.gold, c.deep_wood_green, s.NONE)
 Group.new("Normal", c.gold, c.deep_wood_green, s.NONE)
 Group.new("MatchParen", c.terminal_green, c.deep_wood_green, s.NONE)
