@@ -80,6 +80,7 @@ Group.new("TodoBgTODO", c.terminal_green, nil, s.bold + s.underline) -- TODO com
 
 -- plain styles, common code
 Group.new("@variable", c.gold, c.deep_wood_green, s.NONE)
+Group.new("Structure", c.gold, c.deep_wood_green, s.NONE) -- default imported package name refs
 Group.new("@punctuation.delimiter", c.gold, c.deep_wood_green, s.NONE)
 Group.new("@punctuation.bracket", c.gold, c.deep_wood_green, s.NONE)
 Group.new("@operator", c.gold, c.deep_wood_green, s.NONE)
@@ -146,7 +147,7 @@ Group.new("WarningMsg", c.dbg_blue, c.deep_wood_green, s.NONE)
 Group.new("DiffAdd", c.warm_yellow, c.deep_wood_green, s.NONE)
 Group.new("DiffDelete", c.warm_red, c.deep_wood_green, s.NONE)
 Group.new("Statement", c.dbg_blue, c.deep_wood_green, s.NONE)
-Group.new("Structure", c.dbg_blue, c.deep_wood_green, s.NONE) -- default imported package name refs, match module alias (@variable above)
+
 Group.new("TypeDef", c.dbg_blue, c.deep_wood_green, s.NONE)
 
 -- gold fg w/bright_amber bg

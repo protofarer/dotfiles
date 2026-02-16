@@ -240,15 +240,15 @@ alias j='just'
 alias ghas='gh auth switch'
 
 # download youtube audio mp3 to cwd
-alias ytdla='yt-dlp -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 -o "/home/kenny/Downloads/ytdla/%(title)s.%(ext)s"'
+alias ytdla='yt-dlp -f bestaudio --extract-audio --audio-format mp3 --audio-quality 0 -o "$HOME/Downloads/ytdla/%(title)s.%(ext)s"'
 
 # paste clipboard to
 alias pct='xclip -selection primary -o >'
 
 ### workspace just command
-alias jps='just -f /home/kenny/spaces/work/pastorstays-workspace/justfile'
-alias jpl='just -f /home/kenny/spaces/work/prolite/workspace/justfile'
-alias jhg='just -f /home/kenny/spaces/work/hopegives/workspace/justfile'
+alias jps='just -f $HOME/spaces/work/pastorstays-workspace/justfile'
+alias jpl='just -f $HOME/spaces/work/prolite/workspace/justfile'
+alias jhg='just -f $HOME/spaces/work/hopegives/workspace/justfile'
 
 ### project related commands
 alias hgtokens='source ~/spaces/work/hopegives/workspace/.node-tokens'
@@ -291,7 +291,7 @@ function mdg() {
 }
 
 # bun completions
-[ -s "/home/kenny/.bun/_bun" ] && source "/home/kenny/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
@@ -301,7 +301,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="$PATH:/opt/nvim-linux64/bin"
 
 # odin
-export PATH="/home/kenny/spaces/src/Odin:$PATH"
+export PATH="$HOME/spaces/src/Odin:$PATH"
 
 # run `ls` every time pwd changes
 chpwd() ls
@@ -319,7 +319,7 @@ claude() {
   /home/kenny/.claude/local/claude "$@"
 }
 
-export ANDROID_HOME=/home/kenny/Android/Sdk
+export ANDROID_HOME="$HOME/Android/Sdk"
 
 eval "$(direnv hook zsh)"
 
