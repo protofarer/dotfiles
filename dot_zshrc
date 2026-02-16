@@ -313,10 +313,10 @@ export EMSDK_QUIET=1
 # export WINEPREFIX=$HOME/.wine_debug
 
 # Claude Code CLI
-# alias claude="/home/kenny/.claude/local/claude"
 claude() {
   load_nvm
-  /home/kenny/.claude/local/claude "$@"
+  # /home/kenny/.claude/local/claude "$@"
+  /home/kenny/.local/bin/claude "$@"
 }
 
 export ANDROID_HOME="$HOME/Android/Sdk"
