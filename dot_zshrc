@@ -332,3 +332,7 @@ fi
 # Created by `pipx` on 2025-08-01 15:41:22
 # for `ds4drv`
 export PATH="$PATH:/root/.local/bin"
+
+# change directory background color, wasn't kitty theme because kitty only supplies the colors.
+LS_COLORS=$(echo $LS_COLORS | sed 's/di=[^:]*/di=01;34/')
+export LS_COLORS
