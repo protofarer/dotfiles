@@ -95,7 +95,7 @@ Group.new("CursorLine", c.green, c.lightgrey, s.NONE)
 -- what are these?
 
 Group.new("Statement", c.blue, c.black, s.bold)
-Group.new("Structure", c.blue, c.black, s.bold)
+Group.new("Structure", c.white, c.black, s.NONE) -- import identifiers
 Group.new("TypeDef", c.blue, c.black, s.bold)
 
 -- Group.new("CursorColumn", c.grey, c.white, s.NONE)
@@ -111,7 +111,7 @@ Group.new("MoreMsg", c.blue, c.black, s.NONE)
 Group.new("NonText", c.blue, c.black, s.NONE)
 Group.new("TabLine", c.blue, c.black, s.NONE)
 Group.new("TabLineFill", c.blue, c.black, s.NONE)
-Group.new("Title", c.blue, c.black, s.NONE)
+Group.new("Title", c.white, c.black, s.NONE)
 Group.new("VertSplit", c.blue, c.black, s.NONE)
 Group.new("PmenuSbar", c.blue, c.black, s.NONE)
 Group.new("PmenuThumb", c.blue, c.black, s.NONE)
@@ -131,3 +131,27 @@ Group.new("rubySymbol", c.grey, c.black, s.NONE)
 
 Group.new("DiffAdd", c.blue, c.black, s.NONE)
 Group.new("Pmenu", c.blue, c.black, s.bold)
+
+-- MiniFilesNormal - basic foreground/background highlighting
+Group.new("MiniFilesNormal", c.white, c.black, s.NONE)
+
+-- MiniFilesCursorLine - cursor line in explorer windows
+Group.new("MiniFilesCursorLine", c.black, c.white, s.NONE)
+
+-- MiniFilesDirectory - text and icon representing directory
+Group.new("MiniFilesDirectory", c.white, c.black, s.NONE)
+
+-- MiniFilesBorder - border of regular windows
+-- Group.new("MiniFilesBorder", c.grey, c.black, s.NONE)
+
+-- MiniFilesBorderModified - border of windows showing modified buffer
+-- Group.new("MiniFilesBorderModified", c.light, c.black, s.NONE)
+
+-- MiniFilesFile - text representing file
+-- Group.new("MiniFilesFile", c.grey, c.black, s.NONE)
+
+-- MiniFilesTitle - title of regular windows
+-- Group.new("MiniFilesTitle", c.grey, c.black, s.bold)
+
+-- MiniFilesTitleFocused - title of focused window
+-- Group.new("MiniFilesTitleFocused", c.white, c.black, s.bold)

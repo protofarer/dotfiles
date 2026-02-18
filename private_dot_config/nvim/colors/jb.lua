@@ -178,7 +178,7 @@ Group.new("TabLineFill", c.dbg_blue, c.deep_wood_green, s.NONE)
 Group.new("TabLineSel", c.dbg_blue, c.deep_wood_green, s.bold)
 
 Group.new("Label", c.dbg_blue, c.deep_wood_green, s.NONE)
-Group.new("Title", c.dbg_blue, c.deep_wood_green, s.NONE)
+Group.new("Title", c.gold, c.deep_wood_green, s.NONE)
 Group.new("NonText", c.dbg_blue, c.deep_wood_green, s.NONE)
 
 Group.new("Folded", c.dbg_blue, c.deep_wood_green, s.NONE)
