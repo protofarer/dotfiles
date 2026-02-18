@@ -332,3 +332,6 @@ fi
 # Created by `pipx` on 2025-08-01 15:41:22
 # for `ds4drv`
 export PATH="$PATH:/root/.local/bin"
+
+# override ow=34;42 where 42 makes world-writable directories unreadable because of a light green background
+export LS_COLORS="$LS_COLORS:ow=01;34"
