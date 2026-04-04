@@ -335,3 +335,6 @@ export PATH="$PATH:/root/.local/bin"
 
 # override ow=34;42 where 42 makes world-writable directories unreadable because of a light green background
 export LS_COLORS="$LS_COLORS:ow=01;34"
+
+# go binary
+export PATH= $PATH:/usr/local/go/bin
