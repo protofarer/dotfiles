@@ -337,4 +337,4 @@ export PATH="$PATH:/root/.local/bin"
 export LS_COLORS="$LS_COLORS:ow=01;34"
 
 # go binary
-export PATH= $PATH:/usr/local/go/bin
+export PATH="$PATH:/usr/local/go/bin"
