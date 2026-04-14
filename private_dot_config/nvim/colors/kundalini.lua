@@ -141,14 +141,14 @@ Group.new("MiniFilesCursorLine", c.black, c.white, s.NONE)
 -- MiniFilesDirectory - text and icon representing directory
 Group.new("MiniFilesDirectory", c.white, c.black, s.NONE)
 
+-- MiniFilesFile - text representing file
+Group.new("MiniFilesFile", c.white, c.black, s.NONE)
+
 -- MiniFilesBorder - border of regular windows
 -- Group.new("MiniFilesBorder", c.grey, c.black, s.NONE)
 
 -- MiniFilesBorderModified - border of windows showing modified buffer
 -- Group.new("MiniFilesBorderModified", c.light, c.black, s.NONE)
-
--- MiniFilesFile - text representing file
-Group.new("MiniFilesFile", c.green, c.blue, s.NONE)
 
 -- MiniFilesTitle - title of regular windows
 -- Group.new("MiniFilesTitle", c.grey, c.black, s.bold)
