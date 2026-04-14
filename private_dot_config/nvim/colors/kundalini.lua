@@ -148,7 +148,7 @@ Group.new("MiniFilesDirectory", c.white, c.black, s.NONE)
 -- Group.new("MiniFilesBorderModified", c.light, c.black, s.NONE)
 
 -- MiniFilesFile - text representing file
--- Group.new("MiniFilesFile", c.grey, c.black, s.NONE)
+Group.new("MiniFilesFile", c.green, c.blue, s.NONE)
 
 -- MiniFilesTitle - title of regular windows
 -- Group.new("MiniFilesTitle", c.grey, c.black, s.bold)
