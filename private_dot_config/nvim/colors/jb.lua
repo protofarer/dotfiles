@@ -190,3 +190,27 @@ Group.new("WildMenu", c.dbg_blue, c.deep_wood_green, s.NONE)
 Group.new("cucumberTags", c.dbg_blue, c.deep_wood_green, s.bold)
 Group.new("htmlTagN", c.dbg_blue, c.deep_wood_green, s.bold)
 Group.new("rubySymbol", c.dbg_blue, c.deep_wood_green, s.NONE)
+
+-- MiniFilesNormal - basic foreground/background highlighting
+Group.new("MiniFilesNormal", c.gold, c.deep_wood_green, s.NONE)
+
+-- MiniFilesFile - text representing file
+Group.new("MiniFilesFile", c.gold, c.deep_wood_green, s.NONE)
+
+-- MiniFilesDirectory - text and icon representing directory
+Group.new("MiniFilesDirectory", c.gold, c.deep_wood_green, s.NONE)
+
+-- MiniFilesCursorLine - cursor line in explorer windows
+Group.new("MiniFilesCursorLine", c.terminal_green, c.gray, s.NONE)
+
+-- MiniFilesBorder - border of regular windows
+-- Group.new("MiniFilesBorder", c.grey, c.black, s.NONE)
+
+-- MiniFilesBorderModified - border of windows showing modified buffer
+-- Group.new("MiniFilesBorderModified", c.light, c.black, s.NONE)
+
+-- MiniFilesTitle - title of regular windows
+-- Group.new("MiniFilesTitle", c.grey, c.black, s.bold)
+
+-- MiniFilesTitleFocused - title of focused window
+-- Group.new("MiniFilesTitleFocused", c.white, c.black, s.bold)
