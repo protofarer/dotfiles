@@ -133,7 +133,7 @@ Group.new("DiffAdd", c.blue, c.black, s.NONE)
 Group.new("Pmenu", c.blue, c.black, s.bold)
 
 -- MiniFilesNormal - basic foreground/background highlighting
-Group.new("MiniFilesNormal", c.blue, c.green, s.NONE)
+Group.new("MiniFilesNormal", c.white, c.black, s.NONE)
 
 -- MiniFilesCursorLine - cursor line in explorer windows
 Group.new("MiniFilesCursorLine", c.black, c.white, s.NONE)
