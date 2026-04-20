@@ -155,3 +155,13 @@ Group.new("MiniFilesFile", c.white, c.black, s.NONE)
 
 -- MiniFilesTitleFocused - title of focused window
 -- Group.new("MiniFilesTitleFocused", c.white, c.black, s.bold)
+
+-- Completion text itself
+Group.new("CmpItemAbbr", c.grey, c.black, s.NONE)
+Group.new("CmpItemAbbrMatch", c.light, c.black, s.NONE)
+
+-- Current Selection
+Group.new("PmenuSel", c.white, c.black, s.NONE)
+
+-- CmpItemKind — the kind icon/text
+Group.new("CmpItemKind", c.light, c.black, s.NONE)
