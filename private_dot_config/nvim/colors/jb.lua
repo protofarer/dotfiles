@@ -191,6 +191,10 @@ Group.new("cucumberTags", c.dbg_blue, c.deep_wood_green, s.bold)
 Group.new("htmlTagN", c.dbg_blue, c.deep_wood_green, s.bold)
 Group.new("rubySymbol", c.dbg_blue, c.deep_wood_green, s.NONE)
 
+-- "K :: Hover Documentation"
+Group.new("NormalFloat", c.dbg_green, c.deep_wood_green, s.NONE)
+Group.new("FloatBoarder", c.dbg_green, c.deep_wood_green, s.NONE)
+
 -- MiniFilesNormal - basic foreground/background highlighting
 Group.new("MiniFilesNormal", c.gold, c.deep_wood_green, s.NONE)
 
@@ -214,3 +218,19 @@ Group.new("MiniFilesCursorLine", c.terminal_green, c.gray, s.NONE)
 
 -- MiniFilesTitleFocused - title of focused window
 -- Group.new("MiniFilesTitleFocused", c.white, c.black, s.bold)
+
+-- CmpItemAbbrMatchFuzzy
+-- CmpItemMenu — the source label on the right ???
+-- Group.new("CmpItemMenu", c.terminal_green, c.deep_wood_green, s.NONE)
+
+-- CmpNormalFloat / CmpDocumentationBorder — the docs popup
+
+-- Completion text itself
+Group.new("CmpItemAbbr", c.gold, c.deep_wood_green, s.NONE)
+Group.new("CmpItemAbbrMatch", c.gold, c.gray, s.NONE)
+
+-- Current Selection
+Group.new("PmenuSel", c.terminal_green, c.deep_wood_green, s.NONE)
+
+-- CmpItemKind — the kind icon/text
+Group.new("CmpItemKind", c.gray, c.deep_wood_green, s.NONE)
