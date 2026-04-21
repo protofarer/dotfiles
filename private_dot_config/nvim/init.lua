@@ -1425,8 +1425,8 @@ require("lazy").setup({
 	{ -- no out-of-the-box gitsigns integration, but see my custom.plugins
 		"dstein64/nvim-scrollview",
 		opts = {
-			-- signs_on_startup = { "all" }, -- defaults to search & diagnostics
 			-- excluded_filetypes = { "neo-tree", "NvimTree", "toggleterm" },
+            signs_on_startup = {}, -- defaults to search & diagnostics
 			mode = "virtual",
 			winblend = 50, -- default: 50
 		},
