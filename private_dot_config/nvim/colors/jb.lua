@@ -113,6 +113,7 @@ Group.new("Special", c.lime, c.deep_wood_green, s.NONE)
 -- editor / misc
 
 Group.new("Visual", nil, c.darkgray, s.NONE) -- cursor word match auto-highlight and visual selection
+vim.api.nvim_set_hl(0, "ScrollView", { bg = "#898989", blend = 50 })
 Group.new("LineNr", c.gold, c.deep_wood_green, s.NONE)
 Group.new("Normal", c.gold, c.deep_wood_green, s.NONE)
 Group.new("MatchParen", c.terminal_green, c.deep_wood_green, s.NONE)
@@ -193,7 +194,7 @@ Group.new("rubySymbol", c.dbg_blue, c.deep_wood_green, s.NONE)
 
 -- "K :: Hover Documentation"
 Group.new("NormalFloat", c.dbg_green, c.deep_wood_green, s.NONE)
-Group.new("FloatBoarder", c.dbg_green, c.deep_wood_green, s.NONE)
+Group.new("FloatB", c.dbg_green, c.deep_wood_green, s.NONE)
 
 -- MiniFilesNormal - basic foreground/background highlighting
 Group.new("MiniFilesNormal", c.gold, c.deep_wood_green, s.NONE)
