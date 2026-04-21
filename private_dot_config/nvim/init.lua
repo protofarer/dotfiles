@@ -1424,12 +1424,18 @@ require("lazy").setup({
 	-- More custom ,plugins (order not important) `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
 	{ -- no out-of-the-box gitsigns integration, but see my custom.plugins
 		"dstein64/nvim-scrollview",
-		opts = {
-			-- excluded_filetypes = { "neo-tree", "NvimTree", "toggleterm" },
-            signs_on_startup = {}, -- defaults to search & diagnostics
-			mode = "virtual",
-			winblend = 50, -- default: 50
-		},
+		config = function()
+			require("scrollview").setup({
+				mode = "virtual",
+				winblend = 50,
+				signs_on_startup = {},
+			})
+		end,
+		-- opts = {
+		-- 	-- excluded_filetypes = { "neo-tree", "NvimTree", "toggleterm" },
+		-- 	signs_on_startup = {}, -- defaults to search & diagnostics
+		-- 	mode = "virtual",
+		-- },
 	},
 	{ "tpope/vim-fugitive" },
 	{ "tpope/vim-rhubarb" },
@@ -2026,12 +2032,5 @@ end
 
 -- Create the keybinding (e.g., <leader>va for "[V]ertical [A]lign parameters")
 vim.keymap.set("n", "<leader>va", align_function_params, { desc = "[V]ertically [A]lign function parameters" })
-
-vim.api.nvim_create_autocmd("ColorScheme", {
-    pattern = "jb",
-    callback = function()
-        vim.api.nvim_set_hl(0, "ScrollView", { bg = "#898989", blend = 50 })
-    end,
-})
 
 -- vim: ts=4 sts=4 sw=4 et
