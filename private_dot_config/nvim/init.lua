@@ -1428,6 +1428,7 @@ require("lazy").setup({
 			require("scrollview").setup({
 				mode = "virtual",
 				winblend = 50,
+				winblend_gui = 50,
 				signs_on_startup = {},
 			})
 		end,
