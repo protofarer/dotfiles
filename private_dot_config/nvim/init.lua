@@ -1428,7 +1428,7 @@ require("lazy").setup({
 			-- signs_on_startup = { "all" }, -- defaults to search & diagnostics
 			-- excluded_filetypes = { "neo-tree", "NvimTree", "toggleterm" },
 			mode = "virtual",
-			winblend = 50,
+			-- winblend = 50,
 		},
 	},
 	{ "tpope/vim-fugitive" },
@@ -2026,5 +2026,7 @@ end
 
 -- Create the keybinding (e.g., <leader>va for "[V]ertical [A]lign parameters")
 vim.keymap.set("n", "<leader>va", align_function_params, { desc = "[V]ertically [A]lign function parameters" })
+
+vim.cmd("ScrollViewRefresh")
 
 -- vim: ts=4 sts=4 sw=4 et
