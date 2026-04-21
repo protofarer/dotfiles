@@ -234,6 +234,3 @@ Group.new("PmenuSel", c.terminal_green, c.deep_wood_green, s.NONE)
 
 -- CmpItemKind — the kind icon/text
 Group.new("CmpItemKind", c.gray, c.deep_wood_green, s.NONE)
-
--- Set scrollview blend, make independent from above "Visual" group
-vim.api.nvim_set_hl(0, "ScrollView", { bg = "#898989", blend = 50 })

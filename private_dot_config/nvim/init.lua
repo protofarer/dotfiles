@@ -2027,4 +2027,11 @@ end
 -- Create the keybinding (e.g., <leader>va for "[V]ertical [A]lign parameters")
 vim.keymap.set("n", "<leader>va", align_function_params, { desc = "[V]ertically [A]lign function parameters" })
 
+vim.api.nvim_create_autocmd("ColorScheme", {
+    pattern = "jb",
+    callback = function()
+        vim.api.nvim_set_hl(0, "ScrollView", { bg = "#898989", blend = 50 })
+    end,
+})
+
 -- vim: ts=4 sts=4 sw=4 et
