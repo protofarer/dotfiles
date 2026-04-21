@@ -1426,7 +1426,7 @@ require("lazy").setup({
 		"dstein64/nvim-scrollview",
 		opts = {
 			-- excluded_filetypes = { "neo-tree", "NvimTree", "toggleterm" },
-			signs_on_startup = {"all"}, -- defaults to search & diagnostics
+			-- signs_on_startup = {}, -- defaults to search & diagnostics
 			winblend = 50,
 			winblend_gui = 50,
 			mode = "virtual",
