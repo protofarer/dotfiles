@@ -346,3 +346,6 @@ export PATH="$PATH:/opt/arm-gnu-toolchain-15.2.rel1-x86_64-arm-none-eabi/bin"
 export PICO_SDK_PATH="~/spaces/src/pico/pico-sdk"
 # point pico sdk to arm toolchain above
 export PICO_TOOLCHAIN_PATH=/opt/arm-gnu-toolchain-15.2.rel1-x86_64-arm-none-eabi/bin
+
+# musl cross compile toolchain for arm64
+export PATH="/opt/aarch64-linux-musl-cross/bin:$PATH"
