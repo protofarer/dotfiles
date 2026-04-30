@@ -18,7 +18,7 @@ vim.g.colors_name = "kundalini"
 vim.o.background = "dark"
 
 -- Define colors
-Color.new("black", "#0B0000")
+Color.new("black", "#000000")
 Color.new("white", "#FF0000") -- brightest red
 Color.new("light", "#D00000") -- light red
 Color.new("grey", "#8B0000") -- medium red
