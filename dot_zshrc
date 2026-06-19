@@ -133,7 +133,7 @@ load_nvm() {
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
   # yarn globally installed binaries
-  export PATH="$(yarn global bin):$PATH"
+  # export PATH="$(yarn global bin):$PATH"
 }
 
 nvm() {
