@@ -126,7 +126,6 @@ export LS_OPTIONS='--color=auto'
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # ####### lazy load nvm/node/npm, respective programs loaded on first invocation instead of at shell startup
-DEFAULT_NODE_VERSION=20
 
 # Use this before programs that need node. Especially for scripting.
 load_nvm() {
@@ -141,28 +140,24 @@ nvm() {
   unset -f nvm
   load_nvm
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-  nvm alias default $DEFAULT_NODE_VERSION
   nvm "$@"
 }
 
 node() {
   unset -f node
   load_nvm
-  nvm alias default $DEFAULT_NODE_VERSION
   node "$@"
 }
 
 npm() {
   unset -f npm
   load_nvm
-  nvm alias default $DEFAULT_NODE_VERSION
   npm "$@"
 }
 
 npx() {
   unset -f npx
   load_nvm
-  nvm alias default $DEFAULT_NODE_VERSION
   npx "$@"
 }
 
