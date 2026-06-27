@@ -1012,10 +1012,12 @@ require("lazy").setup({
 				-- have a well standardized coding style. You can add additional
 				-- languages here or re-enable it for the disabled ones.
 				local disable_filetypes = { c = true, cpp = true }
+				if disable_filetypes[vim.bo[bufnr].filetype] then
+					return false
+				end
 				return {
 					timeout_ms = 500,
-					lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
-					-- lsp_fallback = false,
+					lsp_fallback = false,
 				}
 			end,
 			-- Conform can also run multiple formatters sequentially
