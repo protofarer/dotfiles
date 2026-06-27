@@ -1014,9 +1014,8 @@ require("lazy").setup({
 				local disable_filetypes = { c = true, cpp = true }
 				return {
 					timeout_ms = 500,
-					-- lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
-					lsp_fallback = false,
-					disable_filetypes = disable_filetypes,
+					lsp_fallback = not disable_filetypes[vim.bo[bufnr].filetype],
+					-- lsp_fallback = false,
 				}
 			end,
 			-- Conform can also run multiple formatters sequentially
