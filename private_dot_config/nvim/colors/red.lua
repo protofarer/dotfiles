@@ -1,0 +1,166 @@
+-- file: colors/kundalini.lua
+local colorbuddy = require("colorbuddy")
+colorbuddy.setup()
+
+local Color = colorbuddy.Color
+local Group = colorbuddy.Group
+local c = colorbuddy.colors
+local s = colorbuddy.styles
+
+-- Clear existing highlights
+vim.cmd("hi clear")
+if vim.fn.exists("syntax_on") then
+	vim.cmd("syntax reset")
+end
+
+-- Set colorscheme name
+vim.g.colors_name = "kundalini"
+vim.o.background = "dark"
+
+-- Define colors
+Color.new("black", "#000000")
+Color.new("white", "#FF0000") -- brightest red
+Color.new("light", "#D00000") -- light red
+Color.new("grey", "#8B0000") -- medium red
+Color.new("muted", "#300000") -- muted red
+Color.new("dim", "#100000") -- dim red
+
+Color.new("blue", "#0000FF")
+Color.new("green", "#00FF00")
+
+-- ------------------------------
+-- ------------------------------
+
+-- What I actually care about for this theme:
+
+Group.new("Comment", c.grey, c.black, s.italic)
+Group.new("@comment", c.grey, c.black, s.italic)
+Group.new("TodoFgTODO", c.grey, nil, s.italic) -- TODO comment plugin; the colon and comment itself
+Group.new("TodoBgTODO", c.grey, nil, s.underline) -- TODO comment plugin; the word TODO itself
+
+-- plain style, common code
+Group.new("@variable", c.grey, c.black, s.NONE)
+Group.new("@keyword", c.grey, c.black, s.NONE)
+Group.new("@punctuation.delimiter", c.grey, c.black, s.NONE)
+Group.new("@punctuation.bracket", c.grey, c.black, s.NONE)
+Group.new("@operator", c.grey, c.black, s.NONE)
+Group.new("Function", c.grey, c.black, s.NONE)
+Group.new("@function", c.grey, c.black, s.NONE)
+Group.new("Identifier", c.grey, c.black, s.NONE) -- struct fields
+Group.new("PreProc", c.grey, c.black, s.bold) -- backslash for preproc newline
+
+-- std + bold
+Group.new("Type", c.grey, c.black, s.bold)
+Group.new("Special", c.grey, c.black, s.bold) -- affects words `int` `char` `void`, aka built-in C types aka `@type.builtin.c`
+
+Group.new("Constant", c.grey, c.black, s.NONE)
+Group.new("Number", c.grey, c.black, s.NONE)
+Group.new("@number", c.grey, c.black, s.NONE)
+Group.new("@boolean", c.grey, c.black, s.NONE)
+
+Group.new("String", c.grey, c.black, s.italic)
+Group.new("@string", c.grey, c.black, s.italic)
+Group.new("@string.escape", c.grey, c.black, s.NONE)
+
+-- editor
+Group.new("Normal", c.white, c.black, s.NONE) -- statusline stdout text fg
+Group.new("MatchParen", c.white, c.black, s.NONE)
+Group.new("Cursor", c.black, c.white, s.NONE)
+Group.new("LineNr", c.grey, c.black, s.NONE)
+Group.new("StatusLine", c.grey, c.black, s.bold)
+Group.new("StatusLineNC", c.grey, c.black, s.italic) -- status line cwd
+Group.new("Directory", c.grey, c.black, s.NONE) -- mini directory display
+
+-- ------------------------------
+-- ------------------------------
+
+-- N2H
+Group.new("Error", c.grey, c.black, s.NONE)
+Group.new("Todo", c.grey, c.black, s.bold + s.underline)
+Group.new("WarningMsg", c.grey, c.black, s.NONE)
+
+-- editor
+-- black fg w/white bg
+-- Group.new("IncSearch", c.black, c.white, s.italic)
+-- Group.new("Search", c.black, c.white, s.italic)
+Group.new("Visual", c.white, c.muted, s.italic) -- visual select
+-- Group.new("VisualNOS", c.black, c.white, s.italic)
+-- grey fg, white bg
+Group.new("CursorLine", c.green, c.lightgrey, s.NONE)
+
+-- ------------------------------
+-- ------------------------------
+
+-- what are these?
+
+Group.new("Statement", c.blue, c.black, s.bold)
+Group.new("Structure", c.white, c.black, s.NONE) -- import identifiers
+Group.new("TypeDef", c.blue, c.black, s.bold)
+
+-- Group.new("CursorColumn", c.grey, c.white, s.NONE)
+
+-- grey fg, black bg
+Group.new("DiffChange", c.blue, c.black, s.NONE)
+Group.new("DiffDelete", c.blue, c.black, s.NONE)
+Group.new("DiffText", c.blue, c.black, s.NONE)
+Group.new("Folded", c.blue, c.black, s.NONE)
+Group.new("Ignore", c.blue, c.black, s.NONE)
+Group.new("ModeMsg", c.blue, c.black, s.NONE)
+Group.new("MoreMsg", c.blue, c.black, s.NONE)
+Group.new("NonText", c.blue, c.black, s.NONE)
+Group.new("TabLine", c.blue, c.black, s.NONE)
+Group.new("TabLineFill", c.blue, c.black, s.NONE)
+Group.new("Title", c.white, c.black, s.NONE)
+Group.new("VertSplit", c.blue, c.black, s.NONE)
+Group.new("PmenuSbar", c.blue, c.black, s.NONE)
+Group.new("PmenuThumb", c.blue, c.black, s.NONE)
+Group.new("PmenuSel", c.blue, c.black, s.italic)
+Group.new("Label", c.blue, c.black, s.bold)
+Group.new("StorageClass", c.blue, c.black, s.bold)
+Group.new("SpecialKey", c.blue, c.black, s.italic)
+Group.new("TabLineSel", c.blue, c.black, s.bold)
+Group.new("Underlined", c.blue, c.black, s.underline)
+
+Group.new("WildMenu", c.grey, c.black, s.NONE)
+Group.new("cucumberTags", c.grey, c.black, s.bold)
+Group.new("htmlTagN", c.grey, c.black, s.bold)
+Group.new("rubySymbol", c.grey, c.black, s.NONE)
+
+-- white fg w/black bg
+
+Group.new("DiffAdd", c.blue, c.black, s.NONE)
+Group.new("Pmenu", c.blue, c.black, s.bold)
+
+-- MiniFilesNormal - basic foreground/background highlighting
+Group.new("MiniFilesNormal", c.white, c.black, s.NONE)
+
+-- MiniFilesCursorLine - cursor line in explorer windows
+Group.new("MiniFilesCursorLine", c.black, c.white, s.NONE)
+
+-- MiniFilesDirectory - text and icon representing directory
+Group.new("MiniFilesDirectory", c.white, c.black, s.NONE)
+
+-- MiniFilesFile - text representing file
+Group.new("MiniFilesFile", c.white, c.black, s.NONE)
+
+-- MiniFilesBorder - border of regular windows
+-- Group.new("MiniFilesBorder", c.grey, c.black, s.NONE)
+
+-- MiniFilesBorderModified - border of windows showing modified buffer
+-- Group.new("MiniFilesBorderModified", c.light, c.black, s.NONE)
+
+-- MiniFilesTitle - title of regular windows
+-- Group.new("MiniFilesTitle", c.grey, c.black, s.bold)
+
+-- MiniFilesTitleFocused - title of focused window
+-- Group.new("MiniFilesTitleFocused", c.white, c.black, s.bold)
+
+-- Completion text itself
+Group.new("CmpItemAbbr", c.grey, c.black, s.NONE)
+Group.new("CmpItemAbbrMatch", c.light, c.black, s.NONE)
+
+-- Current Selection
+Group.new("PmenuSel", c.white, c.black, s.NONE)
+
+-- CmpItemKind — the kind icon/text
+Group.new("CmpItemKind", c.light, c.black, s.NONE)
