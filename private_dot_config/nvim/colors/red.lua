@@ -83,7 +83,7 @@ Group.new("WarningMsg", c.grey, c.black, s.NONE)
 -- black fg w/white bg
 -- Group.new("IncSearch", c.black, c.white, s.italic)
 -- Group.new("Search", c.black, c.white, s.italic)
-Group.new("Visual", c.white, c.muted, s.NONE) -- visual select
+Group.new("Visual", c.light, c.muted, s.NONE) -- visual select
 -- Group.new("VisualNOS", c.black, c.white, s.italic)
 -- grey fg, white bg
 Group.new("CursorLine", c.green, c.lightgrey, s.NONE)
@@ -94,7 +94,7 @@ Group.new("CursorLine", c.green, c.lightgrey, s.NONE)
 -- what are these?
 
 Group.new("Statement", c.blue, c.black, s.bold)
-Group.new("Structure", c.white, c.black, s.NONE) -- import identifiers
+Group.new("Structure", c.light, c.black, s.NONE) -- import identifiers
 Group.new("TypeDef", c.blue, c.black, s.bold)
 
 -- Group.new("CursorColumn", c.grey, c.white, s.NONE)
@@ -110,7 +110,7 @@ Group.new("MoreMsg", c.blue, c.black, s.NONE)
 Group.new("NonText", c.blue, c.black, s.NONE)
 Group.new("TabLine", c.blue, c.black, s.NONE)
 Group.new("TabLineFill", c.blue, c.black, s.NONE)
-Group.new("Title", c.white, c.black, s.NONE)
+Group.new("Title", c.light, c.black, s.NONE)
 Group.new("VertSplit", c.blue, c.black, s.NONE)
 Group.new("PmenuSbar", c.blue, c.black, s.NONE)
 Group.new("PmenuThumb", c.blue, c.black, s.NONE)
@@ -132,16 +132,16 @@ Group.new("DiffAdd", c.blue, c.black, s.NONE)
 Group.new("Pmenu", c.blue, c.black, s.bold)
 
 -- MiniFilesNormal - basic foreground/background highlighting
-Group.new("MiniFilesNormal", c.white, c.black, s.NONE)
+Group.new("MiniFilesNormal", c.light, c.black, s.NONE)
 
 -- MiniFilesCursorLine - cursor line in explorer windows
 Group.new("MiniFilesCursorLine", c.black, c.white, s.NONE)
 
 -- MiniFilesDirectory - text and icon representing directory
-Group.new("MiniFilesDirectory", c.white, c.black, s.NONE)
+Group.new("MiniFilesDirectory", c.light, c.black, s.NONE)
 
 -- MiniFilesFile - text representing file
-Group.new("MiniFilesFile", c.white, c.black, s.NONE)
+Group.new("MiniFilesFile", c.light, c.black, s.NONE)
 
 -- MiniFilesBorder - border of regular windows
 -- Group.new("MiniFilesBorder", c.grey, c.black, s.NONE)
@@ -153,14 +153,14 @@ Group.new("MiniFilesFile", c.white, c.black, s.NONE)
 -- Group.new("MiniFilesTitle", c.grey, c.black, s.bold)
 
 -- MiniFilesTitleFocused - title of focused window
--- Group.new("MiniFilesTitleFocused", c.white, c.black, s.bold)
+-- Group.new("MiniFilesTitleFocused", c.light, c.black, s.bold)
 
 -- Completion text itself
 Group.new("CmpItemAbbr", c.grey, c.black, s.NONE)
 Group.new("CmpItemAbbrMatch", c.light, c.black, s.NONE)
 
 -- Current Selection
-Group.new("PmenuSel", c.white, c.black, s.NONE)
+Group.new("PmenuSel", c.light, c.black, s.NONE)
 
 -- CmpItemKind — the kind icon/text
 Group.new("CmpItemKind", c.light, c.black, s.NONE)
