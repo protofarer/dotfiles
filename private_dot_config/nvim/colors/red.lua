@@ -14,7 +14,7 @@ if vim.fn.exists("syntax_on") then
 end
 
 -- Set colorscheme name
-vim.g.colors_name = "kundalini"
+vim.g.colors_name = "red"
 vim.o.background = "dark"
 
 -- Define colors
@@ -63,7 +63,7 @@ Group.new("@string", c.grey, c.black, s.italic)
 Group.new("@string.escape", c.grey, c.black, s.NONE)
 
 -- editor
-Group.new("Normal", c.white, c.black, s.NONE) -- statusline stdout text fg
+Group.new("Normal", c.grey, c.black, s.NONE) -- statusline stdout text fg
 Group.new("MatchParen", c.white, c.black, s.NONE)
 Group.new("Cursor", c.black, c.white, s.NONE)
 Group.new("LineNr", c.grey, c.black, s.NONE)
@@ -83,7 +83,7 @@ Group.new("WarningMsg", c.grey, c.black, s.NONE)
 -- black fg w/white bg
 -- Group.new("IncSearch", c.black, c.white, s.italic)
 -- Group.new("Search", c.black, c.white, s.italic)
-Group.new("Visual", c.white, c.muted, s.italic) -- visual select
+Group.new("Visual", c.white, c.muted, s.NONE) -- visual select
 -- Group.new("VisualNOS", c.black, c.white, s.italic)
 -- grey fg, white bg
 Group.new("CursorLine", c.green, c.lightgrey, s.NONE)
@@ -119,7 +119,7 @@ Group.new("Label", c.blue, c.black, s.bold)
 Group.new("StorageClass", c.blue, c.black, s.bold)
 Group.new("SpecialKey", c.blue, c.black, s.italic)
 Group.new("TabLineSel", c.blue, c.black, s.bold)
-Group.new("Underlined", c.blue, c.black, s.underline)
+Group.new("Underlined", c.grey, c.black, s.underline)
 
 Group.new("WildMenu", c.grey, c.black, s.NONE)
 Group.new("cucumberTags", c.grey, c.black, s.bold)
@@ -147,7 +147,7 @@ Group.new("MiniFilesFile", c.white, c.black, s.NONE)
 -- Group.new("MiniFilesBorder", c.grey, c.black, s.NONE)
 
 -- MiniFilesBorderModified - border of windows showing modified buffer
--- Group.new("MiniFilesBorderModified", c.light, c.black, s.NONE)
+-- Group.new("MiniFilesBorderModified", c.grey, c.black, s.NONE)
 
 -- MiniFilesTitle - title of regular windows
 -- Group.new("MiniFilesTitle", c.grey, c.black, s.bold)
