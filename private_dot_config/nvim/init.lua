@@ -1762,8 +1762,9 @@ require("lazy").setup({
 -- ,colorscheme toggle
 local COLORSCHEMES = {
 	"jb",
-	"kundalini",
+	"red",
 	"kanagawa",
+	-- "kundalini"
 	-- "amber",
 	-- "true-monochrome",
 	-- "tmc",
