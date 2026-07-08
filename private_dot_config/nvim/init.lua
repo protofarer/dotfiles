@@ -299,6 +299,7 @@ end, { desc = "Default odin run executable" })
 
 -- ez justfile
 vim.keymap.set("n", "<leader>j", ":! just ", { noremap = true })
+vim.keymap.set("n", "<leader>jj", ":! just dev", { noremap = true, desc = "Run 'just dev'" })
 vim.keymap.set("n", "<leader>jf", ":! just a", { noremap = true, desc = "Run justfile task 'a'" })
 vim.keymap.set("n", "<leader>jg", ":! just b", { noremap = true, desc = "Run justfile task 'b'" })
 vim.keymap.set("n", "<leader>jv", ":! just c", { noremap = true, desc = "Run justfile task 'c'" })
