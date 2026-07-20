@@ -23,14 +23,15 @@ vim.o.background = "dark"
 
 -- General
 Color.new("black", "#000000")
-Color.new("white", "#fefefe")
+Color.new("white", "#ececec")
 Color.new("max_white", "#ffffff")
 Color.new("gray", "#a0a0a0")
 Color.new("darkgray", "#898989")
 -- TODO: grey for search
 
 -- Background
-Color.new("deep_wood_green", "#062626")
+-- Color.new("deep_wood_green", "#062626")
+Color.new("deep_wood_green", "#041b1b")
 
 -- Core / Code
 Color.new("gold", "#e5cbb0")
@@ -42,7 +43,7 @@ Color.new("terminal_green", "#5bd243")
 Color.new("lime", "#92e8a2")
 
 -- Color.new("cyan", "#9cfcd9")
-Color.new("cyan", "#80ceb1")
+Color.new("cyan", "#88dcbd")
 
 -- Color.new("teal", "#3ddba6")
 Color.new("teal", "#39cc98") -- strings, prolly dont dim so much
