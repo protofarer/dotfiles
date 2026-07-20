@@ -31,7 +31,7 @@ Color.new("darkgray", "#898989")
 
 -- Background
 -- Color.new("deep_wood_green", "#062626")
-Color.new("deep_wood_green", "#041b1b")
+Color.new("deep_wood_green", "#072c2c")
 
 -- Core / Code
 Color.new("gold", "#e5cbb0")
