@@ -42,7 +42,7 @@ Color.new("terminal_green", "#5bd243")
 Color.new("lime", "#92e8a2")
 
 -- Color.new("cyan", "#9cfcd9")
-Color.new("cyan", "#8fe7c7")
+Color.new("cyan", "#80ceb1")
 
 -- Color.new("teal", "#3ddba6")
 Color.new("teal", "#39cc98") -- strings, prolly dont dim so much
