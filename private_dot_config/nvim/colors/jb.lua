@@ -38,7 +38,7 @@ Color.new("deep_wood_green", "#052121")
 Color.new("gold", "#d9c0a7")
 
 -- Color.new("terminal_green", "#68f24d")
-Color.new("terminal_green", "#5bd243")
+Color.new("terminal_green", "#58c73f")
 
 -- Color.new("lime", "#9df9af")
 Color.new("lime", "#92e8a2")
@@ -90,6 +90,7 @@ Group.new("TodoBgTODO", c.terminal_green, nil, s.bold + s.underline) -- TODO com
 
 -- plain styles, common code
 Group.new("@variable", c.gold, c.deep_wood_green, s.NONE)
+Group.new("@label", c.white, c.deep_wood_green, s.NONE)
 Group.new("Structure", c.gold, c.deep_wood_green, s.NONE) -- default imported package name refs
 Group.new("@punctuation.delimiter", c.gold, c.deep_wood_green, s.NONE)
 Group.new("@punctuation.bracket", c.gold, c.deep_wood_green, s.NONE)
