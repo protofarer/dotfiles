@@ -27,6 +27,7 @@ Color.new("white", "#ececec")
 Color.new("max_white", "#ffffff")
 Color.new("gray", "#a0a0a0")
 Color.new("darkgray", "#898989")
+Color.new("faintgray", "#d8d8d8")
 -- TODO: grey for search
 
 -- Background
@@ -216,7 +217,7 @@ Group.new("MiniFilesFile", c.gold, c.deep_wood_green, s.NONE)
 Group.new("MiniFilesDirectory", c.gold, c.deep_wood_green, s.NONE)
 
 -- MiniFilesCursorLine - cursor line in explorer windows
-Group.new("MiniFilesCursorLine", c.terminal_green, c.gray, s.NONE)
+Group.new("MiniFilesCursorLine", c.terminal_green, c.faintgray, s.NONE)
 
 -- MiniFilesBorder - border of regular windows
 -- Group.new("MiniFilesBorder", c.grey, c.black, s.NONE)
