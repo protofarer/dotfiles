@@ -218,7 +218,7 @@ Group.new("MiniFilesFile", c.gold, c.deep_wood_green, s.NONE)
 Group.new("MiniFilesDirectory", c.gold, c.deep_wood_green, s.NONE)
 
 -- MiniFilesCursorLine - cursor line in explorer windows
-Group.new("MiniFilesCursorLine", c.terminal_green, c.offwhite, s.NONE)
+Group.new("MiniFilesCursorLine", c.terminal_green, c.offblack, s.NONE)
 
 -- MiniFilesBorder - border of regular windows
 -- Group.new("MiniFilesBorder", c.grey, c.black, s.NONE)
