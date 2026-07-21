@@ -182,6 +182,7 @@ alias hg='history | rg'
 alias zrd='sudo zypper ref && sudo zypper dup'
 alias zr='sudo zypper ref'
 alias sysup='sudo zypper ref && sudo zypper dup && flatpak update'
+alias scanaud='pacmd unload-module module-udev-detect && pacmd load-module module-udev-detect'
 
 ### Git
 # see .zshenv, enable running in nvim command line
