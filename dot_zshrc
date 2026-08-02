@@ -277,8 +277,6 @@ export LESS=-R
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export ZYPP_MEDIANETWORK=1
-
 # setopt auto_cd, below is zsh specific
 # export CDPATH=:~/spaces/:~/spaces/*:$CDPATH
 cdpath=(. ~/spaces ~/spaces/*/ $cdpath)
@@ -290,20 +288,9 @@ function mdg() {
 # bun completions
 [ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-
-# neovim
-export PATH="$PATH:/opt/nvim-linux64/bin"
-
-# odin
-export PATH="$HOME/spaces/src/Odin:$PATH"
-
 # run `ls` every time pwd changes
 chpwd() ls
 
-export EMSDK_QUIET=1
 
 # wine
 # setup debug env
@@ -316,15 +303,22 @@ claude() {
   /home/kenny/.local/bin/claude "$@"
 }
 
-export ANDROID_HOME="$HOME/Android/Sdk"
-
 eval "$(direnv hook zsh)"
 
-# Keep at end
-if [ -n "$STARTUP_TIME" ]; then
-  echo $(expr $(date +%s%3N) - $STARTUP_TIME)'ms'
-  unset STARTUP_TIME
-fi
+export ZYPP_MEDIANETWORK=1
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# neovim
+export PATH="$PATH:/opt/nvim-linux64/bin"
+
+# odin
+export PATH="$HOME/spaces/src/Odin:$PATH"
+
+export EMSDK_QUIET=1
+export ANDROID_HOME="$HOME/Android/Sdk"
 
 # Created by `pipx` on 2025-08-01 15:41:22
 # for `ds4drv`
@@ -346,3 +340,9 @@ export PICO_TOOLCHAIN_PATH=/opt/arm-gnu-toolchain-15.2.rel1-x86_64-arm-none-eabi
 
 # musl cross compile toolchain for arm64
 export PATH="/opt/aarch64-linux-musl-cross/bin:$PATH"
+
+# Keep at end
+if [ -n "$STARTUP_TIME" ]; then
+  echo $(expr $(date +%s%3N) - $STARTUP_TIME)'ms'
+  unset STARTUP_TIME
+fi
