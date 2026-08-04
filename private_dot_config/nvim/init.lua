@@ -500,8 +500,6 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost" }, {
 	end,
 })
 
--- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -1016,7 +1014,7 @@ require("lazy").setup({
 		version = "*",
 		opts = {},
 	},
-	{ -- Highlight, edit, and navigate code ,treesitter
+	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",
 		opts = {
@@ -1168,55 +1166,6 @@ require("lazy").setup({
 	{ -- treesitter autoclose/autorename html tags
 		"windwp/nvim-ts-autotag",
 	},
-	-- {
-	-- 	"zbirenbaum/copilot.lua",
-	-- 	cmd = "Copilot",
-	-- 	event = "InsertEnter",
-	-- 	build = ":Copilot auth",
-	-- 	-- keys = {
-	-- 	--     "<leader>cp",
-	-- 	--     function()
-	-- 	--         require("copilot.suggestion").toggle_auto_trigger()
-	-- 	--     end,
-	-- 	--     mode = { "n" },
-	-- 	--     desc = "toggle [c]o[p]ilot autosuggestion",
-	-- 	-- },
-	-- 	opts = {
-	-- 		suggestion = {
-	-- 			enabled = true,
-	-- 			auto_trigger = true,
-	-- 			keymap = {
-	-- 				accept = "<A-l>",
-	-- 				next = "<A-)>",
-	-- 				prev = "<A-(>",
-	-- 				dismiss = "<A-Esc>",
-	-- 			},
-	-- 		},
-	-- 		panel = { enabled = false },
-	-- 		filetypes = {
-	-- 			javascript = true,
-	-- 			typescript = true,
-	-- 			javascriptreact = true,
-	-- 			typescriptreact = true,
-	-- 			python = true,
-	-- 			bash = true,
-	-- 			zsh = true,
-	-- 			markdown = true,
-	-- 			help = true,
-	-- 			rust = true,
-	-- 			odin = false,
-	-- 			terraform = false,
-	-- 			sh = function()
-	-- 				if string.match(vim.fs.basename(vim.api.nvim_buf_get_name(0)), "^%.env.*") then
-	-- 					-- disable for .env files
-	-- 					return false
-	-- 				end
-	-- 				return true
-	-- 			end,
-	-- 			["*"] = false, -- disable all others
-	-- 		},
-	-- 	},
-	-- },
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		version = "*",
@@ -1381,7 +1330,7 @@ require("lazy").setup({
 				end)
 			end,
 		},
-		-- To avoid press-enter to continue annoyance
+		-- To avoid "press-enter to continue" annoyance
 		-- {
 		-- 	"folke/noice.nvim",
 		-- 	dependencies = {
@@ -1435,16 +1384,6 @@ require("lazy").setup({
 		},
 	},
 })
-
--- TODO: troubleshoot when the LSP format failed, missing language server
--- print debug by showing when events are triggered: BufEnter, BufWrite, PreBufWrite, LspAttach, lsp format run,
--- vim.api.nvim_create_autocmd("LspAttach", {
---     callback = function(args)
---         local client = vim.lsp.get_client_by_id(args.data.client_id)
---         print(string.format("LSP attached: %s", client.name))
---         print(string.format("Formatting capability: %s", client.server_capabilities.documentFormattingProvider))
---     end,
--- })
 
 -- ,colorscheme toggle
 local COLORSCHEMES = {
@@ -1521,6 +1460,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
 	end,
 })
 
+
 --[[
 Advanced Autosave Configuration
 
@@ -1553,6 +1493,8 @@ vim.api.nvim_create_autocmd({ "BufHidden", "FocusLost", "WinLeave", "CursorHold"
 	end,
 	desc = "Advanced autosave with safety checks",
 })
+-- END Advanced Autosave Configuration
+
 
 -- Map [[ to jump to previous shell prompt in terminal buffers
 vim.api.nvim_create_autocmd("TermOpen", {
@@ -1572,7 +1514,6 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 	desc = "Set .h files to C filetype",
 })
 
--- Function to align parameters
 local function align_function_params()
 	-- Save cursor position
 	local cursor_pos = vim.api.nvim_win_get_cursor(0)
@@ -1825,7 +1766,7 @@ do
         "eslint",
         "prismals",
     }
-    -- Install formatters here, but use conform to config them
+    -- Install formatters here; use conform to config them
     vim.list_extend(ensure_installed, {
         "stylua",
         "prettier",
@@ -1909,10 +1850,5 @@ do
         end,
     })
 end
-
-
-
-
-
 
 -- vim: ts=4 sts=4 sw=4 et
