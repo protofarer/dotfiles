@@ -73,6 +73,9 @@ vim.opt.termguicolors = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 
+-- execute a .nvim.lua when its project root is opened in neovim, see clangd = { on_new_config = ... }
+vim.o.exrc = true
+
 vim.opt.background = "light"
 
 local function toggle_bg()
@@ -889,7 +892,14 @@ require("lazy").setup({
 					-- 	end,
 					-- },
 				},
-				clangd = {},
+                clangd = {
+                    -- only activates when trusted project asks it to, part of vim.o.exrc = true
+                    on_new_config = function(new_config, root_dir)
+                        if vim.g.clangd_query_driver then
+                            new_config.cmd = { "clangd", "--query-driver=" .. vim.g.clangd_query_driver }
+                        end
+                    end,
+                },
 				rust_analyzer = {},
 				ols = {},
 				gopls = {},
@@ -2031,5 +2041,15 @@ end
 
 -- Create the keybinding (e.g., <leader>va for "[V]ertical [A]lign parameters")
 vim.keymap.set("n", "<leader>va", align_function_params, { desc = "[V]ertically [A]lign function parameters" })
+
+-- execute a .nvim.lua when its project root is opened in neovim
+vim.api.nvim_create_autocmd("LspAttach", {
+      callback = function(args)
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          if client and client.name == "clangd" then
+              -- restart this buffer's clangd with the project's own query-driver glob
+          end
+      end,
+  })
 
 -- vim: ts=4 sts=4 sw=4 et
