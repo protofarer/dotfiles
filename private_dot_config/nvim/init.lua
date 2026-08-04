@@ -1,10 +1,4 @@
 --@diagnostic disable: undefined-global
---[[
-- https://learnxinyminutes.com/docs/lua/
-- `:help lua-guide` reference for how Neovim integrates Lua.
-- (or HTML version): https://neovim.io/doc/user/lua-guide.html
-]]
---
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -72,6 +66,8 @@ vim.opt.termguicolors = true
 
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
+
+vim.o.exrc = true
 
 vim.opt.background = "light"
 
