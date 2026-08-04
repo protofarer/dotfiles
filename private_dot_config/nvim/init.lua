@@ -73,9 +73,6 @@ vim.opt.termguicolors = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 
--- execute a .nvim.lua when its project root is opened in neovim, see clangd = { on_new_config = ... }
-vim.o.exrc = true
-
 vim.opt.background = "light"
 
 local function toggle_bg()
@@ -227,10 +224,10 @@ vim.keymap.set("n", "<leader>pp", '"_dP', { noremap = true })
 -- lsp keymaps
 vim.keymap.set("n", "<leader>m", ":messages<CR>", { noremap = true, desc = "cmd :messages" })
 
-vim.keymap.set("n", "<leader>lr", ":LspRestart<CR>", { noremap = true, desc = "[L]SP [R]estart" })
-vim.keymap.set("n", "<leader>ls", ":LspStart<CR>", { noremap = true, desc = "[L]SP [S]tart" })
-vim.keymap.set("n", "<leader>li", ":LspInfo<CR>", { noremap = true, desc = "[L]SP [I]nfo" })
-vim.keymap.set("n", "<leader>lx", ":LspStop<CR>", { noremap = true, desc = "[L]SP (x)Stop" })
+vim.keymap.set("n", "<leader>lr", ":lsp restart<CR>", { noremap = true, desc = "[L]SP [R]estart" })
+vim.keymap.set("n", "<leader>ls", ":lsp enable<CR>", { noremap = true, desc = "[L]SP [S]tart" })
+vim.keymap.set("n", "<leader>li", ":checkhealth vim.lsp<CR>", { noremap = true, desc = "[L]SP [I]nfo" })
+vim.keymap.set("n", "<leader>lx", ":lsp disable<CR>", { noremap = true, desc = "[L]SP (x)Stop" })
 
 -- move lines up or down
 -- see `mini.move`
@@ -509,47 +506,6 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "BufWritePost" }, {
 
 -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
 
--- Disable LSP formatting
-local orig_lsp_buf_request = vim.lsp.buf_request
-
-vim.lsp.buf_request = function(bufnr, method, params, handler)
-	if method == "textDocument/formatting" or method == "textDocument/rangeFormatting" then
-		-- Optionally log the blocked format request
-		-- print("LSP format request blocked for method: " .. method)
-		return -- Silently block the format request
-	end
-	return orig_lsp_buf_request(bufnr, method, params, handler)
-end
-
--- Override the built-in format functions to do nothing
-vim.lsp.buf.format = function(options)
-	-- Optionally log the blocked format attempt
-	-- print("LSP format attempt blocked")
-end
-
-vim.lsp.buf.formatting = vim.lsp.buf.format
-vim.lsp.buf.formatting_sync = function(options, timeout_ms)
-	-- Optionally log the blocked sync format attempt
-	-- print("LSP sync format attempt blocked")
-end
-
--- Create a custom augroup for any formatting-related autocommands
-local format_augroup = vim.api.nvim_create_augroup("CustomFormatting", { clear = true })
-
--- Prevent "format on save" functionality
-vim.api.nvim_create_autocmd("BufWritePre", {
-	group = format_augroup,
-	callback = function(args)
-		-- Instead of clearing autocommands, we'll just ensure our blocking is in place
-		-- This approach avoids errors from non-existent groups
-		local client = vim.lsp.get_active_clients({ bufnr = args.buf })[1]
-		if client then
-			client.server_capabilities.documentFormattingProvider = false
-			client.server_capabilities.documentRangeFormattingProvider = false
-		end
-	end,
-})
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	local lazyrepo = "https://github.com/folke/lazy.nvim.git"
@@ -704,9 +660,9 @@ require("lazy").setup({
 			-- Useful status updates for LSP.
 			{ "j-hui/fidget.nvim", opts = {} },
 
-			-- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
+			-- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
 			-- used for completion, annotations and signatures of Neovim apis
-			{ "folke/neodev.nvim", opts = {} },
+			{ "folke/lazydev.nvim", ft = "lua", opts = {} },
 		},
 		config = function()
 			vim.api.nvim_create_autocmd("LspAttach", {
@@ -746,13 +702,6 @@ require("lazy").setup({
 					--  For example, in C this would take you to the header.
 					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
-					vim.lsp.buf.format({
-						filter = function(client)
-							local disabled_formatters = { "vtsls" }
-							-- not vtsls, eslin
-							return not vim.tbl_contains(disabled_formatters, client.name)
-						end,
-					})
 					-- lsp formatter here, versus conform formatter
 					map("<leader>cF", vim.lsp.buf.format, "[c]ode [F]ormat")
 
@@ -831,153 +780,109 @@ require("lazy").setup({
 			--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
 			--
 			-- `:help lspconfig-all` for a list of all the pre-configured LSPs ,lsps
-			local servers = {
-				ts_ls = { enabled = false },
-				vtsls = {
-					filetypes = {
-						"javascript",
-						"javascriptreact",
-						"javascript.jsx",
-						"typescript",
-						"typescriptreact",
-						"typescript.tsx",
-					},
-					settings = {
-						complete_function_calls = true,
-						vtsls = {
-							enableMoveToFileCodeAction = true,
-							autoUseWorkspaceTsdk = true,
-							experimental = {
-								completion = {
-									enableServerSideFuzzyMatch = true,
-								},
-							},
-						},
-						typescript = {
-							updateImportsOnFileMove = { enabled = "always" },
-							suggest = {
-								completeFunctionCalls = true,
-								autoImports = true,
-							},
-							inlayHints = {
-								enumMemberValues = { enabled = true },
-								functionLikeReturnTypes = { enabled = true },
-								parameterNames = { enabled = "literals" },
-								parameterTypes = { enabled = true },
-								propertyDeclarationTypes = { enabled = true },
-								variableTypes = { enabled = false },
-							},
-							referencesCodeLens = { enabled = true },
-							watch = true,
-							tsserver = {
-								watchOptions = {
-									watchFile = "useFsEvents",
-									watchDirectory = "useFsEvents",
-									fallbackPolling = "dynamicPriorityPolling",
-								},
-							},
-						},
-						-- on_attach = function(client, bufnr)
-						--     client.server_capabilities.documentFormattingProvider = false
-						--     client.server_capabilities.documentRangeFormattingProvider = false
-						-- end,
-					},
+			vim.lsp.config("vtsls", {
+				filetypes = {
+					"javascript",
+					"javascriptreact",
+					"javascript.jsx",
+					"typescript",
+					"typescriptreact",
+					"typescript.tsx",
 				},
-				eslint = {
-					enabled = false,
-					-- settings = {
-					-- 	on_attach = function(client, bufnr)
-					-- 		client.server_capabilities.documentFormattingProvider = false
-					-- 		client.server_capabilities.documentRangeFormattingProvider = false
-					-- 	end,
-					-- },
-				},
-                clangd = {
-                    -- only activates when trusted project asks it to, part of vim.o.exrc = true
-                    on_new_config = function(new_config, root_dir)
-                        if vim.g.clangd_query_driver then
-                            new_config.cmd = { "clangd", "--query-driver=" .. vim.g.clangd_query_driver }
-                        end
-                    end,
-                },
-				rust_analyzer = {},
-				ols = {},
-				gopls = {},
-				pyright = {},
-				bashls = {},
-				cmake = {},
-				html = {},
-				cssls = {},
-				cssmodules_ls = {},
-				jsonls = {},
-				docker_compose_language_service = {},
-				dockerls = {},
-				prismals = {},
-				-- tailwindcss = {}, -- CPU hog, cfg later
-				lua_ls = {
-					-- cmd = {...},
-					-- filetypes = { ...},
-					-- capabilities = {},
-					settings = {
-						update_on_insert = true,
-						Lua = {
+				settings = {
+					complete_function_calls = true,
+					vtsls = {
+						enableMoveToFileCodeAction = true,
+						autoUseWorkspaceTsdk = true,
+						experimental = {
 							completion = {
-								callSnippet = "Replace",
+								enableServerSideFuzzyMatch = true,
 							},
-							-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-							-- diagnostics = { disable = { 'missing-fields' } },
 						},
 					},
+					typescript = {
+						updateImportsOnFileMove = { enabled = "always" },
+						suggest = {
+							completeFunctionCalls = true,
+							autoImports = true,
+						},
+						inlayHints = {
+							enumMemberValues = { enabled = true },
+							functionLikeReturnTypes = { enabled = true },
+							parameterNames = { enabled = "literals" },
+							parameterTypes = { enabled = true },
+							propertyDeclarationTypes = { enabled = true },
+							variableTypes = { enabled = false },
+						},
+						referencesCodeLens = { enabled = true },
+						watch = true,
+						tsserver = {
+							watchOptions = {
+								watchFile = "useFsEvents",
+								watchDirectory = "useFsEvents",
+								fallbackPolling = "dynamicPriorityPolling",
+							},
+						},
+					},
+					-- on_attach = function(client, bufnr)
+					--     client.server_capabilities.documentFormattingProvider = false
+					--     client.server_capabilities.documentRangeFormattingProvider = false
+					-- end,
 				},
-			}
+			})
+			vim.lsp.config("lua_ls", {
+				settings = {
+					update_on_insert = true,
+					Lua = {
+						completion = {
+							callSnippet = "Replace",
+						},
+						-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+						-- diagnostics = { disable = { 'missing-fields' } },
+					},
+				},
+			})
+
+			vim.lsp.config("eslint", {
+				settings = { workingDirectory = { mode = "location" } },
+			})
 
 			require("mason").setup()
 
-			local ensure_installed = vim.tbl_keys(servers or {})
-			vim.list_extend(ensure_installed, {
-				-- Install formatters here, but use conform to config them
-				"stylua",
+			local ensure_installed = {
+				"clangd",
+				"ols",
+				"bashls",
+				"cmake",
+				"gopls",
+				"lua_ls",
+
 				"rust_analyzer",
+				"pyright",
+				"docker_compose_language_service",
+				"dockerls",
+
+				"html",
+				"cssls",
+				"cssmodules_ls",
+				"jsonls",
+				"ts_ls",
+				"vtsls",
+				"eslint",
+				"prismals",
+			}
+			-- Install formatters here, but use conform to config them
+			vim.list_extend(ensure_installed, {
+				"stylua",
 				"prettier",
 				"clang-format",
 			})
 
-			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+			-- global capabilities
+			vim.lsp.config("*", { capabilities = capabilities })
 
-			require("mason-lspconfig").setup({
-				handlers = {
-					-- default handler
-					function(server_name)
-						local server = servers[server_name] or {}
-						-- This handles overriding only values explicitly passed
-						-- by the server configuration above. Useful when disabling
-						-- certain features of an LSP (for example, turning off formatting for tsserver)
-						server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-						require("lspconfig")[server_name].setup(server)
-					end,
-					["eslint"] = function()
-						local lspconfig = require("lspconfig")
-						lspconfig.eslint.setup({
-							settings = {
-								workingDirectory = { mode = "location" },
-							},
-							-- root_dir = lspc.util.find_git_ancestor,
-							root_dir = lspconfig.util.root_pattern(
-								"eslint.config.js",
-								"eslint.config.mjs",
-								"eslint.config.cjs",
-								".eslintrc.js",
-								".eslintrc.cjs",
-								".eslintrc.yaml",
-								".eslintrc.yml",
-								".eslintrc.json"
-								-- Disabled to prevent "No ESLint configuration found" exceptions
-								-- 'package.json',
-							),
-						})
-					end,
-				},
-			})
+			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+			require("mason-lspconfig").setup({})
 		end,
 	},
 	{
@@ -1362,6 +1267,7 @@ require("lazy").setup({
 				"vimdoc",
 				"bash",
 				-- 'zsh', -- not available
+
 				"lua",
 				"luadoc",
 				"c",
@@ -2041,15 +1947,5 @@ end
 
 -- Create the keybinding (e.g., <leader>va for "[V]ertical [A]lign parameters")
 vim.keymap.set("n", "<leader>va", align_function_params, { desc = "[V]ertically [A]lign function parameters" })
-
--- execute a .nvim.lua when its project root is opened in neovim
-vim.api.nvim_create_autocmd("LspAttach", {
-      callback = function(args)
-          local client = vim.lsp.get_client_by_id(args.data.client_id)
-          if client and client.name == "clangd" then
-              -- restart this buffer's clangd with the project's own query-driver glob
-          end
-      end,
-  })
 
 -- vim: ts=4 sts=4 sw=4 et
