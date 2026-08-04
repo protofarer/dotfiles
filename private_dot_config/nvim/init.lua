@@ -643,7 +643,6 @@ require("lazy").setup({
 			end, { desc = "[S]earch [N]eovim files" })
 		end,
 	},
-
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
@@ -652,235 +651,10 @@ require("lazy").setup({
 			"williamboman/mason-lspconfig.nvim",
 			"WhoIsSethDaniel/mason-tool-installer.nvim",
 			"mfussenegger/nvim-lint",
-
-			-- Useful status updates for LSP.
 			{ "j-hui/fidget.nvim", opts = {} },
-
-			-- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
-			-- used for completion, annotations and signatures of Neovim apis
 			{ "folke/lazydev.nvim", ft = "lua", opts = {} },
 		},
-		config = function()
-			vim.api.nvim_create_autocmd("LspAttach", {
-				group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
-				callback = function(event)
-					-- In this case, we create a function that lets us more easily define mappings specific
-					-- for LSP related items. It sets the mode, buffer and description for us each time.
-					local map = function(keys, func, desc)
-						vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
-					end
-
-					--  To jump back, press <C-t>.
-					map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
-					map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences") -- Find references for the word under your cursor.
-
-					-- Jump to the implementation of the word under your cursor.
-					map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
-
-					-- Jump to the type of the word under your cursor.
-					--  Useful when you're not sure what type a variable is and you want to see
-					--  the definition of its *type*, not where it was *defined*.
-					map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
-
-					map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
-
-					map(
-						"<leader>ws",
-						require("telescope.builtin").lsp_dynamic_workspace_symbols,
-						"[W]orkspace [S]ymbols"
-					)
-
-					map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
-					map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
-
-					map("K", vim.lsp.buf.hover, "Hover Documentation")
-
-					--  For example, in C this would take you to the header.
-					map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
-
-					-- lsp formatter here, versus conform formatter
-					map("<leader>cF", vim.lsp.buf.format, "[c]ode [F]ormat")
-
-					-- The following two autocommands are used to highlight references of the
-					-- word under your cursor when your cursor rests there for a little while.
-					--    See `:help CursorHold` for information about when this is executed
-					--
-					-- When you move your cursor, the highlights will be cleared (the second autocommand).
-					local client = vim.lsp.get_client_by_id(event.data.client_id)
-					if client and client.server_capabilities.documentHighlightProvider then
-						local highlight_augroup =
-							vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
-						vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-							buffer = event.buf,
-							group = highlight_augroup,
-							callback = vim.lsp.buf.document_highlight,
-						})
-
-						vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-							buffer = event.buf,
-							group = highlight_augroup,
-							callback = vim.lsp.buf.clear_references,
-						})
-
-						vim.api.nvim_create_autocmd("LspDetach", {
-							group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
-							callback = function(event2)
-								vim.lsp.buf.clear_references()
-								vim.api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = event2.buf })
-							end,
-						})
-					end
-
-					-- TODO: Consider removing
-					-- The following autocommand is used to enable inlay hints in your
-					-- code, if the language server you are using supports them
-					-- This may be unwanted, since they displace some of your code
-					if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
-						map("<leader>th", function()
-							vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
-						end, "[T]oggle Inlay [H]ints")
-					end
-
-					-- -- Disable formatting for specific LSP servers
-					-- local disable_formatting = { "tsserver", "vtsls" }
-					--
-					-- if client and vim.tbl_contains(disable_formatting, client.name) then
-					--     client.server_capabilities.documentFormattingProvider = false
-					--     client.server_capabilities.documentRangeFormattingProvider = false
-					-- end
-
-					-- Unsure if this disables autoformatting on new buffer enter (or whatever it is that is happening whenever I open a file and things format via LSP)
-					-- Try to disable all formatting done by LSPs, only allow conform (or other dedicated formatter)
-					if client and client.server_capabilities then
-						client.server_capabilities.documentFormattingProvider = false
-						client.server_capabilities.documentRangeFormattingProvider = false
-					end
-				end,
-			})
-
-			-- LSP servers and clients are able to communicate to each other what features they support.
-			--  By default, Neovim doesn't support everything that is in the LSP specification.
-			--  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
-			--  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
-			local capabilities = vim.lsp.protocol.make_client_capabilities()
-			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
-
-			-- Enable the following language servers
-			--  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
-			--
-			--  Add any additional override configuration in the following tables. Available keys are:
-			--  - cmd (table): Override the default command used to start the server
-			--  - filetypes (table): Override the default list of associated filetypes for the server
-			--  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
-			--  - settings (table): Override the default settings passed when initializing the server.
-			--        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
-			--
-			-- `:help lspconfig-all` for a list of all the pre-configured LSPs ,lsps
-			vim.lsp.config("vtsls", {
-				filetypes = {
-					"javascript",
-					"javascriptreact",
-					"javascript.jsx",
-					"typescript",
-					"typescriptreact",
-					"typescript.tsx",
-				},
-				settings = {
-					complete_function_calls = true,
-					vtsls = {
-						enableMoveToFileCodeAction = true,
-						autoUseWorkspaceTsdk = true,
-						experimental = {
-							completion = {
-								enableServerSideFuzzyMatch = true,
-							},
-						},
-					},
-					typescript = {
-						updateImportsOnFileMove = { enabled = "always" },
-						suggest = {
-							completeFunctionCalls = true,
-							autoImports = true,
-						},
-						inlayHints = {
-							enumMemberValues = { enabled = true },
-							functionLikeReturnTypes = { enabled = true },
-							parameterNames = { enabled = "literals" },
-							parameterTypes = { enabled = true },
-							propertyDeclarationTypes = { enabled = true },
-							variableTypes = { enabled = false },
-						},
-						referencesCodeLens = { enabled = true },
-						watch = true,
-						tsserver = {
-							watchOptions = {
-								watchFile = "useFsEvents",
-								watchDirectory = "useFsEvents",
-								fallbackPolling = "dynamicPriorityPolling",
-							},
-						},
-					},
-					-- on_attach = function(client, bufnr)
-					--     client.server_capabilities.documentFormattingProvider = false
-					--     client.server_capabilities.documentRangeFormattingProvider = false
-					-- end,
-				},
-			})
-			vim.lsp.config("lua_ls", {
-				settings = {
-					update_on_insert = true,
-					Lua = {
-						completion = {
-							callSnippet = "Replace",
-						},
-						-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-						-- diagnostics = { disable = { 'missing-fields' } },
-					},
-				},
-			})
-
-			vim.lsp.config("eslint", {
-				settings = { workingDirectory = { mode = "location" } },
-			})
-
-			require("mason").setup()
-
-			local ensure_installed = {
-				"clangd",
-				"ols",
-				"bashls",
-				"cmake",
-				"gopls",
-				"lua_ls",
-
-				"rust_analyzer",
-				"pyright",
-				"docker_compose_language_service",
-				"dockerls",
-
-				"html",
-				"cssls",
-				"cssmodules_ls",
-				"jsonls",
-				"ts_ls",
-				"vtsls",
-				"eslint",
-				"prismals",
-			}
-			-- Install formatters here, but use conform to config them
-			vim.list_extend(ensure_installed, {
-				"stylua",
-				"prettier",
-				"clang-format",
-			})
-
-			-- global capabilities
-			vim.lsp.config("*", { capabilities = capabilities })
-
-			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
-			require("mason-lspconfig").setup({})
-		end,
-	},
+    },
 	{
 		"yioneko/nvim-vtsls",
 		ft = {
@@ -1943,5 +1717,202 @@ end
 
 -- Create the keybinding (e.g., <leader>va for "[V]ertical [A]lign parameters")
 vim.keymap.set("n", "<leader>va", align_function_params, { desc = "[V]ertically [A]lign function parameters" })
+
+
+-- [[ LSP bootstrap ]] ,lsps
+-- independent of any single plugin spec - nvim-lspconfig only supplies default
+-- lsp/*.lua configs now
+-- everything else: capabilities, mason, keymaps lives here
+
+do
+    -- LSP servers and clients are able to communicate to each other what features they support.
+    --  By default, Neovim doesn't support everything that is in the LSP specification.
+    --  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
+    --  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+
+    vim.lsp.config("*", { capabilities = capabilities }) -- global capabilities
+
+    vim.lsp.config("vtsls", {
+        filetypes = {
+            "javascript",
+            "javascriptreact",
+            "javascript.jsx",
+            "typescript",
+            "typescriptreact",
+            "typescript.tsx",
+        },
+        settings = {
+            complete_function_calls = true,
+            vtsls = {
+                enableMoveToFileCodeAction = true,
+                autoUseWorkspaceTsdk = true,
+                experimental = {
+                    completion = {
+                        enableServerSideFuzzyMatch = true,
+                    },
+                },
+            },
+            typescript = {
+                updateImportsOnFileMove = { enabled = "always" },
+                suggest = {
+                    completeFunctionCalls = true,
+                    autoImports = true,
+                },
+                inlayHints = {
+                    enumMemberValues = { enabled = true },
+                    functionLikeReturnTypes = { enabled = true },
+                    parameterNames = { enabled = "literals" },
+                    parameterTypes = { enabled = true },
+                    propertyDeclarationTypes = { enabled = true },
+                    variableTypes = { enabled = false },
+                },
+                referencesCodeLens = { enabled = true },
+                watch = true,
+                tsserver = {
+                    watchOptions = {
+                        watchFile = "useFsEvents",
+                        watchDirectory = "useFsEvents",
+                        fallbackPolling = "dynamicPriorityPolling",
+                    },
+                },
+            },
+            -- on_attach = function(client, bufnr)
+            --     client.server_capabilities.documentFormattingProvider = false
+            --     client.server_capabilities.documentRangeFormattingProvider = false
+            -- end,
+        },
+    })
+    vim.lsp.config("lua_ls", {
+        settings = {
+            update_on_insert = true,
+            Lua = {
+                completion = {
+                    callSnippet = "Replace",
+                },
+                -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
+                -- diagnostics = { disable = { 'missing-fields' } },
+            },
+        },
+    })
+
+    vim.lsp.config("eslint", {
+        settings = { workingDirectory = { mode = "location" } },
+    })
+
+    require("mason").setup()
+
+    local ensure_installed = {
+        "clangd",
+        "ols",
+        "bashls",
+        "cmake",
+        "gopls",
+        "lua_ls",
+
+        "rust_analyzer",
+        "pyright",
+        "docker_compose_language_service",
+        "dockerls",
+
+        "html",
+        "cssls",
+        "cssmodules_ls",
+        "jsonls",
+        "ts_ls",
+        "vtsls",
+        "eslint",
+        "prismals",
+    }
+    -- Install formatters here, but use conform to config them
+    vim.list_extend(ensure_installed, {
+        "stylua",
+        "prettier",
+        "clang-format",
+    })
+
+    require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+    require("mason-lspconfig").setup({})
+
+    vim.api.nvim_create_autocmd("LspAttach", {
+        group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
+        callback = function(event)
+            local map = function(keys, func, desc)
+                vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
+            end
+
+            --  To jump back, press <C-t>.
+            map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+            map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+            map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+            map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
+            map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
+            map(
+                "<leader>ws",
+                require("telescope.builtin").lsp_dynamic_workspace_symbols,
+                "[W]orkspace [S]ymbols"
+            )
+            map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+            map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+            map("K", vim.lsp.buf.hover, "Hover Documentation")
+            map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
+            -- lsp formatter here, versus conform formatter
+            map("<leader>cF", vim.lsp.buf.format, "[c]ode [F]ormat")
+
+            -- The following two autocommands are used to highlight references of the
+            -- word under your cursor when your cursor rests there for a little while.
+            --    See `:help CursorHold` for information about when this is executed
+            --
+            -- When you move your cursor, the highlights will be cleared (the second autocommand).
+            local client = vim.lsp.get_client_by_id(event.data.client_id)
+            if client and client.server_capabilities.documentHighlightProvider then
+                local highlight_augroup =
+                vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
+                vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+                    buffer = event.buf,
+                    group = highlight_augroup,
+                    callback = vim.lsp.buf.document_highlight,
+                })
+
+                vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+                    buffer = event.buf,
+                    group = highlight_augroup,
+                    callback = vim.lsp.buf.clear_references,
+                })
+
+                vim.api.nvim_create_autocmd("LspDetach", {
+                    group = vim.api.nvim_create_augroup("kickstart-lsp-detach", { clear = true }),
+                    callback = function(event2)
+                        vim.lsp.buf.clear_references()
+                        vim.api.nvim_clear_autocmds({ group = "kickstart-lsp-highlight", buffer = event2.buf })
+                    end,
+                })
+            end
+
+            -- TODO: Consider removing
+            -- The following autocommand is used to enable inlay hints in your
+            -- code, if the language server you are using supports them
+            -- This may be unwanted, since they displace some of your code
+            if client and client.server_capabilities.inlayHintProvider and vim.lsp.inlay_hint then
+                map("<leader>th", function()
+                    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({}))
+                end, "[T]oggle Inlay [H]ints")
+            end
+
+            -- Unsure if this disables autoformatting on new buffer enter (or whatever it is that is happening whenever I open a file and things format via LSP)
+            -- Try to disable all formatting done by LSPs, only allow conform (or other dedicated formatter)
+            if client and client.server_capabilities then
+                client.server_capabilities.documentFormattingProvider = false
+                client.server_capabilities.documentRangeFormattingProvider = false
+            end
+        end,
+    })
+end
+
+
+
+
+
 
 -- vim: ts=4 sts=4 sw=4 et
