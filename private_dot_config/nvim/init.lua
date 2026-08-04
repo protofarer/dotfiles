@@ -1458,12 +1458,12 @@ do
 	local autosave_timer = vim.uv.new_timer()
 
 	-- idle-based: debounce on text changes, save after autosave_idle_delay_ms of inactivity
-	vim.api.nvim_create_aucmd({ "TextChanged", "TextChangedI" }, {
+	vim.api.nvim_create_autocmd({ "TextChanged", "TextChangedI" }, {
 		group = autosave_group,
 		pattern = "*",
 		callback = function()
 			autosave_timer:stop()
-			autosave_timer:start(autosave_idle_delay_ms, 0, vim.scheduleWrap(try_save))
+			autosave_timer:start(autosave_idle_delay_ms, 0, vim.schedule_wrap(try_save))
 		end,
 		desc = "Debounced idle autosave (independent of updatetime)",
 	})
@@ -1472,7 +1472,7 @@ do
 	vim.api.nvim_create_autocmd({ "BufHidden", "FocusLost", "WinLeave" }, {
 		group = autosave_group,
 		pattern = "*",
-		callback = trySave,
+		callback = try_save,
 		desc = "Advanced autosave on buffer/focus/window transitions",
 	})
 end
