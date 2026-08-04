@@ -1,4 +1,4 @@
---@diagnostic disable: undefined-global
+---@diagnostic disable: undefined-global
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
@@ -170,13 +170,13 @@ vim.keymap.set("n", "<leader>gB", ":G blame<CR>", add_desc_std_opts("[g]it [B]la
 --
 -- vim.keymap.set("n", "<leader>g-", ":Git stash<CR>:e<CR>", { noremap = true })
 -- vim.keymap.set("n", "<leader>g+", ":Git stash pop<CR>:e<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>gw", "GBrowse", add_desc_std_opts("[g]it bro[w]ser github view"))
+vim.keymap.set("n", "<leader>gw", ":GBrowse<CR>", add_desc_std_opts("[g]it bro[w]ser github view"))
 -- git checkout -- filename  # operates on buffer not file.
 -- Can use undo and not get warnings about file changing outside vim
 vim.keymap.set("n", "<leader>gr", ":Gread<CR>", add_desc_std_opts("[g]it [r]ead"))
 -- writes to both the work tree and index versions of a file, making it like git add when
 -- called from a work tree file and like git checkout when called from the index or a blob in history.
-vim.keymap.set("n", "<leader>gw", ":Gwrite<CR>", add_desc_std_opts("[g]it [w]rite"))
+-- vim.keymap.set("n", "<leader>gw", ":Gwrite<CR>", add_desc_std_opts("[g]it [w]rite"))
 -- vim.keymap.set("n", "<leader>gH",  ":G log<CR>:set nofoldenable<CR>")
 -- vim.keymap.set("n", "<leader>gL", ":exe ':!cd ' . expand('%:p:h') . '; git la'<CR>")
 -- vim.keymap.set("n", "<leader>gl", ":exe ':!cd ' . expand('%:p:h') . '; git las'<CR>")
@@ -210,7 +210,7 @@ vim.keymap.set("n", "<leader>lc", ":luafile %<CR>", { noremap = true })
 
 -- system clipboard (yank into system clipboard, paste from clipboard register)
 -- TODO: ISS: skips cursor line and yanks below it?
-vim.keymap.set("n", "<leader>y", "+y<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>y", "+yy<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>pc", "+p<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>pp", '"_dP', { noremap = true })
 
@@ -826,7 +826,6 @@ require("lazy").setup({
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "path" },
-					{ name = "copilot" },
 				},
 			})
 		end,
@@ -836,7 +835,6 @@ require("lazy").setup({
 		lazy = false, -- load during startup, since main colorscheme
 		priority = 1000, -- load before all other start plugins
 		init = function()
-			vim.cmd.colorscheme("kanagawa")
 			vim.cmd.hi("Comment gui=none")
 		end,
 		opts = {
@@ -999,14 +997,6 @@ require("lazy").setup({
 					vim.keymap.set("n", "g.", toggle_dotfiles, { buffer = buf_id, desc = "Toggle Hidden Files" })
 				end,
 			})
-
-			-- use lsp for file renames
-			vim.api.nvim_create_autocmd("User", {
-				pattern = "MiniFilesActionRename",
-				callback = function(event)
-					LazyVim.lsp.on_rename(event.data.from, event.data.to)
-				end,
-			})
 		end,
 	},
 	{
@@ -1097,10 +1087,6 @@ require("lazy").setup({
 			max_lines = 4,
 		},
 	},
-	{
-		"windowp/nvim-ts-autotag",
-		opts = {},
-	},
 	require("kickstart.plugins.autopairs"),
 
 	-- require 'kickstart.plugins.debug',
@@ -1164,7 +1150,7 @@ require("lazy").setup({
 		enabled = vim.fn.has("nvim-0.10.0") == 1,
 	},
 	{ -- treesitter autoclose/autorename html tags
-		"windwp/nvim-ts-autotag",
+		"windwp/nvim-ts-autotag", opts = {}
 	},
 	{
 		"nvim-neo-tree/neo-tree.nvim",
@@ -1443,22 +1429,6 @@ vim.api.nvim_create_user_command("DiagnoseComments", function()
 		vim.print(hl)
 	end
 end, {})
-
--- Preload Node when claude-code plugin is about to be used
-vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
-		vim.defer_fn(function()
-			vim.fn.jobstart({ "zsh", "-c", "source ~/.zshrc && nvm use default" }, {
-				detach = true,
-				on_exit = function(_, code)
-					if code == 0 then
-						vim.g.node_loaded_for_claude = true
-					end
-				end,
-			})
-		end, 200) -- Load 200ms after startup
-	end,
-})
 
 
 --[[
