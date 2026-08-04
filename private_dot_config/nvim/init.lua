@@ -51,6 +51,7 @@ vim.opt.splitbelow = true
 --  `:help 'listchars'`
 vim.opt.list = true
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+-- tab = "␣",
 
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = "split"
@@ -1445,35 +1446,35 @@ Save behavior:
 --]]
 
 do
-    local autosave_idle_delay_ms = 2000
+	local autosave_idle_delay_ms = 2000
 
-    local function try_save()
-        if vim.bo.buftype == "" and vim.fn.filereadable(vim.fn.expand("%:p")) == 1 then
-            pcall(vim.cmd, "silent lockmarks update ++p")
-        end
-    end
+	local function try_save()
+		if vim.bo.buftype == "" and vim.fn.filereadable(vim.fn.expand("%:p")) == 1 then
+			pcall(vim.cmd, "silent lockmarks update ++p")
+		end
+	end
 
-    local autosave_group = vim.api.nvim_create_augroup("AdvancedAutosave", { clear = true })
-    local autosave_timer = vim.uv.new_timer()
+	local autosave_group = vim.api.nvim_create_augroup("AdvancedAutosave", { clear = true })
+	local autosave_timer = vim.uv.new_timer()
 
-    -- idle-based: debounce on text changes, save after autosave_idle_delay_ms of inactivity
-    vim.api.nvim_create_aucmd({ "TextChanged", "TextChangedI"}, {
-        group = autosave_group,
-        pattern = "*",
-        callback = function()
-            autosave_timer:stop()
-            autosave_timer:start(autosave_idle_delay_ms, 0, vim.scheduleWrap(try_save))
-        end,
-        desc = "Debounced idle autosave (independent of updatetime)"
-    })
+	-- idle-based: debounce on text changes, save after autosave_idle_delay_ms of inactivity
+	vim.api.nvim_create_aucmd({ "TextChanged", "TextChangedI" }, {
+		group = autosave_group,
+		pattern = "*",
+		callback = function()
+			autosave_timer:stop()
+			autosave_timer:start(autosave_idle_delay_ms, 0, vim.scheduleWrap(try_save))
+		end,
+		desc = "Debounced idle autosave (independent of updatetime)",
+	})
 
-    -- transition-based: save immediately
-    vim.api.nvim_create_autocmd({ "BufHidden", "FocusLost", "WinLeave" }, {
-        group = autosave_group,
-        pattern = "*",
-        callback = trySave,
-        desc = "Advanced autosave on buffer/focus/window transitions",
-    })
+	-- transition-based: save immediately
+	vim.api.nvim_create_autocmd({ "BufHidden", "FocusLost", "WinLeave" }, {
+		group = autosave_group,
+		pattern = "*",
+		callback = trySave,
+		desc = "Advanced autosave on buffer/focus/window transitions",
+	})
 end
 
 -- END Advanced Autosave Configuration
