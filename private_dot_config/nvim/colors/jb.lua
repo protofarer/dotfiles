@@ -52,7 +52,7 @@ Color.new("cyan", "#88dcbd")
 Color.new("teal", "#39cc98") -- strings, prolly dont dim so much
 
 -- return keyword
-Color.new("red", "#b50000")
+Color.new("red", "#b53d3d")
 
 -- Editor
 Color.new("bright_amber", "#e28513")
