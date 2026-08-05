@@ -51,6 +51,9 @@ Color.new("cyan", "#88dcbd")
 -- Color.new("teal", "#3ddba6")
 Color.new("teal", "#39cc98") -- strings, prolly dont dim so much
 
+-- return keyword
+Color.new("red", "#800000")
+
 -- Editor
 Color.new("bright_amber", "#e28513")
 Color.new("medium_amber", "#8d7324")
@@ -112,6 +115,7 @@ Group.new("@number", c.cyan, c.deep_wood_green, s.NONE)
 Group.new("@boolean", c.cyan, c.deep_wood_green, s.NONE)
 
 Group.new("@keyword", c.white, c.deep_wood_green, s.NONE)
+Group.new("@keyword.return", c.red, c.deep_wood_green, s.NONE)
 
 -- std + bold
 
